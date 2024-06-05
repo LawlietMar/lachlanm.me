@@ -16,6 +16,10 @@ button {
     font-size: medium;
 }
 
+.aud{
+    display: none;
+}
+
 .stay-button:hover, .travel-button:hover{
     color: white;
     font-style: italic;

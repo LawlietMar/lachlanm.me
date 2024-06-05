@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
+@import url('https://fonts.cdnfonts.com/css/zenone');
 *{
     color:rgb(202, 199, 199);
     font-family: Comfortaa;
@@ -8,17 +9,7 @@ body {
     background-color: #0e0e0e;
 }
 
-button {
-    background-color: transparent;
-    border-color: transparent;
-    padding: 15px;
-    font-weight: bold;
-    font-size: medium;
-}
-
-.stay-button:hover, .travel-button:hover{
-    color: white;
-    font-style: italic;
+.in-img:hover{
     cursor: pointer;
 }
 
@@ -32,6 +23,10 @@ button {
     padding: 0px;
     line-height: 4px;
     white-space: pre;
+    background-color: transparent;
+    border-color: transparent;
+    font-size: medium;
+    border: 0px;
 }
 
 .tall{
@@ -53,6 +48,16 @@ button {
     font-weight: 300;
 }
 
+.in-img{
+    font-size: medium;
+    font-family: zenone;
+    font-size: large;
+    font-style: italic;
+}
+
+.half-space{
+    font-size:xx-small;
+}
 
 .left {
     position: fixed; 
