@@ -17,33 +17,37 @@ function rekindle(){
     if (fired == false){
         var fire = document.getElementsByClassName("fire")[0];
         var add = "the" + '\xa0' + "fire" + '\xa0' + "is" + '\xa0' + "burning" + '\xa0' + "brightly!"
-        erase(fire);
-        if (cnt == 0){
-            write(fire, cnt, add);
-        }
+        erase(fire, add);
 
         fired = true;
+        var list = document.getElementsByClassName("choices")[0];
+        list.removeChild(list.children[0]);
     }
 }
 
-function erase(fire){
+function erase(fire, add){
     if (cnt > 0){
         cnt = cnt - 1;
         fire.innerText = fire.innerText.substring(0, fire.innerText.length -1);
-        sleep(50).then(() => {erase(fire);});
+        if (cnt < 28){
+            sleep(50).then(() => {erase(fire, add);});
+        }
+    }
+    if (cnt == 0){
+        write(fire, add);
     }
 }
 
-function write(fire, cnt, add){
+function write(fire, add){
     if (cnt == 0){
         fire.classList.add("burning-fire");
     }
     if (cnt < 30){
         fire.innerText = fire.innerText + add.charAt(cnt);
         cnt = cnt + 1;
-        sleep(80).then(() => {write(fire, cnt, add);});
+        sleep(55).then(() => {write(fire, add);});
     }
 }
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
-  }
+}
