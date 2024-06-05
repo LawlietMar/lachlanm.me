@@ -3,9 +3,10 @@
     <head>
         <title>The House</title>
         <meta name="description" content="Welcome to my humble abode">
-        <link rel="stylesheet" href="cottagecore.css"\>
+        <link rel="stylesheet" href="home.css"\>
+        <script src="home.js" async></script>
     </head>
-    
+
     <body>
         <div class="left"></div>
         <div class="right"></div>
@@ -16,14 +17,29 @@
         <hr class="top-sep">
 
         <div class="text">
-            <p>
+            <span>
                 You are in a cottage. 
-                It's raining softly outside, your bed is warm, and the fire is burning low. 
-            </p>
-            <ul>
-                <li><button class="stay-button">Add wood to the fire</button></li>
-                <li><button class="travel-button">Investigate the bookshelf</button></li>
-                <li><button class="travel-button">Head outside</button></li>
+                It's raining softly outside, your bed is warm, and  
+            </span>
+            <span class="fire">
+                the fire is burning low.
+            </span>
+            <ul class="choices">
+                <li> 
+                    <span>
+                        <button class="stay-button">Add wood to the fire</button> 
+                    </span>
+                </li>
+                <li> 
+                    <span>
+                        <button class="travel-button">Investigate the bookshelf</button> 
+                    </span>
+                </li>
+                <li> 
+                    <span>
+                        <button class="travel-button">Head outside</button> 
+                    </span>
+                </li>
             </ul>
         </div>
 

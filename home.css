@@ -16,9 +16,19 @@ button {
     font-size: medium;
 }
 
+.stay-button:hover, .travel-button:hover{
+    color: white;
+    font-style: italic;
+    cursor: pointer;
+}
+
 .top-sep{
     width: 40%;
     padding-left:20%;
+}
+
+.choices{
+    list-style-type: ">";
 }
 
 .text {
@@ -29,7 +39,9 @@ button {
 .title {
     padding-bottom: 4%;
     padding-top: 15%;
+    font-weight: 300;
 }
+
 
 .left {
     position: fixed; 
@@ -65,6 +77,10 @@ button {
     background-color: black;
     width: 100%;
     height:45px;
+}
+
+.burning-fire {
+    color: rgb(219, 0, 0)
 }
 
 
