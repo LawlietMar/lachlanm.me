@@ -27,6 +27,10 @@ button {
     padding-left:20%;
 }
 
+.art{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 .choices{
     list-style-type: ">";
 }
