@@ -8,19 +8,55 @@ function ready(){
     var requestButton = document.getElementById('requestPermission');
     var permission = localStorage.getItem('audioAutoplayPermission') === 'granted';
     var aud = document.getElementsByClassName("aud")[0];
+    var list = requestButton.parentElement.parentElement; 
 
     if (permission){
-        playAudio(requestButton);
+        playAudio(aud,list);
     }
 
     requestButton.addEventListener('click', () => {
+        list.removeChild(requestButton.parentElement);
         aud.play();
         localStorage.setItem('audioAutoplayPermission', 'granted');
-        playAudio(requestButton);
+        playAudio(aud, list);
     })
 }
 
-function playAudio(requestButton) {
-    requestButton.parentElement.parentElement.removeChild('window');
+function playAudio(aud, list) {
     aud.play();
+
+    if (navigator.userActivation.isActive){
+        const node = document.createElement("li");
+        const stopButton = document.createElement('button');
+        stopButton.textContent = 'Close the window';
+        stopButton.classList.add('stay-button')
+        node.appendChild(stopButton);
+        list.appendChild(node);
+
+        stopButton.addEventListener('click', () => {
+            list.removeChild(stopButton.parentElement);
+            aud.pause();
+            localStorage.setItem('audioAutoplayPermission', 'null');
+            stopAudio(aud, list);
+        })
+    }
+}
+
+function stopAudio(aud, list){
+    aud.pause();
+
+    const node = document.createElement("li");
+    const requestButton = document.createElement('button');
+    requestButton.textContent = 'Open the window';
+    requestButton.classList.add('stay-button')
+    requestButton.setAttribute('id', 'requestPermission');
+    node.appendChild(requestButton);
+    list.appendChild(node);
+
+    requestButton.addEventListener('click', () => {
+        list.removeChild(requestButton.parentElement);
+        aud.play();
+        localStorage.setItem('audioAutoplayPermission', 'granted');
+        playAudio(aud, list);
+    })
 }

@@ -5,11 +5,12 @@
         <meta name="description" content="Welcome to my humble abode">
         <link rel="stylesheet" href="home.css"\>
         <script src="home.js" async></script>
+        <script src="audio.js" async></script>
     </head>
 
     <body>
-        <audio class="aud" controls autoplay muted>
-            <source src="rain.mp3" type="audio/mpeg">
+        <audio class="aud" autoplay loop controls>
+            <source src="bookshelf/rain.mp3" type="audio/mp3">
         </audio>
         <div class="left"></div>
         <div class="right"></div>
@@ -29,9 +30,10 @@
             </span>
             <ul class="choices">
                 <li> 
-                    <span>
-                        <button class="stay-button">Add wood to the fire</button> 
-                    </span>
+                    <button class="stay-button">Add wood to the fire</button> 
+                </li>
+                <li class="window"> 
+                    <button class="stay-button" id="requestPermission">Open the window</button>
                 </li>
                 <li> 
                     <span>
