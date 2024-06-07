@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
+*{
+    color:rgb(202, 199, 199);
+    font-family: Comfortaa;
+}
+
 body {
     background-color: #0e0e0e;
 }
@@ -9,17 +17,42 @@ body {
 .art{
     font-family: Arial;
     padding: 0px;
-    line-height: 4px;
+    line-height: 23px;
     white-space: pre;
     background-color: transparent;
     border-color: transparent;
-    font-size: medium;
+    font-size: 25px;
     border: 0px;
 }
 
 .text {
-    padding-left: 20%;
+    padding-left: 5%;
     padding-top: 4%;
+}
+
+.left-text{
+    position: fixed; 
+    top:150px;
+    left:300px;
+}
+
+.right-text{
+    position: fixed; 
+    top:150px;
+    left:870px;
+}
+
+.l, .r{
+    font-family: Lora;
+    text-decoration-style: none;
+    text-decoration-color: transparent;
+    font-weight: 500;
+    font-size: large;
+}
+
+.items{
+    list-style-type: upper-roman;
+    line-height: 75px;
 }
 
 .left {

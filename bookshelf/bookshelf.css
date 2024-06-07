@@ -57,6 +57,7 @@ body {
     font-family: zenone;
     font-size: large;
     font-style: italic;
+    text-decoration-color: transparent;
 }
 
 .half-space{
