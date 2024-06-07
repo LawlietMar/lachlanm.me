@@ -5,9 +5,5 @@ if (document.readyState == 'loading') {
 }
 
 function ready(){
-
-}
-
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
+    
 }
