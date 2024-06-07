@@ -18,14 +18,14 @@ var lpages = [
 
     `<p class="pg">
     thoughts. What I put here is split into three books, as you've already seen; "lachlan.me," "Ramblings," and "Comprehension."
-    The first covers info about the site and myself, the second is a collection of ideas/things I've written — essentially a normal blog, — 
+    The first covers info about the site and myself, the second is a collection of ideas/stats/things I've written — essentially a normal blog, — 
     and in the third I put notes on confusing things I read. This is mostly to improve my own understanding, but if you want my take on 
     things feel free to check it out!
     </p>
     <p class="pg">
     Outside the house is a bit different. This is more inspired by classic RPGs, specifically puzzle solving ones (think Infocom). 
     I won't say too much about it - no spoilers, - but keep in mind that house and the outside world aren't completely separate. 
-    <b class="pg">Items you find out there can affect things inside the house.</b>
+    <b class="pg">Items you find out there can affect</b>
     </p>`
 ];
 var rpages = [
@@ -44,7 +44,8 @@ var rpages = [
     dozen(s) of times. It being so safe and cozy for me, this is a place I'm comfortable writing my 
     </p>`,
 
-    `<p class="pg">
+    `<b class="pg">things inside the house.</b>
+    <p class="pg">
     I think that should be everything you need to know to get started. Good luck, and welcome to my house :)
     </p>
     <p class="pg">
