@@ -9,10 +9,18 @@ function ready(){
     var permission = localStorage.getItem('audioAutoplayPermission') === 'granted';
     var aud = document.getElementsByClassName("aud")[0];
     var list = requestButton.parentElement.parentElement; 
+    var outside = document.getElementsByClassName("travek-button")[1];
 
     if (permission){
         playAudio(aud,list);
     }
+
+    outside.addEventListener('click', () => {
+        list.removeChild(requestButton.parentElement);
+        aud.play();
+        localStorage.setItem('audioAutoplayPermission', 'granted');
+        playAudio(aud, list);
+    });
 
     requestButton.addEventListener('click', () => {
         list.removeChild(requestButton.parentElement);

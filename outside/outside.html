@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Outside</title>
+        <meta name="description" content="Where am I?">
+        <link rel="stylesheet" href="outside.css"\>
+        <script src="outside.js" async></script>
+        <script src="audio.js" async></script>
+    </head>
+
+    <body>
+        <audio class="aud" autoplay loop controls>
+            <source src="rain.mp3" type="audio/mp3">
+        </audio>
+        <button class="hidden gar"></button>
+        <button class="hidden for"></button>
+        <button class="hidden bea"></button>
+        <div class="left"></div>
+        <div class="right"></div>
+        <div class="bottom"></div>
+        <div class="top"></div>
+
+        <div class="text">
+            <div id="picture" class="art">
+                <span class="art">--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+                <span class="art">|          /         \   /\    /\     /      \          /             \          /     \.      \.                        /        \   /..        ..\    /\/\ */                \            /      \  /\  */\     |</span>
+                <span class="art">|/\      /             \/  \  /  \   /.      .\  /\    /               \    /\  /       \\.      \.                     /          \/\ /**----**\    /  \ \/.....        .....\          /        \/  \ /* \    |</span>
+                <span class="art">|  \   /                 \  \/    \   /**'**\  /  \  /                 \/\/  \/         \ \.      \.                  /            \ /            \  /    \  /     *****     \    /\  //.        .\   /*  *\   |</span>
+                <span class="art">|   \/                     \/      \ /        \/    \/                   \ \  /..       ..\  \.      \.               /..          ..\              \/      \/                   \/\/  \/  /*-----*\  /    - \   |</span>
+                <span class="art">|  /                         \      /          \     --....       ....---  \  / ***** \     \.      \.           ..//*--....--*\                \.   ../                     \/    \  /          \/     *  \  |</span>
+                <span class="art">|/                             \   /            \.....\/    *****    \     \/           \      \.      \.      ../  /              \                \** /                       \     \/           \      -   \ |</span>
+                <span class="art">|                                \/              \   /                 \     /             \       \.      \. ../    /                \              ..\  /                         \    /             \..     ...\|</span>
+                <span class="art">|...                       ........\..       .....\ /.*--....    ....--*.\ /               \        \.    .\/     /                   \-----*****\  /....                   ....\  /               \ **-*\   |</span>
+                <span class="art">|  /*****--------***** \ '    /  *****   \   /           -         \/...            ...\        \../       /....             ....\   *-        \    / *****-----***** \   /.....       .....\       \ |</span>
+                <span class="art">|/                            \   /              \ /                       \  /***-----**\        ../         ../ / ********** \           *    \  /         -               \   /   ******   \         \|</span>
+                <span class="art">|                               \/                \                         \/               \    ../         ../ \./                  \                \/                           \ /                \          |</span>
+                <span class="art">|                                 \                \                        /                 \../         ../.    /                    \               /                             \                  \       ..|</span>
+                <span class="art">|                                   \               \--................---/       -           \        ../  - \../                      \         ..../                               \                  \****| |</span>
+                <span class="art">|                              -      \........-----\  ||  .----. |     /                     \    ../         /.........................\***** | /.................................\-...........-----\  |  | | </span>
+                <span class="art">|          -                            \  |  |         | ||`---`| |    /-----...........-----\../        *     \.   |  -----  |   | |      |   |           | | .----.|  |            |   |   | |    \.l...../ | </span>
+                <span class="art">|-----.......................----------\   |          \.|   |  |./           |      |   |   ../           -       \. |    |     |   |    |       |           |   |`---`|| |            |   |     |              |</span>
+                <span class="art">|          |  |    |   | |   \...../| |  |    |   ,`-`-`-`-`-`-`-`-`-`-     | |        |../              *         \| |     |  |    \.........l./        `-`-`-`-`-`-`-`-`-`-      \.l......./              |</span>
+                <span class="art">|          |       |     |          \.l......./ &lt;     Garden      |.     |       |  |                 -          \.l......./                         .|       Beach      `>                           |</span>
+                <span class="art">|          | |           |                         `------------------       \...l...../                 -*                                              --------------------’                             | </span>
+                <span class="art">|           \.........../                                  | |    |                                          -                                                     |   |   |                                       |</span>
+                <span class="art">|                                                          |    | |                                          -                                                     |       |                                       |</span>
+                <span class="art">|                                                          |    | |                                          *                                                     | |   | |                                       |</span>
+                <span class="art">|                                                          ||     |                                          -                                                     | |     |                                       |</span>
+                <span class="art">|                                                          ||  |  |                                         --                                                     |    |  |                                       |</span>
+                <span class="art">|                                                          |  |   |                                          *                                                     |    |  |                                       |</span>
+                <span class="art">| -----------------------------------------------|*----*|-------------------------------------------------------------------------------|*----*|-------------------------------  |</span>
+                <span class="art">|                                                          *----*                                                                                                  -----*                                       | </span>
+                <span class="art">|                                                                                                                                                                                                                  |</span>
+                <span class="art">|                                                                                                                                                                                                                  | </span>
+                <span class="art">|                                                                                                                                                                                                                  | </span>
+                <span class="art">|                                                                                                                                                                                                                  |</span>
+                <span class="art">|                                                                                                                                                                                                                  |</span>
+                <span class="art">| -----------------------------------------------------------------------------                           -------------------------------------------------------------------------- |</span>
+                <span class="art">|                                                                                           /                           \                                                                                          |</span>
+                <span class="art">|                                                                                          /                             \                                                                                         | </span>
+                <span class="art">|                                                                                         /                               \                                                                                        |</span>
+                <span class="art">|                                                                                        /                                 \                                                                                       |</span>
+                <span class="art">|                                                                                       /                                   \                                                                                      | </span>
+                <span class="art">|                                                                                      /                                     \                                                                                     | </span>
+                <span class="art">|                                                                                     /                                       \                                                                                    |</span>
+                <span class="art">|                                                                                    /                                         \                                                                                   |</span>
+                <span class="art">|                                                                                   /                                           \                                                                                  |</span>
+                <span class="art">|                                                                                  /                                             \                                                                                 |</span>
+                <span class="art">|                                                                                 /                                               \                                                                                |</span>
+                <span class="art">|                                                                                /                                                 \                                                                               |</span>
+                <span class="art">|                                                                               /                                                   \                                                                              | </span>
+                <span class="art">|                                                                              /                                                     \                                                                             | </span>
+                <span class="art">--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+            </div>
+        </div>
+
+    </body>
+</html>
