@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
 *{
     color:rgb(202, 199, 199);
@@ -33,23 +34,49 @@ body {
 .left-text{
     position: fixed; 
     top:80px;
-    left:265px;
-    width:390px;
+    left:285px;
+    width:375px;
 }
 
 .right-text{
     position: fixed; 
     top:80px;
-    left:880px;
-    width:390px;
+    left:890px;
+    width: 375px;
 }
 
-.l, .r{
+.lbut, .rbut{
+    border-color: transparent;
+    background-color: transparent;
+    position: fixed;
+    top:80px;
+    height: 610px;
+    width:100px
+}
+
+.lbut{
+    left:240px;
+}
+
+.rbut{
+    left:1200px
+}
+
+.lbut:hover, .rbut:hover{
+    cursor: pointer;
+}
+
+.pg{
+    line-height: 35px;
     font-family: Lora;
     text-decoration-style: none;
     text-decoration-color: transparent;
-    font-weight: 500;
-    font-size: large;
+    font-size: normal;
+}
+
+.title{
+    text-align: center;
+    padding-bottom: 5%;
 }
 
 .items{
