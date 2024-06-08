@@ -3,6 +3,7 @@
 *{
     color:rgb(202, 199, 199);
     font-family: Comfortaa;
+    cursor: pointer;
 }
 
 body {
@@ -11,10 +12,6 @@ body {
 
 .aud{
     display: none;
-}
-
-.in-img:hover{
-    cursor: pointer;
 }
 
 .top-sep{
@@ -31,6 +28,7 @@ body {
     border-color: transparent;
     font-size: medium;
     border: 0px;
+    color: inherit;
 }
 
 .tall{
@@ -63,6 +61,18 @@ body {
 .half-space{
     font-size:xx-small;
 }
+
+.item-hitbox {
+    position: fixed;
+    top:410px;
+    left:630px;
+    height: 40px;
+    width: 100px;
+    color:transparent;
+    border-color: transparent;
+    background-color: transparent;
+}
+
 
 .left {
     position: fixed; 
@@ -100,17 +110,27 @@ body {
     height:45px;
 }
 
-.burning-fire {
-    color: rgb(219, 0, 0)
+.item{
+    border: 3px;
+    border-color: aliceblue;
+    position: fixed;
+    padding-left: 0%;
+    top: 70px;
+    left: 70px;
+    width: 150px;
+    height: 100px;
+    background-color: transparent;
+    line-height: 4px;
+    text-align: left;
+    list-style-type: none;
+    color: inherit;
 }
 
+.hidden{
+    color: transparent;
+    border-color: transparent;
+}
 
-/*<uniquifier>: Use a unique and descriptive class name
- <weight>: Use a value from 300 to 700
-
-.comfortaa-<uniquifier> {
-  font-family: "Comfortaa", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: <weight>;
-  font-style: normal;
-}*/
+.selected {
+    background-color: #1d1d1d;
+}
