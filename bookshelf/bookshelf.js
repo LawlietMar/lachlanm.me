@@ -51,7 +51,6 @@ function removeKey(){
 function getKey(){
     removeKey();
     localStorage.setItem("has-key", "true");
-    document.getElementById("key").classList.remove("hidden");
     initItems();
 }
 
@@ -61,6 +60,7 @@ function initItems(){
     for (let i = 0; i<items.length;i++){
         console.log(items[i]);
         if (localStorage.getItem("has-" +items[i]) == "true"){
+            console.log(5);
             item = document.getElementById(items[i]);
             if (item.classList.contains("selected")){
                 item.classList.remove("selected");

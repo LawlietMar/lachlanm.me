@@ -115,19 +115,13 @@ body {
     padding-left: 0%;
     top: 70px;
     left: 70px;
-    width: 150px;
+    width: 135px;
     height: 100px;
     background-color: transparent;
     line-height: 4px;
     text-align: left;
     list-style-type: none;
     color: inherit;
-}
-
-.item.art{
-    border: 2px;
-    border-color: aliceblue;
-    border-style: solid;
 }
 
 .hidden{
