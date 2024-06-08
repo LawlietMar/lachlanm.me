@@ -5,7 +5,7 @@ if (document.readyState == 'loading') {
 }
 
 function ready(){
-    sleep(40).then(() => {checkOpen()});
+    sleep(40).then(() => {rainInc(); rainfInc(); checkOpen();});
     var fore = document.getElementsByClassName("hidden")[1];
     fore.addEventListener('click', checkOpen);
 }
@@ -65,6 +65,136 @@ function checkOpen(){
                     <span class="art">|                                                                              /                                                     \\                                                                             | </span>
                     <span class="art">--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>;`
     }
+}
+
+var raina = 0;
+var rainb = 23;
+
+var rainsa = [
+    "|                     .                                                                                                                   .                                                                        |",
+    "|                                                                             .                                                                                                                                    |",
+    "|                                                      .                                                                                                      .                                                    |",
+    "|                                                                                                                                                                                                                  |",
+    "|                             .                                                        .                                   .                                                                                       |",
+    "|                                                                                                                                                                                                    .             |",
+    "|  .                                                                  .                                                                                                   .                                        |",
+    "|                                                                                                                                                                                                                  |",
+    "|                    .                                                                                                                              .                                                              |",
+    "|                                               .                                                 .                                                                                                                |",
+    "|                                                                                                                                                                                                                  |",
+    "|                                                                                  .                                   .                                                                    .                      |",
+    "|                                                                                                                                                                                                                  |",
+    "|                                                                                                                                                                                                              .   |",
+    "|                        .                                                                                                                                 .                                                       |",
+    "|                                                                                                                                    .                                                                             |",
+    "|                                                   .                                                                                                                                                              |",
+    "|                                                                                                                                                                         .                                        |",
+    "|                                                                                                                                                                                                                  |",
+    "|                                                                                              .                                                                                                                   |",
+    "|                                                                                                                                                                                                                  |",
+    "|                                                                   .                                            .                                                                                               . |",
+    "|                                                                                                                                                                                                                  |",
+    "|    .                                                                                                                                                                                                             |",
+    "|                      .                                                                                                                           .                          .                                    |",
+    "|                                                                                                                                                                                                                  |",
+    "|                                   .                                                                          .                                                                                      .            |",
+    "|                                                                                                                                                                                                                  |",
+    "|                                                                                        .                                                                                                                         |",
+    "|                                                            .                                                                                                                                                     |",
+    "|                                                                                                                                                                                                                  |",
+    "|                                                                                                                                        .                                                                         |",
+    "|                                      .                                                                                                                                                                           |",
+    "|            .                                                                                                                                                                     .                               |",
+    "|                                                                            .                                                                                                                                  .  |",
+    "|                                                                                                   .                                                                                                              |",
+    "|                                                      .                                                                 .                                  .                                                      |",
+    "|                                                                                                                                                                                                                  |",
+    "|.                          .                                                                                                                                                                                      |",
+    "|                                                                                                                                                                                     .                            |",
+    "|                                                                                                                                                                                                                  |",
+    "|                                                                                                                                                                                                                  |",
+    "|                                                                                                                                 .                                      .                                         |",
+    "|                                       .                                 .                    .                                                                                                                   |",
+    "|      .                                                                                                                                                                                                       .   |",
+    "|                                                                                                                                                                                                                  |",
+    "|                                                     .                                                                                                                                                            |"
+]
+
+var rainsb = [
+    "|                                                                                                                                                                                                                  |",
+    "|    l                                                                                                                                                                                                             |",
+    "|                                                                                                                                         l                                                                        |",
+    "|                                                                                                                                                                                                                 l|",
+    "|                                                          l                                                                                                                                                       |",
+    "|                                                                                                     l                                                                                                            |",
+    "|                                                                                                                                                                                                                  |",
+    "|                 l                                                                                                                                                                                                |",
+    "|                                                                                                                                                                                      l                           |",
+    "|                                                                                                                                                          l                                                       |",
+    "|                                                                                                                                                                                                                  |",
+    "|                                                                                                                                                                                                                  |",
+    "|                                                                                                                             :                                                                                    |",
+    "|                                l                                                                                                                                                                                 |",
+    "|                                                                                                                                                                                                                  |",
+    "|                                                            l                                                                                         :                                                           |",
+    "|                                                                                                                                                                                                                  |",
+    "|                                                                                                                                                                                l                                 |",
+    "|                                                                                                                                                                                                                  |",
+    "|                                                                                                    l                                                                                                             |",
+    "|                                                                                                                                                                                                                  |",
+    "|                                                                                                                                                                                                                  |",
+    "|                                                                                                                                                                                                                  |",
+    "|                                                                                                                                             l                                                                    |",
+    "|                  l                              :                                                                                                                                                                |",
+    "|                                                                          l                                                                                                              :                        |",
+    "|                                                                                                                                                                                                                  |",
+    "|                                                                                                                                                                                                                  |",
+    "|                                                                                                                                                                                                                  |",
+    "|                                                                                                                  l                                            l                                                  |",
+    "|                                                                                                                                                                                                                  |",
+    "|                                                                                                                                                                                                                  |",
+    "|                                                                                                                                                                                                                  |",
+    "|                                                 l                                                                                                                                                    l           |",
+    "|                                                                                                                                                                                                                  |",
+    "|                                                                                                                                                                                                                  |",
+    "|  l                                                                                                                                                                                                               |",
+    "|                                                                                                                                   l                                                                              |",
+    "|                                                                              l                                                                                                                                   |",
+    "|                                                                                                                                                                                                                  |",
+    "|                                                                                                                                                                         l                                        |",
+    "|                  l                                                                                                                                                                                               |",
+    "|                                                                                                                                                                                                                  |",
+    "|                                                                                                                                                                                                                  |",
+    "|                                                                                                                                                                                                                  |",
+    "|                                                                                                                                                                                                                  |",
+    "|                                                                                                                                                                                                                  |"
+]
+function rainInc(){
+    var cur;
+    for (var i = 0; i < 46; i++){
+        cur = document.getElementById(i);
+        cur.innerHTML = rainsa[(46 + i - raina)%46]
+    }
+
+    raina = raina + 2;
+    if (raina > 45){
+        raina = raina-46;
+    }
+    sleep(50).then(() => {rainInc()});
+}
+
+function rainfInc(){
+    var cur;
+    for (var i = 47; i < 93; i++){
+        cur = document.getElementById(i);
+        cur.innerHTML = rainsb[(46 + i - rainb)%46]
+    }
+
+    rainb = rainb + 3;
+    if (rainb > 45){
+        rainb = rainb-46;
+    }
+    sleep(50).then(() => {rainfInc()});
 }
 
 function sleep(ms) {

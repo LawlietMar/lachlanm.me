@@ -4,6 +4,7 @@
 *{
     color:rgb(202, 199, 199);
     font-family: Comfortaa;
+    cursor: pointer;
 }
 
 body {
@@ -42,8 +43,10 @@ body {
     background-color: transparent;
 }
 
-.hidden:hover{
-    cursor: text;
+.rain{
+    position: fixed; 
+    top:53px;
+    left:143px;
 }
 
 .for{
