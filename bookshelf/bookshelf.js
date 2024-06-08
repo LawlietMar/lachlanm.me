@@ -45,7 +45,6 @@ function removeKey(){
                 <span class="art">#                                                                                                *     <sub>*</sub>*<sup>*</sup></span>
                 <span class="art">  *................................................................................................*<sub>*</sub>*<sup>*</sup></span>
     `
-    document.getElementById("key-button").remove();
 }
 
 function getKey(){
@@ -58,9 +57,7 @@ function initItems(){
     var item;
     const items = ['key'];
     for (let i = 0; i<items.length;i++){
-        console.log(items[i]);
         if (localStorage.getItem("has-" +items[i]) == "true"){
-            console.log(5);
             item = document.getElementById(items[i]);
             if (item.classList.contains("selected")){
                 item.classList.remove("selected");
