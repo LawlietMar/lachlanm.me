@@ -37,7 +37,7 @@ body {
     color: transparent;
 }
 
-.hidden{
+.hide{
     outline-color: transparent;
     border-color: transparent;
     background-color: transparent;
@@ -71,6 +71,14 @@ body {
     left:225px;
     height: 125px;
     width: 125px;
+}
+
+.back{
+    position:fixed;
+    top:655px;
+    left:635px;
+    height: 125px;
+    width: 240px;
 }
 
 .left {
@@ -107,4 +115,39 @@ body {
     background-color: black;
     width: 100%;
     height:45px;
+}
+
+.item{
+    position: fixed;
+    padding-left: 0%;
+    background-color: transparent;
+    line-height: 4px;
+    text-align: left;
+    list-style-type: none;
+    color: inherit;
+    width: 155px;
+    height: 100px;
+    left: 55px;
+}
+
+#key, #keyb{
+    top: 70px;
+}
+
+#axe, #axeb{
+    top: 170px;
+}
+
+.artln{
+    line-height: 6px;
+    color: inherit;
+}
+
+.hidden{
+    color: transparent;
+    border-color: transparent;
+}
+
+.selected {
+    background-color: #1d1d1d;
 }

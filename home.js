@@ -8,8 +8,13 @@ var fired = false;
 var timeout;
 
 function ready(){
+    localStorage.setItem("path", "../index.html")
+
     var stay = document.getElementsByClassName("stay-button")[0];
     stay.addEventListener('click', rekindle);
+
+    var reset = document.getElementsByClassName("reset")[0];
+    reset.addEventListener("click", resetP);
 }
 
 var cnt = 20;
@@ -48,6 +53,21 @@ function write(fire, add){
         sleep(55).then(() => {write(fire, add);});
     }
 }
+
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function resetP(){
+    var ite = document.getElementsByClassName("reset")[0];
+    ite.innerHTML = "Are you sure?";
+    ite.classList.add("burning-fire");
+    ite.addEventListener('click', function(){reset(ite)});
+}
+
+function reset(ite){
+    ite.parentElement.remove();
+    localStorage.setItem("has-key", false);
+    localStorage.setItem("has-axe", false);
+    localStorage.setItem("has-forest", false);
 }

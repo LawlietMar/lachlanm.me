@@ -10,10 +10,7 @@ function ready(){
     var aud = document.getElementsByClassName("aud")[0];
     var list = requestButton.parentElement.parentElement; 
     var outside = document.getElementsByClassName("travel-button")[1];
-
-    if (permission){
-        playAudio(aud,list);
-    }
+    aud.pause();
 
     outside.addEventListener('click', () => {
         localStorage.setItem('audioAutoplayPermission', 'granted');
