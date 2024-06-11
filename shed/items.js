@@ -61,6 +61,10 @@ if (document.readyState == 'loading') {
 
 // Function to initialize various elements and set up event listeners
 function ready() {
+    localStorage.setItem("free", 1);
+    localStorage.setItem("has-axe", "false");
+    localStorage.setItem("has-shovel", "false");
+    localStorage.setItem("has-can", "false");
     // Initialize the 'selected' item in local storage to -1 (no item selected)
     localStorage.setItem("selected", -1);
 
@@ -199,8 +203,6 @@ function initItemsMeat(i){ // Recursive function to initialize items
 function getIte(name){ // Function to get item and update local storage
     const free = localStorage.getItem("free");
     const spot = document.getElementById("spot" + free);
-    console.log(spot);
-    console.log(free);
     spot.innerHTML = arts[name]; // Set innerHTML to corresponding art
     localStorage.setItem("spot" + free, name); // Update local storage with item name
     localStorage.setItem("has-" + name, "true"); // Mark item as taken in local storage
