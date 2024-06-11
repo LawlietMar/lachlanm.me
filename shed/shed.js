@@ -1,8 +1,3 @@
-if (document.readyState == 'loading') {
-    document.addEventListener('DOMContentLoaded', ready)
-} else {
-    ready()
-}
 var arts = {
     "key" : `
                 <ul class="item" id="key">
@@ -44,16 +39,31 @@ var arts = {
                     <li class="art artln"><span class="art artln">      <span class="art invis in-list">-</span>  l....l.....l</span></li>     
                 </ul>
             `,
-    "can" : ``
+    "can" : `
+                <ul class="item" id="can">
+                    <li class="art artln"><span class="art artln">         ..--..     .---.</span></li>
+                    <li class="art artln"><span class="art artln">   .--./**--**\\.-*.\`\`.*</span></li>
+                    <li class="art artln"><span class="art artln"><span class="art invis in-list">*</span> l.C|        *.-* **</span></li>
+                    <li class="art artln"><span class="art artln"><span class="art invis in-list">*</span>  **' *-....-*  </span></li>     
+                </ul>
+            `
+}
+
+if (document.readyState == 'loading') {
+    document.addEventListener('DOMContentLoaded', ready)
+} else {
+    ready()
 }
 
 function ready(){
-    localStorage.setItem("free", 1);
+    localStorage.setItem("selected", -1);
+    /*localStorage.setItem("free", 1);
     localStorage.setItem("has-axe", 'false');
     localStorage.setItem("has-shovel", 'false');
     localStorage.setItem("has-can", 'false');
     localStorage.setItem("has-rose-seeds", 'false');
-    localStorage.setItem("has-daisy-seeds", 'false');
+    localStorage.setItem("has-daisy-seeds", 'false');*/
+    
     var path = localStorage.getItem("path");
     if (!(path.substring(path.lastIndexOf(" ")) == " ../shed/shed.html")){
         path = path + " ../shed/shed.html"
@@ -65,70 +75,100 @@ function ready(){
 
     var axeBut = document.getElementsByClassName("axe-button")[0];
     if (localStorage.getItem("has-axe") == "true"){
-        axeBut.remove();
-        document.getElementsByClassName("axe-del")[0].remove();
+        take(axeBut, "axe");
     }
     else{
-        axeBut.addEventListener('click', function(){
-            if (localStorage.getItem("free") < 9){
-                document.getElementsByClassName("axe-del")[0].remove();
-                axeBut.remove();
-                getIte("axe");
-                initItems();
-            }
+        axeBut.addEventListener('click', function tk(){
+            axeBut.removeEventListener('click', tk);
+            take(axeBut, "axe");
         });
     }
 
     var shovelBut = document.getElementsByClassName("shovel-button")[0];
     if (localStorage.getItem("has-shovel") == "true"){
-        shovelBut.remove();
-        document.getElementsByClassName("shovel-del")[0].remove();
+        take(shovelBut, "shovel");
     }
     else{
-        shovelBut.addEventListener('click', function(){
-            if (localStorage.getItem("free") < 9){
-                document.getElementsByClassName("shovel-del")[0].remove();
-                shovelBut.remove();
-                getIte("shovel");
-                initItems();
-            }
+        shovelBut.addEventListener('click', function tk(){
+            shovelBut.removeEventListener('click', tk);
+            take(shovelBut, "shovel");
+        });
+    }
+
+    var canBut = document.getElementsByClassName("can-button")[0];
+    if (localStorage.getItem("has-can") == "true"){
+        take(canBut, "can");
+    }
+    else{
+        canBut.addEventListener('click', function tk(){
+            document.getElementById("behind-can").classList.remove("invis");
+            canBut.removeEventListener('click', tk);
+            take(canBut, "can");
         });
     }
 
     var roseBut = document.getElementsByClassName("rose-seeds")[0];
     if (localStorage.getItem("has-rose-seeds") == "true"){
-        roseBut.remove();
-        document.getElementsByClassName("rose-del")[0].remove();
+        take(roseBut, "rose-seeds");
     }
     else{
-        roseBut.addEventListener('click', function(){
-            if (localStorage.getItem("free") < 9){
-                document.getElementsByClassName("rose-del")[0].remove();
-                roseBut.remove();
-                getIte("rose-seeds");
-                initItems();
-            }
+        roseBut.addEventListener('click', function tk(){
+            roseBut.removeEventListener('click', tk);
+            take(roseBut, "rose-seeds");
         });
     }
 
     var daisyBut = document.getElementsByClassName("daisy-seeds")[0];
     if (localStorage.getItem("has-daisy-seeds") == "true"){
-        daisyBut.remove();
-        document.getElementsByClassName("daisy-del")[0].remove();
+        take(daisyBut, "daisy-seeds");
     }
     else{
-        daisyBut.addEventListener('click', function(){
-            if (localStorage.getItem("free") < 9){
-                document.getElementsByClassName("daisy-del")[0].remove();
-                daisyBut.remove();
-                getIte("daisy-seeds");
-                initItems();
-            }
+        daisyBut.addEventListener('click', function tk(){
+            daisyBut.removeEventListener('click', tk);
+            take(daisyBut, "daisy-seeds");
         });
     }
     
     initItems();
     sleep(40).then(() => {rainInc(); rainfInc();});
+}
+
+function take(button, name){
+    if (localStorage.getItem("free") < 9){
+        document.getElementsByClassName(name + "-del")[0].classList.add("invis");
+        if (name == "can"){
+            document.getElementById("behind-can").classList.remove("invis");
+        }
+        if (!(localStorage.getItem("has-"+name) == "true")){
+            getIte(name);
+            initItems();
+        }
+        button.addEventListener('click', function pt(){
+            button.removeEventListener('click', pt);
+            put(button, name);
+        });
+    }
+}
+
+function put(button, name){
+    if (localStorage.getItem("spot"+localStorage.getItem("selected")) == name){
+        document.getElementsByClassName(name + "-del")[0].classList.remove("invis");
+        if (name == "can"){
+            document.getElementById("behind-can").classList.add("invis");
+        }
+        removeIte(localStorage.getItem("selected"));
+        initItems();
+        button.addEventListener('click', function tk(){
+            button.removeEventListener('click', tk);
+            take(button, name);
+        });
+    }
+    else {
+        button.addEventListener('click', function pt(){
+            button.removeEventListener('click', pt);
+            put(button, name);
+        });
+    }
 }
 
 var raina = 0;
@@ -268,23 +308,23 @@ function sleep(ms) {
 }
 
 function initItems(){
+    for (let j = 1; j < 9; j++){
+        const spot = document.getElementById("spot" + j);
+        spot.innerHTML = "";
+        let newSpot = spot.cloneNode(true);
+        spot.parentNode.replaceChild(newSpot, spot);
+    }
     initItemsMeat(1);
 }
 
 function initItemsMeat(i){
     if (i<localStorage.getItem("free")){
-        const nam = localStorage.getItem("spot" + i);
-        const spot = document.getElementById("spot" + i);
+        var nam = localStorage.getItem("spot" + i);
+        var spot = document.getElementById("spot" + i);
         spot.innerHTML = arts[nam];
-        if (i == localStorage.getItem("free")-1){
-            spot.addEventListener('click', function(){select(i)});
-        }
+        spot.addEventListener('click', function(){select(i)});
         sleep(10).then(() => {initItemsMeat(i+1)})
     }
-}
-
-function addList(item){
-    item.addEventListener('click', function(){select(item)});
 }
 
 function getIte(name){
@@ -294,6 +334,24 @@ function getIte(name){
     localStorage.setItem("spot" + free, name);
     localStorage.setItem("has-" + name, "true");
     localStorage.setItem("free", parseInt(free)+1);
+}
+
+function removeIte(spot){
+    var addArray = [];
+    var name = localStorage.getItem("spot" + spot);
+    localStorage.setItem("has-" + name, "false");
+    for (var i = parseInt(spot)+1; i<localStorage.getItem("free"); i++){
+        addArray.push(i);
+
+        if (localStorage.getItem("spot" + i) == name){
+            localStorage.setItem("has-" + name, "true");
+        }
+    }
+    localStorage.setItem("free", spot);
+    for (let ind in addArray){
+        getIte(localStorage.getItem("spot" + addArray[ind]));
+    }
+    select(spot);
 }
 
 function select(item){
@@ -308,7 +366,8 @@ function select(item){
             ite.classList.remove("selected");
         }
     }
-    if (!sel){ 
+    if (!sel){
+        localStorage.setItem("selected", item);
         document.getElementById("spot" + item).classList.add("selected");
     }
 }

@@ -34,10 +34,6 @@ body {
     padding-top: 2%;
 }
 
-.invis{
-    color: transparent;
-}
-
 .hide{
     outline-color: transparent;
     border-color: transparent;
@@ -46,6 +42,7 @@ body {
 
 .in-list{
     line-height: 9px;
+    color:inherit;
 }
 
 .rain{
@@ -76,7 +73,7 @@ body {
     width: 20px;
 }
 
-.rose-del{
+.rose-seeds-del{
     position: fixed; 
     top:540px;
     left:750px;
@@ -90,7 +87,7 @@ body {
     width: 25px;
 }
 
-.daisy-del{
+.daisy-seeds-del{
     position: fixed; 
     top:540px;
     left:690px;
@@ -238,6 +235,10 @@ body {
 #axe, #key, #shovel, #rose-seeds, #daisy-seeds, #can{
     position: absolute;
     top:-5px
+}
+
+.invis{
+    color: transparent;
 }
 
 .selected {
