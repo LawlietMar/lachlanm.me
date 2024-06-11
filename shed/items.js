@@ -61,10 +61,6 @@ if (document.readyState == 'loading') {
 
 // Function to initialize various elements and set up event listeners
 function ready() {
-    localStorage.setItem("free", 1);
-    localStorage.setItem("has-axe", "false");
-    localStorage.setItem("has-shovel", "false");
-    localStorage.setItem("has-can", "false");
     // Initialize the 'selected' item in local storage to -1 (no item selected)
     localStorage.setItem("selected", -1);
 
