@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
+*{
+    color:rgb(202, 199, 199);
+    font-family: Comfortaa;
+    cursor: pointer;
+    overscroll-behavior: none;
+}
+
+body {
+    background-color: #0e0e0e;
+}
+
+.aud{
+    display: none;
+}
+
+.art{
+    font-family: Arial;
+    text-align: left;
+    padding: 0px;
+    line-height: 15px;
+    white-space: pre;
+    background-color: transparent;
+    border-color: transparent;
+    font-size: 18px;
+    border: 0px;
+}
+
+.text {
+    padding-left: 9%;
+    text-align: left;
+    padding-top: 2%;
+}
+
+.invis{
+    color: transparent;
+}
+
+.hide{
+    outline-color: transparent;
+    border-color: transparent;
+    background-color: transparent;
+}
+
+.rain{
+    position: fixed; 
+    top:53px;
+    left:143px;
+}
+
+.background {
+    position: fixed;
+    top: 38.5px;
+    left: 142.5px;
+}
+
+.shed{
+    position: fixed; 
+    top:215px;
+    left:390px;
+    height: 130px;
+    width: 80px;
+}
+
+.map{
+    position:fixed;
+    top:265px;
+    left:605px;
+    height: 80px;
+    width: 100px;
+}
+
+.back{
+    position:fixed;
+    top:300px;
+    left:1080px;
+    height: 80px;
+    width: 200px;
+}
+
+.left {
+    position: fixed; 
+    top:0px;
+    left:0px;
+    background-color: black;
+    width: 40px;
+    height: 100%;
+}
+
+.right {
+    position: fixed; 
+    top:0px;
+    right:0px;
+    background-color: black;
+    width: 40px;
+    height: 100%;
+}
+
+.bottom {
+    position: fixed; 
+    bottom:0px;
+    left:0px;
+    background-color: black;
+    width: 100%;
+    height: 40px;
+}
+
+.top {
+    position: fixed; 
+    top:0px;
+    left:0px;
+    background-color: black;
+    width: 100%;
+    height:45px;
+}
+
+.item{
+    position: fixed;
+    padding-left: 0%;
+    background-color: transparent;
+    line-height: 4px;
+    text-align: left;
+    list-style-type: none;
+    color: inherit;
+    width: 155px;
+    height: 100px;
+    left: 55px;
+}
+
+#key, #keyb{
+    top: 70px;
+}
+
+#axe, #axeb{
+    top: 170px;
+}
+
+.artln{
+    line-height: 6px;
+    color: inherit;
+}
+
+.hidden{
+    color: transparent;
+    border-color: transparent;
+}
+
+.selected {
+    background-color: #1d1d1d;
+}

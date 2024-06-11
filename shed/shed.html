@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Outside</title>
+        <meta name="description" content="Where am I?">
+        <link rel="stylesheet" href="shed.css"\>
+        <script src="shed.js" async></script>
+        <script src="audio.js" async></script>
+    </head>
+
+    <body>
+        <audio class="aud" autoplay loop controls>
+            <source src="rain.mp3" type="audio/mp3">
+        </audio>
+        <div class="left"></div>
+        <div class="right"></div>
+        <div class="bottom"></div>
+        <div class="top"></div>
+
+        <div class="text">
+            <div id="picture" class="art foreground">
+                <span class="art"></span>
+                <span class="art"></span>
+                <span class="art"></span>
+                <span class="art"></span>
+                <span class="art"></span>
+                <span class="art"></span>
+                <span class="art"></span>
+                <span class="art"></span>
+                <span class="art"></span>
+                <span class="art"></span>
+                <span class="art"></span>
+                <span class="art"></span>
+                <span class="art"></span>
+                <span class="art"></span>
+                <span class="art"></span>
+                <span class="art"></span>
+                <span class="art"></span>
+                <span class="art"></span>
+                <span class="art"><span class="invis art">|..///.                     ...\//            ..\/ \ //                    \/</span>\///.                ...\     <span class="invis art">        \//     //           \ \/*---*//                  \       \//          \.//         \  /**--.</span></span>
+                <span class="art"><span class="invis art">|    /***----.....----***\   /*---...---*\    //                      </span>\   /***--.....--***\.      <span class="invis art">         \     //             \//     //                    \-.--*//            \/           \//       </span></span>
+                <span class="art"><span class="invis art">|   //                        \ //              \ .///.                   ..</span>.\ //                   \      <span class="invis art">       ...\...///            ..\     ///.                 ...\    ///           ..\          ..\</span></span>
+                <span class="art"><span class="invis art">|  //                          \/                \.. /***----...----***\</span>  //                     \<span class="invis art">*--...--***\     /***--..--***\       /***---....---***\       /**--..--**\/**-----**\</span></span>
+                <span class="art"></span>
+                <span class="art"><span class="invis art">|//                              \                 //                  </span>      \                        <span class="invis art"> \             \ //                  \   //                       \...//               \             \  ||  |</span></span>
+                <span class="art"><span class="invis art">|//.                             .\..........---*//                    </span>      \                       <span class="invis art"> .\             \/                   .\ //                         \ ///               .\            .\ ||  </span></span>
+                <span class="art"><span class="invis art">|**-----................-----**||     | |   \///                         </span> .\---..............---*<span class="invis art">**      -      .\*--............--**//                           \**--..........--**........--**  \\l.</span></span>
+                <span class="art"><span class="invis art">|l./       || |      | |           || |     |    **----................----</span>**     ll      l l **---<span class="invis art">...........---**.l./|| |    - |  \..///.                          .\/    || |   ||     ||    | |    </span></span>
+            </div>
+
+            <div class="art background">
+                <span class="art">--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+                <span class="art">|               .-**                    .-**                    .-**                    .-**             |              **-.                    **-.                      **-.                   **-.      |</span>
+                <span class="art">|          .-**                    .-**                    .-**                    .-**               .. |-..                **-.                    **-.                      **-.                   *--. |</span>
+                <span class="art">|     .-**                    .-**                    .-**                    .-**               .-**   |   **-.                **-.                    **-.                      **-.                    |</span>
+                <span class="art">|.-**                    .-**                    .-**                    .-**               .-**        |        **-.                **-.                    **-.                      **-.               |</span>
+                <span class="art">|                    .-**                    .-**                    .-**               .-**             |             **-.                **-.                    **-.                      **-.          |</span>
+                <span class="art">|               .-**                    .-**                    .-**               .-**                ..|..                **-.                **-.                    **-.                      **-.     |</span>
+                <span class="art">|          .-**                    .-**                    .-**               .-**                .-**     **-.                **-.                **-.                    **-.                      **- |</span>
+                <span class="art">|     .-**                    .-**                    .-**               .-**                .-**               **-.                **-.                **-.                    **-.                      |</span>
+                <span class="art">|.-**                    .-**                    .-**               .-**                .-**                         **-.                **-.                **-.                    **-.                 |</span>
+                <span class="art">|                    .-**                    .-**               .-**                .-**                                   **-.                **-.                **-.                    **-.            |</span>
+                <span class="art">|               .-**                    .-**               .-**                .-**                                             **-.                **-.                **-.                    **-.       |</span>
+                <span class="art">|          .-**                    .-**               .-**                .-**                                                       **-.                **-.                **-.                    **-.  |</span>
+                <span class="art">|     .-**                    .-**               .-**                .-**                                                                 **-.                **-.                **-.                      |</span>
+                <span class="art">|.-**                    .-**               .-**                .-**                                                                           **-.                **-.                **-.                 |</span>
+                <span class="art">|*--..              .-**               .-**                .-**                                                                                     **-.                **-.                **-.        .-  |</span>
+                <span class="art">|      *--..   .-**               .-**                .-**            ................................                                                   **-.                **-.                **-**  <span class="art invis">*</span>  |</span>
+                <span class="art">|            *--..            .-**                .-**                |   ..........................   |                                                       **-.                **-.         .-**|    <span class="art invis">*</span>   |</span>
+                <span class="art">|             |    *--.. .-**                .-**                     |  |                          |  |                                                             **-.                **-.-**    |  <span class="art invis">*-</span>    |</span>
+                <span class="art">|             |          *--..           .-**                          |  |                          |  |                                                                  **-.          .-**         | <span class="art invis">*-</span>     |</span>
+                <span class="art">|             |           |    *--...-**                               |  |                          |  |                                                                       **-..-**   |          |     <span class="art invis">**</span> |</span>
+                <span class="art">|             |           |         |                                    |  *...........~............*  |                                                                 <span class="art invis">--</span>       |        |          |      <span class="art invis">-</span>  |</span>
+                <span class="art">|             |           |         |                                    |  ............................  |                       ===                                             |        |          |        <span class="art invis">-</span>|</span>
+                <span class="art">|             |           |         |                                    |  |                          |  |                                                             <span class="art invis">--</span>           |        |          |    <span class="art invis">***</span> |</span>
+                <span class="art">|             |           |         |                                    |  |                          |  |                                               ===                     |        |          |      <span class="art invis">*</span>  |</span>
+                <span class="art">|             |           |         |                                    |  |                          |  |                                                             <span class="art invis">--</span>           |        |          |     <span class="art invis">-</span>   |</span>
+                <span class="art">|             |           |         |                                    |  l..........................|  |                                                              <span class="art invis">--</span>          |        |          |   <span class="art invis">*</span>     |</span>
+                <span class="art">|             |           |         |                                    |................................|                                                                       <span class="art invis">-</span>  |        |          |    <span class="art invis">*</span>    |</span>
+                <span class="art">|             |           |         |                                                                                                                                                |        |          |      <span class="art invis">*</span>  |</span>
+                <span class="art">|             |           |         |                                                                                                                                                |        |          |   <span class="art invis">*</span>     |</span>
+                <span class="art">|             |           |         |                                                                                                                                                |        |          |     <span class="art invis">*</span>   |</span>
+                <span class="art">|             |           |         |                                                                                                                                                |        |          |    <span class="art invis">*</span>    |</span>
+                <span class="art">|             |           |         |                                                                                                                                                |        |          |     <span class="art invis">*</span>   |</span>
+                <span class="art">|             |           |         |                                    ...// /.........................\\ \...                                                                     |        |          |     <span class="art invis">*</span>   |</span>
+                <span class="art">|             |           |         |                               .-**                                       **-.                                                                |        |          |     <span class="art invis">*</span>   |</span>
+                <span class="art">|             |           |         |                           -**.................................................**-                                                            |        |          |      <span class="art invis">*</span>  |</span>
+                <span class="art">|             |           |         |                          l.........................................................l                                                           |        |          |     <span class="art invis">**</span>  |</span>
+                <span class="art">|             |           |         |                                || |                                    || |                                                                    |        |          |    <span class="art invis">**</span>   |</span>
+                <span class="art">|             |           |         |                                || |                                    || |                                                                    |        |          |     <span class="art invis">**</span>  |</span>
+                <span class="art">|             |           |         |                                || |                                    || |                                                                    |        |          |   <span class="art invis">**</span>    |</span>
+                <span class="art">|             |           |         |                                || |                                    || |                                                                    |        |          |    <span class="art invis">**</span>   |</span>
+                <span class="art">|             |           |    .-**   -------------------------|| |------------------------------|| |--------------------------------------------------------  **-.   |          |     <span class="art invis">*-</span>  |</span>
+                <span class="art">|             |           |-**                                      || |                                    || |                                                                   -      **-.         |   <span class="art invis">--</span>    |</span>
+                <span class="art">|             |      .-**                                           \l.l                          -         \l.l                                                                                **-.   |     <span class="art invis">**</span>  |</span>
+                <span class="art">|             | .-**                                                                                                                                                                                **-.     <span class="art invis">-</span>   |</span>
+                <span class="art">|          .-**                                                                                                                         -                            -                                   **-.<span class="art invis">-*</span> |</span>
+                <span class="art">|     .-**                                  -                                                                                                                                                                 ** |</span>
+                <span class="art">|.-**                                                                                                                                                                                                             |</span>
+                <span class="art">--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+            </div>
+            
+            <div class="art rain">
+                <span id="0" class="art invis"></span>
+                <span id="1" class="art invis"></span>
+                <span id="2" class="art invis"></span>
+                <span id="3" class="art invis"></span>
+                <span id="4" class="art invis"></span>
+                <span id="5" class="art invis"></span>
+                <span id="6" class="art invis"></span>
+                <span id="7" class="art invis"></span>
+                <span id="8" class="art invis"></span>
+                <span id="9" class="art invis"></span>
+                <span id="10" class="art invis"></span>
+                <span id="11" class="art invis"></span>
+                <span id="12" class="art invis"></span>
+                <span id="13" class="art invis"></span>
+                <span id="14" class="art invis"></span>
+                <span id="15" class="art invis"></span>
+                <span id="16" class="art invis"></span>
+                <span id="17" class="art"></span>
+                <span id="18" class="art"></span>
+                <span id="19" class="art"></span>
+                <span id="20" class="art"></span>
+                <span id="21" class="art invis"></span>
+                <span id="22" class="art"></span>
+                <span id="23" class="art"></span>
+                <span id="24" class="art"></span>
+                <span id="25" class="art"></span>
+                <span id="26" class="ar invis"></span>
+                <span id="27" class="art invis"></span>
+                <span id="28" class="art invis"></span>
+                <span id="29" class="art invis"></span>
+                <span id="30" class="art invis"></span>
+                <span id="31" class="art invis"></span>
+                <span id="32" class="art invis"></span>
+                <span id="33" class="art invis"></span>
+                <span id="34" class="art invis"></span>
+                <span id="35" class="art invis"></span>
+                <span id="36" class="art invis"></span>
+                <span id="37" class="art invis"></span>
+                <span id="38" class="art invis"></span>
+                <span id="39" class="art invis"></span>
+                <span id="40" class="art invis"></span>
+                <span id="41" class="art invis"></span>
+                <span id="42" class="art invis"></span>
+                <span id="43" class="art invis"></span>
+                <span id="44" class="art invis"></span>
+                <span id="45" class="art invis"></span>
+                <span id="46" class="art invis"></span>
+                <span id="47" class="art invis"></span>
+            </div>
+
+            <div class="art rain">
+                <span id="48" class="art invis"></span>
+                <span id="49" class="art invis"></span>
+                <span id="50" class="art invis"></span>
+                <span id="51" class="art invis"></span>
+                <span id="52" class="art invis"></span>
+                <span id="53" class="art invis"></span>
+                <span id="54" class="art invis"></span>
+                <span id="55" class="art invis"></span>
+                <span id="56" class="art invis"></span>
+                <span id="57" class="art invis"></span>
+                <span id="58" class="art invis"></span>
+                <span id="59" class="art invis"></span>
+                <span id="60" class="art invis"></span>
+                <span id="61" class="art invis"></span>
+                <span id="62" class="art invis"></span>
+                <span id="63" class="art invis"></span>
+                <span id="64" class="art invis"></span>
+                <span id="65" class="art"></span>
+                <span id="66" class="art"></span>
+                <span id="67" class="art"></span>
+                <span id="68" class="art"></span>
+                <span id="69" class="art invis"></span>
+                <span id="70" class="art"></span>
+                <span id="71" class="art"></span>
+                <span id="72" class="art"></span>
+                <span id="73" class="art"></span>
+                <span id="74" class="art invis"></span>
+                <span id="75" class="art invis"></span>
+                <span id="76" class="art invis"></span>
+                <span id="77" class="art invis"></span>
+                <span id="78" class="art invis"></span>
+                <span id="79" class="art invis"></span>
+                <span id="80" class="art invis"></span>
+                <span id="81" class="art invis"></span>
+                <span id="82" class="art invis"></span>
+                <span id="83" class="art invis"></span>
+                <span id="84" class="art invis"></span>
+                <span id="85" class="art invis"></span>
+                <span id="86" class="art invis"></span>
+                <span id="87" class="art invis"></span>
+                <span id="88" class="art invis"></span>
+                <span id="89" class="art invis"></span>
+                <span id="90" class="art invis"></span>
+                <span id="91" class="art invis"></span>
+                <span id="92" class="art invis"></span>
+                <span id="93" class="art invis"></span>
+                <span id="94" class="art invis"></span>
+                <span id="95" class="art invis"></span>
+            </div>
+        </div>
+        <div>
+            <button tabindex="-1" class="item art" id="spot1"></button>
+        </div>
+        <div>
+            <button tabindex="-1" class="item art" id="spot2"></button>
+        </div>
+        <div>
+            <button tabindex="-1" class="item art" id="spot3"></button>
+        </div>
+        <div>
+            <button tabindex="-1" class="item art" id="spot4"></button>
+        </div>
+        <div>
+            <button tabindex="-1" class="item art" id="spot5"></button>
+        </div>
+        <div>
+            <button tabindex="-1" class="item art" id="spot6"></button>
+        </div>
+        <div>
+            <button tabindex="-1" class="item art" id="spot7"></button>
+        </div>
+        <div>
+            <button tabindex="-1" class="item art" id="spot8"></button>
+        </div>
+
+        <button tabindex="-1" class="hide back"></button>
+
+        
+        <ul class="art item rose-del">
+            <li class="art in-list"><span class="art in-list"></span>|#|</li>
+            <li class="art in-list"><span class="art in-list"></span>* *</li>
+        </ul>
+        <button tabindex="-1" class="hide rose-seeds"></button>
+
+
+
+        <ul class="art item shovel-del">
+            <li class="art in-list"><span class="art in-list">  .......... </span></li>
+            <li class="art in-list"><span class="art in-list"> *--.O.--*</span></li>
+            <li class="art in-list"><span class="art in-list"></span></li>
+            <li class="art in-list"><span class="art in-list">      | |  </span></li>
+            <li class="art in-list"><span class="art in-list">      | |  </span></li>
+            <li class="art in-list"><span class="art in-list">      | |  </span></li>
+            <li class="art in-list"><span class="art in-list">      | |  </span></li>
+            <li class="art in-list"><span class="art in-list">      | |  </span></li>
+            <li class="art in-list"><span class="art in-list">      | |  </span></li>
+            <li class="art in-list"><span class="art in-list">   ...| |...  </span></li>
+            <li class="art in-list"><span class="art in-list"> |*       *|</span></li>
+            <li class="art in-list"><span class="art in-list"> |  <span class="art invis in-list">*</span> ||<span class="art invis in-list">*-</span> |</span></li>
+            <li class="art in-list"><span class="art in-list"><span class="art invis in-list">*</span>\<span class="art invis in-list">-**</span>|| <span class="art invis in-list">-</span> /</span></li>
+            <li class="art in-list"><span class="art in-list"><span class="art invis in-list">*</span> **---**  </span></li>
+        </ul>
+        <button tabindex="-1" class="hide shovel-button"></button>
+
+        <ul class="art item axe-del">
+            <li class="art in-list"><span class="art in-list">        ..</span></li>
+            <li class="art in-list"><span class="art in-list"> //*-..| |</span></li>
+            <li class="art in-list"><span class="art in-list">||--<span class="art invis in-list">*</span>  | |</span></li>
+            <li class="art in-list"><span class="art in-list"><span class="art invis in-list">-</span>\\.-*</span></li>
+            <li class="art in-list"><span class="art in-list">   <span class="art invis in-list">*-</span>  | |</span></li>
+            <li class="art in-list"><span class="art in-list">  <span class="art invis in-list">*-</span>   | |</span></li>
+            <li class="art in-list"><span class="art in-list">   <span class="art invis in-list">-*</span>  | |</span></li>
+            <li class="art in-list"><span class="art in-list">   <span class="art invis in-list">-*</span>  | |</span></li>
+            <li class="art in-list"><span class="art in-list">   <span class="art invis in-list">-*</span>  | |</span></li>
+            <li class="art in-list"><span class="art in-list">   <span class="art invis in-list">-*</span>  | |</span></li>
+            <li class="art in-list"><span class="art in-list">    <span class="art invis in-list">-*</span> | |</span></li>
+            <li class="art in-list"><span class="art in-list">  <span class="art invis in-list">-*</span>   l.l</span></li>
+        </ul>
+        <button tabindex="-1" class="hide axe-button"></button>
+        
+        <ul class="art item can-del">
+            <li class="art in-list"><span class="art in-list"></span>                              ..-.. </li>
+            <li class="art in-list"><span class="art in-list"></span>               -::::::::-   .* .. *.</li>
+            <li class="art in-list"><span class="art in-list">         .--.//          \.-*. ``.*</span></li>
+            <li class="art in-list"><span class="art in-list">   <span class="art invis in-list">*</span>    l.C||        .-*.-* ***</span></li>
+            <li class="art in-list"><span class="art in-list">   <span class="art invis in-list">*</span>     **'||          *|</span></li>
+            <li class="art in-list"><span class="art in-list">             *--......--* </span></li>
+        </ul>
+        <button tabindex="-1" class="hide can-button"></button>
+
+        <ul class="art item daisy-del">
+            <li class="art in-list"><span class="art in-list">|%|</span></li>
+            <li class="art in-list"><span class="art in-list">*  *</span></li>
+        </ul>
+        <button tabindex="-1" class="hide daisy-seeds"></button>
+    </body>
+</html>
