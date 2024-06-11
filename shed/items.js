@@ -199,9 +199,8 @@ function initItemsMeat(i){ // Recursive function to initialize items
 function getIte(name){ // Function to get item and update local storage
     const free = localStorage.getItem("free");
     const spot = document.getElementById("spot" + free);
-    console.log(name);
-    console.log(arts);
-    console.log(arts[name]);
+    console.log(spot);
+    console.log(free);
     spot.innerHTML = arts[name]; // Set innerHTML to corresponding art
     localStorage.setItem("spot" + free, name); // Update local storage with item name
     localStorage.setItem("has-" + name, "true"); // Mark item as taken in local storage
