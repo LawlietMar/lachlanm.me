@@ -135,6 +135,7 @@ function take(button, name) {
         }
         // If the item is not already taken, add it to the inventory
         if (!(localStorage.getItem("has-" + name) == "true")) {
+            console.log(name);
             getIte(name);
             initItems();
         }
