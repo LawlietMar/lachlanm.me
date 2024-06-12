@@ -2,7 +2,6 @@
 var art = {};
 import { getArt } from "../artHold.js";
 var arts = getArt();
-console.log(arts["daisy-seeds"]);
 
 // Check if the document is still loading, and set up an event listener to initialize once loading is complete.
 if (document.readyState == 'loading') {

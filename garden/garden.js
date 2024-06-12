@@ -2,7 +2,6 @@
 var art = {};
 import { getArt } from "../artHold.js";
 var arts = getArt();
-console.log(arts["daisy-seeds"]);
 
 if (document.readyState == 'loading') {
     document.addEventListener('DOMContentLoaded', ready);
@@ -13,6 +12,7 @@ if (document.readyState == 'loading') {
 
 // Function to set up the initial state and event listeners.
 function ready() {
+    window.history.replaceState("stateObj", "new page", "/");
     // Initialize selected item to -1 (no selection)
     localStorage.setItem("selected", -1);
     localStorage.setItem("free", 1);
