@@ -341,15 +341,18 @@ function removeIte(spot) {
     var name = localStorage.getItem("spot" + spot);
     localStorage.setItem("has-" + name, "false");
     for (var i = parseInt(spot) + 1; i < localStorage.getItem("free"); i++) {
-        addArray.push(i);
+        addArray.push(localStorage.getItem("spot" + i));
 
         if (localStorage.getItem("spot" + i) == name) {
             localStorage.setItem("has-" + name, "true");
         }
     }
     localStorage.setItem("free", spot);
+    for (var j = localStorage.getItem("free"); j<9; j++){
+        localStorage.setItem("spot" + j, 0);
+    }
     for (let ind in addArray) {
-        getIte(localStorage.getItem("spot" + addArray[ind]));
+        getIte(addArray[ind]);
     }
     select(spot);
 }

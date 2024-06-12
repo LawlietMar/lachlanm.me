@@ -16,7 +16,7 @@ function ready(){
     var reset = document.getElementsByClassName("reset")[0];
     reset.addEventListener("click", resetP);
     if (!(localStorage.getItem("reset") == "true")){
-        reset(document.getElementsByClassName("reset")[0]);
+        resett(document.getElementsByClassName("reset")[0]);
     }
 }
 
@@ -65,12 +65,12 @@ function resetP(){
     var ite = document.getElementsByClassName("reset")[0];
     ite.innerHTML = "Are you sure?";
     ite.classList.add("burning-fire");
-    ite.addEventListener('click', function(){reset(ite)});
+    ite.addEventListener('click', function(){resett(ite)});
 }
 
-function reset(ite){
+function resett(ite){
     ite.parentElement.remove();
-    localStorage.set("reset");
+    localStorage.setItem("reset", "true");
     localStorage.setItem("karma", 0);
     localStorage.setItem("dead-bird", "false");
 
