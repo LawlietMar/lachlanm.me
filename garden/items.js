@@ -56,78 +56,13 @@ if (document.readyState == 'loading') {
     document.addEventListener('DOMContentLoaded', ready);
 } else {
     // If the document is already loaded, call the 'ready' function immediately
-    sleep(35).then(() => {console.log(5);ready();});
+    ready();
 }
 
 // Function to initialize various elements and set up event listeners
 function ready() {
-    localStorage.setItem("has-axe", "false");
-    localStorage.setItem("has-shovel", "false");
-    localStorage.setItem("has-can", "false");
-    localStorage.setItem("has-daisy-seeds", "false");
-    localStorage.setItem("has-rose-seeds", "false");
-    localStorage.setItem("free", 1);
     // Initialize the 'selected' item in local storage to -1 (no item selected)
     localStorage.setItem("selected", -1);
-
-    // Set up the axe button behavior based on whether the axe is already taken
-    var axeBut = document.getElementsByClassName("axe-button")[0];
-    if (localStorage.getItem("has-axe") == "true") {
-        take(axeBut, "axe");
-        console.log(7);
-    } 
-    else {
-        console.log(8);
-        axeBut.addEventListener('click', function tk() {
-            axeBut.removeEventListener('click', tk);
-            take(axeBut, "axe");
-        });
-    }
-
-    // Set up the shovel button behavior based on whether the shovel is already taken
-    var shovelBut = document.getElementsByClassName("shovel-button")[0];
-    if (localStorage.getItem("has-shovel") == "true") {
-        take(shovelBut, "shovel");
-    } else {
-        shovelBut.addEventListener('click', function tk() {
-            shovelBut.removeEventListener('click', tk);
-            take(shovelBut, "shovel");
-        });
-    }
-
-    // Set up the can button behavior based on whether the can is already taken
-    var canBut = document.getElementsByClassName("can-button")[0];
-    if (localStorage.getItem("has-can") == "true") {
-        take(canBut, "can");
-    } else {
-        canBut.addEventListener('click', function tk() {
-            document.getElementById("behind-can").classList.remove("invis");
-            canBut.removeEventListener('click', tk);
-            take(canBut, "can");
-        });
-    }
-
-    // Set up the rose seeds button behavior based on whether the rose seeds are already taken
-    var roseBut = document.getElementsByClassName("rose-seeds")[0];
-    if (localStorage.getItem("has-rose-seeds") == "true") {
-        take(roseBut, "rose-seeds");
-    } else {
-        roseBut.addEventListener('click', function tk() {
-            roseBut.removeEventListener('click', tk);
-            take(roseBut, "rose-seeds");
-        });
-    }
-
-    // Set up the daisy seeds button behavior based on whether the daisy seeds are already taken
-    var daisyBut = document.getElementsByClassName("daisy-seeds")[0];
-    if (localStorage.getItem("has-daisy-seeds") == "true") {
-        take(daisyBut, "daisy-seeds");
-    } else {
-        daisyBut.addEventListener('click', function tk() {
-            daisyBut.removeEventListener('click', tk);
-            take(daisyBut, "daisy-seeds");
-        });
-    }
 
     // Initialize the items and start the rain animation functions
     initItems();
@@ -195,25 +130,19 @@ function initItems(){ // Initialize item slots
     initItemsMeat(1); // Initialize items starting from slot 1
 }
 
-function initItemsMeat(i) { 
-    if (i < localStorage.getItem("free")) {
+function initItemsMeat(i){ // Recursive function to initialize items
+    if (i < localStorage.getItem("free")){ // Check if the slot should be initialized
         var nam = localStorage.getItem("spot" + i);
         var spot = document.getElementById("spot" + i);
-        if (spot) {
-            spot.innerHTML = arts[nam];
-            console.log(`Spot ${i} initialized with ${nam}`);
-            spot.addEventListener('click', function () { select(i) });
-        }
-        sleep(10).then(() => {
-            i = i + 1;
-            initItemsMeat(i);
-        });
+        spot.innerHTML = arts[nam]; // Set innerHTML to corresponding art
+        spot.addEventListener('click', function(){select(i)}); // Add click event listener
+        sleep(5).then(() => {initItemsMeat(i+1)}) // Recursive call with delay
     }
 }
 
 function getIte(name){ // Function to get item and update local storage
     const free = localStorage.getItem("free");
-    var spot = document.getElementById("spot" + free);
+    const spot = document.getElementById("spot" + free);
     spot.innerHTML = arts[name]; // Set innerHTML to corresponding art
     localStorage.setItem("spot" + free, name); // Update local storage with item name
     localStorage.setItem("has-" + name, "true"); // Mark item as taken in local storage

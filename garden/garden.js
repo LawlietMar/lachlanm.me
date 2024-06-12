@@ -6,12 +6,14 @@ if (document.readyState == 'loading') {
 
 function ready(){
     var path = localStorage.getItem("path");
-    if (!(path.substring(path.lastIndexOf(" ")) == " ../garden/garden.html")){
+    if (!(path.substring(0, path.substring(0, path.lastIndexOf(" ")).lastIndexOf(" ")) == " ../garden/garden.html")){
+        localStorage.setItem("path", path.substring(0, path.lastIndexOf(" ")));
+    }
+    else if (!(path.substring(path.lastIndexOf(" ")) == " ../garden/garden.html")){
         path = path + " ../garden/garden.html"
         localStorage.setItem("path",path);
-    }
+    }   
 
-    initItems();
     sleep(40).then(() => {rainInc(); rainfInc();});
 
     var back = document.getElementsByClassName("back")[0];
@@ -155,43 +157,6 @@ function rainfInc(){
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-function initItems(){
-    var item;
-    const items = ["key", "axe"];
-    for (let i = 0; i<items.length;i++){
-        if (localStorage.getItem("has-" +items[i]) == "true"){
-            item = document.getElementById(items[i]);
-            if (item.classList.contains("selected")){``
-                item.classList.remove("selected");
-            }
-            item.classList.remove("hidden");
-            addList(item);
-        }
-    }
-}
-
-function addList(item){
-    item.addEventListener('click', function(){select(item)});
-}
-
-function select(item){
-    var sel = false;
-    if (item.classList.contains("selected")){
-        sel = true;
-    }
-    var ite;
-    let items = ["key", "axe"];
-    for (let i = 0; i<items.length;i++){
-        ite = document.getElementById(items[i]);
-        if (ite.classList.contains("selected")){
-            ite.classList.remove("selected");
-        }
-    }
-    if (!sel){ 
-        item.classList.add("selected");
-    }
 }
 
 function goBack(){

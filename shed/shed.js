@@ -13,9 +13,12 @@ function ready() {
     var path = localStorage.getItem("path");
     
     // If the current path does not end with '../shed/shed.html', append it
-    if (!(path.substring(path.lastIndexOf(" ")) == " ../shed/shed.html")) {
-        path = path + " ../shed/shed.html";
-        localStorage.setItem("path", path);
+    if (!(path.substring(0, path.substring(0, path.lastIndexOf(" ")).lastIndexOf(" ")) == " ../garden/garden.html")){
+        localStorage.setItem("path", path.substring(0, path.lastIndexOf(" ")));
+    }
+    else if (!(path.substring(path.lastIndexOf(" ")) == " ../garden/garden.html")){
+        path = path + " ../garden/garden.html"
+        localStorage.setItem("path",path);
     }
 
     // Get the 'back' button element and add an event listener to go back to the previous page
