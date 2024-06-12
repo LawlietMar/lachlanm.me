@@ -82,10 +82,12 @@ function ready() {
         put(lpotBut, "rose");
     } else {
         lpotBut.addEventListener('click', function pt() {
-            localStorage.setItem("lpot-full", "true");
-            checkPortal();
-            lpotBut.removeEventListener('click', pt);
-            put(lpotBut, "rose");
+            if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "rose"){
+                localStorage.setItem("lpot-full", "true");
+                checkPortal();
+                lpotBut.removeEventListener('click', pt);
+                put(lpotBut, "rose");
+            }
         });
     }
 
@@ -98,10 +100,12 @@ function ready() {
             put(rpotBut, "daisy");
         } else {
             rpotBut.addEventListener('click', function pt() {
-                localStorage.setItem("rpot-full", "true");
-                checkPortal();
-                rpotBut.removeEventListener('click', pt);
-                put(rpotBut, "daisy");
+                if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "daisy"){
+                    localStorage.setItem("rpot-full", "true");
+                    checkPortal();
+                    rpotBut.removeEventListener('click', pt);
+                    put(rpotBut, "daisy");
+                }
             });
         }
     });

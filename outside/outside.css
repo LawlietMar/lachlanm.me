@@ -44,6 +44,11 @@ body {
     background-color: transparent;
 }
 
+.in-list{
+    line-height: 9px;
+    color:inherit;
+}
+
 .rain{
     position: fixed; 
     top:53px;
@@ -125,27 +130,6 @@ body {
     text-align: left;
     list-style-type: none;
     color: inherit;
-}
-
-.artln{
-    line-height: 6px;
-    color: inherit;
-}
-
-.red{
-    color:red;
-}
-
-.yellow{
-    color:yellow;
-}
-
-.white{
-    color:white;
-}
-
-.green{
-    color:rgb(34, 171, 34)
 }
 
 .hidden{

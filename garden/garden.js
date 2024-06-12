@@ -2,6 +2,7 @@
 var art = {};
 import { getArt } from "../artHold.js";
 var arts = getArt();
+console.log(arts["daisy-seeds"]);
 
 if (document.readyState == 'loading') {
     document.addEventListener('DOMContentLoaded', ready);

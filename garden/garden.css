@@ -40,6 +40,11 @@ body {
     background-color: transparent;
 }
 
+.in-list{
+    line-height: 9px;
+    color:inherit;
+}
+
 .rain{
     position: fixed; 
     top:53px;
