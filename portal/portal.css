@@ -1,12 +1,11 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 *{
     color:rgb(202, 199, 199);
     font-family: Comfortaa;
     cursor: pointer;
-    overscroll-behavior: none;
 }
 
 body {
@@ -35,15 +34,93 @@ body {
     padding-top: 2%;
 }
 
+.invis{
+    color: transparent;
+    opacity: 0;
+}
+
 .hide{
     outline-color: transparent;
     border-color: transparent;
     background-color: transparent;
 }
 
-.in-list{
-    line-height: 9px;
-    color:inherit;
+.map-pc{
+    position: fixed; 
+    top:615px;
+    left:1000px; 
+    width:80px;
+    height: 75px;
+}
+
+.map1-del{
+    position: fixed; 
+    top:585px;
+    left:1000px;
+}
+
+.rose-del{
+    position: fixed; 
+    top:340px;
+    left:273px;
+}
+
+#bird-del{
+    position: fixed; 
+    top:300px;
+    left:1165px;
+}
+
+.daisy-del{
+    position: fixed; 
+    top:340px;
+    left:815px;
+}
+
+#portal-del{
+    position: fixed; 
+    top:300px;
+    left:440px;
+}
+
+.pool{
+    position: fixed; 
+    top:310px;
+    left:970px;
+    width: 190px;
+    height: 110px;
+}
+
+#bird{
+    position: fixed; 
+    top:325px;
+    left:1170px;
+    width: 80px;
+    height: 60px;
+}
+
+#lpot{
+    position: fixed; 
+    top:420px;
+    left:310px;
+    width: 65px;
+    height: 80px;
+}
+
+#rpot{
+    position: fixed; 
+    top:420px;
+    left:860px;
+    width: 65px;
+    height: 80px;
+}
+ 
+#portal{
+    position: fixed; 
+    top:340px;
+    left:445px;
+    width: 350px;
+    height: 205px;
 }
 
 .rain{
@@ -59,80 +136,11 @@ body {
 }
 
 .back{
-    position: fixed; 
-    top:720px;
-    left:300px;
-    height: 60px;
-    width: 920px;
-}
-
-.rose-seeds{
-    position: fixed; 
-    top:560px;
-    left:750px;
-    height: 25px;
-    width: 20px;
-}
-
-.rose-seeds-del{
-    position: fixed; 
-    top:540px;
-    left:750px;
-}
-
-.daisy-seeds{
     position:fixed;
-    top:560px;
-    left:690px;
-    height: 25px;
-    width: 25px;
-}
-
-.daisy-seeds-del{
-    position: fixed; 
-    top:540px;
-    left:690px;
-}
-
-.axe-button{
-    position:fixed;
-    top: 370px;
-    left:958px;
-    height: 200px;
-    width: 65px;
-}
-
-.axe-del{
-    position: fixed; 
-    top:339px;
-    left:958px;
-}
-
-.shovel-button{
-    position:fixed;
-    top:360px;
-    left:855px;
-    height: 220px;
-    width: 65px;
-}
-
-.shovel-del{
-    position: fixed; 
-    top:330px;
-    left:850px;
-}
-
-.can-button{
-    position:fixed;
-    top:505px;
-    left:590px;
-    height: 85px;
-    width: 90px;
-}
-.can-del{
-    position: fixed; 
-    top:465px;
-    left:540px;
+    top:675px;
+    left:570px;
+    height: 105px;
+    width: 305px;
 }
 
 .left {
@@ -173,11 +181,37 @@ body {
 
 .item{
     position: fixed;
-    padding: 0%;
+    padding-left: 0%;
     line-height: 4px;
     text-align: left;
     list-style-type: none;
     color: inherit;
+}
+
+.in-list{
+    line-height: 9px;
+    color:inherit;
+}
+
+.artln{
+    line-height: 6px;
+    color: inherit;
+}
+
+.spl {
+    position: fixed;
+    top: 292px;
+    left:928px;
+}
+
+.splashes{
+    font-family: Monteserrat;
+    font-weight: 100;
+}
+
+.hidden{
+    color: transparent;
+    border-color: transparent;
 }
 
 #spot1{
@@ -225,8 +259,16 @@ body {
     color: inherit;
 }
 
+.purple{
+    color: purple;
+}
+
 .red{
     color:red;
+}
+
+.maroon{
+    color:maroon
 }
 
 .yellow{

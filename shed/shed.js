@@ -1,61 +1,7 @@
 // A dictionary (object) containing various items represented as HTML strings.
 var art = {};
-var arts = {
-    // Key item HTML representation
-    "key" : `
-                <ul class="item" id="key">
-                    <li class="art artln"><span class="art artln">      .---.                </span></li>
-                    <li class="art artln"><span class="art artln">     l      \`--^-^--^-. </span></li>
-                    <li class="art artln"><span class="art artln">     l  O   ----------*</span></li>
-                    <li class="art artln"><span class="art artln">      \`----’</span></li>     
-                </ul>
-            `,
-    // Axe item HTML representation
-    "axe" : `
-                <ul class="item" id="axe">
-                    <li class="art artln"><span class="art artln">                       ..  </span></li>
-                    <li class="art artln"><span class="art artln">            ...---***-:\` </span></li>
-                    <li class="art artln"><span class="art artln">   ...---***---**\\    \`-.  </span></li>
-                    <li class="art artln"><span class="art artln">  *---***         *--..--* </span></li>     
-                </ul>
-            `,
-    // Shovel item HTML representation
-    "shovel": `
-                <ul class="item" id="shovel">
-                    <li class="art artln"><span class="art artln">   .                  .--...</span></li>
-                    <li class="art artln"><span class="art artln">  : /\`-............../ .... \\</span></li>
-                    <li class="art artln"><span class="art artln">  : /.-**********| *** /</span></li>
-                    <li class="art artln"><span class="art artln">   *                 *--** </span></li>     
-                </ul>
-            `,
-    // Rose seeds item HTML representation
-    "rose-seeds" : `
-                <ul class="item" id="rose-seeds">
-                    <li class="art artln"><span class="art artln">         .-:::::::-.</span></li>
-                    <li class="art artln"><span class="art artln">      <span class="art invis in-list">-</span>  |  ..-..  |</span></li>
-                    <li class="art artln"><span class="art artln">      <span class="art invis in-list">-</span>  | ((o))<span class="art invis in-list">*</span>|</span></li>
-                    <li class="art artln"><span class="art artln">         l..........l</span></li>     
-                </ul>
-            `,
-    // Daisy seeds item HTML representation
-    "daisy-seeds" : `
-                <ul class="item" id="daisy-seeds">
-                    <li class="art artln"><span class="art artln">         .-:::::::-.</span></li>
-                    <li class="art artln"><span class="art artln">      <span class="art invis in-list">-</span>  | - o -  |</span></li>
-                    <li class="art artln"><span class="art artln">      <span class="art invis in-list">-</span>  | oOo<span class="art invis in-list">*</span>|</span></li>
-                    <li class="art artln"><span class="art artln">      <span class="art invis in-list">-</span>  l....l.....l</span></li>     
-                </ul>
-            `,
-    // Can item HTML representation
-    "can" : `
-                <ul class="item" id="can">
-                    <li class="art artln"><span class="art artln">         ..--..     .---.</span></li>
-                    <li class="art artln"><span class="art artln">   .--./**--**\\.-*.\`\`.*</span></li>
-                    <li class="art artln"><span class="art artln"><span class="art invis in-list">*</span> l.C|        *.-* **</span></li>
-                    <li class="art artln"><span class="art artln"><span class="art invis in-list">*</span>  **' *-....-*  </span></li>     
-                </ul>
-            `
-};
+import { getArt } from "../artHold.js";
+var arts = getArt();
 
 // Check if the document is still loading, and set up an event listener to initialize once loading is complete.
 if (document.readyState == 'loading') {
@@ -69,21 +15,24 @@ if (document.readyState == 'loading') {
 function ready() {
     // Initialize selected item to -1 (no selection)
     localStorage.setItem("selected", -1);
+    localStorage.setItem("free", 1);
     // Example commented code to set initial state in localStorage
     /*
-    localStorage.setItem("free", 1);
     localStorage.setItem("has-axe", 'false');
     localStorage.setItem("has-shovel", 'false');
     localStorage.setItem("has-can", 'false');
     localStorage.setItem("has-rose-seeds", 'false');
-    localStorage.setItem("has-daisy-seeds", 'false');
-    */
+    localStorage.setItem("has-daisy-seeds", 'false');*/
     
+    checkHave();
     // Get the current path from localStorage and update it if necessary.
     var path = localStorage.getItem("path");
-    if (!(path.substring(path.lastIndexOf(" ")) == " ../shed/shed.html")) {
-        path = path + " ../shed/shed.html";
-        localStorage.setItem("path", path);
+    if ((path.substring(path.substring(0, path.lastIndexOf(" ")).lastIndexOf(" "), path.lastIndexOf(" ")) == " ../shed/shed.html")){
+        localStorage.setItem("path", path.substring(0, path.lastIndexOf(" ")));
+    }
+    else if (!(path.substring(path.lastIndexOf(" ")) == " ../shed/shed.html")){
+        path = path + " ../shed/shed.html"
+        localStorage.setItem("path",path);
     }
 
     // Set up the 'back' button click event to go back to the previous page.
@@ -333,6 +282,20 @@ function rainfInc() {
 // Utility function to sleep for a given number of milliseconds.
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function checkHave(){
+    var tems = [];
+    for (var i = 1; i < 9; i++){
+        if (!(localStorage.getItem("spot" + i) == 0)){
+            tems.push(localStorage.getItem("spot" + i));
+        }
+    }
+    for (let tem in tems){
+        if (localStorage.getItem("has-" + tems[tem]) == "true"){
+            getIte(tems[tem]);
+        }
+    }
 }
 
 // Function to initialize and reset items in the inventory.

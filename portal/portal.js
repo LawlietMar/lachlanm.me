@@ -2,6 +2,7 @@
 var art = {};
 import { getArt } from "../artHold.js";
 var arts = getArt();
+var bypass = false;
 
 if (document.readyState == 'loading') {
     document.addEventListener('DOMContentLoaded', ready);
@@ -14,6 +15,9 @@ function ready() {
     // Initialize selected item to -1 (no selection)
     localStorage.setItem("selected", -1);
     localStorage.setItem("free", 1);
+    /*localStorage.setItem("rpot-full", "true");
+    localStorage.setItem("lpot-full", "true");*/
+
     // Example commented code to set initial state in localStorage
     /*
     localStorage.setItem("has-axe", 'false');
@@ -25,90 +29,190 @@ function ready() {
     checkHave();
     // Get the current path from localStorage and update it if necessary.
     var path = localStorage.getItem("path");
-    if ((path.substring(path.substring(0, path.lastIndexOf(" ")).lastIndexOf(" "), path.lastIndexOf(" ")) == " ../outside/outside.html")){
+    if ((path.substring(path.substring(0, path.lastIndexOf(" ")).lastIndexOf(" "), path.lastIndexOf(" ")) == " ../portal/portal.html")){
         localStorage.setItem("path", path.substring(0, path.lastIndexOf(" ")));
     }
-    else if (!(path.substring(path.lastIndexOf(" ")) == " ../outside/outside.html")){
-        path = path + " ../outside/outside.html"
+    else if (!(path.substring(path.lastIndexOf(" ")) == " ../portal/portal.html")){
+        path = path + " ../portal/portal.html"
         localStorage.setItem("path",path);
     }
 
     // Set up the 'back' button click event to go back to the previous page.
     var back = document.getElementsByClassName("back")[0];
     back.addEventListener('click', goBack);
+
+    var pool = document.getElementsByClassName("pool")[0];
+    pool.addEventListener('click', function(){
+        if(localStorage.getItem("spot" + localStorage.getItem("selected")) == "can"){
+            localStorage.setItem("ascii-water", "true");
+            removeIte(localStorage.getItem("selected"));
+            getIte("can");
+        }
+    });
     
     // Initialize items and start rain effects
     initItems();
-    sleep(40).then(() => { rainInc(); rainfInc(); checkOpen()});
-    
-    var fore = document.getElementsByClassName("hide")[1];
-    fore.addEventListener('click', checkOpen);
+    sleep(40).then(() => { rainInc(); rainfInc(); splashInc();});
+
+    var mapBut = document.getElementsByClassName("map-pc")[0];
+    if (localStorage.getItem("has-map1") == "true") {
+        take(mapBut, "map1");
+    } else {
+        mapBut.addEventListener('click', function tk() {
+            mapBut.removeEventListener('click', tk);
+            take(mapBut, "map1");
+        });
+    }
+
+    var lpotBut = document.getElementsByClassName("lpot")[0];
+    if (localStorage.getItem("lpot-full") == "true") {
+        bypass = true;
+        checkPortal();
+        put(lpotBut, "rose");
+    } else {
+        lpotBut.addEventListener('click', function pt() {
+            localStorage.setItem("lpot-full", "true");
+            checkPortal();
+            lpotBut.removeEventListener('click', pt);
+            put(lpotBut, "rose");
+        });
+    }
+
+    sleep(10).then(() => {
+        var rpotBut = document.getElementsByClassName("rpot")[0];
+        if (localStorage.getItem("rpot-full") == "true") {
+            bypass = true;
+            checkPortal();
+            put(rpotBut, "daisy");
+        } else {
+            rpotBut.addEventListener('click', function pt() {
+                localStorage.setItem("rpot-full", "true");
+                checkPortal();
+                rpotBut.removeEventListener('click', pt);
+                put(rpotBut, "daisy");
+            });
+        }
+    })
+
+    var bird = document.getElementById("bird");
+    if (localStorage.getItem("dead-bird") == "true"){
+        document.getElementById("bird-del").innerHTML = `
+                <ul id="bird-del" class="art item">
+                <li class="art in-list"><span class="art in-list"></span></li>
+                <li class="art in-list"><span class="art in-list"></span></li>
+                <li class="art in-list"><span class="art in-list"></span></li>
+                <li class="art in-list"><span class="art in-list"></span></li>
+                <li class="art in-list"><span class="art in-list"></span></li>
+                <li class="art in-list"><span class="art in-list"></span>   <span class="art in-list red">-</span><span class="art in-list maroon">.</span>-<span class="art in-list maroon">.</span><span class="art in-list red">%</span><span class="art in-list maroon">-*.</span></li>
+                <li class="art in-list"><span class="art in-list"></span><span class="art in-list maroon">&lt;/</span>*<span class="art in-list maroon">%-</span><span class="art in-list red"></span>*<span class="art in-list maroon">.</span><span class="art in-list red">--.</span> </li>
+                </ul>
+            `;
+    }
+
+    else {
+        bird.addEventListener('click', function kl(){
+            if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "axe"){
+                localStorage.setItem("karma", parseInt(localStorage.getItem("karma"))-1);
+                document.getElementById("bird-del").innerHTML = `
+                    <ul id="bird-del" class="art item">
+                    <li class="art in-list"><span class="art in-list"></span></li>
+                    <li class="art in-list"><span class="art in-list"></span></li>
+                    <li class="art in-list"><span class="art in-list"></span></li>
+                    <li class="art in-list"><span class="art in-list"></span></li>
+                    <li class="art in-list"><span class="art in-list"></span></li>
+                    <li class="art in-list"><span class="art in-list"></span>   <span class="art in-list red">-</span><span class="art in-list maroon">.</span>-<span class="art in-list maroon">.</span><span class="art in-list red">%</span><span class="art in-list maroon">-*.</span></li>
+                    <li class="art in-list"><span class="art in-list"></span><span class="art in-list maroon">&lt;/</span>*<span class="art in-list maroon">%-</span><span class="art in-list red"></span>*<span class="art in-list maroon">.</span><span class="art in-list red">--.</span> </li>
+                    </ul>
+                `
+                bird.removeEventListener('click', kl);
+                localStorage.setItem("dead-bird", "true");
+            }
+        });
+    }
 }
 
-function checkOpen(){
-    if ((localStorage.getItem('has-forest') == 'true') || localStorage.getItem("spot" + localStorage.getItem("selected")) == "axe"){
-        localStorage.setItem('has-forest', 'true');
-        var pict = document.getElementById("picture");
-        pict.innerHTML = `
-                <span class="art">--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
-                <span class="art">|          /         \\   /\\    /\\     /      \\          /             \\          /     \\                                 /        \\   /..        ..\\    /\\/\\ */                \\            /      \\  /\\  */\\     |</span>
-                <span class="art">|/\\      /             \\/  \\  /  \\   /.      .\\  /\\    /               \\    /\\  /       \\                               /          \\/\\ /**----**\\    /  \\ \\/.....        .....\\          /        \\/  \\ /* \\    |</span>
-                <span class="art">|  \\   /                 \\  \\/    \\   /**'**\\  /  \\  /                 \\/\\/  \\/         \\                             /            \\ /            \\  /    \\  /     *****     \\    /\\  //.        .\\   /*  *\\   |</span>
-                <span class="art">|   \\/                     \\/      \\ /        \\/    \\/                   \\ \\  /..       ..\\                           /..          ..\\              \\/      \\/                   \\/\\/  \\/  /*-----*\\  /    - \\   |</span>
-                <span class="art">|  /                         \\      /          \\     --....       ....---  \\  / ***** \\                             /*--....--*\\                \\.   ../                     \\/    \\  /          \\/     *  \\  |</span>
-                <span class="art">|/                             \\   /            \\.....\\/    *****    \\     \\/           \\                           /              \\                \\** /                       \\     \\/           \\      -   \\ |</span>
-                <span class="art">|                                \\/              \\   /                 \\     /             \\                         /                \\              ..\\  /                         \\    /             \\..     ...\\|</span>
-                <span class="art">|...                       ........\\..       .....\\ /.*--....    ....--*.\\ /               \\                      /                   \\-----*****\\  /....                   ....\\  /               \\ **-*\\   |</span>
-                <span class="art">|  /*****--------***** \\ '    /  *****   \\   /           -         \\/...            ...\\                   /....             ....\\   *-        \\    / *****-----***** \\   /.....       .....\\       \\ |</span>
-                <span class="art">|/                            \\   /              \\ /                       \\  /***-----**\\                        / ********** \\           *    \\  /         -               \\   /   ******   \\         \\|</span>
-                <span class="art">|                               \\/                \\                         \\/               \\                      /                  \\                \\/                           \\ /                \\          |</span>
-                <span class="art">|                                 \\                \\                        /                 \\                    /                    \\               /                             \\                  \\       ..|</span>
-                <span class="art">|                                   \\               \\--................---/       -           \\                 /          -            \\         ..../                               \\                  \\****| |</span>
-                <span class="art">|                              -      \\........-----\\  ||  .----. |     /                     \\                /.........................\\***** | /.................................\\-...........-----\\  |  | | </span>
-                <span class="art">|          -               *            \\  |  |         | ||\`---\`| |    /-----...........-----\\                      |  -----  |   | |      |   |           | | .----.|  |            |   |   | |    \\.l...../ | </span>
-                <span class="art">|-----.......................----------\\   |          \\.|   |  |./           |      |   |                 </span><span class="art invis">-</span><span class="art">          |    |     |   |    |       |           |   |\`---\`|| |            |   |     |              |</span>
-                <span class="art">|          |  |    |   | |   \\...../| |  |    |   ,\`-\`-\`-\`-\`-\`-\`-\`-\`-\`-     | |        |                 </span><span class="art invis">*</span><span class="art">          | |     |  |    \\.........l./        \`-\`-\`-\`-\`-\`-\`-\`-\`-\`-      \\.l......./              |</span>
-                <span class="art">|          |       |     |          \\.l......./ &lt;     Garden      |.     |       |  |                 </span><span class="art invis">-</span><span class="art">          \\.l......./                         .|       Beach      \`&gt;                           |</span>
-                <span class="art">|          | |           |                         \`------------------       \\...l...../                 </span><span class="art invis">-*</span><span class="art">                                              --------------------’                             | </span>
-                <span class="art">|           \\.........../                                  | |    |                                          </span><span class="art invis">-</span><span class="art">                                                     |   |   |                                       |</span>
-                <span class="art">|                                                          |    | |                                          </span><span class="art invis">-</span><span class="art">                                                     |       |                                       |</span>
-                <span class="art">|                                                          |    | |                                          </span><span class="art invis">*</span><span class="art">                                                     | |   | |                                       |</span>
-                <span class="art">|                                                          ||     |                                          </span><span class="art invis">-</span><span class="art">                                                     | |     |                                       |</span>
-                <span class="art">|                                                          ||  |  |                                         </span><span class="art invis">--</span><span class="art">                                                     |    |  |                                       |</span>
-                <span class="art">|                                                          |  |   |                                          </span><span class="art invis">*</span><span class="art">                                                     |    |  |                                       |</span>
-                <span class="art">| -----------------------------------------------|*----*|-------------------------------------------------------------------------------|*----*|-------------------------------  |</span>
-                <span class="art">|                                                          *----*                                                                                                  -----*                                       | </span>
-                <span class="art">|                                                                                                                                                                                                                  |</span>
-                <span class="art">|                                                                                                                                                                                                                  | </span>
-                <span class="art">|                                                                                                                                                                                                                  | </span>
-                <span class="art">|                                                                                                                                                                                                                  |</span>
-                <span class="art">|                                                                                                                                                                                                                  |</span>
-                <span class="art">| -----------------------------------------------------------------------------                           -------------------------------------------------------------------------- |</span>
-                <span class="art">|                                                                                           /                           \\                                                                                          |</span>
-                <span class="art">|                                                                                          /                             \\                                                                                         | </span>
-                <span class="art">|                                                                                         /                               \\                                                                                        |</span>
-                <span class="art">|                                                                                        /                                 \\                                                                                       |</span>
-                <span class="art">|                                                                                       /                                   \\                                                                                      | </span>
-                <span class="art">|                                                                                      /                                     \\                                                                                     | </span>
-                <span class="art">|                                                                                     /                                       \\                                                                                    |</span>
-                <span class="art">|                                                                                    /                                         \\                                                                                   |</span>
-                <span class="art">|                                                                                   /                                           \\                                                                                  |</span>
-                <span class="art">|                                                                                  /                                             \\                                                                                 |</span>
-                <span class="art">|                                                                                 /                                               \\                                                                                |</span>
-                <span class="art">|                                                                                /                                                 \\                                                                               |</span>
-                <span class="art">|                                                                               /                                                   \\                                                                              | </span>
-                <span class="art">|                                                                              /                                                     \\                                                                             | </span>
-                <span class="art">--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>;`
-        var fore = document.getElementsByClassName("hide")[1];
-        fore.removeEventListener('click', checkOpen);
-        fore.addEventListener('click', function(){
-            window.location.href = "../portal/portal.html";
-        })
+function checkPortal(){
+    var port = document.getElementById("portal");
+    var portDel = document.getElementById("portal-del");
+    if (localStorage.getItem("lpot-full") == "true" && localStorage.getItem("rpot-full") == "true"){
+        localStorage.setItem("portal1-open", "true");
+        port.addEventListener('click', goPixel);
+        if (portDel.classList.contains("invis")){
+            portDel.classList.remove("invis");
+        }
+    }
+    else {
+        localStorage.setItem("portal1-open", "false");
+        port.removeEventListener('click', goPixel);
+        portDel.classList.add("invis");
+    }
+}
+
+function goPixel(){
+
+}
+
+function take(button, name) {
+    if (localStorage.getItem("free") < 9) {
+        document.getElementsByClassName(name + "-del")[0].classList.add("invis");
+        if (name == "can") {
+            document.getElementById("behind-can").classList.remove("invis");
+        }
+        if (!(localStorage.getItem("has-" + name) == "true")) {
+            getIte(name);
+            initItems();
+        }
+        button.addEventListener('click', function pt() {
+            button.removeEventListener('click', pt);
+            put(button, name);
+        });
+        if (name == "rose"){
+            localStorage.setItem("lpot-full", "false");
+            checkPortal();
+        }
+        if (name == "daisy"){
+            localStorage.setItem("rpot-full", "false");
+            checkPortal();
+        }
+    }
+}
+
+// Function to remove an item from the inventory.
+function put(button, name) {
+    if (localStorage.getItem("spot" + localStorage.getItem("selected")) == name || bypass) {
+        document.getElementsByClassName(name + "-del")[0].classList.remove("invis");
+        if (name == "can") {
+            document.getElementById("behind-can").classList.add("invis");
+        }
+        if (!bypass){
+            removeIte(localStorage.getItem("selected"));
+            initItems();
+        }
+        bypass = false;
+        button.addEventListener('click', function tk() {
+            button.removeEventListener('click', tk);
+            take(button, name);
+        });
+        if (name == "rose"){
+            localStorage.setItem("lpot-full", "true");
+            checkPortal();
+        }
+        if (name == "daisy"){
+            localStorage.setItem("rpot-full", "true");
+            checkPortal();
+        }
+    } 
+    else {
+        button.addEventListener('click', function pt() {
+            button.removeEventListener('click', pt);
+            put(button, name);
+        });
     }
 }
 
 var raina = 0;
 var rainb = 23;
+var splashes = 0;
 
 var rainsa = [
     "|                     .                                                                                                                   .                                                                        |",
@@ -211,6 +315,150 @@ var rainsb = [
     "|                                                                                                                                                                                                                  |",
     "|                                                                                                                                                                                                                  |"
 ]
+
+var splashImg = [
+    `   
+        <span class="art splashes">                                        </span>
+        <span class="art splashes">                                         </span>
+        <span class="art splashes">                                         </span>
+        <span class="art splashes">                                           </span>
+        <span class="art splashes">                                        </span>
+        <span class="art splashes">                              o       </span>
+        <span class="art splashes">           o                              </span>
+        <span class="art splashes">                                     </span>
+    `,
+    `   
+        <span class="art splashes">                                        </span>
+        <span class="art splashes">       o                                 </span>
+        <span class="art splashes">                                          </span>
+        <span class="art splashes">                   o                       </span>
+        <span class="art splashes">                                         </span>
+        <span class="art splashes">                                      </span>
+        <span class="art splashes">                                          </span>
+        <span class="art splashes">                                     </span>
+    `,
+    `   
+        <span class="art splashes">                                        </span>
+        <span class="art splashes">                                         </span>
+        <span class="art splashes">                                          </span>
+        <span class="art splashes">    o                                      </span>
+        <span class="art splashes">                                         </span>
+        <span class="art splashes">                                      </span>
+        <span class="art splashes">                   o                      </span>
+        <span class="art splashes">                                     </span>
+    `,
+    `   
+        <span class="art splashes">                                        </span>
+        <span class="art splashes">                             o           </span>
+        <span class="art splashes">                                          </span>
+        <span class="art splashes">                                           </span>
+        <span class="art splashes">                                         </span>
+        <span class="art splashes">                                      </span>
+        <span class="art splashes">                                          </span>
+        <span class="art splashes">                                     </span>
+    `,   
+    `   
+        <span class="art splashes">            o                           </span>
+        <span class="art splashes">                    o                    </span>
+        <span class="art splashes">                                          </span>
+        <span class="art splashes">                                           </span>
+        <span class="art splashes">                                         </span>
+        <span class="art splashes">                                      </span>
+        <span class="art splashes">                                         </span>
+        <span class="art splashes">                                     </span>
+    `,
+    `   
+        <span class="art splashes">                                        </span>
+        <span class="art splashes">                                         </span>
+        <span class="art splashes">                                          </span>
+        <span class="art splashes">                                           </span>
+        <span class="art splashes">                                         </span>
+        <span class="art splashes">                                      </span>
+        <span class="art splashes">           o                              </span>
+        <span class="art splashes">                                     </span>
+    `,
+    `
+        <span class="art splashes">                                       </span>
+        <span class="art splashes">                                        </span>
+        <span class="art splashes">                           o              </span>
+        <span class="art splashes">                                          </span>
+        <span class="art splashes">                                         </span>
+        <span class="art splashes">                                      </span>
+        <span class="art splashes">        o                                 </span>
+        <span class="art splashes">                                     </span>
+    `,
+    `   
+        <span class="art splashes">                                        </span>
+        <span class="art splashes">                                         </span>
+        <span class="art splashes">          o                               </span>
+        <span class="art splashes">                                           </span>
+        <span class="art splashes">                            o            </span>
+        <span class="art splashes">                                      </span>
+        <span class="art splashes">                                          </span>
+        <span class="art splashes">                                     </span>
+    `,
+    `
+        <span class="art splashes">                                       </span>
+        <span class="art splashes">                                        </span>
+        <span class="art splashes">        o                                 </span>
+        <span class="art splashes">                                 o         </span>
+        <span class="art splashes">                                        </span>
+        <span class="art splashes">                                      </span>
+        <span class="art splashes">                                         </span>
+        <span class="art splashes">                                     </span>
+    `,
+    `   
+        <span class="art splashes">                                        </span>
+        <span class="art splashes">                                         </span>
+        <span class="art splashes">                                          </span>
+        <span class="art splashes">                                           </span>
+        <span class="art splashes">                                         </span>
+        <span class="art splashes">           o                          </span>
+        <span class="art splashes">                                          </span>
+        <span class="art splashes">                                     </span>
+    `,
+    `
+        <span class="art splashes">                                       </span>
+        <span class="art splashes">                     o                  </span>
+        <span class="art splashes">                                          </span>
+        <span class="art splashes">               o                           </span>
+        <span class="art splashes">                                         </span>
+        <span class="art splashes">                                      </span>
+        <span class="art splashes">       o            o                   </span>
+        <span class="art splashes">                                     </span>
+    `,
+    `
+        <span class="art splashes">                                       </span>
+        <span class="art splashes">                                      </span>
+        <span class="art splashes">                                         </span>
+        <span class="art splashes">                                          </span>
+        <span class="art splashes">                               o         </span>
+        <span class="art splashes">                                     </span>
+        <span class="art splashes">        o                              </span>
+        <span class="art splashes">                                     </span>
+    `,
+    `   
+        <span class="art splashes">                                        </span>
+        <span class="art splashes">       o                   o             </span>
+        <span class="art splashes">                                          </span>
+        <span class="art splashes">                                           </span>
+        <span class="art splashes">                                         </span>
+        <span class="art splashes">                 o                    </span>
+        <span class="art splashes">                                          </span>
+        <span class="art splashes">                                     </span>
+    `
+
+]
+
+function splashInc(){
+    splashes = splashes + 1;
+    if (splashes > 12){
+        splashes = splashes - 13;
+    }
+    document.getElementsByClassName("splashes")[0].innerHTML = splashImg[splashes];
+    sleep(150).then(() => {splashInc()});
+}
+
 function rainInc(){
     var cur;
     for (var i = 0; i < 47; i++){

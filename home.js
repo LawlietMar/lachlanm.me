@@ -8,13 +8,16 @@ var fired = false;
 var timeout;
 
 function ready(){
-    localStorage.setItem("path", "../index.html")
+    localStorage.setItem("path", "../index.html ../index.html ../index.html")
 
     var stay = document.getElementsByClassName("stay-button")[0];
     stay.addEventListener('click', rekindle);
 
     var reset = document.getElementsByClassName("reset")[0];
     reset.addEventListener("click", resetP);
+    if (!(localStorage.getItem("reset") == "true")){
+        reset(document.getElementsByClassName("reset")[0]);
+    }
 }
 
 var cnt = 20;
@@ -67,7 +70,29 @@ function resetP(){
 
 function reset(ite){
     ite.parentElement.remove();
-    localStorage.setItem("has-key", false);
+    localStorage.set("reset");
+    localStorage.setItem("karma", 0);
+    localStorage.setItem("dead-bird", "false");
+
+
+    localStorage.setItem("has-key", "true");
     localStorage.setItem("has-axe", false);
+    localStorage.setItem("has-shovel", false);
+    localStorage.setItem("has-can", false);
+    localStorage.setItem("has-rose-seeds", false);
+    localStorage.setItem("has-daisy-seeds", false);
+    localStorage.setItem("has-rose", false);
+    localStorage.setItem("has-daisy", false);
+    localStorage.setItem("has-map1", false);
     localStorage.setItem("has-forest", false);
+
+    
+    localStorage.setItem("spot1", "key");
+    localStorage.setItem("spot2", 0);
+    localStorage.setItem("spot3", 0);
+    localStorage.setItem("spot4", 0);
+    localStorage.setItem("spot5", 0);
+    localStorage.setItem("spot6", 0);
+    localStorage.setItem("spot7", 0);
+    localStorage.setItem("spot8", 0);
 }
