@@ -131,6 +131,13 @@ body {
     top: -20px;
 }
 
+#warning{
+    position: fixed;
+    left: 680px;
+    top: 400px;
+    font-size: 30px;
+}
+
 #plot1{
     position: fixed;
     left: 320px;

@@ -201,6 +201,13 @@ function toWater(spot){
                 toGrow(spot);
             })
         }
+        else {
+            if (!(localStorage.getItem("ascii-water") == "true")){
+                var warning = document.getElementById("warning");
+                warning.classList.remove("invis");
+                sleep(1000).then(() => {warning.classList.add("invis")});
+            }
+        }
     });
 }
 

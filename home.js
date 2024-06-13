@@ -76,6 +76,7 @@ function resett(ite){
     localStorage.setItem("dead-bird", "false");
     localStorage.setItem("lpot-full", "false");
     localStorage.setItem("rpot-full", "false");
+    localStorage.setItem("ascii-water", "false");
 
 
     localStorage.setItem("has-key", "true");
