@@ -120,7 +120,7 @@ function ready() {
 function setCrop(crop){
     let sit = localStorage.getItem("plot-state" + crop);
     var text = document.getElementById("plot" + crop + "-del");
-
+    toDig(crop);
     if (sit == "toPick"){
         if (localStorage.getItem("plot-type" + crop) == "rose-seeds"){
             text.innerHTML = plArts["rose"];
@@ -157,8 +157,13 @@ function toDig(spot){
     var text = document.getElementById("plot" + spot + "-del");
 
     button.addEventListener('click', function sh(){
-        if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "shovel"){
-            button.removeEventListener('click', sh);
+        if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "shovel"){;
+            let bt = button.cloneNode(true);
+            button.parentNode.replaceChild(bt, button);
+            button = bt;
+
+            button.addEventListener('click', sh);
+            localStorage.setItem("crop-time" + spot, 0);
             localStorage.setItem("plot-state" + spot, "toPlant");
             text.innerHTML = plArts["dug"];
             toPlant(spot);

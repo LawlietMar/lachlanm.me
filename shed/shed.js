@@ -11,8 +11,10 @@ if (document.readyState == 'loading') {
     ready();
 }
 
+var init;
 // Function to set up the initial state and event listeners.
 function ready() {
+    init = "true";
     // Initialize selected item to -1 (no selection)
     localStorage.setItem("selected", -1);
     localStorage.setItem("free", 1);
@@ -97,12 +99,13 @@ function ready() {
     
     // Initialize items and start rain effects
     initItems();
-    sleep(40).then(() => { rainInc(); rainfInc(); });
+    sleep(40).then(() => { rainInc(); rainfInc(); init = "false";});
 }
 
 // Function to take an item and add it to inventory if there is space.
 function take(button, name) {
-    if (localStorage.getItem("free") < 9) {
+    if (localStorage.getItem("free") < 9 || init == "true") {
+        console.log(5);
         document.getElementsByClassName(name + "-del")[0].classList.add("invis");
         if (name == "can") {
             document.getElementById("behind-can").classList.remove("invis");
