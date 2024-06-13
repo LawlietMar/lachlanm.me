@@ -1,8 +1,77 @@
 // A dictionary (object) containing various items represented as HTML strings.
+//Award arts
+var plArts = {
+    "dug" : `
+                <ul class="item">
+                    <li class="art hole"><span class="art hole"></span></li>
+                    <li class="art hole"><span class="art hole"></span></li>
+                    <li class="art hole"><span class="art hole">         ...--...  </span></li>
+                    <li class="art hole"><span class="art hole">       .*        *. </span></li>
+                    <li class="art hole"><span class="art hole">        *--...--*  </span></li>  
+                </ul>
+            `,
+    "planted" :`
+                <ul class="item">
+                    <li class="art hole"><span class="art hole"></span></li>
+                    <li class="art hole"><span class="art hole"></span></li>
+                    <li class="art hole"><span class="art hole">        - . * - </span></li>
+                    <li class="art hole"><span class="art hole">       ~ ^*. ~. </span></li>
+                    <li class="art hole"><span class="art hole">        ~ * ,’‘     </span></li>  
+                </ul>
+            `,
+    "watered" :`
+                <ul class="item">
+                    <li class="art hole"><span class="art hole">         | </span></li>
+                    <li class="art hole"><span class="art hole">        ||     </span></li>  
+                </ul>
+            `,
+    "rose" :`
+                <ul class="item up">
+                    <li class="art flower"><span class="art red flower">        ..-..</span></li>  
+                    <li class="art flower"><span class="art red flower">       ((o))   </span></li>
+                    <li class="art flower"><span class="art flower">        <span class="art green flower">\\</span><span class="art red flower">~</span><span class="art green flower">/</span>   <span class="art red flower">..-..</span></span></li>
+                    <li class="art flower"><span class="art flower">       *<span class="art green flower">/|</span>    <span class="art red flower">((o))</span></span></li>
+                    <li class="art flower"><span class="art flower">        <span class="art green flower">|\\      \\</span><span class="art red flower">~</span><span class="art green flower">/-</span>*</span></li>  
+                    <li class="art flower"><span class="art flower">      *<span class="art green flower">-\\|</span>*   *<span class="art green flower">|/</span></span></li>
+                    <li class="art flower"><span class="art flower">         *<span class="art green flower">\\\\  //</span> </span></li>  
+                    <li class="art flower"><span class="art flower">           \\<span class="art green flower">| /</span>*</span></li>
+                    <li class="art flower"><span class="art flower">           *<span class="art green flower">||</span> </span></li>
+                    <li class="art flower"><span class="art flower"></span></li>
+                    <li class="art flower"><span class="art flower"></span></li>
+                    <li class="art flower"><span class="art flower"></span></li>
+                    <li class="art flower"><span class="art flower"></span></li>
+                    <li class="art flower"><span class="art flower"></span></li>
+                    <li class="art flower"><span class="art flower"></span></li>
+                    <li class="art flower"><span class="art flower"></span></li>     
+                </ul>
+            `,
+    "daisy" :`
+                <ul class="item up">
+                    <li class="art flower"><span class="art blue flower">              - o -   </span></li>
+                    <li class="art flower"><span class="art flower">             <span class="art blue flower">o</span> <span class="art yellow flower">O</span> <span class="art blue flower">o</span>    </span></li> 
+                    <li class="art flower"><span class="art blue flower">              - o -  </span></li>
+                    <li class="art flower"><span class="art green flower">                || </span></li> 
+                    <li class="art flower"><span class="art green flower">                || #</span></li>
+                    <li class="art flower"><span class="art green flower">                ||//</span></li> 
+                    <li class="art flower"><span class="art green flower">             # ||/ </span></li>
+                    <li class="art flower"><span class="art green flower">              \\\\||</span></li> 
+                    <li class="art flower"><span class="art green flower">               \\||</span></li>
+                    <li class="art flower"><span class="art green flower">                || </span></li>
+                    <li class="art flower"><span class="art flower"></span></li>
+                    <li class="art flower"><span class="art flower"></span></li>
+                    <li class="art flower"><span class="art flower"></span></li>
+                    <li class="art flower"><span class="art flower"></span></li>
+                    <li class="art flower"><span class="art flower"></span></li>
+                    <li class="art flower"><span class="art flower"></span></li>
+                    <li class="art flower"><span class="art flower"></span></li>  
+                </ul>
+            `
+}
+
 var art = {};
+
 import { getArt } from "../artHold.js";
 var arts = getArt();
-
 if (document.readyState == 'loading') {
     document.addEventListener('DOMContentLoaded', ready);
 } else {
@@ -12,7 +81,6 @@ if (document.readyState == 'loading') {
 
 // Function to set up the initial state and event listeners.
 function ready() {
-    window.history.replaceState("stateObj", "new page", "/");
     // Initialize selected item to -1 (no selection)
     localStorage.setItem("selected", -1);
     localStorage.setItem("free", 1);
@@ -44,6 +112,120 @@ function ready() {
     sleep(40).then(() => { rainInc(); rainfInc(); });
     var shed = document.getElementsByClassName("shed")[0];
     shed.addEventListener('click', ifKey);
+
+    for (var i = 1; i<7; i++){
+        setCrop(i);
+    }
+}
+
+function setCrop(crop){
+    let sit = localStorage.getItem("plot-state" + crop);
+
+    if (sit == "toPick"){
+        toPick(crop);
+    }
+
+    if (sit == "toGrow"){
+        toGrow(crop);
+    }
+
+    if (sit == "toWater"){
+        toWater(crop);
+    }
+
+    if (sit == "toPlant"){
+        toPlant(crop);
+    }
+
+    if (sit == "toDig"){
+        toDig(crop);
+    }
+}
+
+function toDig(spot){
+    var button = document.getElementById("plot" + spot);
+    var text = document.getElementById("plot" + spot + "-del");
+
+    button.addEventListener('click', function sh(){
+        if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "shovel"){
+            button.removeEventListener('click', sh);
+            localStorage.setItem("plot-state" + spot, "toPlant");
+            text.innerHTML = plArts["dug"];
+            toPlant(spot);
+        }
+    });
+}
+
+function toPlant(spot){
+    var button = document.getElementById("plot" + spot);
+    var text = document.getElementById("plot" + spot + "-del");
+
+    button.addEventListener('click', function pl(){
+        var type = localStorage.getItem("spot" + localStorage.getItem("selected"));
+        if (type == "daisy-seeds" || type == "rose-seeds"){
+            button.removeEventListener('click', pl);
+            localStorage.setItem("plot-state" + spot, "toWater");
+            text.innerHTML = plArts["planted"];
+            localStorage.setItem("plot-type" + spot, type);
+            toWater(spot);
+        }
+    })
+}
+
+function toWater(spot){
+    var button = document.getElementById("plot" + spot);
+    var text = document.getElementById("plot" + spot + "-del");
+
+    button.addEventListener('click', function wt(){
+        if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "can" && localStorage.getItem("ascii-water") == "true"){
+            button.removeEventListener('click', wt);
+            localStorage.setItem("plot-state" + spot, "toGrow");
+            text.innerHTML = plArts["watered"];
+            toGrow(spot);
+            sleep(15100).then(() => function(){
+                toGrow(spot);
+            })
+        }
+    });
+}
+
+function toGrow(spot){
+    const d = new Date();
+    var text = document.getElementById("plot" + spot + "-del");
+    if (localStorage.getItem("crop-time" + spot) == 0){
+        localStorage.setItem("crop-time" + spot, d.getTime());
+    }
+    var time = d.getTime();
+    if (time - localStorage.getItem("crop-time" + spot) > 15000){
+        if (localStorage.getItem("plot-type" + spot) == "rose-seeds"){
+            text.innerHTML = plArts["rose"];
+        }
+        else {
+            text.innerHTML = plArts["rose"];
+        }
+        toPick(spot);
+    }
+}
+
+function toPick(spot){
+    var button = document.getElementById("plot" + spot);
+    var text = document.getElementById("plot" + spot + "-del");
+
+    button.addEventListener('click', function pi(){
+        if (localStorage.getItem("free") < 8){
+            button.removeEventListener('click', pi);
+            localStorage.setItem("plot-state" + spot, "toDig");
+            text.innerHTML = "";
+            toDig(spot);
+            localStorage.setItem("crop-time" + spot, 0);
+            if (localStorage.getItem("plot-type" + spot) == "rose-seeds"){
+                getIte("rose")
+            }
+            else {
+                getIte("daisy");
+            }
+        }
+    });
 }
 
 function take(button, name) {

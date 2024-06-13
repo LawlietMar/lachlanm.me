@@ -72,7 +72,10 @@ function resett(ite){
     ite.parentElement.remove();
     localStorage.setItem("reset", "true");
     localStorage.setItem("karma", 0);
+
     localStorage.setItem("dead-bird", "false");
+    localStorage.setItem("lpot-full", "false");
+    localStorage.setItem("rpot-full", "false");
 
 
     localStorage.setItem("has-key", "true");
@@ -95,4 +98,18 @@ function resett(ite){
     localStorage.setItem("spot6", 0);
     localStorage.setItem("spot7", 0);
     localStorage.setItem("spot8", 0);
+
+    localStorage.setItem("plot-state1", "toDig");
+    localStorage.setItem("plot-state2", "toDig");
+    localStorage.setItem("plot-state3", "toDig");
+    localStorage.setItem("plot-state4", "toDig");
+    localStorage.setItem("plot-state5", "toDig");
+    localStorage.setItem("plot-state6", "toDig");
+
+    localStorage.setItem("crop-time1", 0);
+    localStorage.setItem("crop-time2", 0);
+    localStorage.setItem("crop-time3", 0);
+    localStorage.setItem("crop-time4", 0);
+    localStorage.setItem("crop-time5", 0);
+    localStorage.setItem("crop-time6", 0);
 }

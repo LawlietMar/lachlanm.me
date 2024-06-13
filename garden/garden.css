@@ -126,6 +126,116 @@ body {
     color: inherit;
 }
 
+.up{
+    position: absolute;
+    top: -20px;
+}
+
+#plot1{
+    position: fixed;
+    left: 320px;
+    top: 480px;
+    width: 140px;
+    height: 80px;
+}
+
+#plot1-del{
+    position: fixed;
+    left: 320px;
+    bottom: 260px;
+    width: 140px;
+    height: 160px;
+}
+
+#plot2{
+    position: fixed;
+    left: 870px;
+    top: 480px;
+    width: 140px;
+    height: 80px;
+}
+
+#plot2-del{
+    position: fixed;
+    left: 870px;
+    bottom: 260px;
+    width: 140px;
+    height: 160px;
+}
+
+#plot3{
+    position: fixed;
+    left: 1085px;
+    top: 480px;
+    width: 140px;
+    height: 80px;
+}
+
+#plot3-del{
+    position: fixed;
+    left: 1085px;
+    bottom: 260px;
+    width: 140px;
+    height: 160px;
+}
+
+#plot4{
+    position: fixed;
+    left: 310px;
+    top: 620px;
+    width: 175px;
+    height: 100px;
+}
+
+#plot4-del{
+    position: fixed;
+    left: 310px;
+    bottom: 105px;
+    width: 175px;
+    height: 160px;
+}
+
+#plot5{
+    position: fixed;
+    left: 815px;
+    top: 620px;
+    width: 175px;
+    height: 100px;
+}
+
+#plot5-del{
+    position: fixed;
+    left: 815px;
+    bottom: 105px;
+    width: 175px;
+    height: 160px;
+}
+
+#plot6{
+    position: fixed;
+    left: 1070px;
+    top: 620px;
+    width: 175px;
+    height: 100px;
+}
+
+#plot6-del{
+    position: fixed;
+    left: 1070px;
+    bottom: 105px;
+    width: 175px;
+    height: 160px;
+}
+
+.hole{
+    line-height: 20px;
+    color: inherit;
+}
+
+.flower{
+    line-height: 15px;
+    color: inherit;
+}
 
 #spot1{
     left: 55px;
