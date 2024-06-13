@@ -47,16 +47,15 @@ var plArts = {
             `,
     "daisy" :`
                 <ul class="item up">
-                    <li class="art flower"><span class="art blue flower">              - o -   </span></li>
-                    <li class="art flower"><span class="art flower">             <span class="art blue flower">o</span> <span class="art yellow flower">O</span> <span class="art blue flower">o</span>    </span></li> 
-                    <li class="art flower"><span class="art blue flower">              - o -  </span></li>
-                    <li class="art flower"><span class="art green flower">                || </span></li> 
-                    <li class="art flower"><span class="art green flower">                || #</span></li>
-                    <li class="art flower"><span class="art green flower">                ||//</span></li> 
-                    <li class="art flower"><span class="art green flower">             # ||/ </span></li>
-                    <li class="art flower"><span class="art green flower">              \\\\||</span></li> 
-                    <li class="art flower"><span class="art green flower">               \\||</span></li>
-                    <li class="art flower"><span class="art green flower">                || </span></li>
+                    <li class="art flower"><span class="art blue flower">             - o -   </span></li>
+                    <li class="art flower"><span class="art flower">            <span class="art blue flower">o</span> <span class="art yellow flower">O</span> <span class="art blue flower">o</span>    </span></li> 
+                    <li class="art flower"><span class="art blue flower">             - o -  </span></li>
+                    <li class="art flower"><span class="art green flower">               || </span></li> 
+                    <li class="art flower"><span class="art green flower">               || #</span></li>
+                    <li class="art flower"><span class="art green flower">               ||//</span></li> 
+                    <li class="art flower"><span class="art green flower">            # ||/ </span></li>
+                    <li class="art flower"><span class="art green flower">             \\\\||</span></li> 
+                    <li class="art flower"><span class="art green flower">              \\||</span></li>
                     <li class="art flower"><span class="art flower"></span></li>
                     <li class="art flower"><span class="art flower"></span></li>
                     <li class="art flower"><span class="art flower"></span></li>
@@ -120,24 +119,35 @@ function ready() {
 
 function setCrop(crop){
     let sit = localStorage.getItem("plot-state" + crop);
+    var text = document.getElementById("plot" + crop + "-del");
 
     if (sit == "toPick"){
+        if (localStorage.getItem("plot-type" + crop) == "rose-seeds"){
+            text.innerHTML = plArts["rose"];
+        }
+        else {
+            text.innerHTML = plArts["daisy"];
+        }
         toPick(crop);
     }
 
     if (sit == "toGrow"){
+        text.innerHTML = plArts["watered"];
         toGrow(crop);
     }
 
     if (sit == "toWater"){
+        text.innerHTML = plArts["planted"];
         toWater(crop);
     }
 
     if (sit == "toPlant"){
+        text.innerHTML = plArts["dug"];
         toPlant(crop);
     }
 
     if (sit == "toDig"){
+        text.innerHTML = "";
         toDig(crop);
     }
 }
@@ -182,7 +192,7 @@ function toWater(spot){
             localStorage.setItem("plot-state" + spot, "toGrow");
             text.innerHTML = plArts["watered"];
             toGrow(spot);
-            sleep(15100).then(() => function(){
+            sleep(15200).then(() => {
                 toGrow(spot);
             })
         }
@@ -201,7 +211,7 @@ function toGrow(spot){
             text.innerHTML = plArts["rose"];
         }
         else {
-            text.innerHTML = plArts["rose"];
+            text.innerHTML = plArts["daisy"];
         }
         toPick(spot);
     }
@@ -212,7 +222,7 @@ function toPick(spot){
     var text = document.getElementById("plot" + spot + "-del");
 
     button.addEventListener('click', function pi(){
-        if (localStorage.getItem("free") < 8){
+        if (localStorage.getItem("free") < 9){
             button.removeEventListener('click', pi);
             localStorage.setItem("plot-state" + spot, "toDig");
             text.innerHTML = "";
@@ -220,9 +230,11 @@ function toPick(spot){
             localStorage.setItem("crop-time" + spot, 0);
             if (localStorage.getItem("plot-type" + spot) == "rose-seeds"){
                 getIte("rose")
+                initItems();
             }
             else {
                 getIte("daisy");
+                initItems();
             }
         }
     });
