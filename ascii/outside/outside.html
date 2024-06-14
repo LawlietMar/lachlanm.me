@@ -3,7 +3,7 @@
     <head>
         <title>Outside</title>
         <meta name="description" content="Where am I?">
-        <link rel="icon" type="image/x-icon" href="../icon.ico">
+        <link rel="icon" type="image/x-icon" href="../../icon.ico">
         <link rel="stylesheet" href="outside.css"\>
         <script type="module" src="outside.js" async></script>
         <script type="module" src="audio.js" async></script>
@@ -223,10 +223,12 @@
         </div>
 
         <a href="../garden/garden.html">
-            <button class="hide gar"></button>
+            <button tabindex="-1" class="hide gar"></button>
         </a>
         <button tabindex="-1" class="hide for"></button>
-        <button tabindex="-1" class="hide bea"></button>
+        <a href="../beach/beach.html">
+            <button tabindex="-1" class="hide bea"></button>
+        </a>
         <button tabindex="-1" class="hide back"></button>
     </body>
 </html>

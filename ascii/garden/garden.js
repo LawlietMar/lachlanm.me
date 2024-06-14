@@ -69,7 +69,7 @@ var plArts = {
 
 var art = {};
 
-import { getArt } from "../artHold.js";
+import { getArt } from "../../artHold.js";
 var arts = getArt();
 if (document.readyState == 'loading') {
     document.addEventListener('DOMContentLoaded', ready);

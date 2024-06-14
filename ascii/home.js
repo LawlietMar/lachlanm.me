@@ -72,8 +72,10 @@ function resett(ite){
     ite.parentElement.remove();
     localStorage.setItem("reset", "true");
     localStorage.setItem("karma", 0);
+    localStorage.setItem("moon", 1);
 
     localStorage.setItem("dead-bird", "false");
+    localStorage.setItem("dead-birdB", "false");
     localStorage.setItem("lpot-full", "false");
     localStorage.setItem("rpot-full", "false");
     localStorage.setItem("ascii-water", "false");

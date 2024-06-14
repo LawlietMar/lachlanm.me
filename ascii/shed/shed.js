@@ -1,6 +1,6 @@
 // A dictionary (object) containing various items represented as HTML strings.
 var art = {};
-import { getArt } from "../artHold.js";
+import { getArt } from "../../artHold.js";
 var arts = getArt();
 
 // Check if the document is still loading, and set up an event listener to initialize once loading is complete.
