@@ -126,6 +126,16 @@ function ready() {
                 </ul>
             `;
     } else {
+        bird.addEventListener('click', function fd(){
+            if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "daisy-seeds" || localStorage.getItem("spot" + localStorage.getItem("selected")) == "rose-seeds"){
+                sleep(20).then(() => {
+                    removeIte(localStorage.getItem("selected"));
+                    initItems();
+                });
+                bird.removeEventListener("click", fd);
+                localStorage.setItem("karma", parseInt(localStorage.getItem("karma")) + 1);
+            }
+        });
         // Set up a click event for the bird to handle interactions with the axe item.
         bird.addEventListener('click', function kl() {
             if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "axe") {
@@ -141,7 +151,8 @@ function ready() {
                     <li class="art in-list"><span class="art in-list"></span><span class="art in-list maroon">&lt;/</span>*<span class="art in-list maroon">%-</span><span class="art in-list red"></span>*<span class="art in-list maroon">.</span><span class="art in-list red">--.</span> </li>
                     </ul>
                 `;
-                bird.removeEventListener('click', kl);
+                let newBd = bird.cloneNode(true);
+                bird.parentNode.replaceChild(newBd, bird);
                 localStorage.setItem("dead-bird", "true");
             }
         });

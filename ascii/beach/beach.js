@@ -58,6 +58,16 @@ function ready() {
                 <li class="art in-list"><span class="art in-list"></span><span class="art in-list maroon">&lt;/</span>*<span class="art in-list maroon">%-</span><span class="art in-list red"></span>*<span class="art in-list maroon">.</span><span class="art in-list red">--.</span> </li>
             `;
     } else {
+        bird.addEventListener('click', function fd(){
+            if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "fish"){
+                sleep(20).then(() => {
+                    removeIte(localStorage.getItem("selected"));
+                    initItems();
+                });
+                bird.removeEventListener("click", fd);
+                localStorage.setItem("karma", parseInt(localStorage.getItem("karma")) + 1);
+            }
+        });
         // Set up a click event for the bird to handle interactions with the axe item.
         bird.addEventListener('click', function kl() {
             if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "axe") {
@@ -71,15 +81,16 @@ function ready() {
                     <li class="art in-list"><span class="art in-list"></span>   <span class="art in-list red">-</span><span class="art in-list maroon">.</span>-<span class="art in-list maroon">.</span><span class="art in-list red">%</span><span class="art in-list maroon">-*.</span></li>
                     <li class="art in-list"><span class="art in-list"></span><span class="art in-list maroon">&lt;/</span>*<span class="art in-list maroon">%-</span><span class="art in-list red"></span>*<span class="art in-list maroon">.</span><span class="art in-list red">--.</span> </li>
                 `;
-                bird.removeEventListener('click', kl);
+                let newBd = bird.cloneNode(true);
+                bird.parentNode.replaceChild(newBd, bird);
                 localStorage.setItem("dead-birdB", "true");
             }
         });
     }
-    moveMoon();
+    //moveMoon();
 }
 
-function moveMoon(){
+/*function moveMoon(){
     var moon = parseInt(localStorage.getItem("moon"));
     if (moon > 4){
         moon = moon - 5;
@@ -87,7 +98,7 @@ function moveMoon(){
     localStorage.setItem("moon", moon+1);
     checkOpen();
     sleep(1000).then(() => {moveMoon();});
-}
+}*/
 
 function checkOpen(){
     var moon = localStorage.getItem("moon");
