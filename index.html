@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>The House</title>
+        <meta name="description" content="Welcome to my humble abode">
+        <script type="module" src="next.js" async></script>
+    </head>
+
+    <body>
+        <audio class="aud" autoplay loop controls>
+            <source src="beach/rain.mp3" type="audio/mp3">
+        </audio>
+        <div class="left"></div>
+        <div class="right"></div>
+        <div class="bottom"></div>
+        <div class="top"></div>
+
+        <h1 class="text title">Home</h1>
+        <hr class="top-sep">
+
+        <div class="text">
+            <span>
+                You are in a cottage. 
+                It's raining softly outside, your bed is warm, and  
+            </span>
+            <span class="fire">
+                the fire is burning low.
+            </span>
+            <ul class="choices">
+                <li> 
+                    <button class="stay-button">Add wood to the fire</button> 
+                </li>
+                <li class="window"> 
+                    <button class="stay-button" id="requestPermission">Open the window</button>
+                </li>
+                <li> 
+                    <span>
+                        <a href="bookshelf/bookshelf.html">
+                            <button class="travel-button">Investigate the bookshelf</button> 
+                        </a>
+                    </span>
+                </li>
+                <li> 
+                    <span>
+                        <a href="outside/outside.html">
+                            <button class="travel-button">Head outside</button> 
+                        </a>    
+                    </span>
+                </li>
+                <li> 
+                    <button class="stay-button reset">Start over</button>
+                </li>
+            </ul>
+        </div>
+
+    </body>
+</html>
