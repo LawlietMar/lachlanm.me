@@ -1,3 +1,11 @@
+var ach = {
+    "8" : `
+                    <li class="art artln"><span class="art artln">      |************|</span></li>
+                    <li class="art artln"><span class="art artln">      |...../\\x/\\......|</span></li>
+                    <li class="art artln"><span class="art artln">      |..<-.   ..->..|</span></li>
+                    <li class="art artln"><span class="art artln">      l...../....\\......l </span></li>     
+        `
+}
 var arts = {
     // Key item HTML representation
     "key" : `
@@ -81,4 +89,8 @@ var arts = {
 
 export function getArt(){
     return arts;
+}
+
+export function getAch(){
+    return ach;
 }

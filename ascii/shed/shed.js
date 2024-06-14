@@ -1,5 +1,6 @@
 // A dictionary (object) containing various items represented as HTML strings.
-var art = {};
+import { getAch } from "../../artHold.js";
+var art = getAch();
 import { getArt } from "../../artHold.js";
 var arts = getArt();
 

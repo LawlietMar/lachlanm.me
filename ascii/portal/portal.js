@@ -1,4 +1,5 @@
-var art = {};
+import { getAch } from "../../artHold.js";
+var art = getAch();
 
 // Importing a function to get art items from another JavaScript file.
 import { getArt } from "../../artHold.js";

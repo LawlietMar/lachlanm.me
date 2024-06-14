@@ -67,7 +67,8 @@ var plArts = {
             `
 }
 
-var art = {};
+import { getAch } from "../../artHold.js";
+var art = getAch();
 
 import { getArt } from "../../artHold.js";
 var arts = getArt();

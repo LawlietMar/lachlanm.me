@@ -1,5 +1,6 @@
 // A dictionary (object) containing various items represented as HTML strings.
-var art = {};
+import { getAch } from "../../artHold.js";
+var art = getAch();
 import { getArt } from "../../artHold.js";
 var arts = getArt();
 
@@ -12,6 +13,7 @@ if (document.readyState == 'loading') {
 
 function ready() {
     // Initialize selected item to -1 (no selection)
+    localStorage.setItem("has-award-8", "true");
     localStorage.setItem("selected", -1);
     localStorage.setItem("free", 1);
     // Example commented code to set initial state in localStorage
