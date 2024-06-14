@@ -95,6 +95,9 @@ function resett(ite){
     localStorage.setItem("has-fishing-rod", false);
     localStorage.setItem("has-forest", false);
 
+    localStorage.setItem("put-map-1", false);
+    localStorage.setItem("put-map-2", false);
+
     localStorage.setItem("birdPfed", "false");
     localStorage.setItem("birdBfed", "false");
 

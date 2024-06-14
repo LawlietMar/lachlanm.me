@@ -118,6 +118,25 @@ function ready() {
     for (var i = 1; i<7; i++){
         setCrop(i);
     }
+
+    var map = document.getElementsByClassName("map")[0];
+    map.addEventListener('click', openMap);
+}
+
+function openMap(){
+    if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "map1"){
+        localStorage.setItem("put-map-1", "true");
+        removeIte(localStorage.getItem("selected"));
+        initItems();
+    }
+    else if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "map2"){
+        localStorage.setItem("put-map-2", "true");
+        removeIte(localStorage.getItem("selected"));
+        initItems();
+    }
+    else {
+        window.location.href = "../map/map.html"
+    }
 }
 
 function setCrop(crop){
@@ -483,7 +502,9 @@ function getIte(name) {
 function removeIte(spot) {
     var addArray = [];
     var name = localStorage.getItem("spot" + spot);
-    localStorage.setItem("has-" + name, "false");
+    if (localStorage.getItem("spot" + spot) != "map1" && localStorage.getItem("spot" + spot) != "map2"){
+        localStorage.setItem("has-" + name, "false");
+    }
     for (var i = parseInt(spot) + 1; i < localStorage.getItem("free"); i++) {
         addArray.push(localStorage.getItem("spot" + i));
 
