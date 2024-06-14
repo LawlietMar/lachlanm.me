@@ -81,7 +81,7 @@ function resett(ite){
     localStorage.setItem("ascii-water", "false");
 
 
-    localStorage.setItem("has-key", "true");
+    localStorage.setItem("has-key", true);
     localStorage.setItem("has-axe", false);
     localStorage.setItem("has-shovel", false);
     localStorage.setItem("has-can", false);
@@ -90,6 +90,9 @@ function resett(ite){
     localStorage.setItem("has-rose", false);
     localStorage.setItem("has-daisy", false);
     localStorage.setItem("has-map1", false);
+    localStorage.setItem("has-map2", false);
+    localStorage.setItem("has-fish", false);
+    localStorage.setItem("has-fishing-rod", false);
     localStorage.setItem("has-forest", false);
 
     

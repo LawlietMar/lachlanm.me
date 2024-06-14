@@ -84,6 +84,22 @@ var arts = {
                     <li class="art artln"><span class="art artln">            <span class="art artln white">- o - </span></span></li>
                     <li class="art artln"><span class="art artln">              <span class="art artln green">||</span>   </span></li>     
                 </ul>
+            `,
+    "fish" : `
+                <ul class="item" id="fish">
+                    <li class="art artln"><span class="art artln">     |\\        …--.    </span></li>
+                    <li class="art artln"><span class="art artln">     | *---**....x *.</span></li>
+                    <li class="art artln"><span class="art artln">     | .---...   *   .*  </span></li>
+                    <li class="art artln"><span class="art artln">     |/        **--* </span></li>     
+                </ul>
+            `,
+    "map2" : `
+                <ul class="item" id="map2">
+                    <li class="art artln"><span class="art artln"></span></li>
+                    <li class="art artln"><span class="art artln">     ./********-.    </span></li>
+                    <li class="art artln"><span class="art artln">     |. (::::::() (**()</span></li>
+                    <li class="art artln"><span class="art artln">      \\...........-***   </span></li>
+                </ul>
             `
 };
 

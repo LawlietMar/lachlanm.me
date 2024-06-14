@@ -368,7 +368,7 @@ body {
     height: 90px;
 }
 
-#axe, #key, #shovel, #rose-seeds, #daisy-seeds, #can, #map1, #rose, #daisy{
+#axe, #key, #shovel, #rose-seeds, #daisy-seeds, #can, #map1, #rose, #daisy, #map2, #fish{
     position: absolute;
     top:-5px
 }
