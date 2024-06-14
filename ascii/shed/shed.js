@@ -12,8 +12,8 @@ if (document.readyState == 'loading') {
     ready();
 }
 
-var init;
 // Function to set up the initial state and event listeners.
+var init;
 function ready() {
     init = "true";
     // Initialize selected item to -1 (no selection)
@@ -100,7 +100,7 @@ function ready() {
     
     // Initialize items and start rain effects
     initItems();
-    sleep(40).then(() => { rainInc(); rainfInc(); init = "false";});
+    sleep(40).then(() => {init = "false";  rainInc(); rainfInc();});
 }
 
 // Function to take an item and add it to inventory if there is space.
@@ -362,7 +362,8 @@ function removeIte(spot) {
 }
 
 // Function to handle the selection of an item.
-function select(item) {
+   function select(item) {
+    localStorage.setItem("selected", -1);
     var sel = false;
     if (document.getElementById("spot" + item).classList.contains("selected")) {
         sel = true;
@@ -378,7 +379,7 @@ function select(item) {
         localStorage.setItem("selected", item);
         document.getElementById("spot" + item).classList.add("selected");
     }
-}
+}  
 
 // Function to handle going back to the previous page.
 function goBack() {

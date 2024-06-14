@@ -11,7 +11,9 @@ if (document.readyState == 'loading') {
     ready();
 }
 
+var init;
 function ready() {
+    init = "true";
     // Initialize selected item to -1 (no selection)
     localStorage.setItem("has-award-8", "true");
     localStorage.setItem("selected", -1);
@@ -41,7 +43,7 @@ function ready() {
     
     // Initialize items and start rain effects
     initItems();
-    sleep(40).then(() => { rainInc(); rainfInc(); checkOpen()});
+    sleep(40).then(() => {init = "false";  rainInc(); rainfInc(); checkOpen()});
     
     var fore = document.getElementsByClassName("hide")[1];
     fore.addEventListener('click', checkOpen);
@@ -318,7 +320,8 @@ function removeIte(spot) {
 }
 
 // Function to handle the selection of an item.
-function select(item) {
+   function select(item) {
+    localStorage.setItem("selected", -1);
     var sel = false;
     if (document.getElementById("spot" + item).classList.contains("selected")) {
         sel = true;
@@ -334,7 +337,7 @@ function select(item) {
         localStorage.setItem("selected", item);
         document.getElementById("spot" + item).classList.add("selected");
     }
-}
+}  
 
 function addList(item){
     item.addEventListener('click', function(){select(item)});

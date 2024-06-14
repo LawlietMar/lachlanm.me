@@ -18,7 +18,9 @@ if (document.readyState == 'loading') {
 }
 
 // Function that initializes the state and sets up event listeners.
+ var init;
 function ready() {
+    init = "true";
     // Initialize local storage variables for item selection and free slots.
     localStorage.setItem("selected", -1);  // No item is selected initially.
     localStorage.setItem("free", 1);       // The first slot is available.
@@ -62,7 +64,7 @@ function ready() {
 
     // Initialize items and start various animations.
     initItems();
-    sleep(40).then(() => { rainInc(); rainfInc(); splashInc(); });
+    sleep(40).then(() => {init = "false";  rainInc(); rainfInc(); splashInc(); });
 
     // Set up the map button to add a map item to the inventory.
     var mapBut = document.getElementsByClassName("map-pc")[0];
@@ -127,37 +129,73 @@ function ready() {
                 </ul>
             `;
     } else {
-        bird.addEventListener('click', function fd(){
-            if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "daisy-seeds" || localStorage.getItem("spot" + localStorage.getItem("selected")) == "rose-seeds"){
-                sleep(20).then(() => {
-                    removeIte(localStorage.getItem("selected"));
-                    initItems();
-                });
-                bird.removeEventListener("click", fd);
-                localStorage.setItem("karma", parseInt(localStorage.getItem("karma")) + 1);
-            }
-        });
-        // Set up a click event for the bird to handle interactions with the axe item.
-        bird.addEventListener('click', function kl() {
-            if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "axe") {
-                localStorage.setItem("karma", parseInt(localStorage.getItem("karma")) - 2);
-                document.getElementById("bird-del").innerHTML = `
-                    <ul id="bird-del" class="art item">
-                    <li class="art in-list"><span class="art in-list"></span></li>
-                    <li class="art in-list"><span class="art in-list"></span></li>
-                    <li class="art in-list"><span class="art in-list"></span></li>
-                    <li class="art in-list"><span class="art in-list"></span></li>
-                    <li class="art in-list"><span class="art in-list"></span></li>
-                    <li class="art in-list"><span class="art in-list"></span>   <span class="art in-list red">-</span><span class="art in-list maroon">.</span>-<span class="art in-list maroon">.</span><span class="art in-list red">%</span><span class="art in-list maroon">-*.</span></li>
-                    <li class="art in-list"><span class="art in-list"></span><span class="art in-list maroon">&lt;/</span>*<span class="art in-list maroon">%-</span><span class="art in-list red"></span>*<span class="art in-list maroon">.</span><span class="art in-list red">--.</span> </li>
-                    </ul>
-                `;
-                let newBd = bird.cloneNode(true);
-                bird.parentNode.replaceChild(newBd, bird);
-                localStorage.setItem("dead-bird", "true");
-            }
-        });
+        if (!(localStorage.getItem("birdPfed") == "true")){
+            bird.addEventListener('click', function fd(){
+                if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "daisy-seeds" || localStorage.getItem("spot" + localStorage.getItem("selected")) == "rose-seeds"){
+                    sleep(20).then(() => {
+                        removeIte(localStorage.getItem("selected"));
+                        initItems();
+                    });
+                    bird.removeEventListener("click", fd);
+                    setBird();
+                    localStorage.setItem("birdPfed", "true");
+                    localStorage.setItem("karma", parseInt(localStorage.getItem("karma")) + 1);
+                }
+            });
+            // Set up a click event for the bird to handle interactions with the axe item.
+            bird.addEventListener('click', function kl() {
+                if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "axe") {
+                    localStorage.setItem("karma", parseInt(localStorage.getItem("karma")) - 2);
+                    document.getElementById("bird-del").innerHTML = `
+                        <ul id="bird-del" class="art item">
+                        <li class="art in-list"><span class="art in-list"></span></li>
+                        <li class="art in-list"><span class="art in-list"></span></li>
+                        <li class="art in-list"><span class="art in-list"></span></li>
+                        <li class="art in-list"><span class="art in-list"></span></li>
+                        <li class="art in-list"><span class="art in-list"></span></li>
+                        <li class="art in-list"><span class="art in-list"></span>   <span class="art in-list red">-</span><span class="art in-list maroon">.</span>-<span class="art in-list maroon">.</span><span class="art in-list red">%</span><span class="art in-list maroon">-*.</span></li>
+                        <li class="art in-list"><span class="art in-list"></span><span class="art in-list maroon">&lt;/</span>*<span class="art in-list maroon">%-</span><span class="art in-list red"></span>*<span class="art in-list maroon">.</span><span class="art in-list red">--.</span> </li>
+                        </ul>
+                    `;
+                    let newBd = bird.cloneNode(true);
+                    bird.parentNode.replaceChild(newBd, bird);
+                    localStorage.setItem("dead-bird", "true");
+                }
+            });
+        }
+        else {
+            setBird();
+            bird.addEventListener('click', function kl() {
+                if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "axe") {
+                    localStorage.setItem("karma", parseInt(localStorage.getItem("karma")) - 2);
+                    document.getElementById("bird-del").innerHTML = `
+                        <ul id="bird-del" class="art item">
+                        <li class="art in-list"><span class="art in-list"></span></li>
+                        <li class="art in-list"><span class="art in-list"></span></li>
+                        <li class="art in-list"><span class="art in-list"></span></li>
+                        <li class="art in-list"><span class="art in-list"></span></li>
+                        <li class="art in-list"><span class="art in-list"></span></li>
+                        <li class="art in-list"><span class="art in-list"></span>   <span class="art in-list red">-</span><span class="art in-list maroon">.</span>-<span class="art in-list maroon">.</span><span class="art in-list red">%</span><span class="art in-list maroon">-*.</span></li>
+                        <li class="art in-list"><span class="art in-list"></span><span class="art in-list maroon">&lt;/</span>*<span class="art in-list maroon">%-</span><span class="art in-list red"></span>*<span class="art in-list maroon">.</span><span class="art in-list red">--.</span> </li>
+                        </ul>
+                    `;
+                    let newBd = bird.cloneNode(true);
+                    bird.parentNode.replaceChild(newBd, bird);
+                    localStorage.setItem("dead-bird", "true");
+                }
+            });
+        }
     }
+}
+
+function setBird(){
+    var bird = document.getElementById("bird-del");
+    bird.innerHTML = `
+            <li class="art in-list"><span class="art in-list"></span>  .--.      </li>
+            <li class="art in-list"><span class="art in-list"></span>&lt;. ^ \`::::’’ /</li>
+            <li class="art in-list"><span class="art in-list"></span>   *-.--.-*</li>
+            <li class="art in-list"><span class="art in-list"></span>     .’   \`. </li>
+            `;
 }
 
 // Function to check and update the state of the portal based on the pots.
@@ -605,7 +643,8 @@ function removeIte(spot) {
 }
 
 // Function to handle the selection of an item.
-function select(item) {
+   function select(item) {
+    localStorage.setItem("selected", -1);
     var sel = false;
     if (document.getElementById("spot" + item).classList.contains("selected")) {
         sel = true;
@@ -621,7 +660,7 @@ function select(item) {
         localStorage.setItem("selected", item);
         document.getElementById("spot" + item).classList.add("selected");
     }
-}
+}  
 
 // Function to add an event listener for selecting an item.
 function addList(item) {

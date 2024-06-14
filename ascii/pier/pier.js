@@ -11,7 +11,9 @@ if (document.readyState == 'loading') {
     ready();
 }
 
+ var init;
 function ready() {
+    init = "true";
     // Initialize selected item to -1 (no selection)
     localStorage.setItem("selected", -1);
     localStorage.setItem("free", 1);
@@ -50,7 +52,7 @@ function ready() {
     
     // Initialize items and start rain effects
     initItems();
-    sleep(40).then(() => { rainInc(); rainfInc(); checkOpen()});
+    sleep(40).then(() => {init = "false";  rainInc(); rainfInc();});
     
     setFish();
     checkMoon();
@@ -82,6 +84,7 @@ function setFish(){
 }
 
 function checkOpen(){
+    console.log(localStorage.getItem("spot" + localStorage.getItem("selected")));
     if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "fishing-rod"){
         var caught = "false";
         var fishing = "true";
@@ -140,8 +143,7 @@ function checkOpen(){
         sleep((Math.floor(Math.random() * 8)+5)*1000).then(() => {
             if (fishing == "true"){
                 caught = "true";
-            }
-            pict.innerHTML = `
+                pict.innerHTML = `
                 <span class="art">--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------  </span>
                 <span class="art">| </span>
                 <span class="art">| </span>
@@ -191,9 +193,11 @@ function checkOpen(){
                 <span class="art">|------.......................------------***********************---------------..................                 \\ \\                 \\                          *.                    *.--** </span>
                 <span class="art">|                                                                                                                 **********---\\ \\                 *.                          *.                    *.   </span>
                 <span class="art">--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>`
+            }
         });
         var fish = document.getElementsByClassName("fish")[0];
         fish.addEventListener('click', function ca(){
+            fishing = "false";
             fish.removeEventListener('click', ca);
             if (caught == "true"){
                 getIte("fish");
@@ -252,6 +256,9 @@ function checkOpen(){
             `
             setFish();
         });
+    }
+    else {
+        setFish();
     }
 }
 
@@ -504,6 +511,7 @@ function removeIte(spot) {
 
 // Function to handle the selection of an item.
 function select(item) {
+    localStorage.setItem("selected", -1);
     var sel = false;
     if (document.getElementById("spot" + item).classList.contains("selected")) {
         sel = true;
@@ -519,7 +527,7 @@ function select(item) {
         localStorage.setItem("selected", item);
         document.getElementById("spot" + item).classList.add("selected");
     }
-}
+}  
 
 function addList(item){
     item.addEventListener('click', function(){select(item)});

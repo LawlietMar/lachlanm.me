@@ -80,7 +80,9 @@ if (document.readyState == 'loading') {
 }
 
 // Function to set up the initial state and event listeners.
+ var init;
 function ready() {
+    init = "true";
     // Initialize selected item to -1 (no selection)
     localStorage.setItem("selected", -1);
     localStorage.setItem("free", 1);
@@ -109,7 +111,7 @@ function ready() {
     
     // Initialize items and start rain effects
     initItems();
-    sleep(40).then(() => { rainInc(); rainfInc(); });
+    sleep(40).then(() => {init = "false";  rainInc(); rainfInc(); });
     var shed = document.getElementsByClassName("shed")[0];
     shed.addEventListener('click', ifKey);
 
@@ -500,7 +502,8 @@ function removeIte(spot) {
 }
 
 // Function to handle the selection of an item.
-function select(item) {
+   function select(item) {
+    localStorage.setItem("selected", -1);
     var sel = false;
     if (document.getElementById("spot" + item).classList.contains("selected")) {
         sel = true;
@@ -516,7 +519,7 @@ function select(item) {
         localStorage.setItem("selected", item);
         document.getElementById("spot" + item).classList.add("selected");
     }
-}
+}  
 
 function addList(item){
     item.addEventListener('click', function(){select(item)});
