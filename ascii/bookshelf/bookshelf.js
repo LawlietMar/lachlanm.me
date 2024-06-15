@@ -59,11 +59,8 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-function removeKey(){
-}
-
 function take(button, name) {
-    if (localStorage.getItem("free") < 9) {
+    if (localStorage.getItem("free") < 9 || init == "true") {
         // Mark the item as invisible and add it to the inventory if it is not already present.
         document.getElementsByClassName(name + "-del")[0].classList.add("invis");
         if (!(localStorage.getItem("has-" + name) == "true")) {
@@ -158,9 +155,8 @@ function removeIte(spot) {
     localStorage.setItem("has-" + name, "false");
     for (var i = parseInt(spot) + 1; i < localStorage.getItem("free"); i++) {
         addArray.push(localStorage.getItem("spot" + i));
-    }
-    for (var k = 1; k < localStorage.getItem("free"); k++) {
-        if (localStorage.getItem("spot" + k) == name && (k != spot)) {
+
+        if (localStorage.getItem("spot" + i) == name) {
             localStorage.setItem("has-" + name, "true");
         }
     }
