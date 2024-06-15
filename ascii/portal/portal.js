@@ -627,8 +627,8 @@ function removeIte(spot) {
     for (var i = parseInt(spot) + 1; i < localStorage.getItem("free"); i++) {
         addArray.push(localStorage.getItem("spot" + i));
     }
-    for (var i = 1; i < localStorage.getItem("free"); i++) {
-        if (localStorage.getItem("spot" + i) == name) {
+    for (var k = 1; k < localStorage.getItem("free"); k++) {
+        if (localStorage.getItem("spot" + k) == name && (k != spot)) {
             localStorage.setItem("has-" + name, "true");
         }
     }
