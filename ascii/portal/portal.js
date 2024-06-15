@@ -255,7 +255,6 @@ function put(button, name) {
         document.getElementsByClassName(name + "-del")[0].classList.remove("invis");
         if (!(bypass == "true")) {
             removeIte(localStorage.getItem("selected"));
-            console.log(5);
             initItems();
         }
         bypass = "false";
