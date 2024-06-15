@@ -10,6 +10,7 @@ if (document.readyState == 'loading') {
 }
 
 var init;
+var bypass;
 function ready() {
     init = "true";
     // Initialize selected item to -1 (no selection)
@@ -40,10 +41,11 @@ function ready() {
     
     // Initialize items and start rain effects
     initItems();
-    sleep(40).then(() => {init = "false";});
+    sleep(40).then(() => {bypass = "false", init = "false";});
 
     var key = document.getElementsByClassName("key-button")[0];
     if (localStorage.getItem("has-key") == "true") {
+        bypass = "true";
         take(key, "key");
     } else {
         key.addEventListener('click', function tk() {
@@ -80,7 +82,7 @@ function put(button, name) {
     if (localStorage.getItem("spot" + localStorage.getItem("selected")) == name || bypass) {
         // Make the item visible again and update the pot status if necessary.
         document.getElementsByClassName(name + "-del")[0].classList.remove("invis");
-        if (!bypass) {
+        if (!(bypass == "true")) {
             removeIte(localStorage.getItem("selected"));
             initItems();
         }

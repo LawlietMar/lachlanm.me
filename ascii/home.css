@@ -27,8 +27,8 @@ button {
 }
 
 .top-sep{
-    width: 40%;
-    padding-left:20%;
+    width: 605px;
+    padding-left:303px;
 }
 
 .choices{
@@ -36,13 +36,13 @@ button {
 }
 
 .text {
-    padding-left: 20%;
-    padding-top: 4%;
+    padding-left: 302.5px;
+    padding-top: 59px;
 }
 
 .title {
-    padding-bottom: 4%;
-    padding-top: 15%;
+    padding-bottom: 59px;
+    padding-top: 220px;
     font-weight: 300;
 }
 
