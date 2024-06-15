@@ -92,7 +92,7 @@ function resett(ite){
     localStorage.setItem("has-map1", false);
     localStorage.setItem("has-map2", false);
     localStorage.setItem("has-fish", false);
-    localStorage.setItem("has-fishing-rod", "true");
+    localStorage.setItem("has-fishing-rod", false);
     localStorage.setItem("has-forest", false);
 
     localStorage.setItem("put-map-1", false);
@@ -101,7 +101,7 @@ function resett(ite){
     localStorage.setItem("birdPfed", "false");
     localStorage.setItem("birdBfed", "false");
 
-    localStorage.setItem("spot1", "fishing-rod");
+    localStorage.setItem("spot1", 0);
     localStorage.setItem("spot2", 0);
     localStorage.setItem("spot3", 0);
     localStorage.setItem("spot4", 0);
