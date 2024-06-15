@@ -275,7 +275,7 @@ function toPick(spot){
 }
 
 function take(button, name) {
-    if (localStorage.getItem("free") < 9) {
+    if (localStorage.getItem("free") < 9 || init == "true") {
         document.getElementsByClassName(name + "-del")[0].classList.add("invis");
         if (name == "can") {
             document.getElementById("behind-can").classList.remove("invis");
