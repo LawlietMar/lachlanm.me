@@ -225,7 +225,6 @@ function goPixel() {}
 // Function to add an item to the inventory.
 function take(button, name) {
     if (localStorage.getItem("free") < 9 || init == "true") {
-        console.log(5);
         // Mark the item as invisible and add it to the inventory if it is not already present.
         document.getElementsByClassName(name + "-del")[0].classList.add("invis");
         if (!(localStorage.getItem("has-" + name) == "true" && name == "map1")) {

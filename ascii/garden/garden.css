@@ -149,7 +149,7 @@ body {
 #plot1-del{
     position: fixed;
     left: 320px;
-    bottom: 260px;
+    top: 405px;
     width: 140px;
     height: 160px;
 }
@@ -165,7 +165,7 @@ body {
 #plot2-del{
     position: fixed;
     left: 870px;
-    bottom: 260px;
+    top: 405px;
     width: 140px;
     height: 160px;
 }
@@ -181,7 +181,7 @@ body {
 #plot3-del{
     position: fixed;
     left: 1085px;
-    bottom: 260px;
+    top: 405px;
     width: 140px;
     height: 160px;
 }
@@ -197,7 +197,7 @@ body {
 #plot4-del{
     position: fixed;
     left: 310px;
-    bottom: 105px;
+    top: 555px;
     width: 175px;
     height: 160px;
 }
@@ -213,7 +213,7 @@ body {
 #plot5-del{
     position: fixed;
     left: 815px;
-    bottom: 105px;
+    top: 555px;
     width: 175px;
     height: 160px;
 }
@@ -229,7 +229,7 @@ body {
 #plot6-del{
     position: fixed;
     left: 1070px;
-    bottom: 105px;
+    top: 555px;
     width: 175px;
     height: 160px;
 }
