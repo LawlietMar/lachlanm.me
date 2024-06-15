@@ -18,7 +18,7 @@ if (document.readyState == 'loading') {
 }
 
 // Function that initializes the state and sets up event listeners.
- var init;
+var init;
 function ready() {
     init = "true";
     // Initialize local storage variables for item selection and free slots.
@@ -54,13 +54,15 @@ function ready() {
 
     // Set up a click event for the pool element to handle filling a can with water.
     var pool = document.getElementsByClassName("pool")[0];
-    pool.addEventListener('click', function(){
-        if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "can") {
-            localStorage.setItem("ascii-water", "true");
-            removeIte(localStorage.getItem("selected"));
-            getIte("can");
-        }
-    });
+    if (!(localStorage.getItem("ascii-water") == "true")){
+        pool.addEventListener('click', function(){
+            if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "can") {
+                localStorage.setItem("ascii-water", "true");
+                removeIte(localStorage.getItem("selected"));
+                getIte("can");
+            }
+        });
+    }
 
     // Initialize items and start various animations.
     initItems();
@@ -80,7 +82,7 @@ function ready() {
     // Set up the left pot button to manage the rose item.
     var lpotBut = document.getElementsByClassName("lpot")[0];
     if (localStorage.getItem("lpot-full") == "true") {
-        bypass = true;
+        bypass = "true";
         checkPortal();
         put(lpotBut, "rose");
     } else {
@@ -98,7 +100,7 @@ function ready() {
     sleep(10).then(() => {
         var rpotBut = document.getElementsByClassName("rpot")[0];
         if (localStorage.getItem("rpot-full") == "true") {
-            bypass = true;
+            bypass = "true";
             checkPortal();
             put(rpotBut, "daisy");
         } else {
@@ -222,10 +224,11 @@ function goPixel() {}
 
 // Function to add an item to the inventory.
 function take(button, name) {
-    if (localStorage.getItem("free") < 9) {
+    if (localStorage.getItem("free") < 9 || init == "true") {
+        console.log(5);
         // Mark the item as invisible and add it to the inventory if it is not already present.
         document.getElementsByClassName(name + "-del")[0].classList.add("invis");
-        if (!(localStorage.getItem("has-" + name) == "true")) {
+        if (!(localStorage.getItem("has-" + name) == "true" && name == "map1")) {
             getIte(name);
             initItems();
         }
@@ -251,14 +254,12 @@ function put(button, name) {
     if (localStorage.getItem("spot" + localStorage.getItem("selected")) == name || bypass) {
         // Make the item visible again and update the pot status if necessary.
         document.getElementsByClassName(name + "-del")[0].classList.remove("invis");
-        if (name == "can") {
-            document.getElementById("behind-can").classList.add("invis");
-        }
-        if (!bypass) {
+        if (!(bypass == "true")) {
             removeIte(localStorage.getItem("selected"));
+            console.log(5);
             initItems();
         }
-        bypass = false;
+        bypass = "false";
         button.addEventListener('click', function tk() {
             button.removeEventListener('click', tk);
             take(button, name);
