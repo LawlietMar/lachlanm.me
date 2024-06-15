@@ -250,7 +250,7 @@ function take(button, name) {
 
 // Function to remove an item from the inventory.
 function put(button, name) {
-    if (localStorage.getItem("spot" + localStorage.getItem("selected")) == name || bypass) {
+    if (localStorage.getItem("spot" + localStorage.getItem("selected")) == name || bypass == "true") {
         // Make the item visible again and update the pot status if necessary.
         document.getElementsByClassName(name + "-del")[0].classList.remove("invis");
         if (!(bypass == "true")) {
