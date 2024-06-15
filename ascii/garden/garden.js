@@ -219,7 +219,7 @@ function toWater(spot){
             localStorage.setItem("plot-state" + spot, "toGrow");
             text.innerHTML = plArts["watered"];
             toGrow(spot);
-            sleep(62000).then(() => {
+            sleep(6200).then(() => {
                 toGrow(spot);
             })
         }
@@ -240,7 +240,7 @@ function toGrow(spot){
         localStorage.setItem("crop-time" + spot, d.getTime());
     }
     var time = d.getTime();
-    if (time - localStorage.getItem("crop-time" + spot) > 60000){
+    if (time - localStorage.getItem("crop-time" + spot) > 6000){
         if (localStorage.getItem("plot-type" + spot) == "rose-seeds"){
             text.innerHTML = plArts["rose"];
         }
