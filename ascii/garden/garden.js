@@ -127,11 +127,13 @@ function openMap(){
     if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "map1"){
         localStorage.setItem("put-map-1", "true");
         removeIte(localStorage.getItem("selected"));
+        localStorage.setItem("has-map1", "true");
         initItems();
     }
     else if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "map2"){
         localStorage.setItem("put-map-2", "true");
         removeIte(localStorage.getItem("selected"));
+        localStorage.setItem("has-map2", "true");
         initItems();
     }
     else {
@@ -219,7 +221,7 @@ function toWater(spot){
             localStorage.setItem("plot-state" + spot, "toGrow");
             text.innerHTML = plArts["watered"];
             toGrow(spot);
-            sleep(6200).then(() => {
+            sleep(62000).then(() => {
                 toGrow(spot);
             })
         }
@@ -240,7 +242,7 @@ function toGrow(spot){
         localStorage.setItem("crop-time" + spot, d.getTime());
     }
     var time = d.getTime();
-    if (time - localStorage.getItem("crop-time" + spot) > 6000){
+    if (time - localStorage.getItem("crop-time" + spot) > 60000){
         if (localStorage.getItem("plot-type" + spot) == "rose-seeds"){
             text.innerHTML = plArts["rose"];
         }
