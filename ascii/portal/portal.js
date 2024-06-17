@@ -80,7 +80,7 @@ function ready() {
     }
 
     // Set up the left pot button to manage the rose item.
-    var lpotBut = document.getElementsByClassName("lpot")[0];
+    var lpotBut = document.getElementById("lpot");
     if (localStorage.getItem("lpot-full") == "true") {
         bypass = "true";
         checkPortal();
@@ -98,7 +98,7 @@ function ready() {
 
     // Set up the right pot button to manage the daisy item.
     sleep(10).then(() => {
-        var rpotBut = document.getElementsByClassName("rpot")[0];
+        var rpotBut = document.getElementById("rpot");
         if (localStorage.getItem("rpot-full") == "true") {
             bypass = "true";
             checkPortal();

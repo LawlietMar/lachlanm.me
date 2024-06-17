@@ -101,18 +101,18 @@ body {
 
 #lpot{
     position: fixed; 
-    top:420px;
+    top:350px;
     left:310px;
     width: 65px;
-    height: 160px;
+    height: 150px;
 }
 
 #rpot{
     position: fixed; 
-    top:420px;
+    top:350px;
     left:860px;
     width: 65px;
-    height: 160px;
+    height: 150px;
 }
  
 #portal{
