@@ -73,6 +73,7 @@ function resett(ite){
     localStorage.setItem("reset", "true");
     localStorage.setItem("karma", 0);
     localStorage.setItem("moon", 1);
+    localStorage.setItem("aud-spot", 0);
 
     localStorage.setItem("dead-bird", "false");
     localStorage.setItem("dead-birdB", "false");
