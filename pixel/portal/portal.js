@@ -9,6 +9,7 @@ var init;
 function ready() {
     init = "true";
     // Initialize selected item to -1 (no selection)
+    localStorage.setItem("has-award-7", "true");
     localStorage.setItem("selected", -1);
     localStorage.setItem("free", 1);
     // Example commented code to set initial state in localStorage
@@ -50,8 +51,8 @@ function initItems() {
     for (let j = 1; j < 9; j++) {
         const spot = document.getElementById("spot" + j);
         spot.innerHTML = `
-            <img src="../global-art/items/border.png">;
-            <button tabindex="-1" class="item art spot`+j+`"></button>
+            <img draggable="false" class="item-art" alt="" src="../global-art/items/border.png">
+            <button tabindex="-1" class="item art item-art spot`+j+`"></button>
             `;
         let newSpot = spot.cloneNode(true);
         spot.parentNode.replaceChild(newSpot, spot);
@@ -70,9 +71,9 @@ function initItemsMeat(i) {
         var nam = localStorage.getItem("spot" + i);
         var spot = document.getElementById("spot" + i);
         spot.innerHTML = `
-            <img src="../global-art/items/`+nam+`.png">;
-            <img src="../global-art/items/border.png">;
-            <button tabindex="-1" class="item art spot`+i+`"></button>
+            <img draggable="false" class="item-art" alt="" src="../global-art/items/`+nam+`.png">
+            <img draggable="false" class="item-art" alt="" src="../global-art/items/border.png">
+            <button tabindex="-1" class="item art item-art spot`+i+`"></button>
             `;
         document.getElementsByClassName("spot" + i)[0].addEventListener('click', function() { select(i); });
         sleep(10).then(() => { initItemsMeat(i + 1); });
@@ -84,9 +85,9 @@ function getIte(name) {
     const free = localStorage.getItem("free");
     const spot = document.getElementById("spot" + free);
     spot.innerHTML = `
-            <img src="../global-art/items/`+name+`.png">;
-            <img src="../global-art/items/border.png">;
-            <button tabindex="-1" class="item art spot`+free+`"></button>
+            <img draggable="false" class="item-art" alt="" src="../global-art/items/`+name+`.png">
+            <img draggable="false" class="item-art" alt="" src="../global-art/items/border.png">
+            <button tabindex="-1" class="item art item-art spot`+free+`"></button>
             `;
     localStorage.setItem("spot" + free, name);
     localStorage.setItem("has-" + name, "true");

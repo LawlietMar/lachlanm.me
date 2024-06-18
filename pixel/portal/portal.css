@@ -65,7 +65,7 @@ body {
     top: 62px;
     left: 225px;
     width: 1055px;
-    height: 701px;
+    height: 715px;
 }
 
 .main-art{
@@ -73,7 +73,15 @@ body {
     top: 62px;
     left: 225px;
     width: 1055px;
-    height: 701px;
+    height: 715px;
+}
+
+.fore-art{
+    position: fixed;
+    top: 62px;
+    left: 225px;
+    width: 1055px;
+    height: 715px;
 }
 
 .item{
@@ -81,6 +89,18 @@ body {
     padding-left: 0px;
     list-style-type: none;
     color: inherit;
+}
+
+.award-art{
+    position: absolute;
+    width: 155px;
+    height: 90px;
+}
+
+.item-art{
+    position: absolute;
+    width: 155px;
+    height: 90px;
 }
 
 #spot1{
@@ -124,12 +144,9 @@ body {
 }
 
 #spot1, #spot2, #spot3, #spot4, #spot5, #spot6, #spot7, #spot8 {
+    position: fixed;
     width: 155px;
     height: 90px;
-}
-
-.award-art{
-    position: absolute;
 }
 
 #award1{
@@ -180,7 +197,7 @@ body {
 
 #axe, #key, #shovel, #rose-seeds, #daisy-seeds, #can, #map1, #rose, #daisy, #map2, #fish{
     position: absolute;
-    top:-5px
+    top:-5px;
 }
 
 .invis{
@@ -192,6 +209,7 @@ body {
     outline-color: transparent;
     border-color: transparent;
     background-color: transparent;
+    opacity: 0;
 }
 
 .selected {
