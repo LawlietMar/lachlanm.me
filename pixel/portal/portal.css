@@ -60,6 +60,22 @@ body {
     height:45px;
 }
 
+.back-art{
+    position: fixed;
+    top: 62px;
+    left: 225px;
+    width: 1055px;
+    height: 701px;
+}
+
+.main-art{
+    position: fixed;
+    top: 62px;
+    left: 225px;
+    width: 1055px;
+    height: 701px;
+}
+
 .item{
     position: fixed;
     padding-left: 0px;
@@ -112,6 +128,10 @@ body {
     height: 90px;
 }
 
+.award-art{
+    position: absolute;
+}
+
 #award1{
     left: 1295px;
     top: 60px;
@@ -153,6 +173,7 @@ body {
 }
 
 #award1, #award2, #award3, #award4, #award5, #award6, #award7, #award8 {
+    position: fixed;
     width: 155px;
     height: 90px;
 }

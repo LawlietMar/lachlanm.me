@@ -220,7 +220,9 @@ function checkPortal() {
 }
 
 // Function to handle navigation to the next page (to be defined).
-function goPixel() {}
+function goPixel() {
+    window.location.href = "../../pixel/portal/portal.html";
+}
 
 // Function to add an item to the inventory.
 function take(button, name) {

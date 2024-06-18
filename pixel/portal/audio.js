@@ -4,9 +4,10 @@ if (document.readyState == 'loading') {
     ready()
 }
 
+var time
 function ready(){
     var permission = localStorage.getItem('audioAutoplayPermission') === 'granted';
-    var time = localStorage.getItem("aud-spot");
+    time = localStorage.getItem("aud-spot");
     var aud = document.getElementsByClassName("aud")[0];
 
     if (permission){
@@ -21,6 +22,7 @@ function incTime(){
     if (parseInt(time) > 184){
         time = 0;
     }
+    localStorage.setItem("aud-spot", time);
     sleep(1000).then(() => {incTime()});
 }
 

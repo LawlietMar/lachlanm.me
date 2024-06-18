@@ -24,10 +24,9 @@ function ready() {
     // Initialize items and start rain effects
     initItems();
     sleep(40).then(() => {init = "false"; nextBunny()});
-    
-    var fore = document.getElementsByClassName("hide")[1];
-    fore.addEventListener('click', checkOpen);
 }
+
+function nextBunny(){}
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
