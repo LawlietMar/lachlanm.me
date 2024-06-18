@@ -81,23 +81,25 @@ function resett(ite){
     localStorage.setItem("rpot-full", "false");
     localStorage.setItem("ascii-water", "false");
 
+    localStorage.setItem("dead-bunny", "false");
+    localStorage.setItem("bunny-x", 1100);
 
-    localStorage.setItem("has-key", false);
-    localStorage.setItem("has-axe", false);
-    localStorage.setItem("has-shovel", false);
-    localStorage.setItem("has-can", false);
-    localStorage.setItem("has-rose-seeds", false);
-    localStorage.setItem("has-daisy-seeds", false);
-    localStorage.setItem("has-rose", false);
-    localStorage.setItem("has-daisy", false);
-    localStorage.setItem("has-map1", false);
-    localStorage.setItem("has-map2", false);
-    localStorage.setItem("has-fish", false);
-    localStorage.setItem("has-fishing-rod", false);
-    localStorage.setItem("has-forest", false);
+    localStorage.setItem("has-key", "false");
+    localStorage.setItem("has-axe", "false");
+    localStorage.setItem("has-shovel", "false");
+    localStorage.setItem("has-can", "false");
+    localStorage.setItem("has-rose-seeds", "false");
+    localStorage.setItem("has-daisy-seeds", "false");
+    localStorage.setItem("has-rose", "false");
+    localStorage.setItem("has-daisy", "false");
+    localStorage.setItem("has-map1", "false");
+    localStorage.setItem("has-map2", "false");
+    localStorage.setItem("has-fish", "false");
+    localStorage.setItem("has-fishing-rod", "false");
+    localStorage.setItem("has-forest", "false");
 
-    localStorage.setItem("put-map-1", false);
-    localStorage.setItem("put-map-2", false);
+    localStorage.setItem("put-map-1", "false");
+    localStorage.setItem("put-map-2", "false");
 
     localStorage.setItem("birdPfed", "false");
     localStorage.setItem("birdBfed", "false");

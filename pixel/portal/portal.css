@@ -60,6 +60,14 @@ body {
     height:45px;
 }
 
+.onward{
+    position: fixed;
+    top: 380px;
+    left: 725px;
+    height: 110px;
+    width: 75px;
+}
+
 .back-art{
     position: fixed;
     top: 62px;
@@ -74,6 +82,15 @@ body {
     left: 225px;
     width: 1055px;
     height: 715px;
+}
+
+.portal{
+    position: fixed;
+    top: 560px;
+    left: 650px;
+    width: 200px;
+    height: 75px;
+    border-radius: 50%;
 }
 
 .fore-art{
@@ -200,9 +217,20 @@ body {
     top:-5px;
 }
 
+.bunny{
+    position: fixed;
+    top: 620px;
+}
+
 .invis{
     color: transparent;
     opacity: 0;
+}
+
+#bun-kill, #bunny-anim{
+    position: absolute;
+    width: 120px;
+    height: 80px;
 }
 
 .hide{
