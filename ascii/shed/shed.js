@@ -70,7 +70,6 @@ function ready() {
         take(canBut, "can");
     } else {
         canBut.addEventListener('click', function tk() {
-            document.getElementById("behind-can").classList.remove("invis");
             canBut.removeEventListener('click', tk);
             take(canBut, "can");
         });
@@ -106,7 +105,6 @@ function ready() {
 // Function to take an item and add it to inventory if there is space.
 function take(button, name) {
     if (localStorage.getItem("free") < 9 || init == "true") {
-        console.log(5);
         document.getElementsByClassName(name + "-del")[0].classList.add("invis");
         if (name == "can") {
             document.getElementById("behind-can").classList.remove("invis");
