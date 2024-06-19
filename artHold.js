@@ -7,7 +7,7 @@ var ach = {
         `,
     "7" : `
                     <li class="art artln"><span class="art artln">      |************|</span></li>
-                    <li class="art artln"><span class="art artln">      |   ^^  /.\  ^  |</span></li>
+                    <li class="art artln"><span class="art artln">      |   ^^  /.\\  ^  |</span></li>
                     <li class="art artln"><span class="art artln">      | ^      ||     ^|</span></li>
                     <li class="art artln"><span class="art artln">      l....^..O....^.l </span></li>     
         `
