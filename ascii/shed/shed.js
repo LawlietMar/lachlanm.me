@@ -106,7 +106,6 @@ function ready() {
 // Function to take an item and add it to inventory if there is space.
 function take(button, name) {
     if (localStorage.getItem("free") < 9 || init == "true") {
-        console.log(5);
         document.getElementsByClassName(name + "-del")[0].classList.add("invis");
         if (name == "can") {
             document.getElementById("behind-can").classList.remove("invis");
@@ -118,6 +117,13 @@ function take(button, name) {
         button.addEventListener('click', function pt() {
             button.removeEventListener('click', pt);
             put(button, name);
+        });
+    }
+
+    else {
+        button.addEventListener('click', function tk() {
+            button.removeEventListener('click', tk);
+            take(button, name);
         });
     }
 }

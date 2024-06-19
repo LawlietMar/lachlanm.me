@@ -248,6 +248,13 @@ function take(button, name) {
             checkPortal();
         }
     }
+
+    else {
+        button.addEventListener('click', function tk() {
+            button.removeEventListener('click', tk);
+            take(button, name);
+        });
+    }
 }
 
 // Function to remove an item from the inventory.

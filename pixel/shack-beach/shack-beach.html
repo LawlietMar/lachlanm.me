@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>The Beach?</title>
+        <title>The Beach!</title>
         <meta name="description" content="Footsteps">
         <link rel="icon" type="image/x-icon" href="../../icon.ico">
-        <link rel="stylesheet" href="boat-beach.css"\>
-        <script type="module" src="boat-beach.js" async></script>
+        <link rel="stylesheet" href="shack-beach.css"\>
+        <script type="module" src="shack-beach.js" async></script>
         <script type="module" src="audio.js" async></script>
     </head>
 
@@ -19,7 +19,9 @@
         <div class="top"></div>
 
         <img draggable="false" class="back-art" src="../global-art/clouds-passing.gif" alt="">
-        <img draggable="false" class="main-art" src="boat-beach-main.png" alt="">
+        <img draggable="false" class="main-art" src="shack-beach-art/shack-beach-main.png" alt="">
+        <img draggable="false" class="fore-art" src="shack-beach-art/shell.png" alt="">
+        <button class="hide shell-but"></button>
 
         <div id="award1">
             <img draggable="false" class="hide award-art" id="awardimg1" src="../global-art/achievements/award1.png" alt="">
@@ -86,8 +88,7 @@
             <button tabindex="-1" class="item art item-art spot8"></button>
         </div>
         
-        <a href=""><button tabindex="-1" class="hide island"></button></a>
-        <a href="../shack-beach/shack-beach.html"><button tabindex="-1" class="hide beach2"></button></a>
-        <a href="../crossroads/crossroads.html"><button tabindex="-1" class="hide crossroads"></button></a>
+        <button tabindex="-1" class="hide shack"></button>
+        <a href="../boat-beach/boat-beach.html"><button tabindex="-1" class="hide beach1"></button></a>
     </body>
 </html>

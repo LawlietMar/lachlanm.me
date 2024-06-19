@@ -291,6 +291,13 @@ function take(button, name) {
             put(button, name);
         });
     }
+
+    else {
+        button.addEventListener('click', function tk() {
+            button.removeEventListener('click', tk);
+            take(button, name);
+        });
+    }
 }
 
 // Function to remove an item from the inventory.

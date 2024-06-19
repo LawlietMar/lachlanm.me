@@ -84,7 +84,6 @@ function setFish(){
 }
 
 function checkOpen(){
-    console.log(localStorage.getItem("spot" + localStorage.getItem("selected")));
     if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "fishing-rod"){
         var caught = "false";
         var fishing = "true";
@@ -276,6 +275,13 @@ function take(button, name) {
         button.addEventListener('click', function pt() {
             button.removeEventListener('click', pt);
             put(button, name);
+        });
+    }
+
+    else {
+        button.addEventListener('click', function tk() {
+            button.removeEventListener('click', tk);
+            take(button, name);
         });
     }
 }
