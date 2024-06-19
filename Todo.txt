@@ -1,1 +1,3 @@
 At some point, fix the art for items and borders
+make ach2 and log for ascii
+update portal mountain

@@ -9,7 +9,6 @@ var init;
 function ready() {
     init = "true";
     // Initialize selected item to -1 (no selection)
-    localStorage.setItem("has-award-7", "true");
     localStorage.setItem("selected", -1);
     localStorage.setItem("free", 1);
     
@@ -17,62 +16,15 @@ function ready() {
     
     // Initialize items and start rain effects
     initItems();
-    sleep(40).then(() => {init = "false"; nextBunny()});
+    sleep(40).then(() => {init = "false";});
 
-    if (localStorage.getItem("lpot-full") == "true" && localStorage.getItem("rpot-full") == "true"){
-        var port = document.getElementsByClassName("fore-art")[0];
-        port.classList.remove("hide");
-        var portBut = document.getElementsByClassName("portal")[0];
-        portBut.addEventListener('click', function(){window.location.href = "../../ascii/portal/portal.html"});
-    }
-}
-
-function nextBunny(){
-    var bunx = parseInt(localStorage.getItem("bunny-x"));
-    var bun = document.getElementsByClassName("bunny")[0];
-    if (localStorage.getItem("dead-bunny") == "true"){
-        bun.classList.remove("hide");
-        bun.style.left = bunx + "px";
-        bun.innerHTML = `
-            <img draggable="false" id="bunny-anim" src="portal-art/dead-bunny.png" alt="">
-        `
-    }
-    else {
-        sleep((15 + Math.floor(Math.random() * 30))*1000).then(() => {
-            bun.style.left = "915px";
-            bun.classList.remove("hide");
-            localStorage.setItem("bunny-x", 915);
-            document.getElementById("bun-kill").addEventListener('click', function(){
-                if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "axe"){
-                    bun.innerHTML = `
-                        <img draggable="false" id="bunny-anim" src="portal-art/dead-bunny.png" alt="">
-                    `   
-                    localStorage.setItem("dead-bunny", "true"); 
-                    localStorage.setItem("karma", parseInt(localStorage.getItem("karma")) - 2);
-                }
-            });
-            xInc();
-        });
-    }
-}
-
-function xInc(){
-    var bunx = parseInt(localStorage.getItem("bunny-x"));
-    bunx = bunx - 5;
-    localStorage.setItem("bunny-x", bunx);
-    document.getElementsByClassName("bunny")[0].style.left = bunx + "px";
-    if (bunx > 430){
-        if (localStorage.getItem("dead-bunny") != "true"){
-            sleep(20).then(() => {xInc()});
+    let logs = document.getElementsByClassName("logs-but")[0];
+    logs.addEventListener('click', function(){
+        if (localStorage.getItem("free") < 9 && localStorage.getItem("spot" + localStorage.getItem("selected")) == "axe"){
+            getIte("branch");
+            initItems();
         }
-    }
-    else {
-        var bun = document.getElementsByClassName("bunny")[0];
-        let newBun = bun.cloneNode(true);
-        bun.parentNode.replaceChild(newBun, bun);
-        newBun.classList.add("hide");
-        nextBunny();
-    }
+    });
 }
 
 function sleep(ms) {

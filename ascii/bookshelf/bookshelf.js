@@ -134,7 +134,7 @@ function initItemsMeat(i) {
         var spot = document.getElementById("spot" + i);
         spot.innerHTML = arts[nam];
         spot.addEventListener('click', function() { select(i); });
-        sleep(10).then(() => { initItemsMeat(i + 1); });
+        sleep(3).then(() => { initItemsMeat(i + 1); });
     }
 }
 
