@@ -4,6 +4,12 @@ var ach = {
                     <li class="art artln"><span class="art artln">      |...../\\x/\\......|</span></li>
                     <li class="art artln"><span class="art artln">      |..<-.   ..->..|</span></li>
                     <li class="art artln"><span class="art artln">      l...../....\\......l </span></li>     
+        `,
+    "7" : `
+                    <li class="art artln"><span class="art artln">      |************|</span></li>
+                    <li class="art artln"><span class="art artln">      |   ^^  /.\  ^  |</span></li>
+                    <li class="art artln"><span class="art artln">      | ^      ||     ^|</span></li>
+                    <li class="art artln"><span class="art artln">      l....^..O....^.l </span></li>     
         `
 }
 var arts = {
@@ -99,6 +105,14 @@ var arts = {
                     <li class="art artln"><span class="art artln">     ./********-.    </span></li>
                     <li class="art artln"><span class="art artln">     |. (::::::() (**()</span></li>
                     <li class="art artln"><span class="art artln">      \\...........-***   </span></li>
+                </ul>
+            `,
+    "branch" : `
+                <ul class="item" id="branch">
+                    <li class="art artln"><span class="art artln">                 ....---.   </span></li>
+                    <li class="art artln"><span class="art artln">      ...---***        .*</span></li>
+                    <li class="art artln"><span class="art artln">    .**.         ...---*</span></li>
+                    <li class="art artln"><span class="art artln">     *.:.---***          </span></li>
                 </ul>
             `
 };
