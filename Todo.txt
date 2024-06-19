@@ -2,4 +2,4 @@ At some point, fix the art for items and borders
 update portal mountain
 remove backs
 add ashamalev and playtesters to credits
-make shell art and bottle art
+reduce bunny quality
