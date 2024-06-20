@@ -131,12 +131,36 @@ var arts = {
                     <li class="art artln"><span class="art artln">       @.-*  </span></li>
                 </ul>
             `,
+    "grave-map" : `
+                <ul class="item" id="grave-map">
+                    <li class="art artln"><span class="art artln">                ..-**.  </span></li>
+                    <li class="art artln"><span class="art artln">            ..-* ..-* </span></li>
+                    <li class="art artln"><span class="art artln">       ..-*  ..-*   </span></li>
+                    <li class="art artln"><span class="art artln">     @..-* </span></li>
+                </ul>
+            `,
     "fishing-rod" : `
                 <ul class="item" id="fishing-rod">
                     <li class="art artln"><span class="art artln">                      ..--*/</span></li>
                     <li class="art artln"><span class="art artln">               ..--**     /</span></li>
                     <li class="art artln"><span class="art artln">        ..--**           C</span></li>
                     <li class="art artln"><span class="art artln"> ..--**..*  </span></li>
+                </ul>
+            `,
+    "orb1" : `
+                <ul class="item" id="orb1">
+                    <li class="art artln"><span class="art artln"></span></li>
+                    <li class="art artln"><span class="art artln">           ...---..          </span></li>
+                    <li class="art artln"><span class="art artln">       .-:*  <span class="art artln blue">@</span>   *:-</span></li>
+                    <li class="art artln"><span class="art artln">           **---** </span></li>
+                </ul>
+            `,
+    "oar" : `
+                <ul class="item" id="oar">
+                    <li class="art artln"><span class="art artln">                    :: </span></li>
+                    <li class="art artln"><span class="art artln">                .-*</span></li>
+                    <li class="art artln"><span class="art artln">          .--*:  </span></li>
+                    <li class="art artln"><span class="art artln">         *..-*</span></li>
                 </ul>
             `
 };
