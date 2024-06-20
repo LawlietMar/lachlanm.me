@@ -1,3 +1,4 @@
+import { ready2 } from "../aud.js";
 if (document.readyState == 'loading') {
     document.addEventListener('DOMContentLoaded', ready)
 } else {
@@ -138,4 +139,6 @@ function resett(ite){
     localStorage.setItem("crop-time4", 0);
     localStorage.setItem("crop-time5", 0);
     localStorage.setItem("crop-time6", 0);
+
+    ready2();
 }
