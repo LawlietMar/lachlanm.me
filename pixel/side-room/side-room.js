@@ -11,8 +11,6 @@ function ready() {
     init = "true";
     setMoon();
     // Initialize selected item to -1 (no selection)
-    localStorage.setItem("spot1", "pickaxe");
-    localStorage.setItem("has-pickaxe", "true");
     localStorage.setItem("selected", -1);
     localStorage.setItem("free", 1);
     
