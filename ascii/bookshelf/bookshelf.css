@@ -300,7 +300,7 @@ body {
     height: 90px;
 }
 
-#axe, #key, #shovel, #rose-seeds, #daisy-seeds, #can, #map1, #rose, #daisy, #map2, #fish, #branch, #map-shack, #fishing-rod, #shell, #grave-map, #orb1{
+#axe, #key, #shovel, #rose-seeds, #daisy-seeds, #can, #map1, #rose, #daisy, #map2, #fish, #branch, #map-shack, #fishing-rod, #shell, #grave-map, #orb1, #oar{
     position: absolute;
     top:-5px
 }
