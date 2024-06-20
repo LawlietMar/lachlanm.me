@@ -102,6 +102,12 @@ function resett(ite){
     localStorage.setItem("has-map-shack", "false");
     localStorage.setItem("has-grave-map", "false");
 
+    localStorage.setItem("burned-shell", "false");
+    localStorage.setItem("burned-cup", "false");
+    localStorage.setItem("burned-totem", "false");
+    localStorage.setItem("burned-fish", "false");
+    localStorage.setItem("appeased", "false");
+
     localStorage.setItem("put-map-1", "false");
     localStorage.setItem("put-map-2", "false");
 
