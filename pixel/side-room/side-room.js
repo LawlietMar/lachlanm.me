@@ -39,6 +39,16 @@ function ready() {
             take(orbBut, "orb1");
         });
     }
+
+    var oarBut = document.getElementsByClassName("oar-but")[0];
+    if (localStorage.getItem("has-oar") == "true") {
+        take(oarBut, "oar");
+    } else {
+        oarBut.addEventListener('click', function tk() {
+            oarBut.removeEventListener('click', tk);
+            take(oarBut, "oar");
+        });
+    }
 }
 
 function setMoon(){

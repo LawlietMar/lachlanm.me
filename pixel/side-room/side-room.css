@@ -76,6 +76,22 @@ body {
     height: 340px;
 }
 
+.foar-art{
+    position: fixed;
+    top: 350px;
+    left: 860px;
+    width: 500px;
+    height: 350px;
+}
+
+.oar-but{
+    position: fixed;
+    top: 400px;
+    left: 1075px;
+    width: 70px;
+    height: 290px;
+}
+
 .orb-but{
     position: fixed;
     top: 340px;
