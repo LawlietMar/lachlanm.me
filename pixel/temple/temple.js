@@ -1,3 +1,4 @@
+import { ready2 } from "../../aud.js";
 if (document.readyState == 'loading') {
     document.addEventListener('DOMContentLoaded', ready);
 } else {
@@ -29,6 +30,11 @@ function ready() {
     document.getElementsByClassName("fire")[0].addEventListener('click', function(){
         if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "grave-map"){
             localStorage.setItem("karma", parseInt(localStorage.getItem("karma")) + 1);
+        }
+
+        if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "orb1"){
+            localStorage.setItem("balls", parseInt(localStorage.getItem("balls")) - 1);
+            ready2();
         }
 
         checkBurns();

@@ -73,6 +73,7 @@ function resett(ite){
     localStorage.setItem("reset", "true");
     localStorage.setItem("karma", 0);
     localStorage.setItem("moon", 1);
+    localStorage.setItem("balls", 0);
     localStorage.setItem("aud-spot-forest", 0);
     localStorage.setItem("aud-spot-beach", 0);
 
@@ -101,6 +102,7 @@ function resett(ite){
     localStorage.setItem("has-shell", "false");
     localStorage.setItem("has-map-shack", "false");
     localStorage.setItem("has-grave-map", "false");
+    localStorage.setItem("has-orb1", "false");
 
     localStorage.setItem("burned-shell", "false");
     localStorage.setItem("burned-cup", "false");

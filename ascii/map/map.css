@@ -13,7 +13,7 @@ body {
     overflow: hidden;
 }
 
-.aud{
+.aud, .aud2{
     display: none;
 }
 

@@ -16,7 +16,7 @@ button {
     font-size: medium;
 }
 
-.aud{
+.aud, .aud2{
     display: none;
 }
 

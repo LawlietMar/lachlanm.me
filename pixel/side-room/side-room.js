@@ -1,3 +1,4 @@
+import { ready2 } from "../../aud.js";
 if (document.readyState == 'loading') {
     document.addEventListener('DOMContentLoaded', ready);
 } else {
@@ -30,7 +31,7 @@ function ready() {
     });
 
     var orbBut = document.getElementsByClassName("orb-but")[0];
-    if (localStorage.getItem("has-orb") == "true") {
+    if (localStorage.getItem("has-orb1") == "true") {
         take(orbBut, "orb1");
     } else {
         orbBut.addEventListener('click', function tk() {
@@ -47,10 +48,14 @@ function setMoon(){
 }
 
 function take(button, name) {
-    if ((localStorage.getItem("free") < 9 && localStorage.getItem("spot" + localStorage.getItem("selected")) == "pickaxe") || init == "true") {
-        document.getElementsByClassName("orbart")[0].innerHTML = `
-                <img draggable="false" class="main-art" src="side-room-art/main-no-stone.png" alt="">
-            `;
+    if ((localStorage.getItem("free") < 9 && (localStorage.getItem("spot" + localStorage.getItem("selected")) == "pickaxe") || name != "orb1") || init == "true") {
+        if (name == "orb1" && init != "true"){
+            localStorage.setItem("balls", parseInt(localStorage.getItem("balls")) + 1);
+            document.getElementsByClassName("orbart")[0].innerHTML = `
+                    <img draggable="false" class="main-art" src="side-room-art/main-no-stone.png" alt="">
+                `;
+            ready2();
+        }
         if (!(localStorage.getItem("has-" + name) == "true")) {
             getIte(name);
             initItems();
@@ -72,9 +77,13 @@ function take(button, name) {
 // Function to remove an item from the inventory.
 function put(button, name) {
     if (localStorage.getItem("spot" + localStorage.getItem("selected")) == name) {
-        document.getElementsByClassName("orbart")[0].innerHTML = `
+        if (name == "orb1"){
+            localStorage.setItem("balls", parseInt(localStorage.getItem("balls")) - 1);
+            document.getElementsByClassName("orbart")[0].innerHTML = `
                 <img draggable="false" class="main-art" src="side-room-art/main-stone.png" alt="">
             `;
+            ready2();
+        }
         removeIte(localStorage.getItem("selected"));
         initItems();
         button.addEventListener('click', function tk() {
