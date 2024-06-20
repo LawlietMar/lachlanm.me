@@ -41,7 +41,7 @@ function ready() {
 
 function take(button, name) {
     if (localStorage.getItem("free") < 9 || init == "true") {
-        document.getElementsByClassName(name)[0].classList.add("invis");
+        document.getElementsByClassName(name + "-art")[0].classList.add("invis");
         if (!(localStorage.getItem("has-" + name) == "true")) {
             getIte(name);
             initItems();
@@ -63,7 +63,7 @@ function take(button, name) {
 // Function to remove an item from the inventory.
 function put(button, name) {
     if (localStorage.getItem("spot" + localStorage.getItem("selected")) == name) {
-        document.getElementsByClassName(name)[0].classList.remove("invis");
+        document.getElementsByClassName(name + "-art")[0].classList.remove("invis");
         if (name == "can") {
             document.getElementById("behind-can").classList.add("invis");
         }
