@@ -6,7 +6,6 @@ if (document.readyState == 'loading') {
 
 var time
 function ready(){
-    localStorage.setItem("aud-spot-forest", 0);
     var permission = localStorage.getItem('audioAutoplayPermission') === 'granted';
     time = localStorage.getItem("aud-spot-forest");
     var aud = document.getElementsByClassName("aud")[0];
