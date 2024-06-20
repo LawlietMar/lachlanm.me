@@ -6,10 +6,10 @@ if (document.readyState == 'loading') {
 }
 
 function ready(){
-    if (!(localStorage.getItem("put-map-1") == "true")){
-        document.getElementsByClassName("map1")[0].classList.add("invis");
+    if (localStorage.getItem("put-map-1") == "true"){
+        document.getElementsByClassName("map1")[0].classList.remove("invis");
     }
-    if (!(localStorage.getItem("put-map-2") == "true")){
-        document.getElementsByClassName("map2")[0].classList.add("invis");
+    if (localStorage.getItem("put-map-2") == "true"){
+        document.getElementsByClassName("map2")[0].classList.remove("invis");
     }
 }
