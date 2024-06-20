@@ -18,9 +18,9 @@ function ready() {
     initItems();
     sleep(40).then(() => {init = "false";});
 
-    document.getElementsByClassName("island")[0].addEventListener('click', function(){
+    document.getElementsByClassName("boat-beach")[0].addEventListener('click', function(){
         if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "oar"){
-            window.location.href = "../island-beach/island-beach.html";
+            window.location.href = "../boat-beach/boat-beach.html";
         }
     });
 }
