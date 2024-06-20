@@ -6,4 +6,3 @@ update portal mountain
 remove backs
 add ashamalev and playtesters to credits
 reduce bunny quality
-sync textures (ascii shell, rod, map-shack, pixel fish)

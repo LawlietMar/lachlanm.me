@@ -114,6 +114,30 @@ var arts = {
                     <li class="art artln"><span class="art artln">    .**.         ...---*</span></li>
                     <li class="art artln"><span class="art artln">     *.:.---***          </span></li>
                 </ul>
+            `,
+    "shell" : `
+                <ul class="item" id="shell">
+                    <li class="art artln"><span class="art artln">      ..-** **-..    </span></li>
+                    <li class="art artln"><span class="art artln">     /  \\   |   /  \\</span></li>
+                    <li class="art artln"><span class="art artln">     *-.\\     /.-* </span></li>
+                    <li class="art artln"><span class="art artln">         \\\\...// </span></li>
+                </ul>
+            `,
+    "map-shack" : `
+                <ul class="item" id="map-shack">
+                    <li class="art artln"><span class="art artln">               .-**.  </span></li>
+                    <li class="art artln"><span class="art artln">          ..-*  .-*</span></li>
+                    <li class="art artln"><span class="art artln">      .-*  ..-*</span></li>
+                    <li class="art artln"><span class="art artln">    @.-*  </span></li>
+                </ul>
+            `,
+    "fishing-rod" : `
+                <ul class="item" id="fishing-rod">
+                    <li class="art artln"><span class="art artln">                       ..--*/</span></li>
+                    <li class="art artln"><span class="art artln">                ..--**     /</span></li>
+                    <li class="art artln"><span class="art artln">         ..--**           C</span></li>
+                    <li class="art artln"><span class="art artln">  ..--**..*  </span></li>
+                </ul>
             `
 };
 
