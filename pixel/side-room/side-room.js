@@ -62,12 +62,14 @@ function take(button, name) {
         if (name == "oar"){
             document.getElementsByClassName("foar-art")[0].classList.add("hide");
         }
-        if (name == "orb1" && init != "true"){
-            localStorage.setItem("balls", parseInt(localStorage.getItem("balls")) + 1);
+        if (name == "orb1"){
+            if (init != "true"){
+                localStorage.setItem("balls", parseInt(localStorage.getItem("balls")) + 1);
+                ready2();
+            }
             document.getElementsByClassName("orbart")[0].innerHTML = `
                     <img draggable="false" class="main-art" src="side-room-art/main-no-stone.png" alt="">
                 `;
-            ready2();
         }
         if (!(localStorage.getItem("has-" + name) == "true")) {
             getIte(name);
