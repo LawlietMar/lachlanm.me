@@ -22,6 +22,12 @@ function ready() {
         if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "oar"){
             window.location.href = "../island-beach/island-beach.html";
         }
+
+        if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "shovel"){
+            removeIte(localStorage.getItem("selected"));
+            localStorage.setItem("A Perilous Voyage", "true");
+            sleep(5).then(() => {window.location.href = "../island-beach/island-beach.html"});
+        }
     });
 }
 
