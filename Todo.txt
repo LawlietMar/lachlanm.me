@@ -3,6 +3,7 @@ update bookshelf
 make it so any seed can feed birb2
 add home
 At some point, fix the art for items and borders
-do garden
-make ascii for shed-map, seeds-corn, seeds-poppy, cornflower, poppy
+do next locations
+update portal to have cornflower
+make ascii for poppy, cornflower
 Make flowers cross-unique

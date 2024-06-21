@@ -162,19 +162,19 @@ function toPick(spot){
             toDig(spot);
             localStorage.setItem("p1crop-time" + spot, 0);
             if (localStorage.getItem("p1plot-type" + spot) == "rose-seeds"){
-                getIte("rose")
+                getIte("p1rose")
                 initItems();
             }
             else if (localStorage.getItem("p1plot-type" + spot) == "poppy-seeds"){
-                getIte("poppy")
+                getIte("p1poppy")
                 initItems();
             }
             else if (localStorage.getItem("p1plot-type" + spot) == "cornflower-seeds"){
-                getIte("cornflower")
+                getIte("p1cornflower")
                 initItems();
             }
             else {
-                getIte("daisy");
+                getIte("p1daisy");
                 initItems();
             }
         }

@@ -162,6 +162,30 @@ var arts = {
                     <li class="art artln"><span class="art artln">          .--*:  </span></li>
                     <li class="art artln"><span class="art artln">         *..-*</span></li>
                 </ul>
+            `,
+    "cornflower-seeds" : `
+                <ul class="item" id="cornflower-seeds">
+                    <li class="art artln"><span class="art artln">         .-:::::::-.</span></li>
+                    <li class="art artln"><span class="art artln">      <span class="art invis in-list">-</span>  | -. l .- |</span></li>
+                    <li class="art artln"><span class="art artln">         | --O-- |</span></li>
+                    <li class="art artln"><span class="art artln">         l..::.l.::.l </span></li>     
+                </ul>
+            `,
+    "poppy-seeds" : `
+                <ul class="item" id="poppy-seeds">
+                    <li class="art artln"><span class="art artln">         .-:::::::-.</span></li>
+                    <li class="art artln"><span class="art artln">         | @ -.  | </span></li>
+                    <li class="art artln"><span class="art artln">         |  *-.. \\ |</span></li>
+                    <li class="art artln"><span class="art artln">         l.......ll.l  </span></li>     
+                </ul>
+            `,
+    "shed-map" : `
+                <ul class="item" id="shed-map">
+                    <li class="art artln"><span class="art artln">         l***--****|</span></li>
+                    <li class="art artln"><span class="art artln">         \\ .   /.\\ /\\ |</span></li>
+                    <li class="art artln"><span class="art artln">         / /\\|  -...| |</span></li>
+                    <li class="art artln"><span class="art artln">        |.....**--...|</span></li>     
+                </ul>
             `
 };
 

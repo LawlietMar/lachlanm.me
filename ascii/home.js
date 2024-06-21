@@ -95,10 +95,16 @@ function resett(ite){
     localStorage.setItem("has-daisy-seeds", "false");
     localStorage.setItem("has-poppy-seeds", "false");
     localStorage.setItem("has-cornflower-seeds", "false");
+
     localStorage.setItem("has-rose", "false");
     localStorage.setItem("has-daisy", "false");
     localStorage.setItem("has-poppy", "false");
     localStorage.setItem("has-cornflower", "false");
+    localStorage.setItem("has-p1rose", "false");
+    localStorage.setItem("has-p1daisy", "false");
+    localStorage.setItem("has-p1poppy", "false");
+    localStorage.setItem("has-p1cornflower", "false");
+
     localStorage.setItem("has-map1", "false");
     localStorage.setItem("has-map2", "false");
     localStorage.setItem("has-fish", "false");

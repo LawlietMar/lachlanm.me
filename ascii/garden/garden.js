@@ -255,6 +255,14 @@ function toPick(spot){
                 getIte("rose")
                 initItems();
             }
+            else if (localStorage.getItem("plot-type" + spot) == "poppy-seeds"){
+                getIte("poppy")
+                initItems();
+            }
+            else if (localStorage.getItem("plot-type" + spot) == "cornflower-seeds"){
+                getIte("cornflower")
+                initItems();
+            }
             else {
                 getIte("daisy");
                 initItems();
