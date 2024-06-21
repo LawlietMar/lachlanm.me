@@ -28,19 +28,6 @@ function ready() {
     localStorage.setItem("has-daisy-seeds", 'false');*/
     
     checkHave();
-    // Get the current path from localStorage and update it if necessary.
-    var path = localStorage.getItem("path");
-    if ((path.substring(path.substring(0, path.lastIndexOf(" ")).lastIndexOf(" "), path.lastIndexOf(" ")) == " ../shed/shed.html")){
-        localStorage.setItem("path", path.substring(0, path.lastIndexOf(" ")));
-    }
-    else if (!(path.substring(path.lastIndexOf(" ")) == " ../shed/shed.html")){
-        path = path + " ../shed/shed.html"
-        localStorage.setItem("path",path);
-    }
-
-    // Set up the 'back' button click event to go back to the previous page.
-    var back = document.getElementsByClassName("back")[0];
-    back.addEventListener('click', goBack);
 
     // Set up event listeners for the axe button, or directly take the item if already owned.
     var axeBut = document.getElementsByClassName("axe-button")[0];
@@ -388,15 +375,3 @@ function removeIte(spot) {
 }  
 
 // Function to handle going back to the previous page.
-function goBack() {
-    var prev = "";
-    var path = localStorage.getItem("path");
-    var lastSpace = path.lastIndexOf(" ");
-
-    path = path.substring(0, lastSpace);
-    lastSpace = path.lastIndexOf(" ");
-
-    prev = path.substring(lastSpace + 1);
-    localStorage.setItem("path", path.substring(0, lastSpace));
-    window.location.href = prev;
-}

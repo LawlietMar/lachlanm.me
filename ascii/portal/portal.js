@@ -37,21 +37,6 @@ function ready() {
     // Check which items are currently available in the inventory.
     checkHave();
 
-    // Retrieve and update the navigation path.
-    var path = localStorage.getItem("path");
-    if ((path.substring(path.substring(0, path.lastIndexOf(" ")).lastIndexOf(" "), path.lastIndexOf(" ")) == " ../portal/portal.html")){
-        // If the current path includes a visit to the portal, update it to the previous path.
-        localStorage.setItem("path", path.substring(0, path.lastIndexOf(" ")));
-    } else if (!(path.substring(path.lastIndexOf(" ")) == " ../portal/portal.html")){
-        // If the path does not include a visit to the portal, append it.
-        path = path + " ../portal/portal.html";
-        localStorage.setItem("path", path);
-    }
-
-    // Set up the 'back' button to navigate to the previous page.
-    var back = document.getElementsByClassName("back")[0];
-    back.addEventListener('click', goBack);
-
     // Set up a click event for the pool element to handle filling a can with water.
     var pool = document.getElementsByClassName("pool")[0];
     if (!(localStorage.getItem("ascii-water") == "true")){
@@ -677,15 +662,3 @@ function addList(item) {
 }
 
 // Function to navigate to the previous page.
-function goBack() {
-    var prev = "";
-    var path = localStorage.getItem("path");
-    var lastSpace = path.lastIndexOf(" ");
-
-    path = path.substring(0, lastSpace);
-    lastSpace = path.lastIndexOf(" ");
-
-    prev = path.substring(lastSpace + 1);
-    localStorage.setItem("path", path.substring(0, lastSpace));
-    window.location.href = prev;
-}

@@ -27,19 +27,6 @@ function ready() {
     localStorage.setItem("has-daisy-seeds", 'false');*/
     
     checkHave();
-    // Get the current path from localStorage and update it if necessary.
-    var path = localStorage.getItem("path");
-    if ((path.substring(path.substring(0, path.lastIndexOf(" ")).lastIndexOf(" "), path.lastIndexOf(" ")) == " ../outside/outside.html")){
-        localStorage.setItem("path", path.substring(0, path.lastIndexOf(" ")));
-    }
-    else if (!(path.substring(path.lastIndexOf(" ")) == " ../outside/outside.html")){
-        path = path + " ../outside/outside.html"
-        localStorage.setItem("path",path);
-    }
-
-    // Set up the 'back' button click event to go back to the previous page.
-    var back = document.getElementsByClassName("back")[0];
-    back.addEventListener('click', goBack);
     
     // Initialize items and start rain effects
     initItems();
@@ -342,17 +329,4 @@ function removeIte(spot) {
 
 function addList(item){
     item.addEventListener('click', function(){select(item)});
-}
-
-function goBack() {
-    var prev = "";
-    var path = localStorage.getItem("path");
-    var lastSpace = path.lastIndexOf(" ");
-
-    path = path.substring(0, lastSpace);
-    lastSpace = path.lastIndexOf(" ");
-
-    prev = path.substring(lastSpace + 1);
-    localStorage.setItem("path", path.substring(0, lastSpace));
-    window.location.href = prev;
 }
