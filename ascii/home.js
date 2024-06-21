@@ -104,6 +104,9 @@ function resett(ite){
     localStorage.setItem("has-map-shack", "false");
     localStorage.setItem("has-grave-map", "false");
     localStorage.setItem("has-orb1", "false");
+    localStorage.setItem("has-shed-map", "false");
+    localStorage.setItem("has-poppy-seeds", "false");
+    localStorage.setItem("has-cornflower-seeds", "false");
 
     localStorage.setItem("burned-shell", "false");
     localStorage.setItem("burned-cup", "false");

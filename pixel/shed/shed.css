@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
+*{
+    color:rgb(202, 199, 199);
+    font-family: Comfortaa;
+    cursor: pointer;
+}
+
+body {
+    background-color: #0e0e0e;
+}
+
+.aud, .aud2{
+    display: none;
+}
+
+.art{
+    text-align: left;
+    padding: 0px;
+    line-height: 15px;
+    background-color: transparent;
+    border-color: transparent;
+    border: 0px;
+}
+
+.left {
+    position: fixed; 
+    top:0px;
+    left:0px;
+    background-color: black;
+    width: 40px;
+    height: 100%;
+}
+
+.right {
+    position: fixed; 
+    top:0px;
+    right:0px;
+    background-color: black;
+    width: 40px;
+    height: 100%;
+}
+
+.bottom {
+    position: fixed; 
+    bottom:0px;
+    left:0px;
+    background-color: black;
+    width: 100%;
+    height: 40px;
+}
+
+.top {
+    position: fixed; 
+    top:0px;
+    left:0px;
+    background-color: black;
+    width: 100%;
+    height:45px;
+}
+
+.main-art, .fore-art{
+    position: fixed;
+    top: 62px;
+    left: 225px;
+    width: 1055px;
+    height: 715px;
+}
+
+.cornflower-seeds-but{
+    position: fixed;
+    top: 445px;
+    left: 990px;
+    height: 50px;
+    width: 70px;
+}
+
+.poppy-seeds-but{
+    position: fixed;
+    top: 445px;
+    left: 797px;
+    height: 40px;
+    width: 80px;
+}
+
+.shed-map-but{
+    position: fixed;
+    top: 477px;
+    left: 885px;
+    height: 40px;
+    width: 100px;
+}
+
+.garden{
+    position: fixed;
+    top: 697px;
+    left: 585px;
+    height: 80px;
+    width: 600px;
+}
+
+.item{
+    position: fixed;
+    padding-left: 0px;
+    list-style-type: none;
+    color: inherit;
+}
+
+.award-art{
+    position: absolute;
+    width: 155px;
+    height: 90px;
+}
+
+.item-art{
+    position: absolute;
+    width: 155px;
+    height: 90px;
+}
+
+#spot1{
+    left: 55px;
+    top: 60px;
+}
+
+#spot2{
+    left: 55px;
+    top: 151px;
+}
+
+#spot3{
+    left: 55px;
+    top: 242px;
+}
+
+#spot4{
+    left: 55px;
+    top: 333px;
+}
+
+#spot5{
+    left: 55px;
+    top: 424px;
+}
+
+#spot6{
+    left: 55px;
+    top: 515px;
+}
+
+#spot7{
+    left: 55px;
+    top: 606px;
+}
+
+#spot8{
+    left: 55px;
+    top: 697px;
+}
+
+#spot1, #spot2, #spot3, #spot4, #spot5, #spot6, #spot7, #spot8 {
+    position: fixed;
+    width: 155px;
+    height: 90px;
+}
+
+#award1{
+    left: 1295px;
+    top: 60px;
+}
+
+#award2{
+    left: 1295px;
+    top: 151px;
+}
+
+#award3{
+    left: 1295px;
+    top: 242px;
+}
+
+#award4{
+    left: 1295px;
+    top: 333px;
+}
+
+#award5{
+    left: 1295px;
+    top: 424px;
+}
+
+#award6{
+    left: 1295px;
+    top: 515px;
+}
+
+#award7{
+    left: 1295px;
+    top: 606px;
+}
+
+#award8{
+    left: 1295px;
+    top: 697px;
+}
+
+#award1, #award2, #award3, #award4, #award5, #award6, #award7, #award8 {
+    position: fixed;
+    width: 155px;
+    height: 90px;
+}
+
+#axe, #key, #shovel, #rose-seeds, #daisy-seeds, #can, #map1, #rose, #daisy, #map2, #fish, #branch, #map-shack, #fishing-rod, #shell, #grave-map, #orb1, #oar{
+    position: absolute;
+    top:-5px;
+}
+
+.invis{
+    color: transparent;
+    opacity: 0;
+}
+
+.hide{
+    outline-color: transparent;
+    border-color: transparent;
+    background-color: transparent;
+    opacity: 0;
+}
+
+.selected {
+    background-color: #1d1d1d;
+}
