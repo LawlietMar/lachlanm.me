@@ -93,8 +93,12 @@ function resett(ite){
     localStorage.setItem("has-can", "false");
     localStorage.setItem("has-rose-seeds", "false");
     localStorage.setItem("has-daisy-seeds", "false");
+    localStorage.setItem("has-poppy-seeds", "false");
+    localStorage.setItem("has-cornflower-seeds", "false");
     localStorage.setItem("has-rose", "false");
     localStorage.setItem("has-daisy", "false");
+    localStorage.setItem("has-poppy", "false");
+    localStorage.setItem("has-cornflower", "false");
     localStorage.setItem("has-map1", "false");
     localStorage.setItem("has-map2", "false");
     localStorage.setItem("has-fish", "false");
@@ -105,8 +109,7 @@ function resett(ite){
     localStorage.setItem("has-grave-map", "false");
     localStorage.setItem("has-orb1", "false");
     localStorage.setItem("has-shed-map", "false");
-    localStorage.setItem("has-poppy-seeds", "false");
-    localStorage.setItem("has-cornflower-seeds", "false");
+    localStorage.setItem("has-oar", "false");
 
     localStorage.setItem("burned-shell", "false");
     localStorage.setItem("burned-cup", "false");
@@ -142,6 +145,20 @@ function resett(ite){
     localStorage.setItem("crop-time4", 0);
     localStorage.setItem("crop-time5", 0);
     localStorage.setItem("crop-time6", 0);
+
+    localStorage.setItem("p1plot-state1", "toDig");
+    localStorage.setItem("p1plot-state2", "toDig");
+    localStorage.setItem("p1plot-state3", "toDig");
+    localStorage.setItem("p1plot-state4", "toDig");
+    localStorage.setItem("p1plot-state5", "toDig");
+    localStorage.setItem("p1plot-state6", "toDig");
+
+    localStorage.setItem("p1crop-time1", 0);
+    localStorage.setItem("p1crop-time2", 0);
+    localStorage.setItem("p1crop-time3", 0);
+    localStorage.setItem("p1crop-time4", 0);
+    localStorage.setItem("p1crop-time5", 0);
+    localStorage.setItem("p1crop-time6", 0);
 
     ready2();
 }

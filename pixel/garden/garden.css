@@ -104,10 +104,98 @@ body {
 
 .plot-1-art{
     position: fixed;
+    top: 270px;
+    left: 350px;
+}
+
+.plot-2-art{
+    position: fixed;
+    top: 210px;
+    left: 520px;
+}
+
+.plot-3-art{
+    position: fixed;
     top: 350px;
     left: 520px;
-    height: 180px;
-    width: 72px;
+}
+
+.plot-4-art{
+    position: fixed;
+    top: 290px;
+    left: 680px;
+}
+
+.plot-5-art{
+    position: fixed;
+    top: 440px;
+    left: 670px;
+}
+
+.plot-6-art{
+    position: fixed;
+    top: 370px;
+    left: 850px;
+}
+
+#plot1{
+    position: fixed;
+    top: 390px;
+    left: 310px;
+    height: 90px;
+    width: 160px;
+    rotate: 20deg;
+    border-radius: 50%;
+}
+
+#plot2{
+    position: fixed;
+    top: 340px;
+    left: 470px;
+    height: 80px;
+    width: 170px;
+    rotate: 10deg;
+    border-radius: 50%;
+}
+
+#plot3{
+    position: fixed;
+    top: 440px;
+    left: 500px;
+    height: 150px;
+    width: 80px;
+    rotate: 80deg;
+    border-radius: 50%;
+}
+
+#plot4{
+    position: fixed;
+    top: 410px;
+    left: 630px;
+    height: 80px;
+    width: 160px;
+    rotate: 10deg;
+    border-radius: 50%;
+}
+
+#plot5{
+    position: fixed;
+    top: 550px;
+    left: 620px;
+    height: 100px;
+    width: 180px;
+    rotate: 20deg;
+    border-radius: 50%;
+}
+
+#plot6{
+    position: fixed;
+    top: 490px;
+    left: 790px;
+    height: 90px;
+    width: 200px;
+    rotate: 20deg;
+    border-radius: 50%;
 }
 
 .item{
@@ -236,6 +324,12 @@ body {
     border-color: transparent;
     background-color: transparent;
     opacity: 0;
+}
+
+.abs{
+    position: absolute;
+    width: 72px;
+    height: 180px;
 }
 
 .selected {

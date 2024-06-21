@@ -1,3 +1,13 @@
+var plArts = {
+    "dug" : `<img class="abs" draggable="false" alt="" src="garden-art/hole.png">`,
+    "planted" :`<img class="abs" draggable="false" alt="" src="garden-art/planted.png">`,
+    "watered" :`<img class="abs" draggable="false" alt="" src="garden-art/sprouted.png">`,
+    "rose" :`<img class="abs" draggable="false" alt="" src="garden-art/grown-rose.png">`,
+    "daisy" :`<img class="abs" draggable="false" alt="" src="garden-art/grown-daisy.png">`,
+    "poppy" :`<img class="abs" draggable="false" alt="" src="garden-art/grown-poppy.png">`,
+    "cornflower" :`<img class="abs" draggable="false" alt="" src="garden-art/grown-cornflower.png">`
+}
+
 if (document.readyState == 'loading') {
     document.addEventListener('DOMContentLoaded', ready);
 } else {
@@ -23,11 +33,157 @@ function ready() {
             window.location.href = "../shed/shed.html";
         }
     });
+
+    for (var i = 1; i<7; i++){
+        setCrop(i);
+    }
+}
+
+function setCrop(crop){
+    let sit = localStorage.getItem("p1plot-state" + crop);
+    var text = document.getElementsByClassName("plot-" + crop + "-art")[0];
+    toDig(crop);
+    if (sit == "toPick"){
+        if (localStorage.getItem("p1plot-type" + crop) == "rose-seeds"){
+            text.innerHTML = plArts["rose"];
+        }
+        else {
+            text.innerHTML = plArts["daisy"];
+        }
+        toPick(crop);
+    }
+
+    if (sit == "toGrow"){
+        text.innerHTML = plArts["watered"];
+        toGrow(crop);
+    }
+
+    if (sit == "toWater"){
+        text.innerHTML = plArts["planted"];
+        toWater(crop);
+    }
+
+    if (sit == "toPlant"){
+        text.innerHTML = plArts["dug"];
+        toPlant(crop);
+    }
+
+    if (sit == "toDig"){
+        text.innerHTML = "";
+        toDig(crop);
+    }
+}
+
+function toDig(spot){
+    var button = document.getElementById("plot" + spot);
+    var text = document.getElementsByClassName("plot-" + spot + "-art")[0];
+
+    button.addEventListener('click', function sh(){
+        if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "shovel"){;
+            let bt = button.cloneNode(true);
+            button.parentNode.replaceChild(bt, button);
+            button = bt;
+
+            button.addEventListener('click', sh);
+            localStorage.setItem("p1crop-time" + spot, 0);
+            localStorage.setItem("p1plot-state" + spot, "toPlant");
+            text.innerHTML = plArts["dug"];
+            toPlant(spot);
+        }
+    });
+}
+
+function toPlant(spot){
+    var button = document.getElementById("plot" + spot);
+    var text = document.getElementsByClassName("plot-" + spot + "-art")[0];
+
+    button.addEventListener('click', function pl(){
+        var type = localStorage.getItem("spot" + localStorage.getItem("selected"));
+        if (type == "daisy-seeds" || type == "rose-seeds" || type == "poppy-seeds" || type == "cornflower-seeds"){
+            button.removeEventListener('click', pl);
+            localStorage.setItem("p1plot-state" + spot, "toWater");
+            text.innerHTML = plArts["planted"];
+            localStorage.setItem("p1plot-type" + spot, type);
+            toWater(spot);
+        }
+    })
+}
+
+function toWater(spot){
+    var button = document.getElementById("plot" + spot);
+    var text = document.getElementsByClassName("plot-" + spot + "-art")[0];
+
+    button.addEventListener('click', function wt(){
+        if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "can"/* && localStorage.getItem("p1-water") == "true"*/){
+            button.removeEventListener('click', wt);
+            localStorage.setItem("p1plot-state" + spot, "toGrow");
+            text.innerHTML = plArts["watered"];
+            toGrow(spot);
+            sleep(62000).then(() => {
+                toGrow(spot);
+            })
+        }
+    });
+}
+
+function toGrow(spot){
+    const d = new Date();
+    var text = document.getElementsByClassName("plot-" + spot + "-art")[0];
+    if (localStorage.getItem("p1crop-time" + spot) == 0){
+        localStorage.setItem("p1crop-time" + spot, d.getTime());
+    }
+    var time = d.getTime();
+    if (time - localStorage.getItem("p1crop-time" + spot) > 60000){
+        if (localStorage.getItem("p1plot-type" + spot) == "rose-seeds"){
+            text.innerHTML = plArts["rose"];
+        }
+        else if (localStorage.getItem("p1plot-type" + spot) == "poppy-seeds"){
+            text.innerHTML = plArts["poppy"];
+        }
+        else if (localStorage.getItem("p1plot-type" + spot) == "cornflower-seeds"){
+            text.innerHTML = plArts["cornflower"];
+        }
+        else {
+            text.innerHTML = plArts["daisy"];
+        }
+        toPick(spot);
+    }
+}
+
+function toPick(spot){
+    var button = document.getElementById("plot" + spot);
+    var text = document.getElementsByClassName("plot-" + spot + "-art")[0];
+
+    button.addEventListener('click', function pi(){
+        if (localStorage.getItem("free") < 9){
+            button.removeEventListener('click', pi);
+            localStorage.setItem("p1plot-state" + spot, "toDig");
+            text.innerHTML = "";
+            toDig(spot);
+            localStorage.setItem("p1crop-time" + spot, 0);
+            if (localStorage.getItem("p1plot-type" + spot) == "rose-seeds"){
+                getIte("rose")
+                initItems();
+            }
+            else if (localStorage.getItem("p1plot-type" + spot) == "poppy-seeds"){
+                getIte("poppy")
+                initItems();
+            }
+            else if (localStorage.getItem("p1plot-type" + spot) == "cornflower-seeds"){
+                getIte("cornflower")
+                initItems();
+            }
+            else {
+                getIte("daisy");
+                initItems();
+            }
+        }
+    });
 }
 
 function take(button, name) {
     if (localStorage.getItem("free") < 9 || init == "true") {
-        document.getElementsByClassName(name + "-art")[0].classList.add("invis");
+        document.getElementsByClassName(name + "-art")[0][0].classList.add("invis");
         if (!(localStorage.getItem("has-" + name) == "true")) {
             getIte(name);
             initItems();
@@ -49,7 +205,7 @@ function take(button, name) {
 // Function to remove an item from the inventory.
 function put(button, name) {
     if (localStorage.getItem("spot" + localStorage.getItem("selected")) == name) {
-        document.getElementsByClassName(name + "-art")[0].classList.remove("invis");
+        document.getElementsByClassName(name + "-art")[0][0].classList.remove("invis");
         if (name == "can") {
             document.getElementById("behind-can").classList.add("invis");
         }
