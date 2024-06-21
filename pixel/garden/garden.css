@@ -102,6 +102,14 @@ body {
     rotate: 25deg;
 }
 
+.plot-1-art{
+    position: fixed;
+    top: 350px;
+    left: 520px;
+    height: 180px;
+    width: 72px;
+}
+
 .item{
     position: fixed;
     padding-left: 0px;
