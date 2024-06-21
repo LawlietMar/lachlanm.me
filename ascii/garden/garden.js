@@ -47,9 +47,9 @@ var plArts = {
             `,
     "daisy" :`
                 <ul class="item up">
-                    <li class="art flower"><span class="art blue flower">             - o -   </span></li>
-                    <li class="art flower"><span class="art flower">            <span class="art blue flower">o</span> <span class="art yellow flower">O</span> <span class="art blue flower">o</span>    </span></li> 
-                    <li class="art flower"><span class="art blue flower">             - o -  </span></li>
+                    <li class="art flower"><span class="art flower">             - o -   </span></li>
+                    <li class="art flower"><span class="art flower">            <span class="art flower">o</span> <span class="art yellow flower">O</span> <span class="art flower">o</span>    </span></li> 
+                    <li class="art flower"><span class="art flower">             - o -  </span></li>
                     <li class="art flower"><span class="art green flower">               || </span></li> 
                     <li class="art flower"><span class="art green flower">               || #</span></li>
                     <li class="art flower"><span class="art green flower">               ||//</span></li> 

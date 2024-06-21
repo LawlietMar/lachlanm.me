@@ -1,8 +1,6 @@
+add ashamalev and playtesters to credits
 update bookshelf
 add home
 At some point, fix the art for items and borders
 do garden
-update portal mountain
 remove backs
-add ashamalev and playtesters to credits
-reduce bunny quality
