@@ -27,68 +27,68 @@ var plArts = {
             `,
     "rose" :`
                 <ul class="item up">
-                    <li class="art flower"><span class="art red flower">        ..-..</span></li>  
-                    <li class="art flower"><span class="art red flower">       ((o))   </span></li>
-                    <li class="art flower"><span class="art flower">        <span class="art green flower">\\</span><span class="art red flower">~</span><span class="art green flower">/</span>   <span class="art red flower">..-..</span></span></li>
-                    <li class="art flower"><span class="art flower">       *<span class="art green flower">/|</span>    <span class="art red flower">((o))</span></span></li>
-                    <li class="art flower"><span class="art flower">        <span class="art green flower">|\\      \\</span><span class="art red flower">~</span><span class="art green flower">/-</span>*</span></li>  
-                    <li class="art flower"><span class="art flower">      *<span class="art green flower">-\\|</span>*   *<span class="art green flower">|/</span></span></li>
-                    <li class="art flower"><span class="art flower">         *<span class="art green flower">\\\\  //</span> </span></li>  
-                    <li class="art flower"><span class="art flower">           \\<span class="art green flower">| /</span>*</span></li>
-                    <li class="art flower"><span class="art flower">           *<span class="art green flower">||</span> </span></li>
-                    <li class="art flower"><span class="art flower"></span></li>
-                    <li class="art flower"><span class="art flower"></span></li>
-                    <li class="art flower"><span class="art flower"></span></li>
-                    <li class="art flower"><span class="art flower"></span></li>
-                    <li class="art flower"><span class="art flower"></span></li>
-                    <li class="art flower"><span class="art flower"></span></li>
-                    <li class="art flower"><span class="art flower"></span></li>     
+                    <li class="art"><span class="art red">        ..-..</span></li>  
+                    <li class="art"><span class="art red">       ((o))   </span></li>
+                    <li class="art"><span class="art">        <span class="art green">\\</span><span class="art red">~</span><span class="art green">/</span>   <span class="art red">..-..</span></span></li>
+                    <li class="art"><span class="art">       *<span class="art green">/|</span>    <span class="art red">((o))</span></span></li>
+                    <li class="art"><span class="art">        <span class="art green">|\\      \\</span><span class="art red">~</span><span class="art green">/-</span>*</span></li>  
+                    <li class="art"><span class="art">      *<span class="art green">-\\|</span>*   *<span class="art green">|/</span></span></li>
+                    <li class="art"><span class="art">         *<span class="art green">\\\\  //</span> </span></li>  
+                    <li class="art"><span class="art">           \\<span class="art green">| /</span>*</span></li>
+                    <li class="art"><span class="art">           *<span class="art green">||</span> </span></li>
+                    <li class="art"><span class="art"></span></li>
+                    <li class="art"><span class="art"></span></li>
+                    <li class="art"><span class="art"></span></li>
+                    <li class="art"><span class="art"></span></li>
+                    <li class="art"><span class="art"></span></li>
+                    <li class="art"><span class="art"></span></li>
+                    <li class="art"><span class="art"></span></li>     
                 </ul>
             `,
     "daisy" :`
                 <ul class="item up">
-                    <li class="art flower"><span class="art flower">             - o -   </span></li>
-                    <li class="art flower"><span class="art flower">            <span class="art flower">o</span> <span class="art yellow flower">O</span> <span class="art flower">o</span>    </span></li> 
-                    <li class="art flower"><span class="art flower">             - o -  </span></li>
-                    <li class="art flower"><span class="art green flower">               || </span></li> 
-                    <li class="art flower"><span class="art green flower">               || #</span></li>
-                    <li class="art flower"><span class="art green flower">               ||//</span></li> 
-                    <li class="art flower"><span class="art green flower">            # ||/ </span></li>
-                    <li class="art flower"><span class="art green flower">             \\\\||</span></li> 
-                    <li class="art flower"><span class="art green flower">              \\||</span></li>
-                    <li class="art flower"><span class="art flower"></span></li>
-                    <li class="art flower"><span class="art flower"></span></li>
-                    <li class="art flower"><span class="art flower"></span></li>
-                    <li class="art flower"><span class="art flower"></span></li>
-                    <li class="art flower"><span class="art flower"></span></li>
-                    <li class="art flower"><span class="art flower"></span></li>
-                    <li class="art flower"><span class="art flower"></span></li>  
+                    <li class="art"><span class="art">             - o -   </span></li>
+                    <li class="art"><span class="art">            <span class="art">o</span> <span class="art yellow">O</span> <span class="art">o</span>    </span></li> 
+                    <li class="art"><span class="art">             - o -  </span></li>
+                    <li class="art"><span class="art green">               || </span></li> 
+                    <li class="art"><span class="art green">               || #</span></li>
+                    <li class="art"><span class="art green">               ||//</span></li> 
+                    <li class="art"><span class="art green">            # ||/ </span></li>
+                    <li class="art"><span class="art green">             \\\\||</span></li> 
+                    <li class="art"><span class="art green">              \\||</span></li>
+                    <li class="art"><span class="art"></span></li>
+                    <li class="art"><span class="art"></span></li>
+                    <li class="art"><span class="art"></span></li>
+                    <li class="art"><span class="art"></span></li>
+                    <li class="art"><span class="art"></span></li>
+                    <li class="art"><span class="art"></span></li>
+                    <li class="art"><span class="art"></span></li>  
                 </ul>
             `,
     "poppy" :`
                 <ul class="item up">
-                    <li class="art flower"><span class="art orange flower">     .:-:-. </span></li>
-                    <li class="art flower"><span class="art flower">    <span class="art orange flower">((O*-:</span><span class="art green flower">.</span></span></li>
-                    <li class="art flower"><span class="art flower">     <span class="art orange flower">*--**</span><span class="art green flower">-.\\  .  </span></span></li> 
-                    <li class="art flower"><span class="art green flower">            \\ |//</span></li>
-                    <li class="art flower"><span class="art green flower">             ||*</span></li>
-                    <li class="art flower"><span class="art green flower">             ||</span></li>
-                    <li class="art flower"><span class="art green flower">             ||</span></li>
-                    <li class="art flower"><span class="art green flower">             ||</span></li>
-                    <li class="art flower"><span class="art green flower">            / \\ </span></li>
+                    <li class="art"><span class="art orange">     .:-:-. </span></li>
+                    <li class="art"><span class="art">    <span class="art orange">((O*-:</span><span class="art green">.</span></span></li>
+                    <li class="art"><span class="art">     <span class="art orange">*--**</span><span class="art green">-.\\  .  </span></span></li> 
+                    <li class="art"><span class="art green">            \\ |//</span></li>
+                    <li class="art"><span class="art green">             ||*</span></li>
+                    <li class="art"><span class="art green">             ||</span></li>
+                    <li class="art"><span class="art green">             ||</span></li>
+                    <li class="art"><span class="art green">             ||</span></li>
+                    <li class="art"><span class="art green">            / \\ </span></li>
                 </ul>
             `,
     "cornflower" :`
                 <ul class="item up">
-                    <li class="art flower"><span class="art blue flower">             -.  l  .-</span></li>
-                    <li class="art flower"><span class="art blue flower">             --O--</span></li>
-                    <li class="art flower"><span class="art flower">        <span class="art invis in-list">*-</span>  <span class="art blue flower">.-</span><span class="art invis in-list">-</span><span class="art green flower">||</span> <span class="art blue flower">-.</span></span></li>
-                    <li class="art flower"><span class="art green flower">                || # </span></li>
-                    <li class="art flower"><span class="art green flower">                ||//     </span></li>
-                    <li class="art flower"><span class="art green flower">             # ||/ </span></li>
-                    <li class="art flower"><span class="art green flower">              \\\\||   </span></li>
-                    <li class="art flower"><span class="art green flower">               \\||      </span></li>
-                    <li class="art flower"><span class="art green flower">                ||                   </span></li>
+                    <li class="art"><span class="art blue">             -.  l  .-</span></li>
+                    <li class="art"><span class="art blue">             --O--</span></li>
+                    <li class="art"><span class="art">        <span class="art invis in-list">*-</span>  <span class="art blue">.-</span><span class="art invis in-list">-</span><span class="art green">||</span> <span class="art blue">-.</span></span></li>
+                    <li class="art"><span class="art green">                || # </span></li>
+                    <li class="art"><span class="art green">                ||//     </span></li>
+                    <li class="art"><span class="art green">             # ||/ </span></li>
+                    <li class="art"><span class="art green">              \\\\||   </span></li>
+                    <li class="art"><span class="art green">               \\||      </span></li>
+                    <li class="art"><span class="art green">                ||                   </span></li>
                 </ul>
             `
 }
