@@ -7,8 +7,31 @@ if (document.readyState == 'loading') {
 
 let recipes = {
     //2 item recipes
+    "axe log" : "pole",
+    "axe pole" : "oar",
+    "pole rope" : "unlit-torch",
+    "oar rope" : "unlit-oar",
 
     //3 item recipes
+    "axe orb1 unlit-torch": "torch",
+    "axe orb2 unlit-torch": "torch",
+    "axe orb3 unlit-torch": "torch", 
+    "key orb1 unlit-torch": "torch",
+    "key orb2 unlit-torch": "torch",
+    "key orb3 unlit-torch": "torch", 
+    "orb1 shovel unlit-torch": "torch",
+    "orb2 shovel unlit-torch": "torch",
+    "orb3 shovel unlit-torch": "torch", 
+
+    "axe orb1 unlit-oar": "oar-torch",
+    "axe orb2 unlit-oar": "oar-torch",
+    "axe orb3 unlit-oar": "oar-torch", 
+    "key orb1 unlit-oar": "oar-torch",
+    "key orb2 unlit-oar": "oar-torch",
+    "key orb3 unlit-oar": "oar-torch", 
+    "orb1 shovel unlit-oar": "oar-torch",
+    "orb2 shovel unlit-oar": "oar-torch",
+    "orb3 shovel unlit-oar": "oar-torch", 
 
     //4 item recipes 
 
