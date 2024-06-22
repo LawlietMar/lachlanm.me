@@ -78,7 +78,7 @@ function initItemsMeat(i) {
             <button tabindex="-1" class="item art item-art spot`+i+`"></button>
             `;
         document.getElementsByClassName("spot" + i)[0].addEventListener('click', function() { select(i); });
-        sleep(3).then(() => { initItemsMeat(i + 1); });
+        initItemsMeat(i + 1);
     }
 }
 

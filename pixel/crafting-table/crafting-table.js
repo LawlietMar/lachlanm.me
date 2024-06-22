@@ -7,7 +7,7 @@ if (document.readyState == 'loading') {
 
 let recipes = {
     //2 item recipes
-    "axe log" : "pole",
+    "axe branch" : "pole",
     "axe pole" : "oar",
     "pole rope" : "unlit-torch",
     "oar rope" : "unlit-oar",
