@@ -11,6 +11,9 @@ function ready() {
     // Initialize selected item to -1 (no selection)
     localStorage.setItem("selected", -1);
     localStorage.setItem("free", 1);
+
+    localStorage.setItem("has-axe", "true");
+    localStorage.setItem("spot1", "axe");
     
     checkHave();
     
