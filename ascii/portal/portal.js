@@ -289,7 +289,7 @@ function put(button, name) {
             checkPortal();
         }
         if (name == "cornflower") {
-            localStorage.setItem("rpot-full", "true");
+            localStorage.setItem("tpot-full", "true");
             checkPortal();
         }
     } else {
