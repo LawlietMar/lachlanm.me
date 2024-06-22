@@ -128,6 +128,7 @@ function initItemsMeat(i) {
 function getIte(name) {
     const free = localStorage.getItem("free");
     const spot = document.getElementById("spot" + free);
+    console.log(name);
     spot.innerHTML = `
             <img draggable="false" class="item-art" alt="" src="../global-art/items/`+name+`.png">
             <img draggable="false" class="item-art" alt="" src="../global-art/items/border.png">
