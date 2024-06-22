@@ -127,8 +127,8 @@ function initItemsMeat(i) {
 // Function to add an item to the next free spot in the inventory.
 function getIte(name) {
     const free = localStorage.getItem("free");
+    console.log(free);
     const spot = document.getElementById("spot" + free);
-    console.log(name);
     spot.innerHTML = `
             <img draggable="false" class="item-art" alt="" src="../global-art/items/`+name+`.png">
             <img draggable="false" class="item-art" alt="" src="../global-art/items/border.png">

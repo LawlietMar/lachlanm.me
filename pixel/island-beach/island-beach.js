@@ -11,6 +11,9 @@ function ready() {
     // Initialize selected item to -1 (no selection)
     localStorage.setItem("selected", -1);
     localStorage.setItem("free", 1);
+
+    localStorage.setItem("spot2", "axe");
+    localStorage.setItem("has-axe", "true");
     
     checkHave();
     
@@ -85,6 +88,7 @@ function initItemsMeat(i) {
 // Function to add an item to the next free spot in the inventory.
 function getIte(name) {
     const free = localStorage.getItem("free");
+    console.log(free);
     const spot = document.getElementById("spot" + free);
     spot.innerHTML = `
             <img draggable="false" class="item-art" alt="" src="../global-art/items/`+name+`.png">
