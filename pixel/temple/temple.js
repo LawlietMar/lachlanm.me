@@ -8,6 +8,8 @@ if (document.readyState == 'loading') {
 
 var init;
 function ready() {
+    /*localStorage.setItem("spot1", "axe");
+    localStorage.setItem("has-axe", "true");*/
     init = "true";
     if (localStorage.getItem("appeased") == "true"){
         appease();
@@ -40,8 +42,10 @@ function ready() {
         checkBurns();
 
         sleep(5).then(() => {
-            removeIte(localStorage.getItem("selected"));
-            initItems();
+            if (localStorage.getItem("selected") != -1){
+                removeIte(localStorage.getItem("selected"));
+                initItems();
+            }
         });
     });
 }
@@ -127,7 +131,6 @@ function initItemsMeat(i) {
 // Function to add an item to the next free spot in the inventory.
 function getIte(name) {
     const free = localStorage.getItem("free");
-    console.log(free);
     const spot = document.getElementById("spot" + free);
     spot.innerHTML = `
             <img draggable="false" class="item-art" alt="" src="../global-art/items/`+name+`.png">
