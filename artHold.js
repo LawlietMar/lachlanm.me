@@ -9,7 +9,7 @@ var ach = {
                     <li class="art artln"><span class="art artln">      |************|</span></li>
                     <li class="art artln"><span class="art artln">      |   ^^  /.\\  ^  |</span></li>
                     <li class="art artln"><span class="art artln">      | ^      ||     ^|</span></li>
-                    <li class="art artln"><span class="art artln">      l....^..O....^.l </span></li>     
+                    <li class="art artln"><span class="art artln">      l....^...O...^.l </span></li>     
         `
 }
 var arts = {
@@ -185,6 +185,22 @@ var arts = {
                     <li class="art artln"><span class="art artln">         \\ .   /.\\ /\\ |</span></li>
                     <li class="art artln"><span class="art artln">         / /\\|  -...| |</span></li>
                     <li class="art artln"><span class="art artln">        |.....**--...|</span></li>     
+                </ul>
+            `,
+    "poppy" : `
+                <ul class="item" id="poppy">
+                    <li class="art artln"><span class="art orange artln">         .:-:-. </span></li>
+                    <li class="art artln"><span class="art artln">        <span class="art orange artln">((O*-:</span><span class="art green artln">.</span></span></li>
+                    <li class="art artln"><span class="art artln">         <span class="art orange artln">*--**</span><span class="art green artln">-.\\  .  </span></span></li> 
+                    <li class="art artln"><span class="art green artln">                \\ |//</span></li>     
+                </ul>
+            `,
+    "cornflower" : `
+                <ul class="item" id="cornflower">
+                    <li class="art artln"><span class="art blue artln">    <span class="art invis in-list">*</span>      -.  l  .-</span></li>
+                    <li class="art artln"><span class="art blue artln">    <span class="art invis in-list">-</span>       --O--</span></li>
+                    <li class="art artln"><span class="art artln">            <span class="art blue artln">.-</span> <span class="art green artln">||</span> <span class="art blue artln">-.</span></span></li>
+                    <li class="art artln"><span class="art green artln">    <span class="art invis in-list">-</span>          ||</span></li>    
                 </ul>
             `
 };

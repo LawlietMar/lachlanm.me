@@ -64,6 +64,32 @@ var plArts = {
                     <li class="art flower"><span class="art flower"></span></li>
                     <li class="art flower"><span class="art flower"></span></li>  
                 </ul>
+            `,
+    "poppy" :`
+                <ul class="item up">
+                    <li class="art flower"><span class="art orange flower">     .:-:-. </span></li>
+                    <li class="art flower"><span class="art flower">    <span class="art orange flower">((O*-:</span><span class="art green flower">.</span></span></li>
+                    <li class="art flower"><span class="art flower">     <span class="art orange flower">*--**</span><span class="art green flower">-.\\  .  </span></span></li> 
+                    <li class="art flower"><span class="art green flower">            \\ |//</span></li>
+                    <li class="art flower"><span class="art green flower">             ||*</span></li>
+                    <li class="art flower"><span class="art green flower">             ||</span></li>
+                    <li class="art flower"><span class="art green flower">             ||</span></li>
+                    <li class="art flower"><span class="art green flower">             ||</span></li>
+                    <li class="art flower"><span class="art green flower">            / \\ </span></li>
+                </ul>
+            `,
+    "cornflower" :`
+                <ul class="item up">
+                    <li class="art flower"><span class="art blue flower">             -.  l  .-</span></li>
+                    <li class="art flower"><span class="art blue flower">             --O--</span></li>
+                    <li class="art flower"><span class="art flower">        <span class="art invis in-list">*-</span>  <span class="art blue flower">.-</span><span class="art invis in-list">-</span><span class="art green flower">||</span> <span class="art blue flower">-.</span></span></li>
+                    <li class="art flower"><span class="art green flower">                || # </span></li>
+                    <li class="art flower"><span class="art green flower">                ||//     </span></li>
+                    <li class="art flower"><span class="art green flower">             # ||/ </span></li>
+                    <li class="art flower"><span class="art green flower">              \\\\||   </span></li>
+                    <li class="art flower"><span class="art green flower">               \\||      </span></li>
+                    <li class="art flower"><span class="art green flower">                ||                   </span></li>
+                </ul>
             `
 }
 
@@ -188,7 +214,7 @@ function toPlant(spot){
 
     button.addEventListener('click', function pl(){
         var type = localStorage.getItem("spot" + localStorage.getItem("selected"));
-        if (type == "daisy-seeds" || type == "rose-seeds"){
+        if (type == "daisy-seeds" || type == "rose-seeds" || type == "poppy-seeds" || type == "cornflower-seeds"){
             button.removeEventListener('click', pl);
             localStorage.setItem("plot-state" + spot, "toWater");
             text.innerHTML = plArts["planted"];
@@ -208,7 +234,7 @@ function toWater(spot){
             localStorage.setItem("plot-state" + spot, "toGrow");
             text.innerHTML = plArts["watered"];
             toGrow(spot);
-            sleep(62000).then(() => {
+            sleep(61000).then(() => {
                 toGrow(spot);
             })
         }
@@ -232,6 +258,12 @@ function toGrow(spot){
     if (time - localStorage.getItem("crop-time" + spot) > 60000){
         if (localStorage.getItem("plot-type" + spot) == "rose-seeds"){
             text.innerHTML = plArts["rose"];
+        }
+        else if (localStorage.getItem("plot-type" + spot) == "poppy-seeds"){
+            text.innerHTML = plArts["poppy"];
+        }
+        else if (localStorage.getItem("plot-type" + spot) == "cornflower-seeds"){
+            text.innerHTML = plArts["cornflower"];
         }
         else {
             text.innerHTML = plArts["daisy"];
