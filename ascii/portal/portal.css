@@ -85,6 +85,12 @@ body {
     left:815px;
 }
 
+.cornflower-del{
+    position: fixed; 
+    top:134px;
+    left:535px;
+}
+
 #portal-del{
     position: fixed; 
     top:300px;
@@ -119,6 +125,14 @@ body {
     position: fixed; 
     top:350px;
     left:860px;
+    width: 65px;
+    height: 150px;
+}
+
+#tpot{
+    position: fixed; 
+    top:140px;
+    left:580px;
     width: 65px;
     height: 150px;
 }

@@ -100,6 +100,24 @@ function ready() {
         }
     });
 
+    sleep(20).then(() => {
+        var tpotBut = document.getElementById("tpot");
+        if (localStorage.getItem("tpot-full") == "true") {
+            bypass = "true";
+            checkPortal();
+            put(tpotBut, "cornflower");
+        } else {
+            tpotBut.addEventListener('click', function pt() {
+                if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "cornflower"){
+                    localStorage.setItem("tpot-full", "true");
+                    checkPortal();
+                    tpotBut.removeEventListener('click', pt);
+                    put(tpotBut, "cornflower");
+                }
+            });
+        }
+    });
+
     // Set up the bird element to handle interactions with the axe item.
     var bird = document.getElementById("bird");
     if (localStorage.getItem("dead-bird") == "true") {
@@ -189,7 +207,7 @@ function setBird(){
 function checkPortal() {
     var port = document.getElementById("portal");
     var portDel = document.getElementById("portal-del");
-    if (localStorage.getItem("lpot-full") == "true" && localStorage.getItem("rpot-full") == "true") {
+    if (localStorage.getItem("lpot-full") == "true" && localStorage.getItem("rpot-full") == "true" && localStorage.getItem("tpot-full") == "true") {
         // If both pots are full, open the portal and make it visible.
         localStorage.setItem("portal1-open", "true");
         port.addEventListener('click', goPixel);
@@ -232,6 +250,10 @@ function take(button, name) {
             localStorage.setItem("rpot-full", "false");
             checkPortal();
         }
+        if (name == "cornflower") {
+            localStorage.setItem("tpot-full", "false");
+            checkPortal();
+        }
     }
 
     else {
@@ -263,6 +285,10 @@ function put(button, name) {
             checkPortal();
         }
         if (name == "daisy") {
+            localStorage.setItem("rpot-full", "true");
+            checkPortal();
+        }
+        if (name == "cornflower") {
             localStorage.setItem("rpot-full", "true");
             checkPortal();
         }
