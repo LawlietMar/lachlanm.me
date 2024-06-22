@@ -38,6 +38,14 @@ body {
     opacity: 0;
 }
 
+.flower{
+    width: 155px;
+    height: 90px;
+    position: absolute;
+    left: -5px;
+    top: -17px;
+}
+
 .hide{
     outline-color: transparent;
     border-color: transparent;
@@ -321,6 +329,14 @@ body {
 .invis{
     color: transparent;
     opacity: 0;
+}
+
+.flower{
+    width: 155px;
+    height: 90px;
+    position: absolute;
+    left: -5px;
+    top: -17px;
 }
 
 .selected {

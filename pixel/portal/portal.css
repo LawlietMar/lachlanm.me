@@ -227,6 +227,14 @@ body {
     opacity: 0;
 }
 
+.flower{
+    width: 155px;
+    height: 90px;
+    position: absolute;
+    left: -5px;
+    top: -17px;
+}
+
 #bun-kill, #bunny-anim{
     position: absolute;
     width: 120px;

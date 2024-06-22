@@ -386,6 +386,14 @@ body {
     opacity: 0;
 }
 
+.flower{
+    width: 155px;
+    height: 90px;
+    position: absolute;
+    left: -5px;
+    top: -17px;
+}
+
 .selected {
     background-color: #1d1d1d;
 }

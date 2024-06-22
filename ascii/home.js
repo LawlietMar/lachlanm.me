@@ -83,6 +83,7 @@ function resett(ite){
     localStorage.setItem("lpot-full", "false");
     localStorage.setItem("rpot-full", "false");
     localStorage.setItem("ascii-water", "false");
+    localStorage.setItem("p1water", "false");
 
     localStorage.setItem("dead-bunny", "false");
     localStorage.setItem("bunny-x", 1100);

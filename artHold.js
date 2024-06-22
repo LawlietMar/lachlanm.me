@@ -202,6 +202,26 @@ var arts = {
                     <li class="art artln"><span class="art artln">            <span class="art blue artln">.-</span> <span class="art green artln">||</span> <span class="art blue artln">-.</span></span></li>
                     <li class="art artln"><span class="art green artln">    <span class="art invis in-list">-</span>          ||</span></li>    
                 </ul>
+            `,
+    "p1cornflower" : `
+                <ul class="item" id="p1cornflower">
+                    <img class="abs flower" draggable="false" alt="" src="../../pixel/global-art/items/p1cornflower.png">   
+                </ul>
+            `,
+    "p1poppy" : `
+                <ul class="item" id="p1poppy">
+                    <img class="abs flower" draggable="false" alt="" src="../../pixel/global-art/items/p1poppy.png">   
+                </ul>
+            `,
+    "p1daisy" : `
+                <ul class="item" id="p1daisy">
+                    <img class="abs flower" draggable="false" alt="" src="../../pixel/global-art/items/p1daisy.png">   
+                </ul>
+            `,
+    "p1rose" : `
+                <ul class="item" id="p1rose">
+                    <img class="abs flower" draggable="false" alt="" src="../../pixel/global-art/items/p1rose.png">   
+                </ul>
             `
 };
 
