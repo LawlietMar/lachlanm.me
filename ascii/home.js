@@ -86,6 +86,10 @@ function resett(ite){
     localStorage.setItem("ascii-water", "false");
     localStorage.setItem("p1water", "false");
 
+    localStorage.setItem("torch-placed", "false");
+    localStorage.setItem("rope-placed", "false");
+    localStorage.setItem("elevator-position", "mid");
+
     localStorage.setItem("dead-bunny", "false");
     localStorage.setItem("bunny-x", 1100);
 

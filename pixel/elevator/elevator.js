@@ -18,30 +18,69 @@ function ready() {
     initItems();
     sleep(40).then(() => {init = "false";});
 
-    var mapBut = document.getElementsByClassName("map-fotm")[0];
-    if (localStorage.getItem("has-map-fotm") == "true") {
-        take(mapBut, "map-fotm");
-    } else {
-        mapBut.addEventListener('click', function tk() {
-            mapBut.removeEventListener('click', tk);
-            take(mapBut, "map-fotm");
+    var fore = document.getElementsByClassName("fore-swap")[0];
+    var eBut = document.getElementsByClassName("elevator-but")[0];
+    if (localStorage.getItem("rope-placed") == "false"){
+        eBut.addEventListener('click', function place(){
+            if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "rope"){
+                eBut.removeEventListener('click', place);
+                localStorage.setItem("rope-placed", "true");
+                removeIte(localStorage.getItem("selected"));
+                initItems();
+                fore.innerHTML = `<img draggable="false" class="fore-art" src="elevator-art/string.png" alt="">`;
+
+                eBut.addEventListener('click', function up(){
+                    eBut.removeEventListener('click', up);
+                    localStorage.setItem("elevator-position", "top");
+                    fore.innerHTML = `<img draggable="false" class="fore-art" src="elevator-art/main-coming.gif" alt="">`;
+                    sleep(3000).then(() => {
+                        fore.innerHTML = `<img draggable="false" class="fore-art" src="elevator-art/main-end.gif" alt="">`;
+                        sleep(380).then(() => {
+                            fore.innerHTML = `<img draggable="false" class="fore-art" src="elevator-art/main-done.png" alt="">`;
+        
+                            eBut.addEventListener('click', function(){
+                                localStorage.setItem("elevator-position", "bottom");
+                                sleep(3).then(() => {window.location.href = "../../cavern/elevator/elevator.html";});
+                            });
+                        });
+                    });
+                });
+            }
         });
     }
 
-    document.getElementsByClassName("elevator")[0].addEventListener('click', function(){
-        if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "torch" || localStorage.getItem("torch-placed") == "true"){
-            if (localStorage.getItem("torch-placed") != "true"){
-                removeIte(localStorage.getItem("selected"));
-            }
-            localStorage.setItem("torch-placed", "true");
-            sleep(5).then(() => {window.location.href = "../elevator/elevator.html";});
-        }
-    });
+    else if (localStorage.getItem("elevator-position") == "top"){
+        fore.innerHTML = `<img draggable="false" class="fore-art" src="elevator-art/main-done.png" alt="">`;
+        eBut.addEventListener('click', function go(){
+            localStorage.setItem("elevator-position", "bottom");
+            sleep(3).then(() => {window.location.href = "../../cavern/elevator/elevator.html";});
+        });
+    }
+
+    else {
+        fore.innerHTML = `<img draggable="false" class="fore-art" src="elevator-art/string.png" alt="">`;
+        eBut.addEventListener('click', function up(){
+            eBut.removeEventListener('click', up);
+            localStorage.setItem("elevator-position", "top");
+            fore.innerHTML = `<img draggable="false" class="fore-art" src="elevator-art/main-coming.gif" alt="">`;
+            sleep(3000).then(() => {
+                fore.innerHTML = `<img draggable="false" class="fore-art" src="elevator-art/main-end.gif" alt="">`;
+                sleep(380).then(() => {
+                    fore.innerHTML = `<img draggable="false" class="fore-art" src="elevator-art/main-done.png" alt="">`;
+
+                    eBut.addEventListener('click', function(){
+                        localStorage.setItem("elevator-position", "bottom");
+                        sleep(3).then(() => {window.location.href = "../../cavern/elevator/elevator.html";});
+                    });
+                });
+            });
+        });
+    }
 }
 
 function take(button, name) {
     if (localStorage.getItem("free") < 9 || init == "true") {
-        document.getElementsByClassName(name + "-del")[0].classList.add("invis");
+        document.getElementsByClassName(name + "-art")[0].classList.add("invis");
         if (!(localStorage.getItem("has-" + name) == "true")) {
             getIte(name);
             initItems();
@@ -63,7 +102,10 @@ function take(button, name) {
 // Function to remove an item from the inventory.
 function put(button, name) {
     if (localStorage.getItem("spot" + localStorage.getItem("selected")) == name) {
-        document.getElementsByClassName(name + "-del")[0].classList.remove("invis");
+        document.getElementsByClassName(name + "-art")[0].classList.remove("invis");
+        if (name == "can") {
+            document.getElementById("behind-can").classList.add("invis");
+        }
         removeIte(localStorage.getItem("selected"));
         initItems();
         button.addEventListener('click', function tk() {
