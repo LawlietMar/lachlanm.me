@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Crafting Table</title>
+        <script type="module" src="../../aud.js" async></script>
+        <meta name="description" content="Thonk Thonk">
+        <link rel="icon" type="image/x-icon" href="../../icon.ico">
+        <link rel="stylesheet" href="crafting-table.css"\>
+        <script type="module" src="crafting-table.js" async></script>
+        <script type="module" src="audio.js" async></script>
+    </head>
+
+    <body>
+        <audio class="aud2" autoplay loop controls>
+            <source src="../../static.mp3" type="audio/mp3">
+        </audio>
+        <audio class="aud" autoplay loop controls>
+            <source src="../global-art/piano.mp3" type="audio/mp3">
+        </audio>
+        <div class="left"></div>
+        <div class="right"></div>
+        <div class="bottom"></div>
+        <div class="top"></div>
+
+        <img draggable="false" class="main-art" src="crafting-table-art/crafting-table-main.png" alt="">
+
+        <div id="spot1">
+            <button tabindex="-1" class="item art item-art spot1"></button>
+        </div>
+        <div id="spot2">
+            <button tabindex="-1" class="item art item-art spot2"></button>
+        </div>
+        <div id="spot3">
+            <button tabindex="-1" class="item art item-art spot3"></button>
+        </div>
+        <div id="spot4">
+            <button tabindex="-1" class="item art item-art spot4"></button>
+        </div>
+        <div id="spot5">
+            <button tabindex="-1" class="item art item-art spot5"></button>
+        </div>
+        <div id="spot6">
+            <button tabindex="-1" class="item art item-art spot6"></button>
+        </div>
+        <div id="spot7">
+            <button tabindex="-1" class="item art item-art spot7"></button>
+        </div>
+        <div id="spot8">
+            <button tabindex="-1" class="item art item-art spot8"></button>
+        </div>
+        
+        <button tabindex="-1" class="hide hammer"></button>
+        <a href="../fotm/fotm.html"><button tabindex="-1" class="hide fotm1"></button></a>
+        <a href="../fotm/fotm.html"><button tabindex="-1" class="hide fotm2"></button></a>
+    </body>
+</html>

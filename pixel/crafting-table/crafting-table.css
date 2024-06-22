@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
+*{
+    color:rgb(202, 199, 199);
+    font-family: Comfortaa;
+    cursor: pointer;
+}
+
+body {
+    background-color: #0e0e0e;
+}
+
+.aud, .aud2{
+    display: none;
+}
+
+.art{
+    text-align: left;
+    padding: 0px;
+    line-height: 15px;
+    background-color: transparent;
+    border-color: transparent;
+    border: 0px;
+    opacity: 1;
+}
+
+.left {
+    position: fixed; 
+    top:0px;
+    left:0px;
+    background-color: black;
+    width: 40px;
+    height: 100%;
+}
+
+.right {
+    position: fixed; 
+    top:0px;
+    right:0px;
+    background-color: black;
+    width: 40px;
+    height: 100%;
+}
+
+.bottom {
+    position: fixed; 
+    bottom:0px;
+    left:0px;
+    background-color: black;
+    width: 100%;
+    height: 40px;
+}
+
+.top {
+    position: fixed; 
+    top:0px;
+    left:0px;
+    background-color: black;
+    width: 100%;
+    height:45px;
+}
+
+.main-art{
+    position: fixed;
+    top: 62px;
+    left: 225px;
+    width: 1055px;
+    height: 715px;
+}
+
+.hammer{
+    position: fixed;
+    top: 500px;
+    left: 280px;
+    height: 160px;
+    width: 280px;
+}
+
+.fotm1{
+    position: fixed;
+    top: 62px;
+    left: 225px;
+    height: 66px;
+    width: 1055px;
+}
+
+.fotm2{
+    position: fixed;
+    top: 717px;
+    left: 225px;
+    height: 59px;
+    width: 1055px;
+}
+
+.item{
+    position: fixed;
+    padding-left: 0px;
+    list-style-type: none;
+    color: inherit;
+}
+
+.item-art{
+    position: absolute;
+    width: 248px;
+    height: 144px;
+}
+
+#spot1{
+    left: 300px;
+    top: 150px;
+}
+
+#spot2{
+    left: 620px;
+    top: 150px;
+}
+
+#spot3{
+    left: 940px;
+    top: 150px;
+}
+
+#spot4{
+    left: 300px;
+    top: 330px;
+}
+
+#spot5{
+    left: 620px;
+    top: 330px;
+}
+
+#spot6{
+    left: 940px;
+    top: 330px;
+}
+
+#spot7{
+    left: 620px;
+    top: 510px;
+}
+
+#spot8{
+    left: 940px;
+    top: 510px;
+}
+
+#spot1, #spot2, #spot3, #spot4, #spot5, #spot6, #spot7, #spot8 {
+    position: fixed;
+    width: 248px;
+    height: 144px;
+}
+
+#axe, #key, #shovel, #rose-seeds, #daisy-seeds, #can, #map1, #rose, #daisy, #cornflower, #poppy, #p1rose, #p1daisy, #p1cornflower, #p1poppy, #map2, #fish, #branch, #map-shack, #fishing-rod, #shell, #grave-map, #orb1, #oar, #shed-map, #poppy-seeds, #cornflower-seeds{
+    position: absolute;
+    top:-5px;
+}
+
+.invis{
+    color: transparent;
+    opacity: 0;
+}
+
+.flower{
+    width: 248px;
+    height: 144px;
+    position: absolute;
+    left: -5px;
+    top: -17px;
+}
+
+.hide{
+    outline-color: transparent;
+    border-color: transparent;
+    background-color: transparent;
+    opacity: 0;
+}
+
+.selected {
+    background-color: rgb(255, 244, 212, 0.4);
+}
