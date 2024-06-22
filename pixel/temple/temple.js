@@ -8,8 +8,6 @@ if (document.readyState == 'loading') {
 
 var init;
 function ready() {
-    /*localStorage.setItem("spot1", "axe");
-    localStorage.setItem("has-axe", "true");*/
     init = "true";
     if (localStorage.getItem("appeased") == "true"){
         appease();
