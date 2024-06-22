@@ -12,8 +12,8 @@ function ready() {
     localStorage.setItem("selected", -1);
     localStorage.setItem("free", 1);
 
-    localStorage.setItem("spot2", "axe");
-    localStorage.setItem("has-axe", "true");
+    localStorage.setItem("spot3", "can");
+    localStorage.setItem("spot4", "daisy-seeds");
     
     checkHave();
     
