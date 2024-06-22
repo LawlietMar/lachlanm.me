@@ -7,7 +7,7 @@ if (document.readyState == 'loading') {
 var time
 function ready(){
     var permission = localStorage.getItem('audioAutoplayPermission') === 'granted';
-    time = localStorage.getItem("aud-spot-beach");
+    time = localStorage.getItem("aud-spot-forest");
     var aud = document.getElementsByClassName("aud")[0];
 
     if (permission){
@@ -19,10 +19,10 @@ function ready(){
 
 function incTime(){
     time = parseInt(time) + 1;
-    if (parseInt(time) > 284){
+    if (parseInt(time) > 184){
         time = 0;
     }
-    localStorage.setItem("aud-spot-beach", time);
+    localStorage.setItem("aud-spot-forest", time);
     sleep(1000).then(() => {incTime()});
 }
 
