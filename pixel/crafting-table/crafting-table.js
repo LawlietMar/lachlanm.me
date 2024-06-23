@@ -7,31 +7,31 @@ if (document.readyState == 'loading') {
 
 let recipes = {
     //2 item recipes
-    "axe branch" : "pole",
-    "axe pole" : "oar",
-    "pole rope" : "unlit-torch",
-    "oar rope" : "unlit-oar",
+    "axe branch" : [["pole"], ["branch"]],
+    "axe pole" : [["oar"], ["pole"]],
+    "pole rope" : [["unlit-torch"], ["pole", "rope"]],
+    "oar rope" : [["unlit-oar"], ["oar", "rope"]],
 
     //3 item recipes
-    "axe orb1 unlit-torch": "torch",
-    "axe orb2 unlit-torch": "torch",
-    "axe orb3 unlit-torch": "torch", 
-    "key orb1 unlit-torch": "torch",
-    "key orb2 unlit-torch": "torch",
-    "key orb3 unlit-torch": "torch", 
-    "orb1 shovel unlit-torch": "torch",
-    "orb2 shovel unlit-torch": "torch",
-    "orb3 shovel unlit-torch": "torch", 
+    "axe orb1 unlit-torch": [["torch"], ["unlit-torch"]],
+    "axe orb2 unlit-torch": [["torch"], ["unlit-torch"]],
+    "axe orb3 unlit-torch": [["torch"], ["unlit-torch"]], 
+    "key orb1 unlit-torch": [["torch"], ["unlit-torch"]],
+    "key orb2 unlit-torch": [["torch"], ["unlit-torch"]],
+    "key orb3 unlit-torch": [["torch"], ["unlit-torch"]], 
+    "orb1 shovel unlit-torch": [["torch"], ["unlit-torch"]],
+    "orb2 shovel unlit-torch": [["torch"], ["unlit-torch"]],
+    "orb3 shovel unlit-torch": [["torch"], ["unlit-torch"]], 
 
-    "axe orb1 unlit-oar": "oar-torch",
-    "axe orb2 unlit-oar": "oar-torch",
-    "axe orb3 unlit-oar": "oar-torch", 
-    "key orb1 unlit-oar": "oar-torch",
-    "key orb2 unlit-oar": "oar-torch",
-    "key orb3 unlit-oar": "oar-torch", 
-    "orb1 shovel unlit-oar": "oar-torch",
-    "orb2 shovel unlit-oar": "oar-torch",
-    "orb3 shovel unlit-oar": "oar-torch", 
+    "axe orb1 unlit-oar": [["oar-torch"], ["unlit-oar"]],
+    "axe orb2 unlit-oar": [["oar-torch"], ["unlit-oar"]],
+    "axe orb3 unlit-oar": [["oar-torch"], ["unlit-oar"]], 
+    "key orb1 unlit-oar": [["oar-torch"], ["unlit-oar"]],
+    "key orb2 unlit-oar": [["oar-torch"], ["unlit-oar"]],
+    "key orb3 unlit-oar": [["oar-torch"], ["unlit-oar"]], 
+    "orb1 shovel unlit-oar": [["oar-torch"], ["unlit-oar"]],
+    "orb2 shovel unlit-oar": [["oar-torch"], ["unlit-oar"]],
+    "orb3 shovel unlit-oar": [["oar-torch"], ["unlit-oar"]]
 
     //4 item recipes 
 
@@ -81,14 +81,22 @@ function craft(){
 
     if (recipes[recipe] != undefined){
         selected.forEach(function(value){
-            removeIte(value);
+            if (recipes[recipe][1].includes(localStorage.getItem("spot" + value))){
+                sleep(8-value).then(() => {removeIte(value);});
+            }
         });
-        getIte(recipes[recipe]);
-        initItems();
+        sleep(9).then(() => {
+            recipes[recipe][0].forEach(function(value){
+                getIte(value);
+            });
+            initItems();
+        });
     }
 
-    selected = [];
-    clean();
+    sleep(10).then(() => {
+        selected = [];
+        clean();
+    });
 }
 
 function clean(){
