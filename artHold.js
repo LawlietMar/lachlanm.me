@@ -222,6 +222,70 @@ var arts = {
                 <ul class="item" id="p1rose">
                     <img class="abs flower" draggable="false" alt="" src="../../pixel/global-art/items/p1rose.png">   
                 </ul>
+            `,
+    "map-fotm" : `
+                <ul class="item" id="map-fotm">
+                    <li class="art artln"><span class="art artln">         ||*******|</span></li> 
+                    <li class="art artln"><span class="art artln">         ||/**-*\\  /</span></li> 
+                    <li class="art artln"><span class="art artln">         |||.-../\\  \\</span></li> 
+                    <li class="art artln"><span class="art artln">         ||........./</span></li>    
+                </ul>
+            `,
+    "rope" : `
+                <ul class="item" id="rope">
+                    <li class="art artln"><span class="art artln">          .--**--.. </span></li> 
+                    <li class="art artln"><span class="art artln">         :-*--..--*</span></li> 
+                    <li class="art artln"><span class="art artln">          **--..--*:</span></li> 
+                    <li class="art artln"><span class="art artln">          -...----* </span></li>    
+                </ul>
+            `,
+    "pole" : `
+                <ul class="item" id="pole">
+                    <li class="art artln"><span class="art artln">              ..--**l*. </span></li> 
+                    <li class="art artln"><span class="art artln">       ..--**..--***.l</span></li> 
+                    <li class="art artln"><span class="art artln">      |..--** ..--** </span></li> 
+                    <li class="art artln"><span class="art artln">      *...--** </span></li>    
+                </ul>
+            `,
+    "unlit-torch" : `
+                <ul class="item" id="unlit-torch">
+                    <li class="art artln"><span class="art artln"></span></li>    
+                    <li class="art artln"><span class="art artln">                     ##</span></li> 
+                    <li class="art artln"><span class="art artln">             ..--**</span></li> 
+                    <li class="art artln"><span class="art artln">      ..--**  </span></li> 
+                </ul>
+            `,
+    "torch" : `
+                <ul class="item" id="torch">
+                    <li class="art artln"><span class="art artln">                  -*.:.</span></li> 
+                    <li class="art artln"><span class="art artln">                  \\\\.//</span></li> 
+                    <li class="art artln"><span class="art artln">            ..--** </span></li> 
+                    <li class="art artln"><span class="art artln">     ..--**</span></li>    
+                </ul>
+            `,
+    "pickaxe" : `
+                <ul class="item" id="pickaxe">
+                    <li class="art artln"><span class="art artln">             **--..</span></li> 
+                    <li class="art artln"><span class="art artln">                .%\\</span></li> 
+                    <li class="art artln"><span class="art artln">           .-:-*    \\ </span></li> 
+                    <li class="art artln"><span class="art artln">      .-:-*         *</span></li>    
+                </ul>
+            `,
+    "unlit-oar" : `
+                <ul class="item" id="unlit-oar">
+                    <li class="art artln"><span class="art artln">                   ::</span></li> 
+                    <li class="art artln"><span class="art artln">               .-*</span></li> 
+                    <li class="art artln"><span class="art artln">         .=*: </span></li> 
+                    <li class="art artln"><span class="art artln">        *:=*</span></li>    
+                </ul>
+            `,
+    "lit-oar" : `
+                <ul class="item" id="lit-oar">
+                    <li class="art artln"><span class="art artln">                     ::</span></li> 
+                    <li class="art artln"><span class="art artln">        -:*-:   .-* </span></li> 
+                    <li class="art artln"><span class="art artln">          --* *: </span></li> 
+                    <li class="art artln"><span class="art artln">          *:=* </span></li>    
+                </ul>
             `
 };
 
