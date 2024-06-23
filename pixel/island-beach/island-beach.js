@@ -19,13 +19,20 @@ function ready() {
     sleep(40).then(() => {init = "false";});
 
     document.getElementsByClassName("boat-beach")[0].addEventListener('click', function(){
-        if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "oar"){
+        var sel = localStorage.getItem("spot" + localStorage.getItem("selected"));
+        if (sel == "oar" || sel == "unlit-oar"){
             window.location.href = "../boat-beach/boat-beach.html";
         }
 
-        if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "shovel"){
+        if (sel == "shovel"){
             removeIte(localStorage.getItem("selected"));
             localStorage.setItem("A Perilous Voyage", "true");
+            sleep(5).then(() => {window.location.href = "../boat-beach/boat-beach.html"});
+        }
+
+        if (sel == "lit-oar"){
+            removeIte(localStorage.getItem("selected"));
+            getIte("unlit-oar");
             sleep(5).then(() => {window.location.href = "../boat-beach/boat-beach.html"});
         }
     });
