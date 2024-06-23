@@ -186,8 +186,10 @@ function checkOpen(){
             fishing = "false";
             fish.removeEventListener('click', ca);
             if (caught == "true"){
-                getIte("fish");
-                initItems();
+                if (localStorage.getItem("free") < 9){
+                    getIte("fish");
+                    initItems();
+                }
             }
             pict.innerHTML = `
                 <span class="art">--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------  </span>
