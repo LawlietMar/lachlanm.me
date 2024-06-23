@@ -11,12 +11,17 @@ function ready() {
     // Initialize selected item to -1 (no selection)
     localStorage.setItem("selected", -1);
     localStorage.setItem("free", 1);
+
     
     checkHave();
     
     // Initialize items and start rain effects
     initItems();
     sleep(40).then(() => {init = "false";});
+
+    if (localStorage.getItem("torch-placed") == "true"){
+        document.getElementsByClassName("torch")[0].classList.remove("hide");
+    }
 
     var mapBut = document.getElementsByClassName("map-fotm")[0];
     if (localStorage.getItem("has-map-fotm") == "true") {

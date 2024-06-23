@@ -68,6 +68,14 @@ body {
     height: 715px;
 }
 
+.torch{
+    position: fixed;
+    top: 300px;
+    left: 540px;
+    width: 600px;
+    height: 400px;
+}
+
 .crossroads{
     position: fixed;
     top: 697px;
