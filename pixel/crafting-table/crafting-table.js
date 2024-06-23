@@ -22,6 +22,9 @@ let recipes = {
     "orb1 shovel unlit-torch": [["torch"], ["unlit-torch"]],
     "orb2 shovel unlit-torch": [["torch"], ["unlit-torch"]],
     "orb3 shovel unlit-torch": [["torch"], ["unlit-torch"]], 
+    "orb1 pickaxe unlit-torch": [["torch"], ["unlit-torch"]],
+    "orb2 pickaxe unlit-torch": [["torch"], ["unlit-torch"]],
+    "orb3 pickaxe unlit-torch": [["torch"], ["unlit-torch"]],
 
     "axe orb1 unlit-oar": [["oar-torch"], ["unlit-oar"]],
     "axe orb2 unlit-oar": [["oar-torch"], ["unlit-oar"]],
@@ -31,7 +34,10 @@ let recipes = {
     "key orb3 unlit-oar": [["oar-torch"], ["unlit-oar"]], 
     "orb1 shovel unlit-oar": [["oar-torch"], ["unlit-oar"]],
     "orb2 shovel unlit-oar": [["oar-torch"], ["unlit-oar"]],
-    "orb3 shovel unlit-oar": [["oar-torch"], ["unlit-oar"]]
+    "orb3 shovel unlit-oar": [["oar-torch"], ["unlit-oar"]],
+    "orb1 pickaxe unlit-oar": [["oar-torch"], ["unlit-oar"]],
+    "orb2 pickaxe unlit-oar": [["oar-torch"], ["unlit-oar"]],
+    "orb3 pickaxe unlit-oar": [["oar-torch"], ["unlit-oar"]]
 
     //4 item recipes 
 
