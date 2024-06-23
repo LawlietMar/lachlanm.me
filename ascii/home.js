@@ -122,6 +122,11 @@ function resett(ite){
     localStorage.setItem("has-orb1", "false");
     localStorage.setItem("has-shed-map", "false");
     localStorage.setItem("has-oar", "false");
+    localStorage.setItem("has-pole", "false");
+    localStorage.setItem("has-unlit-torch", "false");
+    localStorage.setItem("has-torch", "false");
+    localStorage.setItem("has-unlit-oar", "false");
+    localStorage.setItem("has-lit-oar", "false");
 
     localStorage.setItem("burned-shell", "false");
     localStorage.setItem("burned-cup", "false");
