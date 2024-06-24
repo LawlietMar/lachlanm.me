@@ -1,3 +1,7 @@
+v2:
+add fade-ins between rooms
+
+v1:
 add ashamalev and playtesters to credits
 update bookshelf
 make it so any seed can feed birb2
