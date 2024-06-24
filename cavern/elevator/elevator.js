@@ -17,65 +17,65 @@ function ready() {
     // Initialize items and start rain effects
     initItems();
     sleep(40).then(() => {init = "false";});
+    if (localStorage.getItem("leverDown") == "true"){
+        leverDown();
+    }
+    else {
+        leverUp();
+    }
 
     var fore = document.getElementsByClassName("fore-swap")[0];
     var eBut = document.getElementsByClassName("elevator-but")[0];
-    if (localStorage.getItem("rope-placed") == "false"){
-        eBut.addEventListener('click', function place(){
-            if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "rope"){
-                eBut.removeEventListener('click', place);
-                localStorage.setItem("rope-placed", "true");
-                removeIte(localStorage.getItem("selected"));
-                initItems();
-                fore.innerHTML = `<img draggable="false" class="fore-art" src="elevator-art/string.png" alt="">`;
 
-                eBut.addEventListener('click', function up(){
-                    eBut.removeEventListener('click', up);
-                    localStorage.setItem("elevator-position", "top");
-                    fore.innerHTML = `<img draggable="false" class="fore-art" src="elevator-art/main-coming.gif" alt="">`;
-                    sleep(3000).then(() => {
-                        fore.innerHTML = `<img draggable="false" class="fore-art" src="elevator-art/main-end.gif" alt="">`;
-                        sleep(380).then(() => {
-                            fore.innerHTML = `<img draggable="false" class="fore-art" src="elevator-art/main-done.png" alt="">`;
-        
-                            eBut.addEventListener('click', function(){
-                                localStorage.setItem("elevator-position", "bottom");
-                                sleep(3).then(() => {window.location.href = "../../cavern/elevator/elevator.html";});
-                            });
-                        });
-                    });
-                });
-            }
-        });
-    }
-
-    else if (localStorage.getItem("elevator-position") == "top"){
-        fore.innerHTML = `<img draggable="false" class="fore-art" src="elevator-art/main-done.png" alt="">`;
+    if (localStorage.getItem("elevator-position") == "bottom"){
+        fore.innerHTML = `<img draggable="false" class="fore-swap" src="elevator-art/main-done.png" alt="">`;
         eBut.addEventListener('click', function go(){
-            localStorage.setItem("elevator-position", "bottom");
-            sleep(3).then(() => {window.location.href = "../../cavern/elevator/elevator.html";});
+            localStorage.setItem("elevator-position", "top");
+            sleep(3).then(() => {window.location.href = "../../pixel/elevator/elevator.html";});
         });
     }
 
     else {
-        fore.innerHTML = `<img draggable="false" class="fore-art" src="elevator-art/string.png" alt="">`;
+        fore.innerHTML = `<img draggable="false" class="fore-swap" src="elevator-art/unstarted.png" alt="">`;
         eBut.addEventListener('click', function up(){
             eBut.removeEventListener('click', up);
-            localStorage.setItem("elevator-position", "top");
-            fore.innerHTML = `<img draggable="false" class="fore-art" src="elevator-art/main-coming.gif" alt="">`;
+            localStorage.setItem("elevator-position", "bottom");
+            fore.innerHTML = `<img draggable="false" class="fore-swap" src="elevator-art/main-coming.gif" alt="">`;
             sleep(3000).then(() => {
-                fore.innerHTML = `<img draggable="false" class="fore-art" src="elevator-art/main-end.gif" alt="">`;
-                sleep(380).then(() => {
-                    fore.innerHTML = `<img draggable="false" class="fore-art" src="elevator-art/main-done.png" alt="">`;
+                fore.innerHTML = `<img draggable="false" class="fore-swap" src="elevator-art/main-ending.gif" alt="">`;
+                sleep(480).then(() => {
+                    fore.innerHTML = `<img draggable="false" class="fore-swap" src="elevator-art/main-done.png" alt="">`;
 
                     eBut.addEventListener('click', function(){
-                        localStorage.setItem("elevator-position", "bottom");
-                        sleep(3).then(() => {window.location.href = "../../cavern/elevator/elevator.html";});
+                        localStorage.setItem("elevator-position", "top");
+                        sleep(3).then(() => {window.location.href = "../../pixel/elevator/elevator.html";});
                     });
                 });
             });
         });
     }
+}
+
+function leverDown(){
+    localStorage.setItem("leverDown", "true");
+    let lev = document.getElementsByClassName("lever-but")[0];
+    document.getElementsByClassName("lever-swap")[0].innerHTML = 
+        `<img draggable="false" class="lever-swap" src="elevator-art/lever-down.png" alt=""></img>`;
+    lev.addEventListener('click', function up(){
+        lev.removeEventListener('click', up);
+        leverUp();
+    })
+}
+
+function leverUp(){
+    localStorage.setItem("leverDown", "false");
+    let lev = document.getElementsByClassName("lever-but")[0];
+    document.getElementsByClassName("lever-swap")[0].innerHTML = 
+        `<img draggable="false" class="lever-swap" src="elevator-art/lever-up.png" alt=""></img>`;
+    lev.addEventListener('click', function down(){
+        lev.removeEventListener('click', down);
+        leverDown();
+    })
 }
 
 function take(button, name) {
