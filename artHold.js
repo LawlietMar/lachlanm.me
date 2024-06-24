@@ -205,22 +205,22 @@ var arts = {
             `,
     "p1cornflower" : `
                 <ul class="item" id="p1cornflower">
-                    <img class="abs flower" draggable="false" alt="" src="../../pixel/global-art/items/p1cornflower.png">   
+                    <img class="abs flower" draggable="false" alt="" src="../../global-art/items/p1cornflower.png">   
                 </ul>
             `,
     "p1poppy" : `
                 <ul class="item" id="p1poppy">
-                    <img class="abs flower" draggable="false" alt="" src="../../pixel/global-art/items/p1poppy.png">   
+                    <img class="abs flower" draggable="false" alt="" src="../../global-art/items/p1poppy.png">   
                 </ul>
             `,
     "p1daisy" : `
                 <ul class="item" id="p1daisy">
-                    <img class="abs flower" draggable="false" alt="" src="../../pixel/global-art/items/p1daisy.png">   
+                    <img class="abs flower" draggable="false" alt="" src="../../global-art/items/p1daisy.png">   
                 </ul>
             `,
     "p1rose" : `
                 <ul class="item" id="p1rose">
-                    <img class="abs flower" draggable="false" alt="" src="../../pixel/global-art/items/p1rose.png">   
+                    <img class="abs flower" draggable="false" alt="" src="../../global-art/items/p1rose.png">   
                 </ul>
             `,
     "map-fotm" : `

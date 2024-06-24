@@ -136,7 +136,7 @@ function initItems() {
     for (let j = 1; j < 9; j++) {
         const spot = document.getElementById("spot" + j);
         spot.innerHTML = `
-            <img draggable="false" class="item-art" alt="" src="../global-art/items/border.png">
+            <img draggable="false" class="item-art" alt="" src="../../global-art/items/border.png">
             <button tabindex="-1" class="item art item-art spot`+j+`"></button>
             `;
         let newSpot = spot.cloneNode(true);
@@ -156,8 +156,8 @@ function initItemsMeat(i) {
         var nam = localStorage.getItem("spot" + i);
         var spot = document.getElementById("spot" + i);
         spot.innerHTML = `
-            <img draggable="false" class="item-art" alt="" src="../global-art/items/`+nam+`.png">
-            <img draggable="false" class="item-art" alt="" src="../global-art/items/border.png">
+            <img draggable="false" class="item-art" alt="" src="../../global-art/items/`+nam+`.png">
+            <img draggable="false" class="item-art" alt="" src="../../global-art/items/border.png">
             <button tabindex="-1" class="item art item-art spot`+i+`"></button>
             `;
         document.getElementsByClassName("spot" + i)[0].addEventListener('click', function() { select(i); });
@@ -170,8 +170,8 @@ function getIte(name) {
     const free = localStorage.getItem("free");
     const spot = document.getElementById("spot" + free);
     spot.innerHTML = `
-            <img draggable="false" class="item-art" alt="" src="../global-art/items/`+name+`.png">
-            <img draggable="false" class="item-art" alt="" src="../global-art/items/border.png">
+            <img draggable="false" class="item-art" alt="" src="../../global-art/items/`+name+`.png">
+            <img draggable="false" class="item-art" alt="" src="../../global-art/items/border.png">
             <button tabindex="-1" class="item art item-art spot`+free+`"></button>
             `;
     localStorage.setItem("spot" + free, name);

@@ -152,7 +152,7 @@ function initItemsMeat(i) {
         let nam = localStorage.getItem("spot" + i);
         let spot = document.getElementById("spot" + i);
         spot.innerHTML = `
-            <img draggable="false" class="item-art" alt="" src="../global-art/items/`+nam+`.png">
+            <img draggable="false" class="item-art" alt="" src="../../global-art/items/`+nam+`.png">
             <button tabindex="-1" class="item art item-art spot`+i+`"></button>
             `;
         document.getElementsByClassName("spot" + i)[0].addEventListener('click', function() { select(i); });
@@ -165,7 +165,7 @@ function getIte(name) {
     const free = localStorage.getItem("free");
     const spot = document.getElementById("spot" + free);
     spot.innerHTML = `
-            <img draggable="false" class="item-art" alt="" src="../global-art/items/`+name+`.png">
+            <img draggable="false" class="item-art" alt="" src="../../global-art/items/`+name+`.png">
             <button tabindex="-1" class="item art item-art spot`+free+`"></button>
             `;
     localStorage.setItem("spot" + free, name);
