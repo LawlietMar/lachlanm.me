@@ -13,9 +13,19 @@ var elevatorDia = {
     "clickDoor12" : [["..."], []],
     "clickDoor13" : [["..."], []],
     "clickDoor14" : [["Surely you could have opened it by now."], []],
-    "clickDoor15" : [[". . ."], []]
+    "clickDoor15" : [[". . ."], []],
+    "locked" : [["The door is locked."],[]]
+}
+
+var entryDia = {
+    "barred" : [["The door is barred."], []],
+    "locked" : [["The door seems locked from the other side..."], []]
 }
 
 export function getElevatorDia(inText){
     return elevatorDia[inText];
+}
+
+export function getEntryDia(inText){
+    return entryDia[inText];
 }

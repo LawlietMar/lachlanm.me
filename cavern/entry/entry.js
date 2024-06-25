@@ -1,4 +1,4 @@
-import { getElevatorDia } from "../../global-art/dialogues.js";
+import { getEntryDia } from "../../global-art/dialogues.js";
 
 if (document.readyState == 'loading') {
     document.addEventListener('DOMContentLoaded', ready);
@@ -11,7 +11,6 @@ var init;
 var inConvo;
 function ready() {
     inConvo = "false";
-    var clicked = 0;
     init = "true";
     // Initialize selected item to -1 (no selection)
     localStorage.setItem("selected", -1);
@@ -22,84 +21,79 @@ function ready() {
     // Initialize items and start rain effects
     initItems();
     sleep(40).then(() => {init = "false";});
-    if (localStorage.getItem("leverDown") == "true"){
-        leverDown();
-    }
-    else {
-        leverUp();
-    }
 
-    var fore = document.getElementsByClassName("fore-swap")[0];
-    var eBut = document.getElementsByClassName("elevator-but")[0];
-
-    document.getElementsByClassName("door-but")[0].addEventListener('click', function(){
-        if (localStorage.getItem("door-unbarred") == "true"){
-            window.location.href = "../portal/portal.html";
-        }
-        else{
-            if (inConvo == "false"){
-                if (clicked < 15){
-                    clicked = clicked + 1;
-                }
-                else {
-                    localStorage.setItem("An A-door-able Narrator", "true");
-                }
-                respond("clickDoor" + clicked);
-            }
+    document.getElementsByClassName("cove")[0].addEventListener("click", function(){
+        if (localStorage.getItem("moon") == 3){
+            window.location.href = "../../ascii/beach/beach.html";
         }
     });
 
-    if(localStorage.getItem("rope-placed") == "true"){
-        if (localStorage.getItem("elevator-position") == "bottom"){
-            fore.innerHTML = `<img draggable="false" class="fore-swap" src="elevator-art/main-done.png" alt="">`;
-            eBut.addEventListener('click', function go(){
-                localStorage.setItem("elevator-position", "top");
-                sleep(3).then(() => {window.location.href = "../../pixel/elevator/elevator.html";});
-            });
-        }
-    
-        else {
-            fore.innerHTML = `<img draggable="false" class="fore-swap" src="elevator-art/unstarted.png" alt="">`;
-            eBut.addEventListener('click', function up(){
-                eBut.removeEventListener('click', up);
-                localStorage.setItem("elevator-position", "bottom");
-                fore.innerHTML = `<img draggable="false" class="fore-swap" src="elevator-art/main-coming.gif" alt="">`;
-                sleep(3000).then(() => {
-                    fore.innerHTML = `<img draggable="false" class="fore-swap" src="elevator-art/main-ending.gif" alt="">`;
-                    sleep(480).then(() => {
-                        fore.innerHTML = `<img draggable="false" class="fore-swap" src="elevator-art/main-done.png" alt="">`;
-    
-                        eBut.addEventListener('click', function(){
-                            localStorage.setItem("elevator-position", "top");
-                            sleep(3).then(() => {window.location.href = "../../pixel/elevator/elevator.html";});
-                        });
-                    });
-                });
-            });
-        }
+    if (localStorage.getItem("leverDown") != "true"){
+        document.getElementsByClassName("fore-art")[0].classList.remove("hide");
     }
+    else {
+        document.getElementsByClassName("gate-but")[0].addEventListener('click', function(){
+            window.location.href = "../crossroads/crossroads.html"
+        });
+    }
+
+    if (localStorage.getItem("door-unbarred") == "true"){
+        unbar();
+    }
+    else {
+        bar();
+    }
+    document.getElementsByClassName("bar-but")[0].addEventListener('click', function(){
+        if (localStorage.getItem("door-unbarred") == "true"){
+            bar();
+        }
+        else {
+            unbar();
+        }
+    });
+
+
+    document.getElementsByClassName("door-but")[0].addEventListener('click', function(){
+        if (localStorage.getItem("door-unbarred") == "true"){
+            if (localStorage.getItem("door-unlocked") == "true"){
+                window.location.href = "../elevator/elevator.html";
+            }
+            else{
+                if (inConvo == "false"){
+                    respond("locked");
+                }
+            }
+        }
+        else{
+            if (inConvo == "false"){
+                respond("barred");
+            }
+        }
+    });
 }
 
-function leverDown(){
-    localStorage.setItem("leverDown", "true");
-    let lev = document.getElementsByClassName("lever-but")[0];
-    document.getElementsByClassName("lever-swap")[0].innerHTML = 
-        `<img draggable="false" class="lever-swap" src="elevator-art/lever-down.png" alt=""></img>`;
-    lev.addEventListener('click', function up(){
-        lev.removeEventListener('click', up);
-        leverUp();
-    })
+function bar(){
+    localStorage.setItem("door-unbarred", "false");
+    document.getElementsByClassName("bar")[0].innerHTML = `<img draggable="false" class="bar" src="entry-art/bar-down.png" alt="">`;
+
+    var barBut = document.getElementsByClassName("bar-but")[0]
+    barBut.style.top = "410px";
+    barBut.style.left = "285px";
+    barBut.style.height = "60px";
+    barBut.style.width = "300px";
+    barBut.style.rotate = "-5deg";
 }
 
-function leverUp(){
-    localStorage.setItem("leverDown", "false");
-    let lev = document.getElementsByClassName("lever-but")[0];
-    document.getElementsByClassName("lever-swap")[0].innerHTML = 
-        `<img draggable="false" class="lever-swap" src="elevator-art/lever-up.png" alt=""></img>`;
-    lev.addEventListener('click', function down(){
-        lev.removeEventListener('click', down);
-        leverDown();
-    })
+function unbar(){
+    localStorage.setItem("door-unbarred", "true");
+    document.getElementsByClassName("bar")[0].innerHTML = `<img draggable="false" class="bar" src="entry-art/bar-up.png" alt="">`;
+
+    var barBut = document.getElementsByClassName("bar-but")[0]
+    barBut.style.top = "300px";
+    barBut.style.left = "155px";
+    barBut.style.height = "60px";
+    barBut.style.width = "300px";
+    barBut.style.rotate = "-95deg";
 }
 
 function respond(inText){
@@ -121,7 +115,7 @@ function respond(inText){
             box.classList.remove("shadow-realm")
         }
 
-        var text = getElevatorDia(inText);
+        var text = getEntryDia(inText);
         if (text[0][0] == ""){
             setButtons(text);
         }

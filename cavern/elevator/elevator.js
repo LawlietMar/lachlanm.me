@@ -33,18 +33,27 @@ function ready() {
     var eBut = document.getElementsByClassName("elevator-but")[0];
 
     document.getElementsByClassName("door-but")[0].addEventListener('click', function(){
-        if (localStorage.getItem("door-unbarred") == "true"){
-            window.location.href = "../entry/entry.html";
+        if (localStorage.getItem("door-unlocked")  == "true"  || localStorage.getItem("spot" + localStorage.getItem("selected")) == "key"){
+            localStorage.setItem("door-unlocked", "true");
+            if (localStorage.getItem("door-unbarred") == "true"){
+                window.location.href = "../entry/entry.html";
+            }
+            else{
+                if (inConvo == "false"){
+                    if (clicked < 15){
+                        clicked = clicked + 1;
+                    }
+                    else {
+                        localStorage.setItem("An A-door-able Narrator", "true");
+                    }
+                    respond("clickDoor" + clicked);
+                }
+            }
         }
-        else{
+        else {
+
             if (inConvo == "false"){
-                if (clicked < 15){
-                    clicked = clicked + 1;
-                }
-                else {
-                    localStorage.setItem("An A-door-able Narrator", "true");
-                }
-                respond("clickDoor" + clicked);
+                respond("locked");
             }
         }
     });

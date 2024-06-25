@@ -91,6 +91,10 @@ function resett(ite){
     localStorage.setItem("rope-placed", "false");
     localStorage.setItem("elevator-position", "mid");
 
+    localStorage.setItem("leverDown", "false");
+    localStorage.setItem("door-unbarred", "false");
+    localStorage.setItem("door-unlocked", "false");
+
     localStorage.setItem("dead-bunny", "false");
     localStorage.setItem("bunny-x", 1100);
 
