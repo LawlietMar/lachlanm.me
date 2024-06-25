@@ -12,7 +12,7 @@ var elevatorDia = {
     "clickDoor11" : [["..."], []],
     "clickDoor12" : [["..."], []],
     "clickDoor13" : [["..."], []],
-    "clickDoor14" : [["You could have opened it by now."], []],
+    "clickDoor14" : [["Surely you could have opened it by now."], []],
     "clickDoor15" : [[". . ."], []]
 }
 

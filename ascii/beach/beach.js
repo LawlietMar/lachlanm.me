@@ -130,7 +130,7 @@ function checkOpen(){
     moonD.id = "moon" + moon;
     if (moon == 3){
         document.getElementsByClassName("cove")[0].addEventListener("click", function(){
-            //window.location.href = ../pixel/entry/entry.html;
+            window.location.href = "../../cavern/entry/entry.html";
         });
         var pict = document.getElementById("picture");
         pict.innerHTML = `

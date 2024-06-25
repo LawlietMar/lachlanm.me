@@ -34,7 +34,7 @@ function ready() {
 
     document.getElementsByClassName("door-but")[0].addEventListener('click', function(){
         if (localStorage.getItem("door-unbarred") == "true"){
-            window.location.href = "../entry/entry.html";
+            window.location.href = "../portal/portal.html";
         }
         else{
             if (inConvo == "false"){
