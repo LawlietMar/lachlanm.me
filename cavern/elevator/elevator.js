@@ -1,3 +1,5 @@
+import { getElevatorDia } from "../../global-art/dialogues.js";
+
 if (document.readyState == 'loading') {
     document.addEventListener('DOMContentLoaded', ready);
 } else {
@@ -6,7 +8,10 @@ if (document.readyState == 'loading') {
 }
 
 var init;
+var inConvo;
 function ready() {
+    inConvo = "false";
+    var clicked = 0;
     init = "true";
     // Initialize selected item to -1 (no selection)
     localStorage.setItem("selected", -1);
@@ -27,32 +32,48 @@ function ready() {
     var fore = document.getElementsByClassName("fore-swap")[0];
     var eBut = document.getElementsByClassName("elevator-but")[0];
 
-    if (localStorage.getItem("elevator-position") == "bottom"){
-        fore.innerHTML = `<img draggable="false" class="fore-swap" src="elevator-art/main-done.png" alt="">`;
-        eBut.addEventListener('click', function go(){
-            localStorage.setItem("elevator-position", "top");
-            sleep(3).then(() => {window.location.href = "../../pixel/elevator/elevator.html";});
-        });
-    }
+    document.getElementsByClassName("door-but")[0].addEventListener('click', function(){
+        if (localStorage.getItem("door-unbarred") == "true"){
+            window.location.href = "../portal/portal.html";
+        }
+        else{
+            if (inConvo == "false"){
+                if (clicked < 15){
+                    clicked = clicked + 1;
+                }
+                respond("clickDoor" + clicked);
+            }
+        }
+    });
 
-    else {
-        fore.innerHTML = `<img draggable="false" class="fore-swap" src="elevator-art/unstarted.png" alt="">`;
-        eBut.addEventListener('click', function up(){
-            eBut.removeEventListener('click', up);
-            localStorage.setItem("elevator-position", "bottom");
-            fore.innerHTML = `<img draggable="false" class="fore-swap" src="elevator-art/main-coming.gif" alt="">`;
-            sleep(3000).then(() => {
-                fore.innerHTML = `<img draggable="false" class="fore-swap" src="elevator-art/main-ending.gif" alt="">`;
-                sleep(480).then(() => {
-                    fore.innerHTML = `<img draggable="false" class="fore-swap" src="elevator-art/main-done.png" alt="">`;
-
-                    eBut.addEventListener('click', function(){
-                        localStorage.setItem("elevator-position", "top");
-                        sleep(3).then(() => {window.location.href = "../../pixel/elevator/elevator.html";});
+    if(localStorage.getItem("rope-placed") == "true"){
+        if (localStorage.getItem("elevator-position") == "bottom"){
+            fore.innerHTML = `<img draggable="false" class="fore-swap" src="elevator-art/main-done.png" alt="">`;
+            eBut.addEventListener('click', function go(){
+                localStorage.setItem("elevator-position", "top");
+                sleep(3).then(() => {window.location.href = "../../pixel/elevator/elevator.html";});
+            });
+        }
+    
+        else {
+            fore.innerHTML = `<img draggable="false" class="fore-swap" src="elevator-art/unstarted.png" alt="">`;
+            eBut.addEventListener('click', function up(){
+                eBut.removeEventListener('click', up);
+                localStorage.setItem("elevator-position", "bottom");
+                fore.innerHTML = `<img draggable="false" class="fore-swap" src="elevator-art/main-coming.gif" alt="">`;
+                sleep(3000).then(() => {
+                    fore.innerHTML = `<img draggable="false" class="fore-swap" src="elevator-art/main-ending.gif" alt="">`;
+                    sleep(480).then(() => {
+                        fore.innerHTML = `<img draggable="false" class="fore-swap" src="elevator-art/main-done.png" alt="">`;
+    
+                        eBut.addEventListener('click', function(){
+                            localStorage.setItem("elevator-position", "top");
+                            sleep(3).then(() => {window.location.href = "../../pixel/elevator/elevator.html";});
+                        });
                     });
                 });
             });
-        });
+        }
     }
 }
 
@@ -76,6 +97,134 @@ function leverUp(){
         lev.removeEventListener('click', down);
         leverDown();
     })
+}
+
+function respond(inText){
+    inConvo = "true";
+    document.getElementsByClassName("text-box")[0].innerHTML = `
+    <img draggable="false" class="text-box-art" alt="" src="../../global-art/text-box.png">
+    <p class="text-box-text"></p>
+    <ul class="text-box-buttons"></ul>
+    `;
+    var box = document.getElementsByClassName("text-box")[0];
+    //If leave we close the box
+    if (inText == 'leave'){
+        box.classList.add("shadow-realm");
+        box.childNodes[1].innerHTML = "";
+        box.childNodes[2].innerHTML = "";
+    }
+    else {
+        if (box.classList.contains("shadow-realm")){
+            box.classList.remove("shadow-realm")
+        }
+
+        var text = getElevatorDia(inText);
+        if (text[0][0] == ""){
+            setButtons(text);
+        }
+        else {
+            setText(text);
+        }
+    }
+}
+
+var clickReady;
+function setText(text){
+    var doneGif;
+    clickReady = "false";
+    var pages = text[0].length;
+    var count = 1;
+
+    document.getElementsByClassName("text-box-buttons")[0].innerHTML = `<button class="hide text-box-button"></button>`;
+    setPage(count, text).then(function(){
+        clickReady = "true";
+        doneGif = document.createElement("div");
+        doneGif.innerHTML = `<img draggable="false" class="text-box-art" alt="" src="../../global-art/done.gif">`
+        document.getElementsByClassName("text-box")[0].insertBefore(doneGif, document.getElementsByClassName("text-box")[0].children[1]);
+    });
+    document.getElementsByClassName("text-box-button")[0].addEventListener('click', function tx(){
+        if (clickReady == "true"){
+            if (count < pages){
+                document.getElementsByClassName("text-box-text")[0].innerHTML = "";
+                clickReady = "false";
+                count = count + 1;
+                doneGif.remove();
+                setPage(count, text).then(function(){
+                    clickReady = "true";
+                    doneGif = document.createElement("div");
+                    doneGif.innerHTML = `<img draggable="false" class="text-box-art" alt="" src="../../global-art/done.gif">`
+                    document.getElementsByClassName("text-box")[0].insertBefore(doneGif, document.getElementsByClassName("text-box")[0].children[1]);
+                });
+            }
+            else {
+                document.getElementsByClassName("text-box-button")[0].removeEventListener('click', tx);
+                document.getElementsByClassName("text-box-text")[0].innerHTML = "";
+                setButtons(text);
+            }
+        }
+        else {
+            clickReady = "true";
+            document.getElementsByClassName("text-box-text")[0].innerHTML = text[0][count-1];
+
+            doneGif = document.createElement("div");
+            doneGif.innerHTML = `<img draggable="false" class="text-box-art" alt="" src="../../global-art/done.gif">`
+            document.getElementsByClassName("text-box")[0].insertBefore(doneGif, document.getElementsByClassName("text-box")[0].children[1]);
+        }
+    });
+}
+
+async function setPage(count, text){
+    await write(text[0][count-1], 0);
+    return;
+}
+
+async function write(text, spot){
+    if (spot >= text.length || clickReady == "true"){
+        return;
+    }
+    else{
+        spot = spot + 1;
+        document.getElementsByClassName("text-box-text")[0].innerHTML = text.substring(0, spot);
+        await sleep(15);
+        await write(text, spot);
+        return;
+    }
+}
+
+function setButtons(text){
+    document.getElementsByClassName("text-box")[0].innerHTML = `
+            <img draggable="false" class="text-box-art" alt="" src="../../global-art/text-box.png">
+            <p class="text-box-text"></p>
+            <ul class="arrows text-box-buttons"></ul>
+            `;
+    var buts = text[1];
+    if (buts.length == 0){
+        document.getElementsByClassName("text-box")[0].innerHTML = "";
+        inConvo = "false";
+    }
+    else {
+        buts.forEach(function(value, index){
+            var newNode = document.createElement("li");
+            var newBut = document.createElement("button");
+            var newText = document.createTextNode(value);
+
+            newNode.appendChild(newText);
+            newNode.appendChild(newBut);
+            document.getElementsByClassName("text-box-buttons")[0].appendChild(newNode);
+
+            newNode.classList.add("choice" + index);
+            newBut.classList.add("choiceBut" + index, "hide");
+
+            newBut.addEventListener('click', async function(){
+                document.getElementsByClassName("text-box")[0].innerHTML = "";
+                inConvo = "false";
+                if (value != "Leave"){
+                    document.getElementsByClassName("text-box")[0].classList.remove("arrows");
+                    respond(value);
+                }
+            });
+        });
+    }
 }
 
 function take(button, name) {

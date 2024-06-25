@@ -116,6 +116,84 @@ body {
     color: inherit;
 }
 
+.text-box-art{
+    height: 200px;
+    width: 800px;
+    position: absolute;
+}
+
+.text-box-button{
+    position: absolute;
+    top: 12px;
+    left: 28px;
+    height: 144px;
+    width: 740px;
+}
+
+.text-box-text{
+    position: absolute;
+    color: black;
+    line-height: 25px;
+    font-weight: 700;
+    top: 25px;
+    left: 50px;
+    height: 120px;
+    width: 700px;   
+}
+
+.text-box-buttons{
+    position: absolute;
+    height: 120px;
+    width: 700px;   
+}
+
+.text-box{
+    position: fixed;
+    top: 550px;
+    left: 360px;
+}
+
+.shadow-realm{
+    top: -1000px;
+    left: -1000px;
+}
+
+.arrows{
+    top: 20px;
+    list-style-type: ">  ";
+    left: 25px;
+}
+
+
+.choice0, .choice1, .choice2, .choice3 {
+    color: black;
+    font-weight: 700;
+    padding: 6px;
+}
+
+.choiceBut0, .choiceBut1, .choiceBut2, .choiceBut3 {
+    position: absolute;
+    left: 5px;
+    width: 700px;
+    height: 30px;
+}
+
+.choiceBut0{
+    top: 0px;
+}
+
+.choiceBut1{
+   top: 30px; 
+}
+
+.choiceBut2{
+    top: 60px;
+}
+
+.choiceBut3{
+    top: 90px;
+}
+
 .award-art{
     position: absolute;
     width: 155px;
@@ -243,6 +321,10 @@ body {
     border-color: transparent;
     background-color: transparent;
     opacity: 0;
+}
+
+.choice0:hover, .choice1:hover, .choice2:hover, .choice3:hover{
+    background-color: rgba(110, 110, 110, 0.4);
 }
 
 .selected {
