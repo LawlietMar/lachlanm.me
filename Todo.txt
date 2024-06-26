@@ -11,5 +11,3 @@ At some point, fix the art for items and borders
 export crafting recipes to separate file
 fix screenshot for flowers bc crafting
 do next locations
-add achievement art, coin art, and the ascii versions
-make coins unburnable

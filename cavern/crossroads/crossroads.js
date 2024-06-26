@@ -48,6 +48,7 @@ function ready() {
                 localStorage.setItem("held-coins", parseInt(localStorage.getItem("held-coins")) + 5);
                 document.getElementsByClassName("coin-but")[0].remove();
                 document.getElementsByClassName("fore-art")[0].remove();
+                localStorage.setItem("has-coin-purse", "true");
             }
         });
     }

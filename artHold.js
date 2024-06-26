@@ -10,6 +10,12 @@ var ach = {
                     <li class="art artln"><span class="art artln">      |   ^^  /.\\  ^  |</span></li>
                     <li class="art artln"><span class="art artln">      | ^      ||     ^|</span></li>
                     <li class="art artln"><span class="art artln">      l....^...O...^.l </span></li>     
+        `,
+    "6" : `
+                    <li class="art artln"><span class="art artln">      |************|</span></li>
+                    <li class="art artln"><span class="art artln">      |*.     \\  /   .*|</span></li>
+                    <li class="art artln"><span class="art artln">      |  :     v    :  |</span></li>
+                    <li class="art artln"><span class="art artln">      l.*.....l.l....*..l </span></li>     
         `
 }
 var arts = {
@@ -285,6 +291,14 @@ var arts = {
                     <li class="art artln"><span class="art artln">        -:*-:   .-* </span></li> 
                     <li class="art artln"><span class="art artln">          --* *: </span></li> 
                     <li class="art artln"><span class="art artln">          *:=* </span></li>    
+                </ul>
+            `,
+    "coin" : `
+                <ul class="item" id="coin">
+                    <li class="art artln"><span class="art artln">           .-***-.  </span></li> 
+                    <li class="art artln"><span class="art artln">          /<span class="art invis in-list">*</span>  .-.  \\     </span></li> 
+                    <li class="art artln"><span class="art artln">          \\   *-*  /       </span></li> 
+                    <li class="art artln"><span class="art artln">           *-....-* </span></li>    
                 </ul>
             `
 };
