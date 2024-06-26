@@ -1,4 +1,5 @@
 import { getEntryDia } from "../../global-art/dialogues.js";
+import { ready2 } from "../../aud.js";
 
 if (document.readyState == 'loading') {
     document.addEventListener('DOMContentLoaded', ready);
@@ -33,13 +34,43 @@ function ready() {
         window.location.href = "../entry/entry.html"
     });
 
-    document.getElementsByClassName("coin-but").addEventListener('click', function(){
-        if (localStorage.getItem("free") < 9 || localStorage.getItem("held-coins") > 0){
-            if (localStorage.getItem("held-coins") = 0){
-                getIte("coin");
+    if (localStorage.getItem("has-coin-purse") == "true"){
+        document.getElementsByClassName("coin-but")[0].remove();
+        document.getElementsByClassName("fore-art")[0].remove();
+    }
+    else {
+        document.getElementsByClassName("coin-but")[0].addEventListener('click', function(){
+            if (localStorage.getItem("free") < 9 || localStorage.getItem("held-coins") > 0){
+                if (localStorage.getItem("held-coins") == 0){
+                    getIte("coin");
+                    initItems();
+                }
+                localStorage.setItem("held-coins", parseInt(localStorage.getItem("held-coins")) + 5);
+                document.getElementsByClassName("coin-but")[0].remove();
+                document.getElementsByClassName("fore-art")[0].remove();
             }
-            localStorage.setItem("held-coins", parseInt(localStorage.getItem("held-coins")) + 5);
+        });
+    }
+
+    var held = localStorage.getItem("spot" + localStorage.getItem("selected"));
+    document.getElementsByClassName("fire-but")[0].addEventListener('click', function(){
+        if (held == "grave-map"){
+            localStorage.setItem("karma", parseInt(localStorage.getItem("karma")) + 1);
         }
+
+        if (held == "orb1"){
+            localStorage.setItem("balls", parseInt(localStorage.getItem("balls")) - 1);
+            ready2();
+        }
+
+        sleep(5).then(() => {
+            if (localStorage.getItem("selected") != -1){
+                if (localStorage.getItem("spot" + localStorage.getItem("selected")) != "coin"){
+                    removeIte(localStorage.getItem("selected"));
+                    initItems();
+                }
+            }
+        });
     });
 }
 
