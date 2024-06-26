@@ -78,6 +78,7 @@ function resett(ite){
     localStorage.setItem("aud-spot-forest", 0);
     localStorage.setItem("aud-spot-beach", 0);
     localStorage.setItem("aud-spot-cavern", 0);
+    localStorage.setItem("held-coins", 0);
 
     localStorage.setItem("faded", "false");
 

@@ -60,7 +60,7 @@ body {
     height:45px;
 }
 
-.main-art, .fore-art, .bar{
+.main-art, .fore-art, .back-art{
     position: fixed;
     top: 62px;
     left: 225px;
@@ -68,37 +68,52 @@ body {
     height: 715px;
 }
 
-.bar-but{
+.fire-but{
     position: fixed;
-    top: 410px;
-    left: 285px;
-    height: 60px;
-    width: 300px;
-    rotate: -5deg;
+    top: 450px;
+    left: 650px;
+    height: 130px;
+    width: 180px;
 }
 
-.cove{
+.coin-but{
+    position: fixed;
+    top: 540px;
+    left: 870px;
+    height: 70px;
+    width: 70px;
+}
+
+.entry{
     position: fixed;
     top: 700px;
     left: 300px;
     height: 77px;
-    width: 500px;
+    width: 900px;
 }
 
-.door-but{
+.alley{
     position: fixed;
-    top: 140px;
-    left: 340px;
-    height: 550px;
-    width: 220px;
+    top: 360px;
+    left: 430px;
+    height: 200px;
+    width: 100px;
 }
 
-.gate-but{
+.gardens{
     position: fixed;
-    top: 300px;
-    left: 820px;
-    height: 440px;
-    width: 300px;
+    top: 310px;
+    left: 680px;
+    height: 120px;
+    width: 145px;
+}
+
+.shop{
+    position: fixed;
+    top: 350px;
+    left: 1050px;
+    height: 150px;
+    width: 150px;
 }
 
 .item{

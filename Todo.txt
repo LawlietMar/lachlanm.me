@@ -1,5 +1,6 @@
 v2:
 add fade-ins between rooms
+add item keybinds
 
 v1:
 add ashamalev and playtesters to credits

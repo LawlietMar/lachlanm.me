@@ -15,61 +15,69 @@ function ready() {
     // Initialize selected item to -1 (no selection)
     localStorage.setItem("selected", -1);
     localStorage.setItem("free", 1);
+    localStorage.setItem("has-award-6", "true");
     
     checkHave();
     
+    if (localStorage.getItem("faded") == "true"){
+        fade(0);
+    }
+
     // Initialize items and start rain effects
     initItems();
     sleep(40).then(() => {init = "false";});
 
-    document.getElementsByClassName("cove")[0].addEventListener("click", function(){
-        if (localStorage.getItem("moon") == 3){
-            window.location.href = "../../ascii/beach/beach.html";
-        }
+    document.getElementsByClassName("entry")[0].addEventListener('click', async function(){
+        await fade(1);
+        await sleep(1000);
+        window.location.href = "../entry/entry.html"
     });
 
-    if (localStorage.getItem("leverDown") != "true"){
-        document.getElementsByClassName("fore-art")[0].classList.remove("hide");
+    document.getElementsByClassName("coin-but").addEventListener('click', function(){
+        if (localStorage.getItem("free") < 9 || localStorage.getItem("held-coins") > 0){
+            if (localStorage.getItem("held-coins") = 0){
+                getIte("coin");
+            }
+            localStorage.setItem("held-coins", parseInt(localStorage.getItem("held-coins")) + 5);
+        }
+    });
+}
+
+async function fade(dir){
+    if (localStorage.getItem("faded") == "true"){
+        localStorage.setItem("faded", "false");
     }
     else {
-        document.getElementsByClassName("gate-but")[0].addEventListener('click', function(){
-            window.location.href = "../crossroads/crossroads.html"
-        });
+        localStorage.setItem("faded", "true");
     }
 
-    if (localStorage.getItem("door-unbarred") == "true"){
-        unbar();
+    var fade = document.createElement("div");
+    fade.innerHTML = `<img draggable="false" class="main-art" src="../../global-art/black.png" alt="">`;
+    document.getElementsByTagName("body")[0].appendChild(fade);
+    fade.style.opacity = 0;
+    await fadeG(0, dir, fade);
+    if (dir == 0){
+        fade.remove();
+    }
+    return;
+}
+
+async function fadeG(spot, dir, el){
+    if (spot == 11){
+        return;
     }
     else {
-        bar();
-    }
-    document.getElementsByClassName("bar-but")[0].addEventListener('click', function(){
-        if (localStorage.getItem("door-unbarred") == "true"){
-            bar();
+        if (dir == 0){
+            el.style.opacity = 1 - 0.1 * spot;
         }
         else {
-            unbar();
+            console.log(document.getElementsByTagName("body"));
+            el.style.opacity = 0.1 * spot;
         }
-    });
-
-
-    document.getElementsByClassName("door-but")[0].addEventListener('click', function(){
-        if (localStorage.getItem("door-unbarred") == "true"){
-            if (localStorage.getItem("door-unlocked") == "true"){
-                window.location.href = "../elevator/elevator.html";
-            }
-            else{
-                if (inConvo == "false"){
-                    respond("locked");
-                }
-            }
-        }
-        else{
-            if (inConvo == "false"){
-                respond("barred");
-            }
-        }
-    });
+    }
+    await sleep(100);
+    await fadeG(spot + 1, dir, el);
+    return;
 }
 
 function bar(){
