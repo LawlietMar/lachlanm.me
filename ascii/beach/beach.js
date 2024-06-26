@@ -26,6 +26,10 @@ function ready() {
     localStorage.setItem("has-daisy-seeds", 'false');*/
     
     checkHave();
+
+    if (localStorage.getItem("faded") == "true"){
+        fade(0);
+    }
     
     // Initialize items and start rain effects
     initItems();
@@ -101,7 +105,46 @@ function ready() {
             });
         }
     }
+
+    document.getElementsByClassName("togo")[0].remove();
     //moveMoon();
+}
+
+async function fade(dir){
+    if (localStorage.getItem("faded") == "true"){
+        localStorage.setItem("faded", "false");
+    }
+    else {
+        localStorage.setItem("faded", "true");
+    }
+
+    var fade = document.createElement("div");
+    fade.innerHTML = `<img draggable="false" class="main-art" src="../../global-art/black.png" alt="">`;
+    document.getElementsByTagName("body")[0].appendChild(fade);
+    fade.style.opacity = 0;
+    await fadeG(0, dir, fade);
+    if (dir == 0){
+        fade.remove();
+    }
+    return;
+}
+
+async function fadeG(spot, dir, el){
+    if (spot == 11){
+        return;
+    }
+    else {
+        if (dir == 0){
+            el.style.opacity = 1 - 0.1 * spot;
+        }
+        else {
+            console.log(document.getElementsByTagName("body"));
+            el.style.opacity = 0.1 * spot;
+        }
+    }
+    await sleep(100);
+    await fadeG(spot + 1, dir, el);
+    return;
 }
 
 function setBird(){
@@ -129,7 +172,9 @@ function checkOpen(){
     var moonD = document.getElementsByClassName("moon")[0];
     moonD.id = "moon" + moon;
     if (moon == 3){
-        document.getElementsByClassName("cove")[0].addEventListener("click", function(){
+        document.getElementsByClassName("cove")[0].addEventListener("click", async function(){
+            await fade(1);
+            await sleep(1000);
             window.location.href = "../../cavern/entry/entry.html";
         });
         var pict = document.getElementById("picture");

@@ -79,6 +79,8 @@ function resett(ite){
     localStorage.setItem("aud-spot-beach", 0);
     localStorage.setItem("aud-spot-cavern", 0);
 
+    localStorage.setItem("faded", "false");
+
     localStorage.setItem("dead-bird", "false");
     localStorage.setItem("dead-birdB", "false");
     localStorage.setItem("lpot-full", "false");

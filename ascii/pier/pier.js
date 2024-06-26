@@ -27,6 +27,10 @@ function ready() {
     
     checkHave();
 
+    if (localStorage.getItem("faded") == "true"){
+        fade(0);
+    }
+
     var mapB = document.getElementsByClassName("map2-button")[0];
     if (localStorage.getItem("has-map2") == "true") {
         take(mapB, "map2");
@@ -43,18 +47,46 @@ function ready() {
     
     setFish();
     checkMoon();
+    document.getElementsByClassName("togo")[0].remove();
     //moveMoon();
 }
 
-/*function moveMoon(){
-    var moon = parseInt(localStorage.getItem("moon"));
-    if (moon > 4){
-        moon = moon - 5;
+async function fade(dir){
+    if (localStorage.getItem("faded") == "true"){
+        localStorage.setItem("faded", "false");
     }
-    localStorage.setItem("moon", moon+1);
-    checkOpen();
-    sleep(1000).then(() => {moveMoon();});
-}*/
+    else {
+        localStorage.setItem("faded", "true");
+    }
+
+    var fade = document.createElement("div");
+    fade.innerHTML = `<img draggable="false" class="main-art" src="../../global-art/black.png" alt="">`;
+    document.getElementsByTagName("body")[0].appendChild(fade);
+    fade.style.opacity = 0;
+    await fadeG(0, dir, fade);
+    if (dir == 0){
+        fade.remove();
+    }
+    return;
+}
+
+async function fadeG(spot, dir, el){
+    if (spot == 11){
+        return;
+    }
+    else {
+        if (dir == 0){
+            el.style.opacity = 1 - 0.1 * spot;
+        }
+        else {
+            console.log(document.getElementsByTagName("body"));
+            el.style.opacity = 0.1 * spot;
+        }
+    }
+    await sleep(100);
+    await fadeG(spot + 1, dir, el);
+    return;
+}
 
 function checkMoon(){
     var moon = localStorage.getItem("moon");

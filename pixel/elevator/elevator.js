@@ -13,7 +13,11 @@ function ready() {
     localStorage.setItem("free", 1);
     
     checkHave();
-    
+
+    if (localStorage.getItem("faded") == "true"){
+        fade(0);
+    }
+
     // Initialize items and start rain effects
     initItems();
     sleep(40).then(() => {init = "false";});
@@ -51,9 +55,10 @@ function ready() {
 
     else if (localStorage.getItem("elevator-position") == "top"){
         fore.innerHTML = `<img draggable="false" class="fore-art" src="elevator-art/main-done.png" alt="">`;
-        eBut.addEventListener('click', function go(){
+        eBut.addEventListener('click', async function(){
+            await(fade(1));
             localStorage.setItem("elevator-position", "bottom");
-            sleep(3).then(() => {window.location.href = "../../cavern/elevator/elevator.html";});
+            sleep(1000).then(() => {window.location.href = "../../cavern/elevator/elevator.html";});
         });
     }
 
@@ -68,14 +73,53 @@ function ready() {
                 sleep(380).then(() => {
                     fore.innerHTML = `<img draggable="false" class="fore-art" src="elevator-art/main-done.png" alt="">`;
 
-                    eBut.addEventListener('click', function(){
+                    eBut.addEventListener('click', async function(){
                         localStorage.setItem("elevator-position", "bottom");
-                        sleep(3).then(() => {window.location.href = "../../cavern/elevator/elevator.html";});
+                        await(fade(1));
+                        sleep(1000).then(() => {window.location.href = "../../cavern/elevator/elevator.html";});
                     });
                 });
             });
         });
     }
+    document.getElementsByClassName("togo")[0].remove();
+}
+
+async function fade(dir){
+    if (localStorage.getItem("faded") == "true"){
+        localStorage.setItem("faded", "false");
+    }
+    else {
+        localStorage.setItem("faded", "true");
+    }
+
+    var fade = document.createElement("div");
+    fade.innerHTML = `<img draggable="false" class="main-art" src="../../global-art/black.png" alt="">`;
+    document.getElementsByTagName("body")[0].appendChild(fade);
+    fade.style.opacity = 0;
+    await fadeG(0, dir, fade);
+    if (dir == 0){
+        fade.remove();
+    }
+    return;
+}
+
+async function fadeG(spot, dir, el){
+    if (spot == 11){
+        return;
+    }
+    else {
+        if (dir == 0){
+            el.style.opacity = 1 - 0.1 * spot;
+        }
+        else {
+            console.log(document.getElementsByTagName("body"));
+            el.style.opacity = 0.1 * spot;
+        }
+    }
+    await sleep(100);
+    await fadeG(spot + 1, dir, el);
+    return;
 }
 
 function take(button, name) {

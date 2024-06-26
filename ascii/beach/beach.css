@@ -46,6 +46,14 @@ body {
     top: -17px;
 }
 
+.main-art{
+    position: fixed;
+    top: 62px;
+    left: 225px;
+    width: 1055px;
+    height: 715px;
+}
+
 .hide{
     outline-color: transparent;
     border-color: transparent;
