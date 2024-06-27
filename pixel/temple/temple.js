@@ -27,7 +27,7 @@ function ready() {
     initItems();
     sleep(40).then(() => {init = "false";});
 
-    var held = ocalStorage.getItem("spot" + localStorage.getItem("selected"));
+    var held = localStorage.getItem("spot" + localStorage.getItem("selected"));
     document.getElementsByClassName("fire")[0].addEventListener('click', function(){
         if (held == "grave-map"){
             localStorage.setItem("karma", parseInt(localStorage.getItem("karma")) + 1);

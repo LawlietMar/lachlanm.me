@@ -29,3 +29,7 @@ export function getElevatorDia(inText){
 export function getEntryDia(inText){
     return entryDia[inText];
 }
+
+export function getShopDia(inText){
+    return shopDia[inText];
+}
