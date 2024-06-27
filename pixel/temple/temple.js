@@ -27,13 +27,12 @@ function ready() {
     initItems();
     sleep(40).then(() => {init = "false";});
 
-    var held = localStorage.getItem("spot" + localStorage.getItem("selected"));
     document.getElementsByClassName("fire")[0].addEventListener('click', function(){
-        if (held == "grave-map"){
+        if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "grave-map"){
             localStorage.setItem("karma", parseInt(localStorage.getItem("karma")) + 1);
         }
 
-        if (held == "orb1"){
+        if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "orb1"){
             localStorage.setItem("balls", parseInt(localStorage.getItem("balls")) - 1);
             ready2();
         }
@@ -42,7 +41,7 @@ function ready() {
 
         sleep(5).then(() => {
             if (localStorage.getItem("selected") != -1){
-                if (held != "coin"){
+                if (localStorage.getItem("spot" + localStorage.getItem("selected")) != "coin"){
                     removeIte(localStorage.getItem("selected"));
                     initItems();
                 }
