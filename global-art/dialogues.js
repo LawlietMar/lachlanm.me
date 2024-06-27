@@ -22,6 +22,46 @@ var entryDia = {
     "locked" : [["The door seems locked from the other side..."], []]
 }
 
+var shopDia = {
+    "" : [[], []],
+    //Upon entry
+    "enter": [[], ["What is this place?", "Who are you?", "Leave"]],
+    "entero": [[], ["What is this place?", "Who are you?", "What's this orb?", "Leave"]],
+
+    "What is this place?": [["That's quite a vague question, young man. What exactly do you mean? The underground? This place as a whole?"], ["The underground.", "The whole place.", "Back ", "Leave"]],
+    "Back " : [[], ["What is this place?", "Who are you?", "Leave"]],
+    //What is underground
+    "The underground." : [["Why, this is a little village we dwarves live in. We like the underground, and nobody bothers us here.", "It's a quiet life, but a peaceful one."], ["Are there others?", "How did you end up down here?", "Back"]],
+    "Are there others?" : [["Oh, many. But only two others you should meet. Sadly, the town's been getting quieter and quieter over the last two years."], ["Are there others?", "How did you end up down here?", "Back"]],
+    "How did you end up down here?" : [["Hmm...", "I've been here as long as I can remember. Never left. Never wanted to."], ["Are there others?", "How did you end up down here?", "Back"]],
+    "Back" : [[], ["The underground.", "The whole place.", "Back ", "Leave"]],
+
+    //What is game
+    "The whole place." : [["It's just the world, isn't it? I'm down here, you're adventuring in temples and forests.", "Seems like a good life. You should live it, rather than thinking about it too much. Advice from an old man."], ["How did I end up here?", "Back ", "Leave"]],
+    "How did I end up here?" : [["Well, I suppose you woke up."], ["I woke up...?"]],
+    "I woke up...?" : [["You woke up."], ["What is this place?", "Who are you?", "Leave"]],
+
+    //Who are you
+    "Who are you?" : [["Me? Just an old gem selling dwarf running my little shop in a cave."], ["Gem selling? I can't imagine you get much business down here...", "Back ", "Leave"]],
+    "Gem selling? I can't imagine you get much business down here..." : [["Well yes, I'd say about one customer a day?", "heehee...", "But yes. More like gem buying, I suppose. Bring me a gem and I'll give you some coin."], ["Where can I find a gem?", "Why would I want coin?", "Back ", "Leave"]],
+    "Where can I find a gem?" : [["In the mountains. You just mine them out with a pickaxe."], ["Where can I find a gem?", "Why would I want coin?", "Back ", "Leave"]],
+    "Why would I want coin?" : [["Oh, you do. It'll come in handy eventually. If you really want to know, you can talk to the king."], ["Where can I find a gem?", "The king?", "Back ", "Leave"]],
+    "Why would I want coin?1" : [["Oh, you do. It'll come in handy eventually. If you really want to know, you can talk to the king.", "Besides, it seems like you already do...", "You picked up the coin purse."], ["Where can I find a gem?", "The king?", "If coin is so great, why didn't you pick up the purse?", "Back "]],
+    "If coin is so great, why didn't you pick up the purse?" : [["I suppose I didn't see it."], ["Oh, ok.", "It's been sitting right in front of you all day??", "Leave"]],
+    "It's been sitting right in front of you all day??" : [["I didn't see it."], ["Where can I find a gem?", "The king?", "Back ", "Leave"]],
+    "Oh, ok." : [[], ["Where can I find a gem?", "The king?", "Back ", "Leave"]],
+    "The king?" : [["Yes, king Fenstec Elder. You can find him in his castle."], ["Where can I find a gem?", "The king?", "Back ", "Leave"]],
+
+    //What is orb
+    "What's this orb?": [["Oh my, you found one.", "They oppose the flowers. They're embodiments of monotony."], ["And what are the flowers?", "Back ", "Leave"]],
+    "And what are the flowers?" : [["Well, they're flowers. I'm not sure what you mean."], ["What is this place?", "Who are you?", "Leave"]],
+
+    //Axe
+    "axe" : [["That's a nice axe you have there. I have a couple back here too. Let's not use them, ehh?"], ["You're quite the fearless old man.", "I didn't mean it as a threat...", "Leave"]],
+    "You're quite the fearless old man." : [["Ehehehehehee...", "...", "If that was all it took to kill me, things would be a lot simpler..."], ["What is this place?", "Who are you?", "Leave"]],
+    "I didn't mean it as a threat..." : [["Some don't, most do. Can't hurt to be careful."], ["What is this place?", "Who are you?", "Leave"]]
+}
+
 export function getElevatorDia(inText){
     return elevatorDia[inText];
 }

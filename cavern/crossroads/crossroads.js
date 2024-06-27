@@ -70,6 +70,9 @@ function ready() {
                     removeIte(localStorage.getItem("selected"));
                     initItems();
                 }
+                else {
+                    localStorage.setItem("tried-burn", "true");
+                }
             }
         });
     });

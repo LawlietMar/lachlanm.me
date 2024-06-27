@@ -33,7 +33,23 @@ function ready() {
         }
     });
 
-    respond("enter");
+    if (localStorage.getItem("has-orb1") == "true" || localStorage.getItem("has-orb2") == "true" || localStorage.getItem("has-orb3") == "true"){
+        respond("entero");
+    }
+    else {
+        respond("enter");
+    }
+}
+
+function respondAxe(){
+    if (inConvo == "false"){
+        respond("axe");
+    }
+    else {
+        sleep(50).then(() => {
+            respondAxe();
+        });
+    }
 }
 
 function respond(inText){
@@ -56,7 +72,7 @@ function respond(inText){
         }
 
         var text = getShopDia(inText);
-        if (text[0][0] == ""){
+        if (text[0].length == 0){
             setButtons(text);
         }
         else {
@@ -153,15 +169,25 @@ function setButtons(text){
             newBut.classList.add("choiceBut" + index, "hide");
 
             newBut.addEventListener('click', async function(){
-                document.getElementsByClassName("text-box")[0].innerHTML = "";
                 inConvo = "false";
-                if (value != "Leave"){
+                document.getElementsByClassName("text-box")[0].innerHTML = "";
+                if (value == "Why would I want coin?" && localStorage.getItem("has-coin-purse") == "true"){
+                    respond(value + "1");
+                }
+                else if (value == ""){
+                    respond(value + "1");
+                }
+                else if (value != "Leave"){
                     document.getElementsByClassName("text-box")[0].classList.remove("arrows");
                     respond(value);
+                }
+                else {
+                    window.location.href = "../crossroads/crossroads.html";
                 }
             });
         });
     }
+    inConvo = "false";
 }
 
 function take(button, name) {
@@ -311,6 +337,9 @@ function select(item) {
     if (!sel) {
         localStorage.setItem("selected", item);
         document.getElementById("spot" + item).classList.add("selected");
+    }
+    if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "axe"){
+        respondAxe();
     }
 }  
 

@@ -140,6 +140,7 @@ function resett(ite){
     localStorage.setItem("has-map-fotm", "false");
 
     localStorage.setItem("has-coin-purse", "false");
+    localStorage.setItem("tried-burn", "false");
 
     localStorage.setItem("burned-shell", "false");
     localStorage.setItem("burned-cup", "false");
