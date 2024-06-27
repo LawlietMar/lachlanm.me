@@ -25,7 +25,7 @@ let recipes = {
     "orb1 pickaxe unlit-torch": [["torch"], ["unlit-torch"]],
     "orb2 pickaxe unlit-torch": [["torch"], ["unlit-torch"]],
     "orb3 pickaxe unlit-torch": [["torch"], ["unlit-torch"]],
-    "rope unlit-torch wood": [["torch"], ["unlit-torch"]],
+    "branch rope unlit-torch": [["torch"], ["unlit-torch"]],
     "pole rope unlit-torch": [["torch"], ["unlit-torch"]],
 
     "axe orb1 unlit-oar": [["lit-oar"], ["unlit-oar"]],
@@ -40,7 +40,7 @@ let recipes = {
     "orb1 pickaxe unlit-oar": [["lit-oar"], ["unlit-oar"]],
     "orb2 pickaxe unlit-oar": [["lit-oar"], ["unlit-oar"]],
     "orb3 pickaxe unlit-oar": [["lit-oar"], ["unlit-oar"]],
-    "rope unlit-oar wood": [["lit-oar"], ["unlit-oar"]],
+    "branch rope unlit-oar": [["lit-oar"], ["unlit-oar"]],
     "pole rope unlit-oar": [["lit-oar"], ["unlit-oar"]]
 
     //4 item recipes 
