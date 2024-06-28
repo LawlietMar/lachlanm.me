@@ -55,13 +55,11 @@ function ready() {
     else {
         document.getElementsByClassName("bum")[0].addEventListener('click', function(){
             if (localStorage.getItem("has-bum-coins") != "true"){
-                if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "cooked-fish"){
+                if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "cooked-fish" && localStorage.getItem("fed-bum") == "false"){
                     removeIte(localStorage.getItem("selected"));
                     initItems();
-                    if (localStorage.getItem("fed-bum") == "false"){
-                        localStorage.setItem("fed-bum", "true");
-                        localStorage.setItem("karma", parseInt(localStorage.getItem("karma")) + 2);
-                    }
+                    localStorage.setItem("fed-bum", "true");
+                    localStorage.setItem("karma", parseInt(localStorage.getItem("karma")) + 2);
                     if (localStorage.getItem("sane-bum") == "false"){
                         localStorage.setItem("sane-bum", "true");
                         respond("fedSane");
@@ -249,6 +247,9 @@ function setButtons(text){
         inConvo = "false";
         if (text[0][0] == "Ok, sorry." || text[0][0] == "Ok, sorry again..."){
             robbable = "false";
+        }
+        if (text[0][0] == "A day...?"){
+            localStorage.setItem("ask-old-man", "true");
         }
     }
     else {

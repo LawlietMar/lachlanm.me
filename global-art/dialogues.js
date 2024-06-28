@@ -24,8 +24,8 @@ var entryDia = {
 
 var shopDia = {
     //Upon entry
-    "enter": [[], ["What is this place?", "Who are you?", "Leave"]],
-    "entero": [[], ["What is this place?", "Who are you?", "What's this orb?", "Leave"]],
+    "enter": [["Welcome back."], ["What is this place?", "Who are you?", "Leave"]],
+    "entero": [["Welcome back."], ["What is this place?", "Who are you?", "What's this orb?", "Leave"]],
 
     "What is this place?": [["That's quite a vague question, young man. What exactly do you mean? The underground? This place as a whole?"], ["The underground.", "The whole place.", "Back ", "Leave"]],
     "Back " : [[], ["What is this place?", "Who are you?", "Leave"]],
@@ -41,7 +41,7 @@ var shopDia = {
     "I woke up...?" : [["You woke up."], ["What is this place?", "Who are you?", "Leave"]],
 
     //Who are you
-    "Who are you?" : [["Me? Just an old gem selling dwarf running my little shop in a cave."], ["Gem selling? I can't imagine you get much business down here...", "Back ", "Leave"]],
+    "Who are you?" : [["Me? Just an old gem selling dwarf, running my little shop in a cave."], ["Gem selling? I can't imagine you get much business down here...", "Back ", "Leave"]],
     "Gem selling? I can't imagine you get much business down here..." : [["Well yes, I'd say about one customer a day?", "heehee...", "But yes. More like gem buying, I suppose. Bring me a gem and I'll give you some coin."], ["Where can I find a gem?", "Why would I want coin?", "Back ", "Leave"]],
     "Where can I find a gem?" : [["In the mountains. You just mine them out with a pickaxe."], ["Where can I find a gem?", "Why would I want coin?", "Back ", "Leave"]],
     "Why would I want coin?" : [["Oh, you do. It'll come in handy eventually. If you really want to know, you can talk to the king."], ["Where can I find a gem?", "The king?", "Back ", "Leave"]],
@@ -84,14 +84,19 @@ var alleyDia = {
     "You done?" : [["Rude kid.", "Yes, I'm done. You gave it to me, not sure what you expected.", "Anyway, I enjoyed the grub, I'll do you a favor. Anything but coin, I'm a bit sparse on that myself.", ". . .", ". . .", "I guess you probably don't know what you need, huh?"], ["No, not really...", "Actually, I'm pretty on track."]],
     "No, not really..." : [["I'll tell you a bit. I can't say much - none of us can.", "It won't end well for us.", "But I'll say a bit, the old man will say a bit, and Clasio will say a bit.", "I'll just tell you one piece for now. Do you want to know about me, you, or the world?"], ["Me.", "You.", "The world.", "Leave"]],
     "Actually, I'm pretty on track." : [["No, you aren't. It's good that you think you do though."], ["Well in that case...?"]],
-    "Well in that case...?" : [["Well I'll tell you a bit. I can't say much - none of us can.", "It won't end well for us.", "But I'll say a bit, the old man will say a bit, and Clasio will say a bit.", "I'll just tell you one piece for now. Do you want to know about me, you, or the world?"], ["Me.", "You.", "The world.", "Leave"]],
+    "Well in that case...?" : [["Well I'll tell you a little. I can't say much - none of us can.", "But I'll say a bit, the old man will say a bit, and Clasio will say a bit.", "I'll just tell you one piece for now. Do you want to know about me, you, or the world?"], ["Me.", "You.", "The world.", "Leave"]],
 
     //Lore
-    "Me." : [[], []],
+    "Me." : [["The king will like you.", "Like the flowers, the orbs, me, many things in this world really, you are a manifestation.", "In this case, a manifestation of choice and power.", "Nietzsche's power."], ["The flowers?", "The orbs?", "You?", "Choice and power?"]],
+    "The flowers?" : [["Yes, the flowers. The old man will explain."], []],
+    "The orbs?" : [["Yes, the orbs. The old man will explain."], []],
+    "You?" : [["Yes, me. I've said what I can for the day, but ask me next time."], []],
+    "Choice and power?" : [["You heard me.", "That's all I can say, but you'll figure the rest out."], []],
 
-    "You." : [[], []],
+    "You." : [["My my, I feel so special.", "I'm a manifestation. Of what, I can't say directly.", "I'm a lot weaker than I used to be. I fell out of favor with the king and with Him over the last year, so I've just been gathering coin in an attempt to exist."], []],
 
-    "The world." : [[], []],
+    "The world." : [["Then it seems you understand the world already. You might not know it though.", "The world is a day. Simple as that. What you do in it is up to you."], ["A day...?"]],
+    "A day...?" : [["Yes, a day. I'm sorry I can't tell you more.", "Ask the old man about <i>It</i>. Tell him I sent you. He'll explain."], []],
 }
 
 export function getElevatorDia(inText){

@@ -82,7 +82,7 @@ function resett(ite){
 
     localStorage.setItem("faded", "false");
     localStorage.setItem("sane-bum", "false");
-    localStorage.setItem("fed-bum")
+    localStorage.setItem("fed-bum");
 
     localStorage.setItem("dead-bird", "false");
     localStorage.setItem("dead-birdB", "false");
