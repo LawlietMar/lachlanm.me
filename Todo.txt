@@ -11,3 +11,5 @@ At some point, fix the art for items and borders
 export crafting recipes to separate file
 fix screenshot for flowers bc crafting
 do next locations
+add htaccess
+add cooked fish

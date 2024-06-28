@@ -81,6 +81,8 @@ function resett(ite){
     localStorage.setItem("held-coins", 0);
 
     localStorage.setItem("faded", "false");
+    localStorage.setItem("sane-bum", "false");
+    localStorage.setItem("fed-bum")
 
     localStorage.setItem("dead-bird", "false");
     localStorage.setItem("dead-birdB", "false");
@@ -128,6 +130,7 @@ function resett(ite){
     localStorage.setItem("has-map-shack", "false");
     localStorage.setItem("has-grave-map", "false");
     localStorage.setItem("has-orb1", "false");
+    localStorage.setItem("has-orb2", "false");
     localStorage.setItem("has-shed-map", "false");
     localStorage.setItem("has-oar", "false");
     localStorage.setItem("has-pole", "false");
@@ -140,6 +143,7 @@ function resett(ite){
     localStorage.setItem("has-map-fotm", "false");
 
     localStorage.setItem("has-coin-purse", "false");
+    localStorage.setItem("has-bum-coins", "false");
     localStorage.setItem("tried-burn", "false");
 
     localStorage.setItem("burned-shell", "false");

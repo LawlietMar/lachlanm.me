@@ -23,7 +23,6 @@ var entryDia = {
 }
 
 var shopDia = {
-    "" : [[], []],
     //Upon entry
     "enter": [[], ["What is this place?", "Who are you?", "Leave"]],
     "entero": [[], ["What is this place?", "Who are you?", "What's this orb?", "Leave"]],
@@ -62,6 +61,21 @@ var shopDia = {
     "I didn't mean it as a threat..." : [["Some don't, most do. Can't hurt to be careful."], ["What is this place?", "Who are you?", "Leave"]]
 }
 
+var alleyDia = {
+    //Bum things
+    "yap0" : [["rvteis hisdoectaebrvu... meauro i nt,eddii ao dimpisid cds sdrbll a noec ltapug.dl u nmeo eoicqcvd umpo osot estacimeitt.qem ua oon i seadatidiiieqen sleolstmdbuttuinroualat maaecqsoaosiiniauttmr cornpxxionemer,i milum ear ime nucrotnluu r ,glsineto"], []],
+    "yap1" : [["uh dssighttolauic... e,uldoooui i a nttnuts.txerdatiaol e umln cemc tnrdednsuoemscditop bqeeaa isigutmlc,ulomnrtamlsoulu oue mo nmni aris rcdlad miou via xtonoiseirrreopttgodi mm ppiasici tdtsmbleeiaconc.qd i, ei ulouaom iareaenqedn iqs siaeit"], []],
+    "yap2" : [["fhsmla er... iri ltemeseot c uddsumdealns., laiuuletiviqaug tm isbdnci oidmmtia euoiiim olecco be esnsueeacoooanu ceo ur sstii,qrpdqapdere i ininl teurtl to.e amapstaiome giprolom oom dr luoi adisu iamstnco xmnnc trt,tdxm oeaniln nratduaq"], []],
+    "angy" : [[". . ."], []],
+
+    //Money Dialogue
+    "touchy" : [["Hey, hands off. It's not much, but those are my savings."], ["Ok, sorry."]],
+    "touchySane" : [["Hey, hands off. It's not much, but those are my savings."], ["Ok, sorry.", "You can talk?"]],
+    "touchy1" : [["Hey, stop. I told you those are mine."], ["Ok, sorry again..."]],
+    "Ok, sorry." : [[], []],
+    "You can talk?" : [["Well yes, I've always been able to. I just don't enjoy it much. My clarity comes and goes, admittedly.", "Now get your hands off my money."], ["Ok, sorry."]],
+}
+
 export function getElevatorDia(inText){
     return elevatorDia[inText];
 }
@@ -72,4 +86,8 @@ export function getEntryDia(inText){
 
 export function getShopDia(inText){
     return shopDia[inText];
+}
+
+export function getAlleyDia(inText){
+    return alleyDia[inText];
 }

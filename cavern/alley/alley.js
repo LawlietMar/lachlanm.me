@@ -1,4 +1,4 @@
-import { getEntryDia } from "../../global-art/dialogues.js";
+import { getAlleyDia } from "../../global-art/dialogues.js";
 import { ready2 } from "../../aud.js";
 
 if (document.readyState == 'loading') {
@@ -10,133 +10,98 @@ if (document.readyState == 'loading') {
 
 var init;
 var inConvo;
+var robbable;
 function ready() {
+    var insaneClick = 0;
+    var tried = "false";
     inConvo = "false";
     init = "true";
+    robbable = "false";
     // Initialize selected item to -1 (no selection)
     localStorage.setItem("selected", -1);
     localStorage.setItem("free", 1);
-    localStorage.setItem("has-award-6", "true");
     
     checkHave();
-    
-    if (localStorage.getItem("faded") == "true"){
-        fade(0);
+
+    if (localStorage.getItem("has-bum-coins") != "true"){
+        document.getElementsByClassName("coin-art")[0].classList.remove("hide");
+    }
+
+    if (localStorage.getItem("has-orb2") != "true"){
+        document.getElementsByClassName("orb2-art")[0].classList.remove("hide");
     }
 
     // Initialize items and start rain effects
     initItems();
     sleep(40).then(() => {init = "false";});
 
-    document.getElementsByClassName("entry")[0].addEventListener('click', async function(){
-        await fade(1);
-        await sleep(1000);
-        window.location.href = "../entry/entry.html"
-    });
-
-    if (localStorage.getItem("has-coin-purse") == "true"){
-        document.getElementsByClassName("coin-but")[0].remove();
-        document.getElementsByClassName("fore-art")[0].remove();
-    }
-    else {
-        document.getElementsByClassName("coin-but")[0].addEventListener('click', function(){
-            if (localStorage.getItem("free") < 9 || localStorage.getItem("held-coins") > 0){
-                if (localStorage.getItem("held-coins") == 0){
-                    getIte("coin");
-                    initItems();
-                }
-                localStorage.setItem("held-coins", parseInt(localStorage.getItem("held-coins")) + 5);
-                document.getElementsByClassName("coin-but")[0].remove();
-                document.getElementsByClassName("fore-art")[0].remove();
-                localStorage.setItem("has-coin-purse", "true");
-            }
+    var ballBut = document.getElementsByClassName("ball")[0];
+    if (localStorage.getItem("has-orb2") == "true") {
+        take(ballBut, "orb2");
+    } else {
+        ballBut.addEventListener('click', function tk() {
+            ballBut.removeEventListener('click', tk);
+            take(ballBut, "orb2");
         });
     }
 
-    var held = localStorage.getItem("spot" + localStorage.getItem("selected"));
-    document.getElementsByClassName("fire-but")[0].addEventListener('click', function(){
-        if (held == "grave-map"){
-            localStorage.setItem("karma", parseInt(localStorage.getItem("karma")) + 1);
-        }
-
-        if (held == "orb1"){
-            localStorage.setItem("balls", parseInt(localStorage.getItem("balls")) - 1);
-            ready2();
-        }
-
-        sleep(5).then(() => {
-            if (localStorage.getItem("selected") != -1){
-                if (localStorage.getItem("spot" + localStorage.getItem("selected")) != "coin"){
-                    removeIte(localStorage.getItem("selected"));
-                    initItems();
-                }
-                else {
-                    localStorage.setItem("tried-burn", "true");
-                }
+    if (localStorage.getItem("has-bum-coins") == "true"){
+        document.getElementsByClassName("bum")[0].addEventListener('click', function(){
+            respond("angy");
+        });
+    }
+    else {
+        document.getElementsByClassName("bum")[0].addEventListener('click', function(){
+            insaneClick = insaneClick + 1;
+            if (insaneClick > 2){
+                insaneClick = 0;
+            }
+            respond("yap" + insaneClick);
+        });
+    
+        document.getElementsByClassName("coins")[0].addEventListener('click', function(){
+            if (localStorage.getItem("sane-bum") == "false"){
+                localStorage.setItem("sane-bum", "true");
+                respond("touchySane");
+                robbable = "true";
+                tried = "true";
+            }
+            else if (tried == "false"){
+                respond("touchy");
+                robbable = "true";
+                tried = "true";
+            }
+            else {
+                respond ("touchy1");
+                robbable = "true";
             }
         });
-    });
+    }
 }
 
-async function fade(dir){
-    if (localStorage.getItem("faded") == "true"){
-        localStorage.setItem("faded", "false");
-    }
-    else {
-        localStorage.setItem("faded", "true");
-    }
-
-    var fade = document.createElement("div");
-    fade.innerHTML = `<img draggable="false" class="main-art" src="../../global-art/black.png" alt="">`;
-    document.getElementsByTagName("body")[0].appendChild(fade);
-    fade.style.opacity = 0;
-    await fadeG(0, dir, fade);
-    if (dir == 0){
-        fade.remove();
-    }
-    return;
-}
-
-async function fadeG(spot, dir, el){
-    if (spot == 11){
-        return;
-    }
-    else {
-        if (dir == 0){
-            el.style.opacity = 1 - 0.1 * spot;
-        }
-        else {
-            console.log(document.getElementsByTagName("body"));
-            el.style.opacity = 0.1 * spot;
+function respondAxe(){
+    if (inConvo == "false"){
+        if (robbable == "true"){
+            respond("axe");
+            document.getElementsByClassName("coins")[0].addEventListener('click', function(){
+                if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "axe"){
+                    respond("rob");
+                    robbable = "false";
+                    localStorage.setItem("has-bum-coims", "true");
+                    localStorage.setItem("karma", parseInt(localStorage.getItem("karma")) - 5);
+                    if (localStorage.getItem("held-coins") == 0){
+                        getIte("coin");
+                    }
+                    localStorage.setItem("held-coins", parseInt(localStorage.getItem("held-coins")) + 15);
+                }
+            });
         }
     }
-    await sleep(100);
-    await fadeG(spot + 1, dir, el);
-    return;
-}
-
-function bar(){
-    localStorage.setItem("door-unbarred", "false");
-    document.getElementsByClassName("bar")[0].innerHTML = `<img draggable="false" class="bar" src="entry-art/bar-down.png" alt="">`;
-
-    var barBut = document.getElementsByClassName("bar-but")[0]
-    barBut.style.top = "410px";
-    barBut.style.left = "285px";
-    barBut.style.height = "60px";
-    barBut.style.width = "300px";
-    barBut.style.rotate = "-5deg";
-}
-
-function unbar(){
-    localStorage.setItem("door-unbarred", "true");
-    document.getElementsByClassName("bar")[0].innerHTML = `<img draggable="false" class="bar" src="entry-art/bar-up.png" alt="">`;
-
-    var barBut = document.getElementsByClassName("bar-but")[0]
-    barBut.style.top = "300px";
-    barBut.style.left = "155px";
-    barBut.style.height = "60px";
-    barBut.style.width = "300px";
-    barBut.style.rotate = "-95deg";
+    else {
+        sleep(50).then(() => {
+            respondAxe();
+        });
+    }
 }
 
 function respond(inText){
@@ -158,8 +123,8 @@ function respond(inText){
             box.classList.remove("shadow-realm")
         }
 
-        var text = getEntryDia(inText);
-        if (text[0][0] == ""){
+        var text = getAlleyDia(inText);
+        if (text[0].length == 0){
             setButtons(text);
         }
         else {
@@ -241,6 +206,9 @@ function setButtons(text){
     if (buts.length == 0){
         document.getElementsByClassName("text-box")[0].innerHTML = "";
         inConvo = "false";
+        if (value == "Ok, sorry." || value == "Ok, sorry again..."){
+            robbable = "false";
+        }
     }
     else {
         buts.forEach(function(value, index){
@@ -256,8 +224,8 @@ function setButtons(text){
             newBut.classList.add("choiceBut" + index, "hide");
 
             newBut.addEventListener('click', async function(){
-                document.getElementsByClassName("text-box")[0].innerHTML = "";
                 inConvo = "false";
+                document.getElementsByClassName("text-box")[0].innerHTML = "";
                 if (value != "Leave"){
                     document.getElementsByClassName("text-box")[0].classList.remove("arrows");
                     respond(value);
@@ -265,12 +233,17 @@ function setButtons(text){
             });
         });
     }
+    inConvo = "false";
 }
 
 function take(button, name) {
     if (localStorage.getItem("free") < 9 || init == "true") {
         document.getElementsByClassName(name + "-art")[0].classList.add("invis");
         if (!(localStorage.getItem("has-" + name) == "true")) {
+            if (name == "orb2"){
+                localStorage.setItem("balls", parseInt(localStorage.getItem("balls")) + 1);
+                ready2();
+            }
             getIte(name);
             initItems();
         }
@@ -292,8 +265,9 @@ function take(button, name) {
 function put(button, name) {
     if (localStorage.getItem("spot" + localStorage.getItem("selected")) == name) {
         document.getElementsByClassName(name + "-art")[0].classList.remove("invis");
-        if (name == "can") {
-            document.getElementById("behind-can").classList.add("invis");
+        if (name == "orb2"){
+            localStorage.setItem("balls", parseInt(localStorage.getItem("balls")) - 1);
+            ready2();
         }
         removeIte(localStorage.getItem("selected"));
         initItems();
@@ -414,6 +388,9 @@ function select(item) {
     if (!sel) {
         localStorage.setItem("selected", item);
         document.getElementById("spot" + item).classList.add("selected");
+    }
+    if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "axe"){
+        respondAxe();
     }
 }  
 

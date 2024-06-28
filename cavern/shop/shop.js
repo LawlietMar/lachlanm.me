@@ -138,7 +138,7 @@ async function write(text, spot){
     else{
         spot = spot + 1;
         document.getElementsByClassName("text-box-text")[0].innerHTML = text.substring(0, spot);
-        await sleep(15);
+        await sleep(8);
         await write(text, spot);
         return;
     }
