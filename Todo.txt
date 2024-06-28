@@ -1,6 +1,7 @@
 v2:
 add fade-ins between rooms
 add item keybinds
+add days and weeks and years instead of full resets
 
 v1:
 add ashamalev and playtesters to credits
@@ -8,8 +9,9 @@ update bookshelf
 make it so any seed can feed birb2
 add home
 At some point, fix the art for items and borders
-export crafting recipes to separate file
-fix screenshot for flowers bc crafting
 do next locations
+fix screenshot for flowers bc crafting
+export crafting recipes to separate file
 add htaccess
-add cooked fish
+add ascii textures: fillet o fish, cooked fish, orb2
+add feeding a dialogue

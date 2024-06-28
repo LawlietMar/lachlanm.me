@@ -141,10 +141,13 @@ function resett(ite){
     localStorage.setItem("has-rope", "false");
     localStorage.setItem("has-pickaxe", "false");
     localStorage.setItem("has-map-fotm", "false");
+    localStorage.setItem("has-cut-fish", "false");
+    localStorage.setItem("has-cooked-fish", "false");
 
     localStorage.setItem("has-coin-purse", "false");
     localStorage.setItem("has-bum-coins", "false");
     localStorage.setItem("tried-burn", "false");
+    localStorage.setItem("fed-bum", "false");
 
     localStorage.setItem("burned-shell", "false");
     localStorage.setItem("burned-cup", "false");

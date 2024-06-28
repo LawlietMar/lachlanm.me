@@ -11,6 +11,9 @@ let recipes = {
     "axe pole" : [["oar"], ["pole"]],
     "pole rope" : [["unlit-torch"], ["pole", "rope"]],
     "oar rope" : [["unlit-oar"], ["oar", "rope"]],
+    "axe fish" : [["cut-fish"], ["fish"]],
+    "cut-fish torch" : [["cooked-fish"], ["cut-fish"]],
+    "cut-fish lit-oar" : [["cooked-fish"], ["cut-fish"]],
 
     //3 item recipes
     "axe orb1 unlit-torch": [["torch"], ["unlit-torch"]],

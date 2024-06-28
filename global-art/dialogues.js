@@ -73,7 +73,25 @@ var alleyDia = {
     "touchySane" : [["Hey, hands off. It's not much, but those are my savings."], ["Ok, sorry.", "You can talk?"]],
     "touchy1" : [["Hey, stop. I told you those are mine."], ["Ok, sorry again..."]],
     "Ok, sorry." : [[], []],
-    "You can talk?" : [["Well yes, I've always been able to. I just don't enjoy it much. My clarity comes and goes, admittedly.", "Now get your hands off my money."], ["Ok, sorry."]],
+    "You can talk?" : [["Well yes, I've always been able to. I just don't enjoy it much. My lucidity comes and goes, admittedly.", "Now get your hands off my money."], ["Ok, sorry."]],
+    "rob" : [["Well, I hope you need it more than I do."], []],
+    "axe" : [["Hey man there's no need to do this...", "You can take the money if you really need it but don't hurt me.", "Please?"], []],
+
+    //Fed dialogue
+    "fedSane" : [["nibble", "crunch", "SMACK", "chomp", "scrlmph", ". . .", "sluuuuurp", ". . .", "Chomp.", "Mmm, that hit the spot. Thanks, kid."], ["You talk?", "Leave"]],
+    "fed" : [["*nibble*", "*crunch*", ". . .**SMACK**", "*chomp*", "*scrlmph*", ". . .", ". . .*sluuuuurp*", ". . .", "*Chomp*.", "Mmm, that hit the spot. Thanks, kid."], ["You done?", "Leave"]],
+    "You talk?" : [["Rude kid.", "Yes, I talk. My lucidity comes and goes, but food usually does the trick.", "Anyway, I enjoyed the grub, I'll do you a favor. Anything but coin, I'm a bit sparse on that myself.", ". . .", ". . .", "I guess you probably don't know what you need, huh?"], ["No, not really...", "Actually, I'm pretty on track."]],
+    "You done?" : [["Rude kid.", "Yes, I'm done. You gave it to me, not sure what you expected.", "Anyway, I enjoyed the grub, I'll do you a favor. Anything but coin, I'm a bit sparse on that myself.", ". . .", ". . .", "I guess you probably don't know what you need, huh?"], ["No, not really...", "Actually, I'm pretty on track."]],
+    "No, not really..." : [["I'll tell you a bit. I can't say much - none of us can.", "It won't end well for us.", "But I'll say a bit, the old man will say a bit, and Clasio will say a bit.", "I'll just tell you one piece for now. Do you want to know about me, you, or the world?"], ["Me.", "You.", "The world.", "Leave"]],
+    "Actually, I'm pretty on track." : [["No, you aren't. It's good that you think you do though."], ["Well in that case...?"]],
+    "Well in that case...?" : [["Well I'll tell you a bit. I can't say much - none of us can.", "It won't end well for us.", "But I'll say a bit, the old man will say a bit, and Clasio will say a bit.", "I'll just tell you one piece for now. Do you want to know about me, you, or the world?"], ["Me.", "You.", "The world.", "Leave"]],
+
+    //Lore
+    "Me." : [[], []],
+
+    "You." : [[], []],
+
+    "The world." : [[], []],
 }
 
 export function getElevatorDia(inText){

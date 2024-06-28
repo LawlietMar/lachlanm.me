@@ -8,12 +8,14 @@ if (document.readyState == 'loading') {
     ready();
 }
 
+var beingRobbed;
 var init;
 var inConvo;
 var robbable;
 function ready() {
     var insaneClick = 0;
     var tried = "false";
+    beingRobbed = "false";
     inConvo = "false";
     init = "true";
     robbable = "false";
@@ -52,30 +54,64 @@ function ready() {
     }
     else {
         document.getElementsByClassName("bum")[0].addEventListener('click', function(){
-            insaneClick = insaneClick + 1;
-            if (insaneClick > 2){
-                insaneClick = 0;
+            if (localStorage.getItem("has-bum-coins") != "true"){
+                if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "cooked-fish"){
+                    removeIte(localStorage.getItem("selected"));
+                    initItems();
+                    if (localStorage.getItem("fed-bum") == "false"){
+                        localStorage.setItem("fed-bum", "true");
+                        localStorage.setItem("karma", parseInt(localStorage.getItem("karma")) + 2);
+                    }
+                    if (localStorage.getItem("sane-bum") == "false"){
+                        localStorage.setItem("sane-bum", "true");
+                        respond("fedSane");
+                    }
+                    else {
+                        respond("fed");
+                    }
+                }
+                else {
+                    insaneClick = insaneClick + 1;
+                    if (insaneClick > 2){
+                        insaneClick = 0;
+                    }
+        
+                    respond("yap" + insaneClick);
+                }
             }
-            respond("yap" + insaneClick);
+            else {
+                respond("angy");
+            }
         });
     
         document.getElementsByClassName("coins")[0].addEventListener('click', function(){
-            if (localStorage.getItem("sane-bum") == "false"){
-                localStorage.setItem("sane-bum", "true");
-                respond("touchySane");
-                robbable = "true";
-                tried = "true";
-            }
-            else if (tried == "false"){
-                respond("touchy");
-                robbable = "true";
-                tried = "true";
-            }
-            else {
-                respond ("touchy1");
-                robbable = "true";
+            if (beingRobbed != "true"){
+                if (localStorage.getItem("sane-bum") == "false"){
+                    localStorage.setItem("sane-bum", "true");
+                    respond("touchySane");
+                    robbable = "true";
+                    tried = "true";
+                }
+                else if (tried == "false"){
+                    respond("touchy");
+                    robbable = "true";
+                    tried = "true";
+                }
+                else {
+                    respond ("touchy1");
+                    robbable = "true";
+                }
             }
         });
+    }
+}
+
+function rob(){
+    if (inConvo == "false"){
+        respond("rob");
+    }
+    else {
+        sleep(50).then(() => rob);
     }
 }
 
@@ -83,16 +119,19 @@ function respondAxe(){
     if (inConvo == "false"){
         if (robbable == "true"){
             respond("axe");
+            beingRobbed = "true";
             document.getElementsByClassName("coins")[0].addEventListener('click', function(){
                 if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "axe"){
-                    respond("rob");
+                    rob();
                     robbable = "false";
-                    localStorage.setItem("has-bum-coims", "true");
+                    localStorage.setItem("has-bum-coins", "true");
                     localStorage.setItem("karma", parseInt(localStorage.getItem("karma")) - 5);
                     if (localStorage.getItem("held-coins") == 0){
                         getIte("coin");
                     }
                     localStorage.setItem("held-coins", parseInt(localStorage.getItem("held-coins")) + 15);
+                    document.getElementsByClassName("coin-art")[0].remove();
+                    document.getElementsByClassName("coins")[0].remove();
                 }
             });
         }
@@ -179,7 +218,9 @@ function setText(text){
 }
 
 async function setPage(count, text){
+    inConvo = "true";
     await write(text[0][count-1], 0);
+    inConvo = "false";
     return;
 }
 
@@ -206,7 +247,7 @@ function setButtons(text){
     if (buts.length == 0){
         document.getElementsByClassName("text-box")[0].innerHTML = "";
         inConvo = "false";
-        if (value == "Ok, sorry." || value == "Ok, sorry again..."){
+        if (text[0][0] == "Ok, sorry." || text[0][0] == "Ok, sorry again..."){
             robbable = "false";
         }
     }
