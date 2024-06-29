@@ -32,13 +32,16 @@ function ready() {
             localStorage.setItem("held-coins", parseInt(localStorage.getItem("held-coins")) + 3);
         }
     });
+    var into = "enter";
 
     if (localStorage.getItem("has-orb1") == "true" || localStorage.getItem("has-orb2") == "true" || localStorage.getItem("has-orb3") == "true"){
-        respond("entero");
+        into = into + "o";
     }
-    else {
-        respond("enter");
+    if (localStorage.getItem("ask-old-man") == "true"){
+        into = into + "l";
     }
+
+    respond(into);
 }
 
 function respondAxe(){

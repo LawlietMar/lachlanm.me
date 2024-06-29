@@ -26,6 +26,8 @@ var shopDia = {
     //Upon entry
     "enter": [["Welcome back."], ["What is this place?", "Who are you?", "Leave"]],
     "entero": [["Welcome back."], ["What is this place?", "Who are you?", "What's this orb?", "Leave"]],
+    "enterl": [["Welcome back."], ["What is this place?", "Who are you?", "The alley guy told me to talk to you about it.", "Leave"]],
+    "entero": [["Welcome back."], ["What is this place?", "Who are you?", "What's this orb?", "The alley guy told me to talk to you about it."]],
 
     "What is this place?": [["That's quite a vague question, young man. What exactly do you mean? The underground? This place as a whole?"], ["The underground.", "The whole place.", "Back ", "Leave"]],
     "Back " : [[], ["What is this place?", "Who are you?", "Leave"]],
@@ -58,7 +60,10 @@ var shopDia = {
     //Axe
     "axe" : [["That's a nice axe you have there. I have a couple back here too. Let's not use them, ehh?"], ["You're quite the fearless old man.", "I didn't mean it as a threat...", "Leave"]],
     "You're quite the fearless old man." : [["Ehehehehehee...", "...", "If that was all it took to kill me, things would be a lot simpler..."], ["What is this place?", "Who are you?", "Leave"]],
-    "I didn't mean it as a threat..." : [["Some don't, most do. Can't hurt to be careful."], ["What is this place?", "Who are you?", "Leave"]]
+    "I didn't mean it as a threat..." : [["Some don't, most do. Can't hurt to be careful."], ["What is this place?", "Who are you?", "Leave"]],
+
+    //Lore
+    "The alley guy told me to talk to you about it." : [["God damn it. Today is one of those days, I guess.", "I'll kill that bum someday...", "Anyway, I suppose I should tell you a bit of truth now and send you on your merry way.", `First of all, it's "It," not it. It is a creature. It has no name.`, "Second, It put us here, under the watch of our king. Doomed to forever sell to one customer a day.", "You'll have to deal with it soon too, but it likes you. Must be nice.", "Don't even bother asking questions, that's all I'll say. It should be enough for you anyway."], ["Back "]],
 }
 
 var alleyDia = {
@@ -96,7 +101,7 @@ var alleyDia = {
     "You." : [["My my, I feel so special.", "I'm a manifestation. Of what, I can't say directly.", "I'm a lot weaker than I used to be. I fell out of favor with the king and with Him over the last year, so I've just been gathering coin in an attempt to exist."], []],
 
     "The world." : [["Then it seems you understand the world already. You might not know it though.", "The world is a day. Simple as that. What you do in it is up to you."], ["A day...?"]],
-    "A day...?" : [["Yes, a day. I'm sorry I can't tell you more.", "Ask the old man about <i>It</i>. Tell him I sent you. He'll explain."], []],
+    "A day...?" : [["Yes, a day. I'm sorry I can't tell you more.", "Ask the old man about <i>It</i>. Tell him I sent you. He'll explain."], []]
 }
 
 export function getElevatorDia(inText){
