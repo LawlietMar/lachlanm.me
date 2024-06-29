@@ -63,7 +63,7 @@ var shopDia = {
     "I didn't mean it as a threat..." : [["Some don't, most do. Can't hurt to be careful."], ["What is this place?", "Who are you?", "Leave"]],
 
     //Lore
-    "The alley guy told me to talk to you about it." : [["God damn it. Today is one of those days, I guess.", "I'll kill that bum someday...", "Anyway, I suppose I should tell you a bit of truth now and send you on your merry way.", `First of all, it's "It," not it. It is a creature. It has no name.`, "Second, It put us here, under the watch of our king. Doomed to forever sell to one customer a day.", "You'll have to deal with it soon too, but it likes you. Must be nice.", "Don't even bother asking questions, that's all I'll say. It should be enough for you anyway."], ["Back "]],
+    "The alley guy told me to talk to you about it." : [["God damn it. Today is one of those days, I guess.", "I'll kill that bum someday...", "Anyway, I suppose I should tell you a bit of truth now and send you on your merry way.", `First of all, it's "It," not it. It is a creature. It has no name.`, "Second, It put us here, under the watch of our king. Doomed to forever sell to one customer a day.", "You'll have to deal with it soon too, but it likes you. Must be nice.", "Anyway, the orbs are monotony, the flowers are ideas, and I'm an old man who wants to be left alone.", "Don't even bother asking questions, I won't answer them."], ["Back "]],
 }
 
 var alleyDia = {
