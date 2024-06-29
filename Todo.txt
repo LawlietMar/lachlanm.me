@@ -10,6 +10,4 @@ make it so any seed can feed birb2
 add home
 At some point, fix the art for items and borders
 do next locations
-fix screenshot for flowers bc crafting
-add htaccess
 add ascii textures: fillet o fish, cooked fish, orb2
