@@ -300,6 +300,30 @@ var arts = {
                     <li class="art artln"><span class="art artln">          \\   *-*  /       </span></li> 
                     <li class="art artln"><span class="art artln">           *-....-* </span></li>    
                 </ul>
+            `,
+    "cut-fish" : `
+                <ul class="item" id="cut-fish">
+                    <li class="art artln"><span class="art artln">                ....  </span></li> 
+                    <li class="art artln"><span class="art artln">         ..--**   *-.</span></li> 
+                    <li class="art artln"><span class="art artln">     -:::............-* </span></li> 
+                    <li class="art artln"><span class="art artln"></span></li>    
+                </ul>
+            `,
+    "cooked-fish" : `
+                <ul class="item" id="cooked-fish">
+                    <li class="art artln"><span class="art artln">                ....</span></li> 
+                    <li class="art artln"><span class="art artln">         ..--**...*-. </span></li> 
+                    <li class="art artln"><span class="art artln">     -:::...::::.....-*</span></li> 
+                    <li class="art artln"><span class="art artln"></span></li>    
+                </ul>
+            `,
+    "orb2" : `
+                <ul class="item" id="orb2">
+                    <li class="art artln"><span class="art artln">     |************| </span></li> 
+                    <li class="art artln"><span class="art artln">     |      &lt;l>>    |  </span></li> 
+                    <li class="art artln"><span class="art artln">     |   <:l>>>    |</span></li> 
+                    <li class="art artln"><span class="art artln">     l.................l </span></li>    
+                </ul>
             `
 };
 

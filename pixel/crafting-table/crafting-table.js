@@ -1,4 +1,4 @@
-import { sendRec } from "recipes.js";
+import { sendRec } from "./recipes.js";
 if (document.readyState == 'loading') {
     document.addEventListener('DOMContentLoaded', ready);
 } else {

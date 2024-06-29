@@ -9,8 +9,6 @@ var fired = false;
 var timeout;
 
 function ready(){
-    localStorage.setItem("path", "../index.html ../index.html ../index.html")
-
     var stay = document.getElementsByClassName("stay-button")[0];
     stay.addEventListener('click', rekindle);
 
