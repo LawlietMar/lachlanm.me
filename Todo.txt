@@ -10,4 +10,7 @@ make it so any seed can feed birb2
 add home
 At some point, fix the art for items and borders
 do next locations
-add ascii textures: fillet o fish, cooked fish, orb2
+remove different water
+add ascii item textures for purple pickaxe, amythest seeds, amythest
+add pixel item textures for purple pickaxe, amythest seeds, amythest
+add seed dialogue to old man
