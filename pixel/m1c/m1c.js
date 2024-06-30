@@ -29,7 +29,7 @@ function ready() {
     }
 
     var pickaxeBut = document.getElementsByClassName("pickaxe-but")[0];
-    if (localStorage.getItem("has-pickaxe") == "true") {
+    if (localStorage.getItem("has-pickaxe") == "true" || localStorage.getItem("has-purple-pickaxe") == "true" || localStorage.getItem("has-red-pickaxe") == "true" || localStorage.getItem("has-green-pickaxe") == "true") {
         take(pickaxeBut, "pickaxe");
     } else {
         pickaxeBut.addEventListener('click', function tk() {
@@ -42,14 +42,26 @@ function ready() {
 function take(button, name) {
     if (localStorage.getItem("free") < 9 || init == "true") {
         document.getElementsByClassName(name + "-art")[0].classList.add("invis");
-        if (!(localStorage.getItem("has-" + name) == "true")) {
-            getIte(name);
-            initItems();
+        if (name == "pickaxe"){
+            if (!(localStorage.getItem("has-" + localStorage.getItem("pick-state") + name) == "true")) {
+                getIte(localStorage.getItem("pick-state") + name);
+                initItems();
+            }
+            button.addEventListener('click', function pt() {
+                button.removeEventListener('click', pt);
+                put(button, name);
+            })
         }
-        button.addEventListener('click', function pt() {
-            button.removeEventListener('click', pt);
-            put(button, name);
-        });
+        else {
+            if (!(localStorage.getItem("has-" + name) == "true")) {
+                getIte(name);
+                initItems();
+            }
+            button.addEventListener('click', function pt() {
+                button.removeEventListener('click', pt);
+                put(button, name);
+            });
+        }
     }
 
     else {
@@ -62,11 +74,9 @@ function take(button, name) {
 
 // Function to remove an item from the inventory.
 function put(button, name) {
-    if (localStorage.getItem("spot" + localStorage.getItem("selected")) == name) {
+    var nam = localStorage.getItem("spot" + localStorage.getItem("selected"));
+    if (nam == name || ("purple-" + nam) == name || ("red-" + nam) == name || ("green-" + nam) == name) {
         document.getElementsByClassName(name + "-art")[0].classList.remove("invis");
-        if (name == "can") {
-            document.getElementById("behind-can").classList.add("invis");
-        }
         removeIte(localStorage.getItem("selected"));
         initItems();
         button.addEventListener('click', function tk() {

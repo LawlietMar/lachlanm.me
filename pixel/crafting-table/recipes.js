@@ -9,6 +9,8 @@ var recipes = {
     "cut-fish lit-oar" : [["cooked-fish"], ["cut-fish"]],
     
     "amythest-bunch pickaxe" : [["purple-pickaxe"], ["amythest-bunch", "pickaxe"]],
+    "purple-pickaxe rose-bunch" : [["red-pickaxe"], ["rose-bunch", "purple-pickaxe"]],
+    "emerald-bunch red-pickaxe" : [["green-pickaxe"], ["emerald-bunch", "red-pickaxe"]],
 
     //3 item recipes
     "axe orb1 unlit-torch": [["torch"], ["unlit-torch"]],

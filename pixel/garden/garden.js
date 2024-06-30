@@ -70,7 +70,6 @@ function setCrop(crop){
 
     if (sit == "toDig"){
         text.innerHTML = "";
-        toDig(crop);
     }
 }
 
@@ -79,7 +78,7 @@ function toDig(spot){
     var text = document.getElementsByClassName("plot-" + spot + "-art")[0];
 
     button.addEventListener('click', function sh(){
-        if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "shovel"){;
+        if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "shovel"){
             let bt = button.cloneNode(true);
             button.parentNode.replaceChild(bt, button);
             button = bt;
@@ -115,6 +114,7 @@ function toWater(spot){
 
     button.addEventListener('click', function wt(){
         if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "can" && localStorage.getItem("ascii-water") == "true"){
+            console.log(5);
             button.removeEventListener('click', wt);
             localStorage.setItem("p1plot-state" + spot, "toGrow");
             text.innerHTML = plArts["watered"];

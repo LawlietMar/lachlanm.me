@@ -60,6 +60,20 @@ function craft(){
         selected = [];
         clean();
     });
+
+    checkLocals(recipe);
+}
+
+function checkLocals(recipe){
+    if (recipe == "amythest-bunch pickaxe"){
+        localStorage.setItem("pick-state", "purple-");
+    }
+    if (recipe == "purple-pickaxe rose-bunch"){
+        localStorage.setItem("pick-state", "red-");
+    }
+    if (recipe == "purple-pickaxe rose-bunch"){
+        localStorage.setItem("pick-state", "green-");
+    }
 }
 
 function clean(){

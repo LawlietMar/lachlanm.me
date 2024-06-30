@@ -156,6 +156,8 @@ function resett(ite){
     localStorage.setItem("tried-burn", "false");
     localStorage.setItem("fed-bum", "false");
 
+    localStorage.setItem("pick-state", "");
+
     localStorage.setItem("burned-shell", "false");
     localStorage.setItem("burned-cup", "false");
     localStorage.setItem("burned-totem", "false");
