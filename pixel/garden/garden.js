@@ -114,7 +114,7 @@ function toWater(spot){
     var text = document.getElementsByClassName("plot-" + spot + "-art")[0];
 
     button.addEventListener('click', function wt(){
-        if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "can" && localStorage.getItem("p1water") == "true"){
+        if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "can" && localStorage.getItem("ascii-water") == "true"){
             button.removeEventListener('click', wt);
             localStorage.setItem("p1plot-state" + spot, "toGrow");
             text.innerHTML = plArts["watered"];

@@ -88,7 +88,6 @@ function resett(ite){
     localStorage.setItem("rpot-full", "false");
     localStorage.setItem("tpot-full", "true");
     localStorage.setItem("ascii-water", "false");
-    localStorage.setItem("p1water", "false");
 
     localStorage.setItem("torch-placed", "false");
     localStorage.setItem("rope-placed", "false");

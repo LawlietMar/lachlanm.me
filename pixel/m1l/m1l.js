@@ -58,13 +58,18 @@ function ready() {
         });
     }
 
-    var hyBut = document.getElementsByClassName("amythest-seeds-but")[0];
-    hyBut.addEventListener('click', function tk() {
-        hold = held();
-        if (hold == "pickaxe" || hold == "purple-pickaxe" || hold == "red-pickaxe" || hold == "green-pickaxe"){
-            getIte("amythest-seeds");
-        }
-    });
+    var seedsBut = document.getElementsByClassName("amythest-seeds-but")[0];
+    if (localStorage.getItem("has-amythest-seeds") == "true") {
+        take(seedsBut, "amythest-seeds");
+    } else {
+        seedsBut.addEventListener('click', function tk() {
+            hold = held();
+            if (hold == "pickaxe" || hold == "purple-pickaxe" || hold == "red-pickaxe" || hold == "green-pickaxe"){
+                seedsBut.removeEventListener('click', tk);
+                take(seedsBut, "amythest-seeds");
+            }
+        });
+    }
 }
 
 function held(){
@@ -88,9 +93,17 @@ function take(button, name) {
     else {
         button.addEventListener('click', function tk() {
             hold = held();
-            if (hold == "purple-pickaxe" || hold == "red-pickaxe" || hold == "green-pickaxe"){
-                button.removeEventListener('click', tk);
-                take(button, name);
+            if (name == "amythest-seeds"){
+                if (hold == "pickaxe" || hold == "purple-pickaxe" || hold == "red-pickaxe" || hold == "green-pickaxe"){
+                    button.removeEventListener('click', tk);
+                    take(button, name);
+                }
+            }
+            else {
+                if (hold == "purple-pickaxe" || hold == "red-pickaxe" || hold == "green-pickaxe"){
+                    button.removeEventListener('click', tk);
+                    take(button, name);
+                }
             }
         });
     }
@@ -108,9 +121,17 @@ function put(button, name) {
         initItems();
         button.addEventListener('click', function tk() {
             hold = held();
-            if (hold == "purple-pickaxe" || hold == "red-pickaxe" || hold == "green-pickaxe"){
-                button.removeEventListener('click', tk);
-                take(button, name);
+            if (name == "amythest-seeds"){
+                if (hold == "pickaxe" || hold == "purple-pickaxe" || hold == "red-pickaxe" || hold == "green-pickaxe"){
+                    button.removeEventListener('click', tk);
+                    take(button, name);
+                }
+            }
+            else {
+                if (hold == "purple-pickaxe" || hold == "red-pickaxe" || hold == "green-pickaxe"){
+                    button.removeEventListener('click', tk);
+                    take(button, name);
+                }
             }
         });
     } else {
