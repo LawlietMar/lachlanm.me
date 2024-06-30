@@ -24,7 +24,8 @@ function ready() {
 
     document.getElementsByClassName("keeper")[0].addEventListener('click', function(){
         var held = localStorage.getItem("spot" + localStorage.getItem("selected"));
-        if (held == "sapphire" || held == "amythest"){
+        var heldT = held.substring(0, held.length - 1);
+        if (heldT == "sapphire" || heldT == "amythest"){
             removeIte(localStorage.getItem("selected"));
             if (localStorage.getItem("held-coins") == 0){
                 getIte("coin");

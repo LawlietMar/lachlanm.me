@@ -109,15 +109,21 @@ function resett(ite){
     localStorage.setItem("has-daisy-seeds", "false");
     localStorage.setItem("has-poppy-seeds", "false");
     localStorage.setItem("has-cornflower-seeds", "false");
+    localStorage.setItem("has-amythest-seeds", "false");
+    localStorage.setItem("has-emerald-seeds", "false");
 
     localStorage.setItem("has-rose", "false");
     localStorage.setItem("has-daisy", "false");
     localStorage.setItem("has-poppy", "false");
     localStorage.setItem("has-cornflower", "false");
+    localStorage.setItem("has-amythest", "false");
+    localStorage.setItem("has-emerald", "false");
     localStorage.setItem("has-p1rose", "false");
     localStorage.setItem("has-p1daisy", "false");
     localStorage.setItem("has-p1poppy", "false");
     localStorage.setItem("has-p1cornflower", "false");
+    localStorage.setItem("has-p1amythest", "false");
+    localStorage.setItem("has-p1emerald", "false");
 
     localStorage.setItem("has-map1", "false");
     localStorage.setItem("has-map2", "false");
@@ -141,6 +147,10 @@ function resett(ite){
     localStorage.setItem("has-map-fotm", "false");
     localStorage.setItem("has-cut-fish", "false");
     localStorage.setItem("has-cooked-fish", "false");
+    localStorage.setItem("has-amythest1", "false");
+    localStorage.setItem("has-amythest2", "false");
+    localStorage.setItem("has-amythest3", "false");
+    localStorage.setItem("has-purple-pickaxe", "false");
 
     localStorage.setItem("has-coin-purse", "false");
     localStorage.setItem("has-bum-coins", "false");
