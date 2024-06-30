@@ -13,4 +13,3 @@ do next locations
 remove different water
 add ascii item textures for purple pickaxe, amythest seeds, amythest
 add pixel item textures for purple pickaxe, amythest seeds, amythest
-add seed dialogue to old man

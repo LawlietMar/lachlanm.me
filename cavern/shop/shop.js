@@ -24,12 +24,15 @@ function ready() {
 
     document.getElementsByClassName("keeper")[0].addEventListener('click', function(){
         var held = localStorage.getItem("spot" + localStorage.getItem("selected"));
-        if (held == "ruby" || held == "sapphire" || held == "emerald "){
+        if (held == "sapphire" || held == "amythest"){
             removeIte(localStorage.getItem("selected"));
             if (localStorage.getItem("held-coins") == 0){
                 getIte("coin");
             }
             localStorage.setItem("held-coins", parseInt(localStorage.getItem("held-coins")) + 3);
+        }
+        if (held == "amythest-seeds" || held == "emerald-seeds"){
+            respondWait("seeds");
         }
     });
     var into = "enter";
@@ -44,13 +47,13 @@ function ready() {
     respond(into);
 }
 
-function respondAxe(){
+function respondWait(inT){
     if (inConvo == "false"){
-        respond("axe");
+        respond(inT);
     }
     else {
         sleep(50).then(() => {
-            respondAxe();
+            respondWait(inT);
         });
     }
 }
@@ -342,7 +345,7 @@ function select(item) {
         document.getElementById("spot" + item).classList.add("selected");
     }
     if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "axe"){
-        respondAxe();
+        respondWait("axe");
     }
 }  
 

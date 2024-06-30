@@ -64,6 +64,8 @@ var shopDia = {
 
     //Lore
     "The alley guy told me to talk to you about it." : [["God damn it. Today is one of those days, I guess.", "I'll kill that bum someday...", "Anyway, I suppose I should tell you a bit of truth now and send you on your merry way.", `First of all, it's "It," not it. It is a creature. It has no name.`, "Second, It put us here, under the watch of our king. Doomed to forever sell to one customer a day.", "Third, It will notice if we influence your path too much.", "You'll have to deal with it soon too, but it likes you. Must be nice.", "Anyway, the orbs are monotony, the flowers are ideas, and I'm an old man who wants to be left alone.", "Don't even bother asking questions, I won't answer them."], ["Back "]],
+
+    "seeds" : [["That's not a gem, it's a seed. I won't buy that.", "You could probably plant it in the garden, though."], ["What is this place?", "Who are you?", "Leave"]]
 }
 
 var alleyDia = {
