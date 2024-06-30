@@ -324,6 +324,46 @@ var arts = {
                     <li class="art artln"><span class="art artln">     |   <:l>>>    |</span></li> 
                     <li class="art artln"><span class="art artln">     l.................l </span></li>    
                 </ul>
+            `,
+    "purple-pickaxe" : `
+                <ul class="item" id="pickaxe">
+                    <li class="art artln"><span class="art artln purple">             **--..</span></li> 
+                    <li class="art artln"><span class="art artln">                .<span class="art artln purple">%\\</span></span></li> 
+                    <li class="art artln"><span class="art artln">           .-:-*    <span class="art artln purple">\\ </span></span></li> 
+                    <li class="art artln"><span class="art artln">      .-:-*         <span class="art artln purple">*</span></span></li>    
+                </ul>
+            `,
+    "amythest1" : `
+                <ul class="item" id="amythest1">
+                    <li class="art artln"><span class="art artln">         ..--**--.. </span></li> 
+                    <li class="art artln"><span class="art artln">        /   /    \\   \\ </span></li> 
+                    <li class="art artln"><span class="art artln">        *-.\\    / .-* </span></li> 
+                    <li class="art artln"><span class="art artln">           *-..-*</span></li>    
+                </ul>
+            `,
+    "amythest2" : `
+                <ul class="item" id="amythest2">
+                    <li class="art artln"><span class="art artln">         ..--**--.. </span></li> 
+                    <li class="art artln"><span class="art artln">        /   /    \\   \\ </span></li> 
+                    <li class="art artln"><span class="art artln">        *-.\\    / .-* </span></li> 
+                    <li class="art artln"><span class="art artln">           *-..-*</span></li>    
+                </ul>
+            `,
+    "amythest3" : `
+                <ul class="item" id="amythest3">
+                    <li class="art artln"><span class="art artln">         ..--**--.. </span></li> 
+                    <li class="art artln"><span class="art artln">        /   /    \\   \\ </span></li> 
+                    <li class="art artln"><span class="art artln">        *-.\\    / .-* </span></li> 
+                    <li class="art artln"><span class="art artln">           *-..-*</span></li>    
+                </ul>
+            `,
+    "amythest-seeds" : `
+                <ul class="item" id="amythest-seeds">
+                    <li class="art artln"><span class="art artln">             .----.    </span></li> 
+                    <li class="art artln"><span class="art artln">        .--.*-..-*.--.  </span></li> 
+                    <li class="art artln"><span class="art artln">         \\./ .--.   \\./ </span></li> 
+                    <li class="art artln"><span class="art artln">            *-.-*     </span></li>    
+                </ul>
             `
 };
 
