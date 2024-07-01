@@ -123,6 +123,12 @@ function resett(ite){
     localStorage.setItem("has-p1cornflower", "false");
     localStorage.setItem("has-p1amythest", "false");
     localStorage.setItem("has-p1emerald", "false");
+    localStorage.setItem("has-p2rose", "false");
+    localStorage.setItem("has-p2daisy", "false");
+    localStorage.setItem("has-p2poppy", "false");
+    localStorage.setItem("has-p2cornflower", "false");
+    localStorage.setItem("has-p2amythest", "false");
+    localStorage.setItem("has-p2emerald", "false");
 
     localStorage.setItem("has-map1", "false");
     localStorage.setItem("has-map2", "false");
