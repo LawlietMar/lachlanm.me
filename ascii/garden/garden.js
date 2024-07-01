@@ -340,7 +340,7 @@ function toPick(spot){
                 initItems();
             }
             else if (localStorage.getItem("plot-type" + spot) == "amythest-seeds"){
-                getIte("amythests")
+                getIte("amythest")
                 initItems();
             }
             else if (localStorage.getItem("plot-type" + spot) == "emerald-seeds"){

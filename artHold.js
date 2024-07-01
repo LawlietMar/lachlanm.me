@@ -367,22 +367,22 @@ var arts = {
             `,
     "amythest" : `
                 <ul class="item" id="amythest">
-                    <li class="art"><span class="purple art">       .-**-.</span></li>
-                    <li class="art"><span class="purple art">       *-:**|</span></li>
-                    <li class="art"><span class="pink art">          *\\ \\ </span></li>
-                    <li class="art"><span class="green art">             ||</span></li> 
+                    <li class="art artln"><span class="purple artln art">         .-**-.</span></li>
+                    <li class="art artln"><span class="purple artln art">         *-:**|</span></li>
+                    <li class="art artln"><span class="pink artln art">            *\\ \\ </span></li>
+                    <li class="art artln"><span class="green artln art">               ||</span></li> 
                 </ul>
             `,
     "emerald" : `
                 <ul class="item" id="emerald">
-                    <li class="art"><span class="green art">          .--*--.     </span></li>
-                    <li class="art"><span class="green art">         :--.:.--:   </span></li>
-                    <li class="art"><span class="green art">          *-. .-* </span></li>
-                    <li class="art"><span class="green art">             ||.. </span></li>  
+                    <li class="art artln"><span class="green artln art">           .--*--.     </span></li>
+                    <li class="art artln"><span class="green artln art">          :--.:.--:   </span></li>
+                    <li class="art artln"><span class="green artln art">           *-. .-* </span></li>
+                    <li class="art artln"><span class="green artln art">              ||  </span></li>  
                 </ul>
             `,
     "p1amythest" : `
-                <ul class="item" id="p1amythest">
+                <ul class="item" id="p1amythest"> 
                     <img class="abs flower" draggable="false" alt="" src="../../global-art/items/p1amythest.png">   
                 </ul>
             `,
