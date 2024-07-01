@@ -163,7 +163,7 @@ function respond(inText){
         }
 
         var text = getEntryDia(inText);
-        if (text[0][0] == ""){
+        if (text[0].length == 0){
             setButtons(text);
         }
         else {

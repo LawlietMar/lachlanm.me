@@ -110,7 +110,7 @@ var alleyDia = {
 var gardensDia = {
     "enter" : [["Welcome."], ["Who are you?", "Leave"]],
     "enterb" : [["It's good to see you, dear customer."], ["Who are you?", "I'd like to make a withdrawal.", "Leave"]],
-    "I'd like to make a withdrawal." : [["But of course."], ["Who are you?", "Leave"]],
+    "I'd like to make a withdrawal." : [["But of course.", "You are currently holding  coins."], ["Who are you?", "Leave"]],
 
     "Who are you?" : [["I'm Clasio. I'm the banker around here.", "I also give great advice."], ["Banker?", "Great advice? Let's hear some.", "Leave"]],
     "Banker?" : [["Yes, banker. There isn't much investing to do, but I'll hold onto your coins until you pick them up."], ["Banker?", "Great advice? Let's hear some.", "Leave"]],

@@ -16,4 +16,3 @@ do next locations
 make it so getting coins resets it in inventory
 make it so any seed can feed birb2
 add flower clump textures
-implement gardens dialogue

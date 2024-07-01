@@ -27,7 +27,6 @@ function ready() {
     // Initialize selected item to -1 (no selection)
     localStorage.setItem("selected", -1);
     localStorage.setItem("free", 1);
-    localStorage.setItem("has-award-6", "true");
     
     checkHave();
 
@@ -39,11 +38,11 @@ function ready() {
         setCrop(i);
     }
 
-    document.getElementsByClassName("banker").addEventListener('click', function(){
+    document.getElementsByClassName("banker")[0].addEventListener('click', function(){
         if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "coin"){
             removeIte(localStorage.getItem("selected"));
             initItems();
-            localStorage.setItem("banked-coins", localStorage.getItem("banked-coins") + localStorage.getItem("held-coins"));
+            localStorage.setItem("banked-coins", parseInt(localStorage.getItem("banked-coins")) + parseInt(localStorage.getItem("held-coins")));
             localStorage.setItem("held-coins", 0);
         }
         else {
@@ -245,7 +244,7 @@ function respond(inText){
         }
 
         var text = getGardensDia(inText);
-        if (text[0][0] == ""){
+        if (text[0].length == 0){
             setButtons(text);
         }
         else {
@@ -300,7 +299,12 @@ function setText(text){
 }
 
 async function setPage(count, text){
-    await write(text[0][count-1], 0);
+    if (text[0][count-1] == "You currently are holding  coins."){
+        await write(text[0][count-1].substring(0, 26) + localStorage.getItem("held-coins") + text[0][count-1].substring(26), 0);
+    }
+    else{
+        await write(text[0][count-1], 0);
+    }
     return;
 }
 
@@ -348,7 +352,7 @@ function setButtons(text){
                     if (localStorage.getItem("held-coins") == 0){
                         getIte("coin");
                     }
-                    localStorage.setItem("held-coins", localStorage.getItem("banked-coins") + localStorage.getItem("held-coins"))
+                    localStorage.setItem("held-coins", parseInt(localStorage.getItem("banked-coins")) + parseInt(localStorage.getItem("held-coins")))
                     localStorage.setItem("banked-coins", 0);
                     initItems();
                 }
