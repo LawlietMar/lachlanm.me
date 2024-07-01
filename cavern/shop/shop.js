@@ -32,6 +32,7 @@ function ready() {
                 getIte("coin");
             }
             localStorage.setItem("held-coins", parseInt(localStorage.getItem("held-coins")) + 3);
+            initItems();
         }
         if (held == "amythest-seeds" || held == "emerald-seeds"){
             waiting = "true";
