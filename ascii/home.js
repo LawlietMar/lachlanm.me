@@ -77,6 +77,7 @@ function resett(ite){
     localStorage.setItem("aud-spot-beach", 0);
     localStorage.setItem("aud-spot-cavern", 0);
     localStorage.setItem("held-coins", 0);
+    localStorage.setItem("banked-coins", 0);
 
     localStorage.setItem("faded", "false");
     localStorage.setItem("sane-bum", "false");
@@ -130,6 +131,12 @@ function resett(ite){
     localStorage.setItem("has-p2cornflower", "false");
     localStorage.setItem("has-p2amythest", "false");
     localStorage.setItem("has-p2emerald", "false");
+    localStorage.setItem("has-rose-bunch", "false");
+    localStorage.setItem("has-daisy-bunch", "false");
+    localStorage.setItem("has-poppy-bunch", "false");
+    localStorage.setItem("has-cornflower-bunch", "false");
+    localStorage.setItem("has-amythest-bunch", "false");
+    localStorage.setItem("has-emerald-bunch", "false");
 
     localStorage.setItem("has-map1", "false");
     localStorage.setItem("has-map2", "false");

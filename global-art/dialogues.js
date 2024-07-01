@@ -107,6 +107,19 @@ var alleyDia = {
     "A day...?" : [["Yes, a day. I'm sorry I can't tell you more.", "Ask the old man about <i>It</i>. Tell him I sent you. He'll explain."], []]
 }
 
+var gardensDia = {
+    "enter" : [["Welcome."], ["Who are you?", "Leave"]],
+    "enterb" : [["It's good to see you, dear customer."], ["Who are you?", "I'd like to make a withdrawal.", "Leave"]],
+    "I'd like to make a withdrawal." : [["But of course."], ["Who are you?", "Leave"]],
+
+    "Who are you?" : [["I'm Clasio. I'm the banker around here.", "I also give great advice."], ["Banker?", "Great advice? Let's hear some.", "Leave"]],
+    "Banker?" : [["Yes, banker. There isn't much investing to do, but I'll hold onto your coins until you pick them up."], ["Banker?", "Great advice? Let's hear some.", "Leave"]],
+    "Great advice? Let's hear some." : [["Well let's see, you're probably feeling pretty aimless right about now.", "What you should be doing is mining the gems and selling them for coins. Then take those coins to the king."], ["How do I mine gems?", "How do I meet the king?", "Back", "Leave"]],
+    "Back" : [[], ["Banker?", "Great advice? Let's hear some.", "Leave"]],
+    "How do I mine gems?" : [["Well you'll need a better pickaxe. Right now, you need a purple one.", "Upgrade it with ideas - flowers."], ["How do I mine gems?", "How do I meet the king?", "Back", "Leave"]],
+    "How do I meet the king?" : [["He's in the castle. You have to convince the guard to let you through, but that shouldn't be too hard."], ["How do I mine gems?", "How do I meet the king?", "Back", "Leave"]],
+}
+
 export function getElevatorDia(inText){
     return elevatorDia[inText];
 }
@@ -121,4 +134,8 @@ export function getShopDia(inText){
 
 export function getAlleyDia(inText){
     return alleyDia[inText];
+}
+
+export function getGardensDia(inText){
+    return gardensDia[inText];
 }

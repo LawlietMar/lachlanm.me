@@ -1,4 +1,4 @@
-import { getEntryDia } from "../../global-art/dialogues.js";
+import { getGardensDia } from "../../global-art/dialogues.js";
 
 var plArts = {
     "dug" : `<img class="abs" draggable="false" alt="" src="gardens-art/hole.png">`,
@@ -38,6 +38,23 @@ function ready() {
     for (var i = 1; i<7; i++){
         setCrop(i);
     }
+
+    document.getElementsByClassName("banker").addEventListener('click', function(){
+        if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "coin"){
+            removeIte(localStorage.getItem("selected"));
+            initItems();
+            localStorage.setItem("banked-coins", localStorage.getItem("banked-coins") + localStorage.getItem("held-coins"));
+            localStorage.setItem("held-coins", 0);
+        }
+        else {
+            if (localStorage.getItem("banked-coins") == 0){
+                respond("enter");
+            }
+            else {
+                respond("enterb");
+            }
+        }
+    })
 }
 
 function setCrop(crop){
@@ -227,7 +244,7 @@ function respond(inText){
             box.classList.remove("shadow-realm")
         }
 
-        var text = getEntryDia(inText);
+        var text = getGardensDia(inText);
         if (text[0][0] == ""){
             setButtons(text);
         }
@@ -327,6 +344,14 @@ function setButtons(text){
             newBut.addEventListener('click', async function(){
                 document.getElementsByClassName("text-box")[0].innerHTML = "";
                 inConvo = "false";
+                if (value == "I'd like to make a withdrawal."){
+                    if (localStorage.getItem("held-coins") == 0){
+                        getIte("coin");
+                    }
+                    localStorage.setItem("held-coins", localStorage.getItem("banked-coins") + localStorage.getItem("held-coins"))
+                    localStorage.setItem("banked-coins", 0);
+                    initItems();
+                }
                 if (value != "Leave"){
                     document.getElementsByClassName("text-box")[0].classList.remove("arrows");
                     respond(value);
