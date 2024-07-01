@@ -5,7 +5,6 @@
     color:rgb(202, 199, 199);
     font-family: Comfortaa;
     cursor: pointer;
-    overscroll-behavior: none;
 }
 
 body {
@@ -17,68 +16,12 @@ body {
 }
 
 .art{
-    font-family: Arial;
     text-align: left;
     padding: 0px;
     line-height: 15px;
-    white-space: pre;
     background-color: transparent;
     border-color: transparent;
-    font-size: 18px;
     border: 0px;
-}
-
-.text {
-    padding-left: 136px;
-    text-align: left;
-    padding-top: 30.5px;
-}
-
-.hide{
-    outline-color: transparent;
-    border-color: transparent;
-    background-color: transparent;
-}
-
-.in-list{
-    line-height: 9px;
-    color:inherit;
-}
-
-.rain{
-    position: fixed; 
-    top:53px;
-    left:143px;
-}
-
-.background {
-    position: fixed;
-    top: 38.5px;
-    left: 142.5px;
-}
-
-.shed{
-    position: fixed; 
-    top:215px;
-    left:390px;
-    height: 130px;
-    width: 80px;
-}
-
-.map{
-    position:fixed;
-    top:265px;
-    left:605px;
-    height: 80px;
-    width: 100px;
-}
-
-.back{
-    position:fixed;
-    top:300px;
-    left:1080px;
-    height: 80px;
-    width: 200px;
 }
 
 .left {
@@ -117,131 +60,217 @@ body {
     height:45px;
 }
 
-.item{
+.main-art, .fore-art, .back-art{
     position: fixed;
-    padding-left: 0%;
-    line-height: 4px;
-    text-align: left;
-    list-style-type: none;
-    color: inherit;
+    top: 62px;
+    left: 225px;
+    width: 1055px;
+    height: 715px;
 }
 
-.up{
-    position: absolute;
-    top: -20px;
+.plot-1-art{
+    position: fixed;
+    top: 52px;
+    left: 443px;
 }
 
-#warning{
+.plot-2-art{
     position: fixed;
-    left: 680px;
-    top: 400px;
-    font-size: 30px;
+    top: 59px;
+    left: 556px;
+}
+
+.plot-3-art{
+    position: fixed;
+    top: 149px;
+    left: 369px;
+}
+
+.plot-4-art{
+    position: fixed;
+    top: 159px;
+    left: 510px;
+}
+
+.plot-5-art{
+    position: fixed;
+    top: 277px;
+    left: 310px;
+}
+
+.plot-6-art{
+    position: fixed;
+    top: 284px;
+    left: 461px;
 }
 
 #plot1{
     position: fixed;
-    left: 320px;
-    top: 480px;
-    width: 140px;
-    height: 80px;
-}
-
-#plot1-del{
-    position: fixed;
-    left: 320px;
-    top: 405px;
-    width: 140px;
-    height: 160px;
+    top: 200px;
+    left: 420px;
+    height: 70px;
+    width: 110px;
 }
 
 #plot2{
     position: fixed;
-    left: 870px;
-    top: 480px;
-    width: 140px;
-    height: 80px;
-}
-
-#plot2-del{
-    position: fixed;
-    left: 870px;
-    top: 405px;
-    width: 140px;
-    height: 160px;
+    top: 200px;
+    left: 540px;
+    height: 70px;
+    width: 110px;
 }
 
 #plot3{
     position: fixed;
-    left: 1085px;
-    top: 480px;
-    width: 140px;
-    height: 80px;
-}
-
-#plot3-del{
-    position: fixed;
-    left: 1085px;
-    top: 405px;
-    width: 140px;
-    height: 160px;
+    top: 300px;
+    left: 350px;
+    height: 70px;
+    width: 130px;
 }
 
 #plot4{
     position: fixed;
-    left: 310px;
-    top: 620px;
-    width: 175px;
-    height: 100px;
-}
-
-#plot4-del{
-    position: fixed;
-    left: 310px;
-    top: 555px;
-    width: 175px;
-    height: 160px;
+    top: 300px;
+    left: 490px;
+    height: 70px;
+    width: 120px;
 }
 
 #plot5{
     position: fixed;
-    left: 815px;
-    top: 620px;
-    width: 175px;
-    height: 100px;
-}
-
-#plot5-del{
-    position: fixed;
-    left: 815px;
-    top: 555px;
-    width: 175px;
-    height: 160px;
+    top: 400px;
+    left: 280px;
+    height: 110px;
+    width: 130px;
 }
 
 #plot6{
     position: fixed;
-    left: 1070px;
-    top: 620px;
-    width: 175px;
-    height: 100px;
+    top: 400px;
+    left: 440px;
+    height: 110px;
+    width: 130px;
 }
 
-#plot6-del{
+.crossroads{
     position: fixed;
-    left: 1070px;
-    top: 555px;
-    width: 175px;
-    height: 160px;
+    top: 650px;
+    left: 550px;
+    height: 127px;
+    width: 550px;
 }
 
-.hole{
-    line-height: 20px;
+.stairs{
+    position: fixed;
+    top: 62px;
+    left: 730px;
+    height: 90px;
+    width: 130px;
+}
+
+.banker{
+    position: fixed;
+    top: 145px;
+    left: 1020px;
+    height: 150px;
+    width: 105px;
+}
+
+.item{
+    position: fixed;
+    padding-left: 0px;
+    list-style-type: none;
     color: inherit;
 }
 
-.flower{
-    line-height: 15px;
-    color: inherit;
+.text-box-art{
+    height: 200px;
+    width: 800px;
+    position: absolute;
+}
+
+.text-box-button{
+    position: absolute;
+    top: 12px;
+    left: 28px;
+    height: 144px;
+    width: 740px;
+}
+
+.text-box-text{
+    position: absolute;
+    color: black;
+    line-height: 25px;
+    font-weight: 700;
+    top: 25px;
+    left: 50px;
+    height: 120px;
+    width: 700px;   
+}
+
+.text-box-buttons{
+    position: absolute;
+    height: 120px;
+    width: 700px;   
+}
+
+.text-box{
+    position: fixed;
+    top: 550px;
+    left: 360px;
+}
+
+.shadow-realm{
+    top: -1000px;
+    left: -1000px;
+}
+
+.arrows{
+    top: 20px;
+    list-style-type: ">  ";
+    left: 25px;
+}
+
+
+.choice0, .choice1, .choice2, .choice3 {
+    color: black;
+    font-weight: 700;
+    padding: 6px;
+}
+
+.choiceBut0, .choiceBut1, .choiceBut2, .choiceBut3 {
+    position: absolute;
+    left: 5px;
+    width: 700px;
+    height: 30px;
+}
+
+.choiceBut0{
+    top: 0px;
+}
+
+.choiceBut1{
+   top: 30px; 
+}
+
+.choiceBut2{
+    top: 60px;
+}
+
+.choiceBut3{
+    top: 90px;
+}
+
+.award-art{
+    position: absolute;
+    width: 155px;
+    height: 90px;
+}
+
+.item-art{
+    position: absolute;
+    width: 155px;
+    height: 90px;
 }
 
 #spot1{
@@ -284,47 +313,8 @@ body {
     top: 697px;
 }
 
-.artln{
-    line-height: 6px;
-    color: inherit;
-}
-
-.red{
-    color:red;
-}
-
-.orange{
-    color: orangered;
-}
-
-.purple{
-    color: purple;
-}
-
-.pink{
-    color: rgb(255, 85, 249);
-}
-
-.blue{
-    color:skyblue
-}
-
-.yellow{
-    color:yellow;
-}
-
-.white{
-    color:white;
-}
-
-.green{
-    color:rgb(34, 171, 34)
-}
-
 #spot1, #spot2, #spot3, #spot4, #spot5, #spot6, #spot7, #spot8 {
-    border-color: rgb(255, 252, 252);
-    border-width: 1px;
-    border-style: solid;
+    position: fixed;
     width: 155px;
     height: 90px;
 }
@@ -332,61 +322,52 @@ body {
 #award1{
     left: 1295px;
     top: 60px;
-    border-color: rgb(255, 215, 0);
 }
 
 #award2{
     left: 1295px;
     top: 151px;
-    border-color: rgb(255, 215, 0);
 }
 
 #award3{
     left: 1295px;
     top: 242px;
-    border-color: rgb(192, 192, 192);
 }
 
 #award4{
     left: 1295px;
     top: 333px;
-    border-color: rgb(192, 192, 192);
 }
 
 #award5{
     left: 1295px;
     top: 424px;
-    border-color: rgb(192, 192, 192);
 }
 
 #award6{
     left: 1295px;
     top: 515px;
-    border-color: rgb(205, 127, 50);
 }
 
 #award7{
     left: 1295px;
     top: 606px;
-    border-color: rgb(205, 127, 50);
 }
 
 #award8{
     left: 1295px;
     top: 697px;
-    border-color: rgb(205, 127, 50);
 }
 
 #award1, #award2, #award3, #award4, #award5, #award6, #award7, #award8 {
-    border-width: 1px;
-    border-style: solid;
+    position: fixed;
     width: 155px;
     height: 90px;
 }
 
 #axe, #key, #shovel, #rose-seeds, #daisy-seeds, #can, #map1, #rose, #daisy, #cornflower, #poppy, #p1rose, #p1daisy, #p1cornflower, #p1poppy, #map2, #fish, #branch, #map-shack, #fishing-rod, #shell, #grave-map, #orb1, #oar, #shed-map, #poppy-seeds, #cornflower-seeds, #map-fotm, #pole, #unlit-torch, #torch, #rope, #pickaxe, #unlit-oar, #lit-oar, #coin, #cut-fish, #cooked-fish, #orb2, #amythest1, #amythest2, #amythest3, #amythest-seeds, #purple-pickaxe{
     position: absolute;
-    top:-5px
+    top:-5px;
 }
 
 .invis{
@@ -400,6 +381,23 @@ body {
     position: absolute;
     left: -5px;
     top: -17px;
+}
+
+.hide{
+    outline-color: transparent;
+    border-color: transparent;
+    background-color: transparent;
+    opacity: 0;
+}
+
+.abs{
+    position: absolute;
+    width: 84px;
+    height: 210px;
+}
+
+.choice0:hover, .choice1:hover, .choice2:hover, .choice3:hover{
+    background-color: rgba(110, 110, 110, 0.4);
 }
 
 .selected {

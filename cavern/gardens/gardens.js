@@ -1,13 +1,15 @@
+import { getEntryDia } from "../../global-art/dialogues.js";
+
 var plArts = {
-    "dug" : `<img class="abs" draggable="false" alt="" src="garden-art/hole.png">`,
-    "planted" :`<img class="abs" draggable="false" alt="" src="garden-art/planted.png">`,
-    "watered" :`<img class="abs" draggable="false" alt="" src="garden-art/sprouted.png">`,
-    "rose" :`<img class="abs" draggable="false" alt="" src="garden-art/grown-rose.png">`,
-    "daisy" :`<img class="abs" draggable="false" alt="" src="garden-art/grown-daisy.png">`,
-    "poppy" :`<img class="abs" draggable="false" alt="" src="garden-art/grown-poppy.png">`,
-    "cornflower" :`<img class="abs" draggable="false" alt="" src="garden-art/grown-cornflower.png">`,
-    "emerald" :`<img class="abs" draggable="false" alt="" src="gardens-art/grown-emerald.png">`,
-    "amythest" :`<img class="abs" draggable="false" alt="" src="gardens-art/grown-amythest.png">`
+    "dug" : `<img class="abs" draggable="false" alt="" src="gardens-art/hole.png">`,
+    "planted" :`<img class="abs" draggable="false" alt="" src="gardens-art/planted.png">`,
+    "watered" :`<img class="abs" draggable="false" alt="" src="gardens-art/sprouted.png">`,
+    "rose" :`<img class="abs" draggable="false" alt="" src="gardens-art/red-flower.png">`,
+    "daisy" :`<img class="abs" draggable="false" alt="" src="gardens-art/yellow-flower.png">`,
+    "poppy" :`<img class="abs" draggable="false" alt="" src="gardens-art/orange-flower.png">`,
+    "cornflower" :`<img class="abs" draggable="false" alt="" src="gardens-art/blue-flower.png">`,
+    "emerald" :`<img class="abs" draggable="false" alt="" src="gardens-art/green-flower.png">`,
+    "amythest" :`<img class="abs" draggable="false" alt="" src="gardens-art/purple-flower.png">`
 }
 
 if (document.readyState == 'loading') {
@@ -18,23 +20,20 @@ if (document.readyState == 'loading') {
 }
 
 var init;
+var inConvo;
 function ready() {
+    inConvo = "false";
     init = "true";
     // Initialize selected item to -1 (no selection)
     localStorage.setItem("selected", -1);
     localStorage.setItem("free", 1);
+    localStorage.setItem("has-award-6", "true");
     
     checkHave();
-    
+
     // Initialize items and start rain effects
     initItems();
     sleep(40).then(() => {init = "false";});
-
-    document.getElementsByClassName("shed")[0].addEventListener('click', function(){
-        if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "key"){
-            window.location.href = "../shed/shed.html";
-        }
-    });
 
     for (var i = 1; i<7; i++){
         setCrop(i);
@@ -42,24 +41,24 @@ function ready() {
 }
 
 function setCrop(crop){
-    let sit = localStorage.getItem("p1plot-state" + crop);
+    let sit = localStorage.getItem("p2plot-state" + crop);
     var text = document.getElementsByClassName("plot-" + crop + "-art")[0];
     toDig(crop);
     if (sit == "toPick"){
-        if (localStorage.getItem("p1plot-type" + crop) == "rose-seeds"){
+        if (localStorage.getItem("p2plot-type" + crop) == "rose-seeds"){
             text.innerHTML = plArts["rose"];
         }
-        else if (localStorage.getItem("p1plot-type" + crop) == "cornflower-seeds"){
+        else if (localStorage.getItem("p2plot-type" + crop) == "cornflower-seeds"){
             text.innerHTML = plArts["cornflower"];
         }
-        else if (localStorage.getItem("p1plot-type" + crop) == "poppy-seeds"){
+        else if (localStorage.getItem("p2plot-type" + crop) == "poppy-seeds"){
             text.innerHTML = plArts["poppy"];
         }
-        else if (localStorage.getItem("p1plot-type" + crop) == "emerald-seeds"){
-            text.innerHTML = plArts["emerald"];
-        }
-        else if (localStorage.getItem("p1plot-type" + crop) == "amythest-seeds"){
+        else if (localStorage.getItem("p2plot-type" + crop) == "amythest-seeds"){
             text.innerHTML = plArts["amythest"];
+        }
+        else if (localStorage.getItem("p2plot-type" + crop) == "emerald-seeds"){
+            text.innerHTML = plArts["emerald"];
         }
         else {
             text.innerHTML = plArts["daisy"];
@@ -98,8 +97,8 @@ function toDig(spot){
             button = bt;
 
             button.addEventListener('click', sh);
-            localStorage.setItem("p1crop-time" + spot, 0);
-            localStorage.setItem("p1plot-state" + spot, "toPlant");
+            localStorage.setItem("p2crop-time" + spot, 0);
+            localStorage.setItem("p2plot-state" + spot, "toPlant");
             text.innerHTML = plArts["dug"];
             toPlant(spot);
         }
@@ -114,9 +113,9 @@ function toPlant(spot){
         var type = localStorage.getItem("spot" + localStorage.getItem("selected"));
         if (type == "daisy-seeds" || type == "rose-seeds" || type == "poppy-seeds" || type == "cornflower-seeds" || type == "amythest-seeds" || type == "emerald-seeds"){
             button.removeEventListener('click', pl);
-            localStorage.setItem("p1plot-state" + spot, "toWater");
+            localStorage.setItem("p2plot-state" + spot, "toWater");
             text.innerHTML = plArts["planted"];
-            localStorage.setItem("p1plot-type" + spot, type);
+            localStorage.setItem("p2plot-type" + spot, type);
             toWater(spot);
         }
     })
@@ -130,7 +129,7 @@ function toWater(spot){
         if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "can" && localStorage.getItem("ascii-water") == "true"){
             console.log(5);
             button.removeEventListener('click', wt);
-            localStorage.setItem("p1plot-state" + spot, "toGrow");
+            localStorage.setItem("p2plot-state" + spot, "toGrow");
             text.innerHTML = plArts["watered"];
             toGrow(spot);
             sleep(62000).then(() => {
@@ -143,24 +142,24 @@ function toWater(spot){
 function toGrow(spot){
     const d = new Date();
     var text = document.getElementsByClassName("plot-" + spot + "-art")[0];
-    if (localStorage.getItem("p1crop-time" + spot) == 0){
-        localStorage.setItem("p1crop-time" + spot, d.getTime());
+    if (localStorage.getItem("p2crop-time" + spot) == 0){
+        localStorage.setItem("p2crop-time" + spot, d.getTime());
     }
     var time = d.getTime();
-    if (time - localStorage.getItem("p1crop-time" + spot) > 60000){
-        if (localStorage.getItem("p1plot-type" + spot) == "rose-seeds"){
+    if (time - localStorage.getItem("p2crop-time" + spot) > 60000){
+        if (localStorage.getItem("p2plot-type" + spot) == "rose-seeds"){
             text.innerHTML = plArts["rose"];
         }
-        else if (localStorage.getItem("p1plot-type" + spot) == "poppy-seeds"){
+        else if (localStorage.getItem("p2plot-type" + spot) == "poppy-seeds"){
             text.innerHTML = plArts["poppy"];
         }
-        else if (localStorage.getItem("p1plot-type" + spot) == "cornflower-seeds"){
+        else if (localStorage.getItem("p2plot-type" + spot) == "cornflower-seeds"){
             text.innerHTML = plArts["cornflower"];
         }
-        else if (localStorage.getItem("p1plot-type" + spot) == "amythest-seeds"){
+        else if (localStorage.getItem("p2plot-type" + spot) == "amythest-seeds"){
             text.innerHTML = plArts["amythest"];
         }
-        else if (localStorage.getItem("p1plot-type" + spot) == "emerald-seeds"){
+        else if (localStorage.getItem("p2plot-type" + spot) == "emerald-seeds"){
             text.innerHTML = plArts["emerald"];
         }
         else {
@@ -177,41 +176,169 @@ function toPick(spot){
     button.addEventListener('click', function pi(){
         if (localStorage.getItem("free") < 9){
             button.removeEventListener('click', pi);
-            localStorage.setItem("p1plot-state" + spot, "toDig");
+            localStorage.setItem("p2plot-state" + spot, "toDig");
             text.innerHTML = "";
             toDig(spot);
-            localStorage.setItem("p1crop-time" + spot, 0);
-            if (localStorage.getItem("p1plot-type" + spot) == "rose-seeds"){
-                getIte("p1rose")
+            localStorage.setItem("p2crop-time" + spot, 0);
+            if (localStorage.getItem("p2plot-type" + spot) == "rose-seeds"){
+                getIte("p2rose")
                 initItems();
             }
-            else if (localStorage.getItem("p1plot-type" + spot) == "poppy-seeds"){
-                getIte("p1poppy")
+            else if (localStorage.getItem("p2plot-type" + spot) == "poppy-seeds"){
+                getIte("p2poppy")
                 initItems();
             }
-            else if (localStorage.getItem("p1plot-type" + spot) == "cornflower-seeds"){
-                getIte("p1cornflower")
+            else if (localStorage.getItem("p2plot-type" + spot) == "cornflower-seeds"){
+                getIte("p2cornflower")
                 initItems();
             }
-            else if (localStorage.getItem("p1plot-type" + spot) == "emerald-seeds"){
-                getIte("p1emerald")
+            else if (localStorage.getItem("p2plot-type" + spot) == "amythest-seeds"){
+                getIte("p2amythest")
                 initItems();
             }
-            else if (localStorage.getItem("p1plot-type" + spot) == "amythest-seeds"){
-                getIte("p1amythest")
+            else if (localStorage.getItem("p2plot-type" + spot) == "emerald-seeds"){
+                getIte("p2emerald")
                 initItems();
             }
             else {
-                getIte("p1daisy");
+                getIte("p2daisy");
                 initItems();
             }
         }
     });
 }
 
+function respond(inText){
+    inConvo = "true";
+    document.getElementsByClassName("text-box")[0].innerHTML = `
+    <img draggable="false" class="text-box-art" alt="" src="../../global-art/text-box.png">
+    <p class="text-box-text"></p>
+    <ul class="text-box-buttons"></ul>
+    `;
+    var box = document.getElementsByClassName("text-box")[0];
+    //If leave we close the box
+    if (inText == 'leave'){
+        box.classList.add("shadow-realm");
+        box.childNodes[1].innerHTML = "";
+        box.childNodes[2].innerHTML = "";
+    }
+    else {
+        if (box.classList.contains("shadow-realm")){
+            box.classList.remove("shadow-realm")
+        }
+
+        var text = getEntryDia(inText);
+        if (text[0][0] == ""){
+            setButtons(text);
+        }
+        else {
+            setText(text);
+        }
+    }
+}
+
+var clickReady;
+function setText(text){
+    var doneGif;
+    clickReady = "false";
+    var pages = text[0].length;
+    var count = 1;
+
+    document.getElementsByClassName("text-box-buttons")[0].innerHTML = `<button class="hide text-box-button"></button>`;
+    setPage(count, text).then(function(){
+        clickReady = "true";
+        doneGif = document.createElement("div");
+        doneGif.innerHTML = `<img draggable="false" class="text-box-art" alt="" src="../../global-art/done.gif">`
+        document.getElementsByClassName("text-box")[0].insertBefore(doneGif, document.getElementsByClassName("text-box")[0].children[1]);
+    });
+    document.getElementsByClassName("text-box-button")[0].addEventListener('click', function tx(){
+        if (clickReady == "true"){
+            if (count < pages){
+                document.getElementsByClassName("text-box-text")[0].innerHTML = "";
+                clickReady = "false";
+                count = count + 1;
+                doneGif.remove();
+                setPage(count, text).then(function(){
+                    clickReady = "true";
+                    doneGif = document.createElement("div");
+                    doneGif.innerHTML = `<img draggable="false" class="text-box-art" alt="" src="../../global-art/done.gif">`
+                    document.getElementsByClassName("text-box")[0].insertBefore(doneGif, document.getElementsByClassName("text-box")[0].children[1]);
+                });
+            }
+            else {
+                document.getElementsByClassName("text-box-button")[0].removeEventListener('click', tx);
+                document.getElementsByClassName("text-box-text")[0].innerHTML = "";
+                setButtons(text);
+            }
+        }
+        else {
+            clickReady = "true";
+            document.getElementsByClassName("text-box-text")[0].innerHTML = text[0][count-1];
+
+            doneGif = document.createElement("div");
+            doneGif.innerHTML = `<img draggable="false" class="text-box-art" alt="" src="../../global-art/done.gif">`
+            document.getElementsByClassName("text-box")[0].insertBefore(doneGif, document.getElementsByClassName("text-box")[0].children[1]);
+        }
+    });
+}
+
+async function setPage(count, text){
+    await write(text[0][count-1], 0);
+    return;
+}
+
+async function write(text, spot){
+    if (spot >= text.length || clickReady == "true"){
+        return;
+    }
+    else{
+        spot = spot + 1;
+        document.getElementsByClassName("text-box-text")[0].innerHTML = text.substring(0, spot);
+        await sleep(8);
+        await write(text, spot);
+        return;
+    }
+}
+
+function setButtons(text){
+    document.getElementsByClassName("text-box")[0].innerHTML = `
+            <img draggable="false" class="text-box-art" alt="" src="../../global-art/text-box.png">
+            <p class="text-box-text"></p>
+            <ul class="arrows text-box-buttons"></ul>
+            `;
+    var buts = text[1];
+    if (buts.length == 0){
+        document.getElementsByClassName("text-box")[0].innerHTML = "";
+        inConvo = "false";
+    }
+    else {
+        buts.forEach(function(value, index){
+            var newNode = document.createElement("li");
+            var newBut = document.createElement("button");
+            var newText = document.createTextNode(value);
+
+            newNode.appendChild(newText);
+            newNode.appendChild(newBut);
+            document.getElementsByClassName("text-box-buttons")[0].appendChild(newNode);
+
+            newNode.classList.add("choice" + index);
+            newBut.classList.add("choiceBut" + index, "hide");
+
+            newBut.addEventListener('click', async function(){
+                document.getElementsByClassName("text-box")[0].innerHTML = "";
+                inConvo = "false";
+                if (value != "Leave"){
+                    document.getElementsByClassName("text-box")[0].classList.remove("arrows");
+                    respond(value);
+                }
+            });
+        });
+    }
+}
+
 function take(button, name) {
     if (localStorage.getItem("free") < 9 || init == "true") {
-        document.getElementsByClassName(name + "-art")[0][0].classList.add("invis");
+        document.getElementsByClassName(name + "-art")[0].classList.add("invis");
         if (!(localStorage.getItem("has-" + name) == "true")) {
             getIte(name);
             initItems();
@@ -233,7 +360,7 @@ function take(button, name) {
 // Function to remove an item from the inventory.
 function put(button, name) {
     if (localStorage.getItem("spot" + localStorage.getItem("selected")) == name) {
-        document.getElementsByClassName(name + "-art")[0][0].classList.remove("invis");
+        document.getElementsByClassName(name + "-art")[0].classList.remove("invis");
         if (name == "can") {
             document.getElementById("behind-can").classList.add("invis");
         }

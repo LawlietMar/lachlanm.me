@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Garden</title>
+        <title>The Gardens</title>
         <script type="module" src="../../aud.js" async></script>
         <meta name="description" content="Footsteps">
         <link rel="icon" type="image/x-icon" href="../../icon.ico">
-        <link rel="stylesheet" href="garden.css"\>
-        <script type="module" src="garden.js" async></script>
+        <link rel="stylesheet" href="gardens.css"\>
+        <script type="module" src="gardens.js" async></script>
         <script type="module" src="audio.js" async></script>
     </head>
 
@@ -15,15 +15,14 @@
             <source src="../../static.mp3" type="audio/mp3">
         </audio>
         <audio class="aud" autoplay loop controls>
-            <source src="../../global-art/piano.mp3" type="audio/mp3">
+            <source src="../../global-art/cavern.mp3" type="audio/mp3">
         </audio>
         <div class="left"></div>
         <div class="right"></div>
         <div class="bottom"></div>
         <div class="top"></div>
 
-        <img draggable="false" class="main-art" src="garden-art/garden-main.png" alt="">
-        <img draggable="false" class="fore-art" src="garden-art/map.png" alt="">
+        <img draggable="false" class="main-art" src="gardens-art/gardens-main.png" alt="">
 
         <div id="award1">
             <img draggable="false" class="hide award-art" id="awardimg1" src="../../global-art/achievements/award1.png" alt="">
@@ -89,13 +88,18 @@
             <img draggable="false" class="item-art" alt="" src="../../global-art/items/border.png">
             <button tabindex="-1" class="item art item-art spot8"></button>
         </div>
+        
+        <a href="../crossroads/crossroads.html"><button tabindex="-1" class="hide crossroads"></button></a>
+        <a href="../stairs/stairs.html"><button tabindex="-1" class="hide stairs"></button></a>
+        <button tabindex="-1" class="hide banker"></button>
+
         <div>
-            <div class="plot-1-art"></div>
-            <div class="plot-2-art"></div>
-            <div class="plot-3-art"></div>
-            <div class="plot-4-art"></div>
-            <div class="plot-5-art"></div>
-            <div class="plot-6-art"></div>
+            <div class="plot-1-art"><img class="abs" draggable="false" alt="" src="gardens-art/planted.png"></div>
+            <div class="plot-2-art"><img class="abs" draggable="false" alt="" src="gardens-art/sprouted.png"></div>
+            <div class="plot-3-art"><img class="abs" draggable="false" alt="" src="gardens-art/hole.png"></div>
+            <div class="plot-4-art"><img class="abs" draggable="false" alt="" src="gardens-art/red-flower.png"></div>
+            <div class="plot-5-art"><img class="abs" draggable="false" alt="" src="gardens-art/orange-flower.png"></div>
+            <div class="plot-6-art"><img class="abs" draggable="false" alt="" src="gardens-art/yellow-flower.png"></div>
 
             <button id="plot1" tabindex="-1" class="hide"></button>
             <button id="plot2" tabindex="-1" class="hide"></button>
@@ -104,8 +108,7 @@
             <button id="plot5" tabindex="-1" class="hide"></button>
             <button id="plot6" tabindex="-1" class="hide"></button>
         </div>
-        <button class="hide shed"></button>
-        <a href="../crossroads/crossroads.html"><button tabindex="-1" class="hide crossroads"></button></a>
-        <a href="../map/map.html"><button tabindex="-1" class="hide map"></button></a>
+
+        <div class="text-box"></div>
     </body>
 </html>

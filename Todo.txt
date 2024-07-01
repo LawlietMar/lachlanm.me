@@ -1,7 +1,8 @@
 v2:
-add fade-ins between rooms
 add item keybinds
 add days and weeks and years instead of full resets
+add more karma events (flowers on graves)
+add more crafintg recipes
 
 v1:
 add ashamalev and playtesters to credits
@@ -10,3 +11,8 @@ make it so any seed can feed birb2
 add home
 At some point, fix the art for items and borders
 do next locations
+implement gardens dialogue
+add items to home and css
+cross textures
+make 2 new ascii flower textures
+make 8 new pixel flower textures

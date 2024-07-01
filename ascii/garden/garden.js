@@ -90,7 +90,33 @@ var plArts = {
                     <li class="art"><span class="art green">               \\||      </span></li>
                     <li class="art"><span class="art green">                ||                   </span></li>
                 </ul>
-            `
+            `,
+    "amythest" :`
+                <ul class="item up">
+                    <li class="art"><span class="purple art">       .-**-.</span></li>
+                    <li class="art"><span class="purple art">       *-:**|</span></li>
+                    <li class="art"><span class="pink art">          *\\ \\ </span></li>
+                    <li class="art"><span class="green art">             ||</span></li>
+                    <li class="art"><span class="green art">             ||.. </span></li>
+                    <li class="art"><span class="green art">             ||/</span></li>
+                    <li class="art"><span class="green art">           ..||</span></li>
+                    <li class="art"><span class="green art">            \\|| </span></li>
+                    <li class="art"><span class="green art">             ||</span></li>
+                </ul>
+            `,
+    "emerald" :`
+            <ul class="item up">
+                <li class="art"><span class="green art">          .--*--.     </span></li>
+                <li class="art"><span class="green art">         :--.:.--:   </span></li>
+                <li class="art"><span class="green art">          *-. .-* </span></li>
+                <li class="art"><span class="green art">             ||.. </span></li>
+                <li class="art"><span class="green art">             ||/ </span></li>
+                <li class="art"><span class="green art">           ..|| </span></li>
+                <li class="art"><span class="green art">            \\||..   </span></li>
+                <li class="art"><span class="green art">             ||/  </span></li>
+                <li class="art"><span class="green art">             ||       </span></li>
+            </ul>
+        `
 }
 
 import { getAch } from "../../artHold.js";
@@ -162,6 +188,18 @@ function setCrop(crop){
         if (localStorage.getItem("plot-type" + crop) == "rose-seeds"){
             text.innerHTML = plArts["rose"];
         }
+        else if (localStorage.getItem("plot-type" + crop) == "cornflower-seeds"){
+            text.innerHTML = plArts["cornflower"];
+        }
+        else if (localStorage.getItem("plot-type" + crop) == "poppy-seeds"){
+            text.innerHTML = plArts["poppy"];
+        }
+        else if (localStorage.getItem("plot-type" + crop) == "amythest-seeds"){
+            text.innerHTML = plArts["amythest"];
+        }
+        else if (localStorage.getItem("plot-type" + crop) == "emerald-seeds"){
+            text.innerHTML = plArts["emerald"];
+        }
         else {
             text.innerHTML = plArts["daisy"];
         }
@@ -214,7 +252,7 @@ function toPlant(spot){
 
     button.addEventListener('click', function pl(){
         var type = localStorage.getItem("spot" + localStorage.getItem("selected"));
-        if (type == "daisy-seeds" || type == "rose-seeds" || type == "poppy-seeds" || type == "cornflower-seeds"){
+        if (type == "daisy-seeds" || type == "rose-seeds" || type == "poppy-seeds" || type == "cornflower-seeds" || type == "emerald-seeds" || type == "amythest-seeds"){
             button.removeEventListener('click', pl);
             localStorage.setItem("plot-state" + spot, "toWater");
             text.innerHTML = plArts["planted"];
@@ -265,6 +303,12 @@ function toGrow(spot){
         else if (localStorage.getItem("plot-type" + spot) == "cornflower-seeds"){
             text.innerHTML = plArts["cornflower"];
         }
+        else if (localStorage.getItem("plot-type" + spot) == "amythest-seeds"){
+            text.innerHTML = plArts["amythest"];
+        }
+        else if (localStorage.getItem("plot-type" + spot) == "emerald-seeds"){
+            text.innerHTML = plArts["emerald"];
+        }
         else {
             text.innerHTML = plArts["daisy"];
         }
@@ -293,6 +337,14 @@ function toPick(spot){
             }
             else if (localStorage.getItem("plot-type" + spot) == "cornflower-seeds"){
                 getIte("cornflower")
+                initItems();
+            }
+            else if (localStorage.getItem("plot-type" + spot) == "amythests-seeds"){
+                getIte("amythests")
+                initItems();
+            }
+            else if (localStorage.getItem("plot-type" + spot) == "emerald-seeds"){
+                getIte("emerald")
                 initItems();
             }
             else {

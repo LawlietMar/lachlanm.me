@@ -207,5 +207,19 @@ function resett(ite){
     localStorage.setItem("p1crop-time5", 0);
     localStorage.setItem("p1crop-time6", 0);
 
+    localStorage.setItem("p2plot-state1", "toDig");
+    localStorage.setItem("p2plot-state2", "toDig");
+    localStorage.setItem("p2plot-state3", "toDig");
+    localStorage.setItem("p2plot-state4", "toDig");
+    localStorage.setItem("p2plot-state5", "toDig");
+    localStorage.setItem("p2plot-state6", "toDig");
+
+    localStorage.setItem("p2crop-time1", 0);
+    localStorage.setItem("p2crop-time2", 0);
+    localStorage.setItem("p2crop-time3", 0);
+    localStorage.setItem("p2crop-time4", 0);
+    localStorage.setItem("p2crop-time5", 0);
+    localStorage.setItem("p2crop-time6", 0);
+
     ready2();
 }
