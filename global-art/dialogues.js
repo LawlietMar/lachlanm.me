@@ -27,7 +27,7 @@ var shopDia = {
     "enter": [["Welcome back."], ["What is this place?", "Who are you?", "Leave"]],
     "entero": [["Welcome back."], ["What is this place?", "Who are you?", "What's this orb?", "Leave"]],
     "enterl": [["Welcome back."], ["What is this place?", "Who are you?", "The alley guy told me to talk to you about it.", "Leave"]],
-    "entero": [["Welcome back."], ["What is this place?", "Who are you?", "What's this orb?", "The alley guy told me to talk to you about it."]],
+    "enterol": [["Welcome back."], ["What is this place?", "Who are you?", "What's this orb?", "The alley guy told me to talk to you about it."]],
 
     "What is this place?": [["That's quite a vague question, young man. What exactly do you mean? The underground? This place as a whole?"], ["The underground.", "The whole place.", "Back ", "Leave"]],
     "Back " : [[], ["What is this place?", "Who are you?", "Leave"]],
