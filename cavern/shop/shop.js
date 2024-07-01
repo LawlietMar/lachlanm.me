@@ -312,7 +312,9 @@ function getIte(name) {
 function removeIte(spot) {
     var addArray = [];
     var name = localStorage.getItem("spot" + spot);
-    localStorage.setItem("has-" + name, "false");
+    if (name != "amythest1" && name != "amythest2" && name != "amythest3" && name != "ruby1" && name != "ruby2" && name != "ruby3"){
+        localStorage.setItem("has-" + name, "false");
+    }
     for (var i = parseInt(spot) + 1; i < localStorage.getItem("free"); i++) {
         addArray.push(localStorage.getItem("spot" + i));
     }
