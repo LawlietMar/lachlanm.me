@@ -13,5 +13,3 @@ At some point, fix the art for items and borders
 change sacrifices
 add boss help to gardens
 do next locations
-make it so getting coins resets it in inventory
-make it so any seed can feed birb2

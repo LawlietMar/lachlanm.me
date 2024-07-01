@@ -124,9 +124,34 @@ function respondAxe(){
                     robbable = "false";
                     localStorage.setItem("has-bum-coins", "true");
                     localStorage.setItem("karma", parseInt(localStorage.getItem("karma")) - 5);
-                    if (localStorage.getItem("held-coins") == 0){
-                        getIte("coin");
+                    if (localStorage.getItem("held-coins") != 0){
+                        if (localStorage.getItem("spot1") == "coin"){
+                            removeIte(1);
+                        }
+                        else if (localStorage.getItem("spot2") == "coin"){
+                            removeIte(2);
+                        }
+                        else if (localStorage.getItem("spot3") == "coin"){
+                            removeIte(3);
+                        }
+                        else if (localStorage.getItem("spot4") == "coin"){
+                            removeIte(4);
+                        } 
+                        else if (localStorage.getItem("spot5") == "coin"){
+                            removeIte(5);
+                        }
+                        else if (localStorage.getItem("spot6") == "coin"){
+                            removeIte(6);
+                        } 
+                        else if (localStorage.getItem("spot7") == "coin"){
+                            removeIte(7);
+                        }
+                        else if (localStorage.getItem("spot8") == "coin"){
+                            removeIte(8);
+                        } 
                     }
+                    getIte("coin");
+                    initItems();
                     localStorage.setItem("held-coins", parseInt(localStorage.getItem("held-coins")) + 15);
                     document.getElementsByClassName("coin-art")[0].remove();
                     document.getElementsByClassName("coins")[0].remove();

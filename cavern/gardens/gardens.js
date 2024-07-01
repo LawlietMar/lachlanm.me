@@ -349,9 +349,34 @@ function setButtons(text){
                 document.getElementsByClassName("text-box")[0].innerHTML = "";
                 inConvo = "false";
                 if (value == "I'd like to make a withdrawal."){
-                    if (localStorage.getItem("held-coins") == 0){
-                        getIte("coin");
+                    if (localStorage.getItem("held-coins") != 0){
+                        if (localStorage.getItem("spot1") == "coin"){
+                            removeIte(1);
+                        }
+                        else if (localStorage.getItem("spot2") == "coin"){
+                            removeIte(2);
+                        }
+                        else if (localStorage.getItem("spot3") == "coin"){
+                            removeIte(3);
+                        }
+                        else if (localStorage.getItem("spot4") == "coin"){
+                            removeIte(4);
+                        } 
+                        else if (localStorage.getItem("spot5") == "coin"){
+                            removeIte(5);
+                        }
+                        else if (localStorage.getItem("spot6") == "coin"){
+                            removeIte(6);
+                        } 
+                        else if (localStorage.getItem("spot7") == "coin"){
+                            removeIte(7);
+                        }
+                        else if (localStorage.getItem("spot8") == "coin"){
+                            removeIte(8);
+                        } 
                     }
+                    getIte("coin");
+                    initItems();
                     localStorage.setItem("held-coins", parseInt(localStorage.getItem("banked-coins")) + parseInt(localStorage.getItem("held-coins")))
                     localStorage.setItem("banked-coins", 0);
                     initItems();

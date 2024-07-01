@@ -136,7 +136,8 @@ function ready() {
     } else {
         if (!(localStorage.getItem("birdPfed") == "true")){
             bird.addEventListener('click', function fd(){
-                if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "daisy-seeds" || localStorage.getItem("spot" + localStorage.getItem("selected")) == "rose-seeds"){
+                var held = localStorage.getItem("spot" + localStorage.getItem("selected"));
+                if (held == "daisy-seeds" || held == "rose-seeds" || held == "poppy-seeds" || held == "cornflower-seeds"){
                     sleep(20).then(() => {
                         removeIte(localStorage.getItem("selected"));
                         initItems();
