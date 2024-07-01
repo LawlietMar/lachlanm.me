@@ -80,6 +80,7 @@ var alleyDia = {
     "touchySane" : [["Hey, hands off. It's not much, but those are my savings."], ["Ok, sorry.", "You can talk?"]],
     "touchy1" : [["Hey, stop. I told you those are mine."], ["Ok, sorry again..."]],
     "Ok, sorry." : [[], []],
+    "Ok, sorry again..." : [[], []],
     "You can talk?" : [["Well yes, I've always been able to. I just don't enjoy it much. My lucidity comes and goes, admittedly.", "Now get your hands off my money."], ["Ok, sorry."]],
     "rob" : [["Well, I hope you need it more than I do."], []],
     "axe" : [["Hey man there's no need to do this...", "You can take the money if you really need it but don't hurt me.", "Please?"], []],

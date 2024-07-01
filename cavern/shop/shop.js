@@ -9,6 +9,7 @@ if (document.readyState == 'loading') {
 
 var init;
 var inConvo;
+var waiting;
 function ready() {
     inConvo = "false";
     init = "true";
@@ -33,7 +34,10 @@ function ready() {
             localStorage.setItem("held-coins", parseInt(localStorage.getItem("held-coins")) + 3);
         }
         if (held == "amythest-seeds" || held == "emerald-seeds"){
-            respondWait("seeds");
+            waiting = "true";
+            if (waiting == "false"){
+                respondWait("seeds");
+            }
         }
     });
     var into = "enter";
@@ -55,6 +59,7 @@ function respondWait(inT){
     else {
         sleep(50).then(() => {
             respondWait(inT);
+            waiting = "false";
         });
     }
 }
@@ -152,6 +157,7 @@ async function write(text, spot){
 }
 
 function setButtons(text){
+    inConvo = "false";
     document.getElementsByClassName("text-box")[0].innerHTML = `
             <img draggable="false" class="text-box-art" alt="" src="../../global-art/text-box.png">
             <p class="text-box-text"></p>
@@ -160,7 +166,6 @@ function setButtons(text){
     var buts = text[1];
     if (buts.length == 0){
         document.getElementsByClassName("text-box")[0].innerHTML = "";
-        inConvo = "false";
     }
     else {
         buts.forEach(function(value, index){
@@ -176,7 +181,6 @@ function setButtons(text){
             newBut.classList.add("choiceBut" + index, "hide");
 
             newBut.addEventListener('click', async function(){
-                inConvo = "false";
                 document.getElementsByClassName("text-box")[0].innerHTML = "";
                 if (value == "Why would I want coin?" && localStorage.getItem("has-coin-purse") == "true"){
                     respond(value + "1");
@@ -194,7 +198,6 @@ function setButtons(text){
             });
         });
     }
-    inConvo = "false";
 }
 
 function take(button, name) {
