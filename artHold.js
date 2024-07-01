@@ -420,6 +420,54 @@ var arts = {
                 <ul class="item" id="p2cornflower">
                     <img class="abs flower" draggable="false" alt="" src="../../global-art/items/p2cornflower.png">   
                 </ul>
+            `,
+    "rose-bunch" : `
+                <ul class="item" id="rose-bunch">
+                    <li class="art artln"><span class="artln art">   |************| </span></li>
+                    <li class="art artln"><span class="artln art">   | <span class="artln art red">:::::::::::::::</span> | </span></li>
+                    <li class="art artln"><span class="artln art">   | <span class="artln art red">:::::::::::::::</span> |    </span></li>
+                    <li class="art artln"><span class="artln art">   l.................l</span></li>  
+                </ul>
+            `,
+    "poppy-bunch" : `
+                <ul class="item" id="poppy-bunch">
+                    <li class="art artln"><span class="artln art">   |************| </span></li>
+                    <li class="art artln"><span class="artln art">   | <span class="artln art orange">:::::::::::::::</span> | </span></li>
+                    <li class="art artln"><span class="artln art">   | <span class="artln art orange">:::::::::::::::</span> |    </span></li>
+                    <li class="art artln"><span class="artln art">   l.................l</span></li>  
+                </ul>
+            `,
+    "daisy-bunch" : `
+                <ul class="item" id="daisy-bunch">
+                    <li class="art artln"><span class="artln art">   |************| </span></li>
+                    <li class="art artln"><span class="artln art">   | <span class="artln art yellow">:::::::::::::::</span> | </span></li>
+                    <li class="art artln"><span class="artln art">   | <span class="artln art yellow">:::::::::::::::</span> |    </span></li>
+                    <li class="art artln"><span class="artln art">   l.................l</span></li>  
+                </ul>
+            `,
+    "emerald-bunch" : `
+                <ul class="item" id="emerald-bunch">
+                    <li class="art artln"><span class="artln art">   |************| </span></li>
+                    <li class="art artln"><span class="artln art">   | <span class="artln art green">:::::::::::::::</span> | </span></li>
+                    <li class="art artln"><span class="artln art">   | <span class="artln art green">:::::::::::::::</span> |    </span></li>
+                    <li class="art artln"><span class="artln art">   l.................l</span></li>  
+                </ul>
+            `,
+    "cornflower-bunch" : `
+                <ul class="item" id="cornflower-bunch">
+                    <li class="art artln"><span class="artln art">   |************| </span></li>
+                    <li class="art artln"><span class="artln art">   | <span class="artln art blue">:::::::::::::::</span> | </span></li>
+                    <li class="art artln"><span class="artln art">   | <span class="artln art blue">:::::::::::::::</span> |    </span></li>
+                    <li class="art artln"><span class="artln art">   l.................l</span></li>  
+                </ul>
+            `,
+    "amythest-bunch" : `
+                <ul class="item" id="amythest-bunch">
+                    <li class="art artln"><span class="artln art">   |************| </span></li>
+                    <li class="art artln"><span class="artln art">   | <span class="artln art purple">:::::::::::::::</span> | </span></li>
+                    <li class="art artln"><span class="artln art">   | <span class="artln art purple">:::::::::::::::</span> |    </span></li>
+                    <li class="art artln"><span class="artln art">   l.................l</span></li>  
+                </ul>
             `
 };
 

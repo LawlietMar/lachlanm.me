@@ -1,7 +1,7 @@
 v2:
 add item keybinds
 add days and weeks and years instead of full resets
-add more karma events (flowers on graves)
+add more karma events (flowers on graves), with one of each pixel
 add more crafintg recipes
 fix gem art?
 
@@ -15,4 +15,3 @@ add boss help to gardens
 do next locations
 make it so getting coins resets it in inventory
 make it so any seed can feed birb2
-add flower clump textures
