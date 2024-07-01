@@ -12,7 +12,6 @@ add home
 At some point, fix the art for items and borders
 do next locations
 implement gardens dialogue
-add items to home and css
 cross textures
 make 2 new ascii flower textures
 make 8 new pixel flower textures
