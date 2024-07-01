@@ -3,6 +3,7 @@ add item keybinds
 add days and weeks and years instead of full resets
 add more karma events (flowers on graves)
 add more crafintg recipes
+fix gem art?
 
 v1:
 add ashamalev and playtesters to credits
