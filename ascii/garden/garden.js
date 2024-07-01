@@ -339,7 +339,7 @@ function toPick(spot){
                 getIte("cornflower")
                 initItems();
             }
-            else if (localStorage.getItem("plot-type" + spot) == "amythests-seeds"){
+            else if (localStorage.getItem("plot-type" + spot) == "amythest-seeds"){
                 getIte("amythests")
                 initItems();
             }

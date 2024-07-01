@@ -6,8 +6,8 @@ var plArts = {
     "daisy" :`<img class="abs" draggable="false" alt="" src="garden-art/grown-daisy.png">`,
     "poppy" :`<img class="abs" draggable="false" alt="" src="garden-art/grown-poppy.png">`,
     "cornflower" :`<img class="abs" draggable="false" alt="" src="garden-art/grown-cornflower.png">`,
-    "emerald" :`<img class="abs" draggable="false" alt="" src="gardens-art/grown-emerald.png">`,
-    "amythest" :`<img class="abs" draggable="false" alt="" src="gardens-art/grown-amythest.png">`
+    "emerald" :`<img class="abs" draggable="false" alt="" src="garden-art/grown-emerald.png">`,
+    "amythest" :`<img class="abs" draggable="false" alt="" src="garden-art/grown-amythest.png">`
 }
 
 if (document.readyState == 'loading') {
