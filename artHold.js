@@ -364,6 +364,62 @@ var arts = {
                     <li class="art artln"><span class="art artln">         \\./ .--.   \\./ </span></li> 
                     <li class="art artln"><span class="art artln">            *-.-*     </span></li>    
                 </ul>
+            `,
+    "amythest" : `
+                <ul class="item" id="amythest">
+                    <li class="art"><span class="purple art">       .-**-.</span></li>
+                    <li class="art"><span class="purple art">       *-:**|</span></li>
+                    <li class="art"><span class="pink art">          *\\ \\ </span></li>
+                    <li class="art"><span class="green art">             ||</span></li> 
+                </ul>
+            `,
+    "emerald" : `
+                <ul class="item" id="emerald">
+                    <li class="art"><span class="green art">          .--*--.     </span></li>
+                    <li class="art"><span class="green art">         :--.:.--:   </span></li>
+                    <li class="art"><span class="green art">          *-. .-* </span></li>
+                    <li class="art"><span class="green art">             ||.. </span></li>  
+                </ul>
+            `,
+    "p1amythest" : `
+                <ul class="item" id="p1amythest">
+                    <img class="abs flower" draggable="false" alt="" src="../../global-art/items/p1amythest.png">   
+                </ul>
+            `,
+    "p1emerald" : `
+                <ul class="item" id="p1emerald">
+                    <img class="abs flower" draggable="false" alt="" src="../../global-art/items/p1emerald.png">   
+                </ul>
+            `,
+    "p2amythest" : `
+                <ul class="item" id="p2amythest">
+                    <img class="abs flower" draggable="false" alt="" src="../../global-art/items/p2amythest.png">   
+                </ul>
+            `,
+    "p2emerald" : `
+                <ul class="item" id="p2emerald">
+                    <img class="abs flower" draggable="false" alt="" src="../../global-art/items/p2emerald.png">   
+                </ul>
+            `,
+    "p2rose" : `
+                <ul class="item" id="p2rose">
+                    <img class="abs flower" draggable="false" alt="" src="../../global-art/items/p2rose.png">   
+                </ul>
+            `,
+    "p2daisy" : `
+                <ul class="item" id="p2daisy">
+                    <img class="abs flower" draggable="false" alt="" src="../../global-art/items/p2daisy.png">   
+                </ul>
+            `,
+    "p2poppy" : `
+                <ul class="item" id="p2poppy">
+                    <img class="abs flower" draggable="false" alt="" src="../../global-art/items/p2poppy.png">   
+                </ul>
+            `,
+    "p2cornflower" : `
+                <ul class="item" id="p2cornflower">
+                    <img class="abs flower" draggable="false" alt="" src="../../global-art/items/p2cornflower.png">   
+                </ul>
             `
 };
 

@@ -71,7 +71,7 @@ function checkLocals(recipe){
     if (recipe == "purple-pickaxe rose-bunch"){
         localStorage.setItem("pick-state", "red-");
     }
-    if (recipe == "purple-pickaxe rose-bunch"){
+    if (recipe == "emerald-bunch purple-pickaxe"){
         localStorage.setItem("pick-state", "green-");
     }
 }
