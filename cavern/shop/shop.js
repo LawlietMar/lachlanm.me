@@ -116,6 +116,7 @@ function setText(text){
                 doneGif.remove();
                 setPage(count, text).then(function(){
                     clickReady = "true";
+                    inConvo = "false";
                     doneGif = document.createElement("div");
                     doneGif.innerHTML = `<img draggable="false" class="text-box-art" alt="" src="../../global-art/done.gif">`
                     document.getElementsByClassName("text-box")[0].insertBefore(doneGif, document.getElementsByClassName("text-box")[0].children[1]);
