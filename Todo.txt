@@ -15,4 +15,3 @@ do next locations
 implement gardens dialogue
 cross textures
 make 2 new ascii flower textures
-make 8 new pixel flower textures
