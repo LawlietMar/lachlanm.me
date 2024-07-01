@@ -75,7 +75,7 @@ function take(button, name) {
 // Function to remove an item from the inventory.
 function put(button, name) {
     var nam = localStorage.getItem("spot" + localStorage.getItem("selected"));
-    if (nam == name || ("purple-" + nam) == name || ("red-" + nam) == name || ("green-" + nam) == name) {
+    if (nam == name || ("purple-" + name) == nam || ("red-" + name) == nam || ("green-" + name) == nam) {
         document.getElementsByClassName(name + "-art")[0].classList.remove("invis");
         removeIte(localStorage.getItem("selected"));
         initItems();
