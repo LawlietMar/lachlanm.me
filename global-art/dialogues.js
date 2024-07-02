@@ -120,6 +120,34 @@ var gardensDia = {
     "How do I meet the king?" : [["He's in the castle. You have to convince the guard to let you through, but that shouldn't be too hard."], ["How do I mine gems?", "How do I meet the king?", "Back", "Leave"]],
 }
 
+var stairsDia = {
+    "paid" : [["Well, why didn't you just say so?"], []],
+    "inpaid" : [["Not your first rodeo, huh..."], []],
+    "go" : [["Well, go on then, I won't stop you."], []],
+    "enter" : [["You can't enter the king's halls without permission."], ["How would I get permission?", "I have permission.", "I think you should let me in.", "Leave"]],
+
+    "How would I get permission?" : [["The king gave me a password. Get him to tell you it.", "If you know it I'll let you in."], ["How would I get permission?", "I have permission.", "I think you should let me in.", "Leave"]],
+    "I have permission." : [["Ok, what's the password?"], ["Fenstec Elder?", "Back", "Leave"]],
+    "I have permission.b" : [["Ok, what's the password?"], ["Fenstec Elder?", "Independent Sources.", "Back", "Leave"]],
+    "Back" : [[], ["How would I get permission?", "I have permission.", "I think you should let me in.", "Leave"]],
+    "Fenstec Elder?" : [[". . ."], ["How would I get permission?", "I have permission.", "I think you should let me in.", "Leave"]],
+    "Independent Sources." : [["Ah, I'm sorry I held you up."], []],
+
+    "I think you should let me in." : [["Why? I don't."], ["I have something I have to do.", "Have you heard of utilitarianism?", "Back", "Leave"]],
+    "I have someting I have to do." : [["Yeah? And what is that?"], ["I have to save the world.", "I have to talk to the king.", "Back", "Leave"]],
+    "I have to save the world." : [["Oh, do you now? What do you know about the world.", "I'd say I know quite a bit more, and I'm a castle guard.", "Now scram."], []],
+    "I have to talk to the king." : [["Yeah, you and everyone else kid.", "My job is to make it so that the king doesn't have to talk to every single person that comes along.", "Now get out."], []],
+
+    "Have you heard of utilitarianism?" : [["Yeah, haven't we all? It's a belief system that chooses based on what path logically optimizes for good.", "More or less, at least...", "But this, of course, depends on how you define good."], ["Close enough. Being let in would be more meaningful to me than keeping me out would be to you. Shouldn't you let me in?", "Back ", "Leave"]],
+    "Back " : [[], ["I have something I have to do.", "Have you heard of utilitarianism?", "Back", "Leave"]],
+    "Close enough. Being let in would be more meaningful to me than keeping me out would be to you. Shouldn't you let me in?" : [["I see your point. But while we're trying to optimize good here, guarding the king is what gives meaning to my life. Fundementally, the best way to optimize good is to do what's meaningful. Thus betraying my beliefs to let you in, even assuming it's extremely meaningful to you, is at best neutral.", "Though in practice it's more like the two are incomparable.", "And I'm no solpsist, but the idea is technically possible. I think therefore I know I am, not that you are. So with our desires being incomparable, I'm choosing myself."], ["If you're such a staunch utilitarian, shouldn't you be breeding lizards or something?", "What kind of castle guard are you???", "Back ", "Leave"]],
+
+    "If you're such a staunch utilitarian, shouldn't you be breeding lizards or something?" : [["Yeah, probably. Well no, but I should be farming children.", "But I'm not, and here we are.", ". . .", "You know, I like you kid."], ["So..."]],
+    "So..." : [["You still can't come in."], ["Darn."]],
+    "Darn." : [[], ["If you're such a staunch utilitarian, shouldn't you be breeding lizards or something?", "What kind of castle guard are you???", "Back ", "Leave"]],
+    "What kind of castle guard are you???" : [["A well educated one.", "I traveled the world and thought deeply, and found that the simple task of guarding the king was the most meaningful to me."], ["If you're such a staunch utilitarian, shouldn't you be breeding lizards or something?", "What kind of castle guard are you???", "Back ", "Leave"]],
+}
+
 export function getElevatorDia(inText){
     return elevatorDia[inText];
 }
@@ -138,4 +166,8 @@ export function getAlleyDia(inText){
 
 export function getGardensDia(inText){
     return gardensDia[inText];
+}
+
+export function getStairsDia(inText){
+    return stairsDia[inText];
 }

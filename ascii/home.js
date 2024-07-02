@@ -80,9 +80,13 @@ function resett(ite){
     localStorage.setItem("banked-coins", 0);
 
     localStorage.setItem("faded", "false");
-    localStorage.setItem("sane-bum", "false");
+    localStorage.setItem("sane-bum", "true");
     localStorage.setItem("fed-bum", "false");
     localStorage.setItem("ask-old-man", "false");
+    localStorage.setItem("rambling", "false");
+
+    localStorage.setItem("guard-convinced", "false");
+    localStorage.setItem("guard-talked", "false");
 
     localStorage.setItem("dead-bird", "false");
     localStorage.setItem("dead-birdB", "false");

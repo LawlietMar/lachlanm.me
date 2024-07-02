@@ -1,5 +1,4 @@
-import { getAlleyDia } from "../../global-art/dialogues.js";
-import { ready2 } from "../../aud.js";
+import { getStairsDia } from "../../global-art/dialogues.js";
 
 if (document.readyState == 'loading') {
     document.addEventListener('DOMContentLoaded', ready);
@@ -8,196 +7,98 @@ if (document.readyState == 'loading') {
     ready();
 }
 
-var beingRobbed;
 var init;
 var inConvo;
-var robbable;
+var waiting;
 function ready() {
-    var insaneClick = 0;
-    var tried = "false";
-    beingRobbed = "false";
     inConvo = "false";
     init = "true";
-    robbable = "false";
     // Initialize selected item to -1 (no selection)
     localStorage.setItem("selected", -1);
     localStorage.setItem("free", 1);
     
     checkHave();
 
-    if (localStorage.getItem("has-bum-coins") != "true"){
-        document.getElementsByClassName("coin-art")[0].classList.remove("hide");
-    }
-
-    if (localStorage.getItem("has-orb2") != "true"){
-        document.getElementsByClassName("orb2-art")[0].classList.remove("hide");
-    }
-
     // Initialize items and start rain effects
     initItems();
     sleep(40).then(() => {init = "false";});
 
-    var ballBut = document.getElementsByClassName("ball")[0];
-    if (localStorage.getItem("has-orb2") == "true") {
-        take(ballBut, "orb2");
-    } else {
-        ballBut.addEventListener('click', function tk() {
-            ballBut.removeEventListener('click', tk);
-            take(ballBut, "orb2");
-        });
-    }
+    document.getElementsByClassName("door")[0].addEventListener('click', function(){
+        if (localStorage.getItem("guard-convinced") == "true"){
+            window.location.href = "../castle/castle.html";
+        }
+        else {
+            respond("enter");
+            localStorage.setItem("guard-talked", "true");
+        }
+    });
 
-    if (localStorage.getItem("has-bum-coins") == "true"){
-        document.getElementsByClassName("bum")[0].addEventListener('click', function(){
-            respond("angy");
-        });
-    }
-    else {
-        document.getElementsByClassName("bum")[0].addEventListener('click', function(){
-            if (localStorage.getItem("has-bum-coins") != "true"){
-                if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "cooked-fish" && localStorage.getItem("fed-bum") == "false"){
-                    removeIte(localStorage.getItem("selected"));
-                    initItems();
-                    localStorage.setItem("fed-bum", "true");
-                    localStorage.setItem("karma", parseInt(localStorage.getItem("karma")) + 2);
-                    if (localStorage.getItem("sane-bum") == "false"){
-                        localStorage.setItem("sane-bum", "true");
-                        respond("fedSane");
-                    }
-                    else {
-                        localStorage.setItem("rambling", "true");
-                        respond("fed");
-                    }
-                }
-                else {
-                    insaneClick = insaneClick + 1;
-                    if (localStorage.getItem("rambling") == "false"){
-                        localStorage.setItem("rambling", "true");
-                        localStorage.setItem("sane-bum", "false");
-                    }
-                    if (insaneClick > 2){
-                        insaneClick = 0;
-                    }
-        
-                    respond("yap" + insaneClick);
-                }
+    document.getElementsByClassName("guard")[0].addEventListener('click', function(){
+        if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "coin"){
+            localStorage.setItem("guard-convinced", "true");
+            if (localStorage.getItem("guard-talked") == "true"){
+                respondWait("paid");
             }
             else {
-                respond("angy");
+                respondWait("inpaid");
             }
-        });
-    
-        document.getElementsByClassName("coins")[0].addEventListener('click', function(){
-            if (beingRobbed != "true"){
-                if (localStorage.getItem("sane-bum") == "false"){
-                    localStorage.setItem("sane-bum", "true");
-                    respond("touchySane");
-                    robbable = "true";
-                    tried = "true";
-                }
-                else if (tried == "false"){
-                    localStorage.setItem("rambling", "true");
-                    respond("touchy");
-                    robbable = "true";
-                    tried = "true";
-                }
-                else {
-                    localStorage.setItem("rambling", "true");
-                    respond ("touchy1");
-                    robbable = "true";
-                }
+            removeIte(localStorage.getItem("selected"));
+            localStorage.setItem("held-coins", parseInt(localStorage.getItem("held-coins")) - 1);
+            if (localStorage.getItem("held-coins") > 0){
+                getIte("coin");
             }
-        });
-    }
-}
-
-function rob(){
-    if (inConvo == "false"){
-        respond("rob");
-    }
-    else {
-        sleep(50).then(() => rob);
-    }
-}
-
-function respondAxe(){
-    if (inConvo == "false"){
-        if (robbable == "true"){
-            respond("axe");
-            beingRobbed = "true";
-            document.getElementsByClassName("coins")[0].addEventListener('click', function(){
-                if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "axe"){
-                    rob();
-                    robbable = "false";
-                    localStorage.setItem("has-bum-coins", "true");
-                    localStorage.setItem("karma", parseInt(localStorage.getItem("karma")) - 5);
-                    if (localStorage.getItem("held-coins") != 0){
-                        if (localStorage.getItem("spot1") == "coin"){
-                            removeIte(1);
-                        }
-                        else if (localStorage.getItem("spot2") == "coin"){
-                            removeIte(2);
-                        }
-                        else if (localStorage.getItem("spot3") == "coin"){
-                            removeIte(3);
-                        }
-                        else if (localStorage.getItem("spot4") == "coin"){
-                            removeIte(4);
-                        } 
-                        else if (localStorage.getItem("spot5") == "coin"){
-                            removeIte(5);
-                        }
-                        else if (localStorage.getItem("spot6") == "coin"){
-                            removeIte(6);
-                        } 
-                        else if (localStorage.getItem("spot7") == "coin"){
-                            removeIte(7);
-                        }
-                        else if (localStorage.getItem("spot8") == "coin"){
-                            removeIte(8);
-                        } 
-                    }
-                    getIte("coin");
-                    initItems();
-                    localStorage.setItem("held-coins", parseInt(localStorage.getItem("held-coins")) + 15);
-                    document.getElementsByClassName("coin-art")[0].remove();
-                    document.getElementsByClassName("coins")[0].remove();
-                }
-            });
         }
+        else {
+            if (localStorage.getItem("guard-convinced") == "true"){
+                respond("go");
+            }
+            else {
+                respond("enter");
+                localStorage.setItem("guard-talked", "true");
+            }
+        }
+    });
+}
+
+function respondWait(inT){
+    if (inConvo == "false"){
+        respond(inT);
     }
     else {
         sleep(50).then(() => {
-            respondAxe();
+            respondWait(inT);
+            waiting = "false";
         });
     }
 }
 
 function respond(inText){
-    inConvo = "true";
-    document.getElementsByClassName("text-box")[0].innerHTML = `
-    <img draggable="false" class="text-box-art" alt="" src="../../global-art/text-box.png">
-    <p class="text-box-text"></p>
-    <ul class="text-box-buttons"></ul>
-    `;
-    var box = document.getElementsByClassName("text-box")[0];
-    //If leave we close the box
-    if (inText == 'leave'){
-        box.classList.add("shadow-realm");
-        box.childNodes[1].innerHTML = "";
-        box.childNodes[2].innerHTML = "";
-    }
-    else {
-        if (box.classList.contains("shadow-realm")){
-            box.classList.remove("shadow-realm")
-        }
-
-        var text = getAlleyDia(inText);
-        if (text[0].length == 0){
-            setButtons(text);
+    if (inConvo == "false"){
+        inConvo = "true";
+        document.getElementsByClassName("text-box")[0].innerHTML = `
+        <img draggable="false" class="text-box-art" alt="" src="../../global-art/text-box.png">
+        <p class="text-box-text"></p>
+        <ul class="text-box-buttons"></ul>
+        `;
+        var box = document.getElementsByClassName("text-box")[0];
+        //If leave we close the box
+        if (inText == 'leave'){
+            box.classList.add("shadow-realm");
+            box.childNodes[1].innerHTML = "";
+            box.childNodes[2].innerHTML = "";
         }
         else {
-            setText(text);
+            if (box.classList.contains("shadow-realm")){
+                box.classList.remove("shadow-realm")
+            }
+    
+            var text = getStairsDia(inText);
+            if (text[0].length == 0){
+                setButtons(text);
+            }
+            else {
+                setText(text);
+            }
         }
     }
 }
@@ -225,6 +126,7 @@ function setText(text){
                 doneGif.remove();
                 setPage(count, text).then(function(){
                     clickReady = "true";
+                    inConvo = "false";
                     doneGif = document.createElement("div");
                     doneGif.innerHTML = `<img draggable="false" class="text-box-art" alt="" src="../../global-art/done.gif">`
                     document.getElementsByClassName("text-box")[0].insertBefore(doneGif, document.getElementsByClassName("text-box")[0].children[1]);
@@ -248,9 +150,7 @@ function setText(text){
 }
 
 async function setPage(count, text){
-    inConvo = "true";
     await write(text[0][count-1], 0);
-    inConvo = "false";
     return;
 }
 
@@ -268,6 +168,7 @@ async function write(text, spot){
 }
 
 function setButtons(text){
+    inConvo = "false";
     document.getElementsByClassName("text-box")[0].innerHTML = `
             <img draggable="false" class="text-box-art" alt="" src="../../global-art/text-box.png">
             <p class="text-box-text"></p>
@@ -276,13 +177,6 @@ function setButtons(text){
     var buts = text[1];
     if (buts.length == 0){
         document.getElementsByClassName("text-box")[0].innerHTML = "";
-        inConvo = "false";
-        if (text[0][0] == "Ok, sorry." || text[0][0] == "Ok, sorry again..."){
-            robbable = "false";
-        }
-        if (text[0][0] == "A day...?"){
-            localStorage.setItem("ask-old-man", "true");
-        }
     }
     else {
         buts.forEach(function(value, index){
@@ -298,26 +192,29 @@ function setButtons(text){
             newBut.classList.add("choiceBut" + index, "hide");
 
             newBut.addEventListener('click', async function(){
-                inConvo = "false";
                 document.getElementsByClassName("text-box")[0].innerHTML = "";
                 if (value != "Leave"){
-                    document.getElementsByClassName("text-box")[0].classList.remove("arrows");
-                    respond(value);
+                    if (value == "I have permission." && localStorage.getItem("knows-password") == "true"){
+                        respond("I have permission.b");
+                    }
+                    else {
+                        document.getElementsByClassName("text-box")[0].classList.remove("arrows");
+                        respond(value);
+                    }
+
+                    if (value == "Independent Sources."){
+                        localStorage.setItem("guard-convinced", "true");
+                    }
                 }
             });
         });
     }
-    inConvo = "false";
 }
 
 function take(button, name) {
     if (localStorage.getItem("free") < 9 || init == "true") {
         document.getElementsByClassName(name + "-art")[0].classList.add("invis");
         if (!(localStorage.getItem("has-" + name) == "true")) {
-            if (name == "orb2"){
-                localStorage.setItem("balls", parseInt(localStorage.getItem("balls")) + 1);
-                ready2();
-            }
             getIte(name);
             initItems();
         }
@@ -339,9 +236,8 @@ function take(button, name) {
 function put(button, name) {
     if (localStorage.getItem("spot" + localStorage.getItem("selected")) == name) {
         document.getElementsByClassName(name + "-art")[0].classList.remove("invis");
-        if (name == "orb2"){
-            localStorage.setItem("balls", parseInt(localStorage.getItem("balls")) - 1);
-            ready2();
+        if (name == "can") {
+            document.getElementById("behind-can").classList.add("invis");
         }
         removeIte(localStorage.getItem("selected"));
         initItems();
@@ -426,7 +322,9 @@ function getIte(name) {
 function removeIte(spot) {
     var addArray = [];
     var name = localStorage.getItem("spot" + spot);
-    localStorage.setItem("has-" + name, "false");
+    if (name != "amythest1" && name != "amythest2" && name != "amythest3" && name != "ruby1" && name != "ruby2" && name != "ruby3"){
+        localStorage.setItem("has-" + name, "false");
+    }
     for (var i = parseInt(spot) + 1; i < localStorage.getItem("free"); i++) {
         addArray.push(localStorage.getItem("spot" + i));
     }
@@ -464,7 +362,7 @@ function select(item) {
         document.getElementById("spot" + item).classList.add("selected");
     }
     if (localStorage.getItem("spot" + localStorage.getItem("selected")) == "axe"){
-        respondAxe();
+        respondWait("axe");
     }
 }  
 
